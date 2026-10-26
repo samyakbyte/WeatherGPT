@@ -148,9 +148,28 @@ export function createForecast(getState) {
       if (meta) chart.tooltip.setActiveElements([{datasetIndex:0,index:i}],{x:meta.x,y:meta.y});
       chart.update('none');
     }));
+    // Temperature bars are computed from the week's real min/max range, so
+    // each row encodes both its position and its span — never a decorative
+    // identical gradient. Accessible text carries the same numbers.
+    const lows = d.temperature_2m_min.map(v => present(v) ? Number(v) : null);
+    const highs = d.temperature_2m_max.map(v => present(v) ? Number(v) : null);
+    const usableLows = lows.filter(present), usableHighs = highs.filter(present);
+    const weekMin = usableLows.length ? Math.min(...usableLows) : 0;
+    const weekMax = usableHighs.length ? Math.max(...usableHighs) : 1;
+    const span = Math.max(1, weekMax - weekMin);
     daily.innerHTML = d.time.map((time,i) => {
       const cond = condition(d.weather_code[i]);
-      return `<div class="daily-row"><strong>${dayLabel(time,i)}</strong><span class="daily-weather-cell">${icon(cond.icon)}<span class="emoji-badge">${cond.emoji}</span></span><div class="daily-range" title="Daily low and high"><strong>${temp(d.temperature_2m_min[i],prefs)}</strong><span class="temp-bar"><span class="temp-fill"></span></span><strong>${temp(d.temperature_2m_max[i],prefs)}</strong></div><span title="Maximum precipitation probability" class="daily-rain-chance">💧 ${number(d.precipitation_probability_max[i])}%</span><span class="daily-wind">💨 ${wind(d.wind_speed_10m_max[i],prefs)}</span><span class="daily-condition">${escapeHTML(cond.label)}</span></div>`;
+      const low = lows[i], high = highs[i];
+      const valid = present(low) && present(high);
+      const left = valid ? Math.max(0, Math.min(100, ((low - weekMin) / span) * 100)) : 0;
+      const width = valid ? Math.max(2, Math.min(100 - left, ((high - low) / span) * 100)) : 0;
+      const bar = valid
+        ? `<span class="temp-bar"><span class="temp-fill" style="margin-left:${left.toFixed(1)}%;width:${width.toFixed(1)}%"></span></span>`
+        : `<span class="temp-bar" aria-hidden="true"><span class="temp-fill" style="width:0"></span></span>`;
+      const accessible = valid
+        ? `<span class="sr-only">Low ${temp(low,prefs,true)}, high ${temp(high,prefs,true)}. Week range ${temp(weekMin,prefs,true)} to ${temp(weekMax,prefs,true)}.</span>`
+        : `<span class="sr-only">Daily low or high unavailable.</span>`;
+      return `<div class="daily-row"><strong>${dayLabel(time,i)}</strong><span class="daily-weather-cell">${icon(cond.icon)}<span class="emoji-badge">${cond.emoji}</span></span><div class="daily-range" title="Daily low and high"><strong>${temp(low,prefs)}</strong>${bar}<strong>${temp(high,prefs)}</strong>${accessible}</div><span title="Maximum precipitation probability" class="daily-rain-chance">💧 ${number(d.precipitation_probability_max[i])}%</span><span class="daily-wind">💨 ${wind(d.wind_speed_10m_max[i],prefs)}</span><span class="daily-condition">${escapeHTML(cond.label)}</span></div>`;
     }).join('');
     document.getElementById('forecast-source').textContent = `Open-Meteo · ${data.timezone.replaceAll('_',' ')}`;
   }

@@ -1,0 +1,12 @@
+# Local tooling / generated artifacts — never commit these.
+node_modules/
+.env
+.env.local
+*.log
+.DS_Store
+coverage/
+test-results/
+playwright-report/
+screenshots/
+/.cache/
+/tmp/

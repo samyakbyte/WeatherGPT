@@ -1,5 +1,7 @@
 import { hydrateIcons, icon, escapeHTML } from './icons.js';
-import { DEFAULT_LOCATION, fetchWeather, searchLocations, validCoordinates, readStorage, writeStorage } from './api.js';
+import { DEFAULT_LOCATION, fetchWeather, validCoordinates, readStorage, writeStorage } from './api.js';
+import { searchPlaces } from './geocode.js';
+import { createFarmUI } from './farm-ui.js';
 import { temp, wind, number, condition, direction, currentHourIndex, localHour, deriveAdvisories, dailySummary } from './weather.js';
 import { createWeatherMap } from './map.js';
 import { createForecast } from './forecast.js';
@@ -17,7 +19,7 @@ const state={
   location:isValidLocation(storedLocation)?storedLocation:DEFAULT_LOCATION,
   weather:null,
   prefs:{temperature:storedPrefs.temperature==='fahrenheit'?'fahrenheit':'celsius',wind:storedPrefs.wind==='mph'?'mph':'kmh',language:storedPrefs.language==='hi'?'hi':'en'},
-  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false
+  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false,epoch:0,farm:null
 };
 const getState=()=>state;
 let weatherController,searchController,searchTimer,toastTimer,clockTimer;
@@ -104,6 +106,8 @@ function toggleSave(onlyAdd=false){
 }
 async function selectLocation(location,fromMap=false){
   if(!isValidLocation(location)){toast('That location is not valid. Try another search.');return;}
+  // Monotonic epoch: only the newest location request may write state.weather.
+  const epoch=++state.epoch;
   weatherController?.abort();weatherController=new AbortController();const signal=weatherController.signal;
   state.location={...location};state.weather=null;state.loading=true;
   writeStorage('weathergpt.location',state.location);
@@ -112,13 +116,13 @@ async function selectLocation(location,fromMap=false){
   assistantView?.updateContext();mapView?.setLocation(state.location,true,fromMap);mapView?.renderPanel();
   closeSearch();
   try{
-    const data=await fetchWeather(location,signal);if(signal.aborted)return;
-    state.weather=data;state.loading=false;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();assistantView?.updateContext();
+    const data=await fetchWeather(location,signal);if(signal.aborted||epoch!==state.epoch)return;
+    state.weather=data;state.loading=false;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();assistantView?.updateContext();farmUI?.renderAll();
     console.info('[WeatherGPT] Live forecast loaded:',location.name,data.timezone);
     document.dispatchEvent(new CustomEvent('weathergpt:weather-loaded',{detail:{location:location.name}}));
     return data;
   }catch(error){
-    if(error.name==='AbortError')return;
+    if(error.name==='AbortError'||epoch!==state.epoch)return;
     state.loading=false;state.weather=null;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();
     $('weather-error').hidden=false;$('weather-error').querySelector('span').textContent=error.message;
     $('connection-status').previousElementSibling.style.background='#bca05e';
@@ -128,54 +132,64 @@ async function selectLocation(location,fromMap=false){
 }
 function closeSearch(){$('search-results').hidden=true;$('location-search').setAttribute('aria-expanded','false');}
 function showSearchMessage(message){$('search-results').hidden=false;$('location-search').setAttribute('aria-expanded','true');$('search-results').innerHTML=`<p class="search-message">${escapeHTML(message)}</p>`;}
-function renderSearchResults(locations,query,intent){
+function renderSearchResults(locations,query,intent,warnings=[]){
   let html='';
   const isQuestion=intent&&(intent.topic!=='other'||/\b(how|what|will|can|is|when|kaisa|baarish|rain|weather|temp|forecast|umbrella|छाता|मौसम|बारिश|गर्मी|हवा)\b/i.test(query)||query.includes('?'));
   if(isQuestion){
     const topicLabel=topicNames[intent.topic]||'Forecast query';
-    html+=`<button type="button" class="search-nlp-prompt" data-nlp-ask="${escapeHTML(query)}"><span class="search-nlp-icon">${icon('sparkles')}</span><span><strong>Ask WeatherGPT: “${escapeHTML(query)}”</strong><small>Natural Language Query · ${intent.locationQuery?`Place: ${escapeHTML(intent.locationQuery)} · `:''}${escapeHTML(topicLabel)}</small></span><span class="search-nlp-badge">ASK</span></button>`;
+    html+=`<button type="button" class="search-nlp-prompt" data-nlp-ask="${escapeHTML(query)}"><span class="search-nlp-icon">${icon('sparkles')}</span><span><strong>Ask WeatherGPT: “${escapeHTML(query)}”</strong><small>Natural Language Query · ${intent.place?.query?`Place: ${escapeHTML(intent.place.query)} · `:''}${escapeHTML(topicLabel)}</small></span><span class="search-nlp-badge">ASK</span></button>`;
   }
+  if(warnings.length)html+=`<p class="search-message">${escapeHTML(warnings.join(' '))}</p>`;
   if(locations.length){
-    html+=locations.map((p,i)=>`<button data-location="${i}">${icon('map-pin')}<span><strong>${escapeHTML(p.name)}</strong><small>${escapeHTML([p.region,p.country].filter(Boolean).join(', '))} · ${p.latitude.toFixed(2)}°, ${p.longitude.toFixed(2)}°</small></span></button>`).join('');
+    html+=locations.map((p,i)=>`<button data-location="${i}">${icon('map-pin')}<span><strong>${escapeHTML(p.name)}</strong><small>${escapeHTML([p.district||p.region,p.state,p.country].filter(Boolean).join(', '))} · ${Number(p.latitude).toFixed(3)}°, ${Number(p.longitude).toFixed(3)}° · ${escapeHTML(p.type||'place')} · ${escapeHTML(p.sourceLabel||'')}</small>${p.needsConfirm?`<em>${escapeHTML(p.note)}</em>`:''}</span></button>`).join('');
+    html+=`<button type="button" class="search-explicit" data-explicit-search="${escapeHTML(query)}">${icon('search')} More village results (exact search, uses OSM Nominatim)</button>`;
   }else if(!isQuestion){
-    html=`<p class="search-message">No locations found. Try a nearby city or latitude, longitude.</p>`;
+    html=`<p class="search-message">No locations found. Add a district/state, or enter latitude, longitude.</p><button type="button" class="search-explicit" data-explicit-search="${escapeHTML(query)}">Try an exact village search</button>`;
   }
   $('search-results').innerHTML=html;
   $('search-results').querySelectorAll('[data-nlp-ask]').forEach(btn=>btn.addEventListener('click',()=>{
-    const q=btn.dataset.nlpAsk;
-    $('location-search').value='';
-    closeSearch();
-    assistantView?.submit(q);
+    const q=btn.dataset.nlpAsk;$('location-search').value='';closeSearch();assistantView?.submit(q);
   }));
-  $('search-results').querySelectorAll('[data-location]').forEach(button=>button.addEventListener('click',()=>{$('location-search').value='';selectLocation(locations[Number(button.dataset.location)]);$('location-search').focus();}));
+  $('search-results').querySelectorAll('[data-explicit-search]').forEach(btn=>btn.addEventListener('click',()=>runSearch(btn.dataset.explicitSearch,true)));
+  $('search-results').querySelectorAll('[data-location]').forEach(button=>button.addEventListener('click',()=>{
+    const place=locations[Number(button.dataset.location)];
+    $('location-search').value='';selectLocation(place);$('location-search').focus();
+  }));
+}
+async function runSearch(query,explicit=false){
+  clearTimeout(searchTimer);searchController?.abort();
+  const trimmed=String(query||'').trim();currentSearch++;
+  if(trimmed.length<2){closeSearch();return;}
+  showSearchMessage(explicit?'Searching villages with district/state context…':'Finding places…');
+  const requestId=currentSearch;
+  searchController=new AbortController();
+  const intent=parseWeatherQuestion(trimmed,state.prefs.language);
+  try{
+    const outcome=await searchPlaces(trimmed,{signal:searchController.signal,explicit});
+    if(requestId!==currentSearch)return;
+    results=outcome.results;
+    $('search-results').hidden=false;$('location-search').setAttribute('aria-expanded','true');
+    renderSearchResults(results,trimmed,intent,outcome.warnings);
+  }catch(error){
+    if(error.name!=='AbortError'&&requestId===currentSearch){
+      const isQuestion=intent&&(intent.topic!=='other'||trimmed.includes('?'));
+      if(isQuestion){$('search-results').hidden=false;$('location-search').setAttribute('aria-expanded','true');renderSearchResults([],trimmed,intent,[error.message||'Place search is unavailable.']);}
+      else showSearchMessage(error.message||'Location search is unavailable. Try again.');
+    }
+  }
 }
 $('location-search').addEventListener('input',()=>{
-  clearTimeout(searchTimer);searchController?.abort();const query=$('location-search').value.trim();currentSearch++;
+  const query=$('location-search').value.trim();currentSearch++;
   if(query.length<2){closeSearch();return;}
   showSearchMessage('Finding places…');
   const requestId=currentSearch;
-  searchTimer=setTimeout(async()=>{
-    searchController=new AbortController();
-    const intent=parseWeatherQuestion(query,state.prefs.language);
-    try{
-      results=await searchLocations(query,searchController.signal);if(requestId!==currentSearch)return;
-      $('search-results').hidden=false;$('location-search').setAttribute('aria-expanded','true');
-      renderSearchResults(results,query,intent);
-    }catch(error){
-      if(error.name!=='AbortError'&&requestId===currentSearch){
-        const isQuestion=intent&&(intent.topic!=='other'||query.includes('?'));
-        if(isQuestion){
-          $('search-results').hidden=false;$('location-search').setAttribute('aria-expanded','true');
-          renderSearchResults([],query,intent);
-        }else showSearchMessage(error.message||'Location search is unavailable. Try again.');
-      }
-    }
-  },350);
+  clearTimeout(searchTimer);searchController?.abort();
+  searchTimer=setTimeout(()=>{if(requestId===currentSearch)runSearch(query,false);},450);
 });
 $('location-search').addEventListener('keydown',e=>{
   if(e.key==='Escape'){closeSearch();return;}
   if(e.key==='ArrowDown'){e.preventDefault();$('search-results').querySelector('button')?.focus();}
-  if(e.key==='Enter'&&!$('search-results').hidden){e.preventDefault();$('search-results').querySelector('button')?.click();}
+  if(e.key==='Enter'&&!$('search-results').hidden){e.preventDefault();const first=$('search-results').querySelector('[data-location]');if(first)first.click();else runSearch($('location-search').value.trim(),true);}
 });
 $('search-results').addEventListener('keydown',e=>{
   const buttons=[...$('search-results').querySelectorAll('button')],index=buttons.indexOf(document.activeElement);
@@ -215,7 +229,7 @@ function route(){
   const title=routes[view][1];$('page-title').innerHTML=`${escapeHTML(title.slice(0,-1))}<span>.</span>`;$('page-subtitle').textContent=routes[view][2];
   document.title=`${routes[view][0]} · WeatherGPT`;
   document.querySelectorAll('[data-route]').forEach(a=>{a.classList.toggle('active',a.dataset.route===view);if(a.dataset.route===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
-  $('current-section').hidden=view!=='overview';$('map-section').hidden=!['overview','map'].includes(view);$('insights-column').hidden=view!=='overview';$('forecast-section').hidden=!['overview','forecast'].includes(view);
+  $('current-section').hidden=view!=='overview';$('farm-dashboard').hidden=view!=='overview';$('map-section').hidden=!['overview','map'].includes(view);$('insights-column').hidden=view!=='overview';$('forecast-section').hidden=!['overview','forecast'].includes(view);
   ['alerts','assistant','locations'].forEach(v=>$(v+'-view').hidden=v!==view);
   $('forecast-detail-link').hidden=view==='forecast';
   mapView?.setVisible(['overview','map'].includes(view));mapView?.resize();forecastView?.resize();
@@ -231,11 +245,13 @@ $('settings-button').addEventListener('click',()=>openDialog('settings-dialog'))
 $('temperature-unit').value=state.prefs.temperature;$('wind-unit').value=state.prefs.wind;
 $('temperature-unit').addEventListener('change',e=>{state.prefs.temperature=e.target.value;updatePreferences();});
 $('wind-unit').addEventListener('change',e=>{state.prefs.wind=e.target.value;updatePreferences();});
-function updatePreferences(){writeStorage('weathergpt.preferences',state.prefs);renderCurrent();forecastView?.render();mapView?.refreshUnits();toast('Preferences updated. New assistant answers will use these units.');}
+function updatePreferences(){writeStorage('weathergpt.preferences',state.prefs);renderCurrent();forecastView?.render();mapView?.refreshUnits();farmUI?.renderAll();toast('Preferences updated. New assistant answers will use these units.');}
 
+let farmUI;
 forecastView=createForecast(getState);
-mapView=createWeatherMap({getState,onSelect:selectLocation,toast});
-assistantView=createAssistant({getState,selectLocation,switchLayer:layer=>mapView.switchLayer(layer),setLanguage:language=>{state.prefs.language=language==='hi'?'hi':'en';writeStorage('weathergpt.preferences',state.prefs);},toast});
+mapView=createWeatherMap({getState,onSelect:selectLocation,toast,onSaveFarm:point=>farmUI?.setPoint(point)});
+assistantView=createAssistant({getState,selectLocation,switchLayer:layer=>mapView.switchLayer(layer),setLanguage:language=>{state.prefs.language=language==='hi'?'hi':'en';writeStorage('weathergpt.preferences',state.prefs);farmUI?.renderAll();},toast});
+farmUI=createFarmUI({getState,selectLocation,toast,onFarmChange:farm=>{state.farm=farm;}});
 $('overview-nlp-form')?.addEventListener('submit',e=>{
   e.preventDefault();
   const input=$('overview-nlp-input');
@@ -245,7 +261,7 @@ $('overview-nlp-form')?.addEventListener('submit',e=>{
   assistantView?.submit(val);
 });
 loadNLPEngine().catch(()=>{});
-renderSaved();route();selectLocation(state.location);
+renderSaved();farmUI?.renderAll();route();selectLocation(state.location);
 clockTimer=setInterval(setClock,60000);
 window.addEventListener('online',()=>toast('You’re back online. Retry any unavailable weather data.'));
 window.addEventListener('offline',()=>toast('You’re offline. Already loaded forecasts remain visible; new data is unavailable.'));

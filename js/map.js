@@ -2,9 +2,10 @@ import { fetchSamples, fetchRadar } from './api.js';
 import { icon, escapeHTML } from './icons.js';
 import { temp, wind, number, direction, present, condition, currentHourIndex, localHour, deriveAdvisories } from './weather.js';
 
-export function createWeatherMap({ getState, onSelect, toast }) {
+export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () => {} }) {
   const $ = id => document.getElementById(id);
   let map, selectedMarker, samplesGroup, sampleData = [], sampleController, sampleTimer;
+  let pinMarker = null, pinPoint = null;
   let activeLayer = 'temperature', radarData, radarIndex = 0, playing = false, playTimer, speed = 1, radarLayer, visible = true;
   let radarRequest = 0, radarTileFailed = false, pendingCenter = null;
   const radarLayers = new Map();
@@ -26,10 +27,40 @@ export function createWeatherMap({ getState, onSelect, toast }) {
   let baseErrors=0;
   base.on('tileerror',()=>{ if(++baseErrors===5) status('Some map tiles could not load. Check your connection; weather values remain available.'); });
   samplesGroup = L.layerGroup().addTo(map);
+  // Clicking drops a DRAGGABLE preview pin with an explicit confirm step.
+  // Nothing is selected until the user confirms, so an accidental tap cannot
+  // silently change the active farm location.
   map.on('click',e=>{
     const longitude = ((e.latlng.lng+180)%360+360)%360-180;
-    onSelect({name:`${Math.abs(e.latlng.lat).toFixed(2)}° ${e.latlng.lat>=0?'N':'S'}, ${Math.abs(longitude).toFixed(2)}° ${longitude>=0?'E':'W'}`,country:'Selected map point',latitude: e.latlng.lat,longitude},true);
+    const latitude = e.latlng.lat;
+    pinPoint = {
+      name: `${Math.abs(latitude).toFixed(2)}° ${latitude>=0?'N':'S'}, ${Math.abs(longitude).toFixed(2)}° ${longitude>=0?'E':'W'}`,
+      country: 'Selected map point', latitude, longitude
+    };
+    pinMarker?.remove();
+    pinMarker = L.marker([latitude,longitude],{draggable:true,autoPan:true,keyboard:true,
+      icon:L.divIcon({className:'selected-location-marker',html:'<div class="selected-map-pin"></div>',iconSize:[15,15],iconAnchor:[7.5,7.5]}),zIndexOffset:1500}).addTo(map);
+    pinMarker.on('dragend',()=>{
+      const p=pinMarker.getLatLng();
+      const lng=((p.lng+180)%360+360)%360-180;
+      pinPoint={name:`${Math.abs(p.lat).toFixed(2)}° ${p.lat>=0?'N':'S'}, ${Math.abs(lng).toFixed(2)}° ${lng>=0?'E':'W'}`,country:'Selected map point',latitude:p.lat,longitude:lng};
+      showPinConfirm();
+    });
+    showPinConfirm();
   });
+  function showPinConfirm(){
+    const panel=$('map-pin-confirm');if(!panel||!pinPoint)return;
+    $('map-pin-coords').textContent=`${Number(pinPoint.latitude).toFixed(4)}, ${Number(pinPoint.longitude).toFixed(4)} — ${pinPoint.name}`;
+    panel.hidden=false;
+    $('map-pin-use').focus();
+  }
+  function clearPin(){
+    const panel=$('map-pin-confirm');if(panel)panel.hidden=true;
+    pinMarker?.remove();pinMarker=null;pinPoint=null;
+  }
+  $('map-pin-use')?.addEventListener('click',()=>{if(pinPoint)onSelect({...pinPoint},true);clearPin();});
+  $('map-pin-farm')?.addEventListener('click',()=>{if(pinPoint)onSaveFarm({...pinPoint});clearPin();window.location.hash='locations';});
+  $('map-pin-cancel')?.addEventListener('click',clearPin);
   map.on('moveend',()=> { clearTimeout(sampleTimer); if(activeLayer !== 'radar' && visible) sampleTimer=setTimeout(loadSamples,1000); });
   // Wheel zoom is enabled only after focus to avoid hijacking page scrolling.
   $('weather-map').addEventListener('focusin',()=>map.scrollWheelZoom.enable());
@@ -230,6 +261,7 @@ export function createWeatherMap({ getState, onSelect, toast }) {
   }
   function togglePlay(){
     if(playing){stop();return;}if(!radarData)return;
+    if(reduceMotion()){status('Radar autoplay is disabled because your system requests reduced motion. Use the previous/next controls instead.');return;}
     playing=true;$('radar-play').innerHTML=icon('pause');$('radar-play').setAttribute('aria-label','Pause radar animation');
     playTimer=setInterval(()=>showFrame(radarIndex+1),1200/speed);
   }
