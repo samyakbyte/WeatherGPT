@@ -1,6 +1,6 @@
 # WeatherGPT
 
-**A map-first weather intelligence workspace for a Smart India Hackathon demonstration.**
+**A map-first weather intelligence workspace.**
 
 WeatherGPT makes weather information easier to use: select a place, explore its forecast, and ask what the conditions mean for your day. Weather data supplies the numbers; the interpreter selects and explains them. This is a working static frontend prototype, not a deployed full-stack AI service or a safety-critical warning system.
 
@@ -127,7 +127,7 @@ No Table API, D1, CosmosDB, PostgreSQL, Redis or other shared database is used i
 
 ## Verification
 
-Latest functional browser run: **71 passed, 0 failed; no page exceptions.** Tests include:
+Latest functional browser run reported by the original author: **71 passed, 0 failed; no page exceptions.** **This is a historical claim and is currently unverified**: the shipped `tests/smoke.html` suite needs live public APIs and could not be reproduced in this environment. See `docs/BASELINE.md` for the reproducible baseline. Tests include:
 - Real forecast and city search, shared location changes, all main routes.
 - Unit conversion, daily/hourly charts, saved locations and dialogs.
 - English/Hindi parsing, the Jaipur-evening example, hourly evidence and calculated comparisons.
@@ -136,7 +136,7 @@ Latest functional browser run: **71 passed, 0 failed; no page exceptions.** Test
 - Injected weather-service failure: stale values clear, assistant does not invent data, and Retry recovers a real forecast even while the map is hidden.
 - Speech start/stop event wiring using a **test-only speech stub**. This does not test actual microphone/audio hardware.
 
-Visual verification completed on the real overview and assistant at **1280px desktop** and **390px mobile**: real map tiles/data, readable controls, no horizontal page overflow, no raw code or clipped layouts. The redirect-only visual entry pages navigate to `index.html` itself; they do not approximate mobile CSS inside a desktop wrapper.
+Visual verification was reported by the original author on the real overview and assistant at **1280px desktop** and **390px mobile**. **Not independently verified in this environment.** The redirect-only visual entry pages navigate to `index.html` itself; they do not approximate mobile CSS inside a desktop wrapper.
 
 Test fixtures exist only under `tests/`; the production UI never imports them. The runner restores saved storage keys afterwards. Exclude development test files from a production release if desired.
 
@@ -161,7 +161,7 @@ Test fixtures exist only under `tests/`; the production UI never imports them. T
 
 ## Recommended next steps
 
-1. **Rehearse the SIH demo:** search Jaipur → inspect the map → ask the evening-rain question → compare today/tomorrow → select हिन्दी and ask `कल जयपुर में बारिश होगी?` → demonstrate voice if the device supports it.
+1. **Rehearse the WeatherGPT demo:** search Jaipur → inspect the map → ask the evening-rain question → compare today/tomorrow → select हिन्दी and ask `कल जयपुर में बारिश होगी?` → demonstrate voice if the device supports it.
 2. **Finish device QA:** microphone permissions, Hindi voices, geolocation, keyboard use and realistic mobile connectivity.
 3. **Deploy the frontend** using the Publish tab or an explicitly approved Hosted Deploy. Do not treat saved project changes as an already-updated live domain.
 4. **For a real LLM:** build a separately hosted credential-protecting backend with schema-validated weather tools, bounded output, provenance and refusal when data is absent. This static environment cannot implement that backend.

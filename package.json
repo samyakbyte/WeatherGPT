@@ -1,0 +1,18 @@
+{
+  "name": "weathergpt",
+  "version": "2.0.0",
+  "private": true,
+  "description": "WeatherGPT \u2014 static weather intelligence workspace with a deterministic bilingual assistant and farm advisories.",
+  "scripts": {
+    "serve": "python3 -m http.server 8000 --bind 0.0.0.0",
+    "test": "node tests/run-node-tests.js",
+    "test:browser": "node tests/run-browser-tests.js"
+  },
+  "devDependencies": {
+    "@sparticuz/chromium": "153.0.0",
+    "playwright-core": "1.58.2",
+    "leaflet": "1.9.4",
+    "chart.js": "4.4.8"
+  },
+  "type": "module"
+}
