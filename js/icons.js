@@ -1,0 +1,65 @@
+const paths = {
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  sunrise: '<path d="M3 17h18M3 21h18M6 17a6 6 0 0 1 12 0M12 3v4M3.5 8.5l2.2 2.2m12.6 0 2.2-2.2M1 13h2m18 0h2M9 5l3-3 3 3"/>',
+  sunset: '<path d="M3 17h18M3 21h18M6 17a6 6 0 0 1 12 0M12 2v5M9 4l3 3 3-3M3.5 8.5l2.2 2.2m12.6 0 2.2-2.2M1 13h2m18 0h2"/>',
+  'sun-cloud':'<path d="M12 2v2M4.9 4.9l1.4 1.4M2 12h2m14-6 1.1-1.1M7 13a5 5 0 1 1 9-5"/><path d="M8 20a4 4 0 0 1 0-8 5 5 0 0 1 9.7-.5A4.3 4.3 0 1 1 19 20Z"/>',
+  cloud:'<path d="M6 19a5 5 0 0 1-.7-10 7 7 0 0 1 13.4 0A5 5 0 0 1 18 19Z"/>',
+  'cloud-rain':'<path d="M5 16a4 4 0 0 1-.5-8 6 6 0 0 1 11.7-1.2A4.5 4.5 0 1 1 19 16M8 16l-1 4m5-4-1 4m5-4-1 4"/>',
+  'cloud-off':'<path d="m3 3 18 18M7 7a6 6 0 0 1 10 2 5 5 0 0 1 3 9M5 9a5 5 0 0 0 1 10h10"/>',
+  storm:'<path d="M5 16a4 4 0 0 1-.5-8 6 6 0 0 1 11.7-1.2A4.5 4.5 0 0 1 19 16M13 12l-4 6h5l-3 5"/>',
+  snow:'<path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 3 3-3M9 20l3-3 3 3M3 10l4-1-1-4m15 9-4 1 1 4M3 14l4 1-1 4m15-9-4-1 1-4"/>',
+  fog:'<path d="M4 10a4 4 0 0 1 1-7 7 7 0 0 1 12 2 4 4 0 0 1 3 5M3 14h18M5 18h14M7 22h10"/>',
+  moon:'<path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/>',
+  grid:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  map:'<path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3ZM9 3v15m6-12v15"/>',
+  chart:'<path d="M3 3v18h18M6 15l5-5 4 3 6-7"/>',
+  shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/>',
+  'shield-check':'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6Z"/><path d="m8 12 3 3 5-6"/>',
+  sparkles:'<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5ZM20 2v4m-2-2h4M4 18v4m-2-2h4"/>',
+  bookmark:'<path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4Z"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/>',
+  'arrow-up-right':'<path d="M7 17 17 7M7 7h10v10"/>',
+  'arrow-right':'<path d="M4 12h16m-6-6 6 6-6 6"/>',
+  'arrow-up':'<path d="M12 20V4m-6 6 6-6 6 6"/>',
+  'arrow-down':'<path d="M12 4v16m-6-6 6 6 6-6"/>',
+  settings:'<path d="m9 3-1 3-3 1-2 4 2 2v3l3 3 3-1 3 1 3-3v-3l2-2-2-4-3-1-1-3Z"/><circle cx="11" cy="11" r="3"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10h.01"/>',
+  'external-link':'<path d="M14 3h7v7m0-7L11 13M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5"/>',
+  'chevron-right':'<path d="m9 5 7 7-7 7"/>',
+  'chevron-down':'<path d="m5 9 7 7 7-7"/>',
+  search:'<circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/>',
+  locate:'<circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/>',
+  menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M8 15h2m4 0h2m-8 3h2"/>',
+  'map-pin':'<path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/>',
+  wind:'<path d="M3 8h12a3 3 0 1 0-3-3M2 12h17a3 3 0 1 1-3 3M4 16h5a3 3 0 1 1-3 3"/>',
+  droplet:'<path d="M12 2S5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13Z"/>',
+  gauge:'<path d="M4 18a10 10 0 1 1 16 0ZM12 14l5-7M5 12h2m10 0h2M12 4v2"/><circle cx="12" cy="14" r="1"/>',
+  eye:'<path d="M2 12S6 5 12 5s10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>',
+  expand:'<path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5"/>',
+  radar:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="m12 12 7-7"/><circle cx="12" cy="12" r="1"/>',
+  thermometer:'<path d="M9 14.8V5a3 3 0 0 1 6 0v9.8a5 5 0 1 1-6 0Z"/><path d="M12 9v8"/><circle cx="12" cy="18" r="1"/>',
+  layers:'<path d="m12 3 10 5-10 5L2 8ZM2 12l10 5 10-5M2 16l10 5 10-5"/>',
+  'mouse-pointer':'<path d="m3 3 7 18 3-8 8-3Z"/>',
+  x:'<path d="m6 6 12 12M6 18 18 6"/>',
+  play:'<path d="m8 4 12 8-12 8Z" fill="currentColor" stroke="none"/>',
+  pause:'<path d="M8 5v14M16 5v14" stroke-width="4"/>',
+  'skip-back':'<path d="M5 5v14m13-14L8 12l10 7Z"/>',
+  'skip-forward':'<path d="M19 5v14M6 5l10 7-10 7Z"/>',
+  umbrella:'<path d="M2 12a10 10 0 0 1 20 0ZM12 12v7a3 3 0 0 0 6 0M12 2v1"/>',
+  mic:'<rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3m-4 0h8"/>',
+  volume:'<path d="M11 4 6 8H3v8h3l5 4ZM15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  'hard-drive':'<rect x="3" y="12" width="18" height="9" rx="2"/><path d="m3 14 3-11h12l3 11M7 17h.01M11 17h.01"/>',
+  trash:'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',
+  check:'<path d="m5 12 4 4L19 6"/>'
+};
+export function icon(name, className = '') {
+  return `<svg class="icon ${className}" viewBox="0 0 24 24" aria-hidden="true">${paths[name] || paths.cloud}</svg>`;
+}
+export function hydrateIcons(root = document) {
+  root.querySelectorAll('i[data-icon]').forEach(el => { el.outerHTML = icon(el.dataset.icon); });
+}
+export function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
