@@ -1,5 +1,5 @@
 import { icon, escapeHTML } from './icons.js';
-import { searchLocations } from './api.js';
+import { searchPlaces } from './geocode.js';
 import { parseWeatherQuestion } from './intent.js';
 import { loadNLPEngine, interpretWeatherQuestion, topicNames } from './nlp.js';
 import { applyGeocoderResult } from './understanding.js';
@@ -240,9 +240,9 @@ export function createAssistant({getState,selectLocation,switchLayer,setLanguage
       if(needsLocation){
         const label=place.fullQuery||place.query;
         $('voice-status').textContent=intent.language==='hi'?`${label} का स्थान और मौसम खोज रहे हैं…`:`Finding ${label} and fetching its forecast…`;
-        const found=await searchLocations(label,signal);
+        const outcome=await searchPlaces(label,{signal,explicit:true});
         if(isStale())return;
-        applyGeocoderResult(intent,found);
+        applyGeocoderResult(intent,outcome.results);
         if(intent.place.status==='ambiguous'){
           pendingCandidates=intent.place.candidates.slice(0,5);
           pendingQuestion=question;

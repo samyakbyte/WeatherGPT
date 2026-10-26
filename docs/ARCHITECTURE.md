@@ -107,6 +107,28 @@ resolution figures: `docs/DATA_SOURCES.md`.
 
 Tests: `tests/harness.js` (frozen clock/fixtures), `tests/legacy-suite.js` (43 original checks), `tests/regression-bugs.js` (7 checks for the 5 reported bugs), `tests/interpretation-cases.js` + `tests/regression-suite.js` (126 phrasings / 316 checks), `tests/reliability-suite.js` (time zones, DST, midnight, missing values, geocoder ambiguity, races), `tests/run-node-tests.js` (unified runner with non-zero exit status).
 
+## Phase 2–4 additions
+
+| Module | Role |
+| --- | --- |
+| `js/geocode.js` | Ordered fallbacks: Open-Meteo geocoding → Photon (type-ahead) → Nominatim (explicit user requests only, ≤1 req/s, identifying Referer, caching). Normalises results to `{name, district, state, country, type, latitude, longitude, source, sourceLabel}`. `parsePlaceQuery` splits district/state context; `parseCoordinates` validates decimal degrees and flags swapped/ambiguous pairs. |
+| `js/farms.js` | `weathergpt.farms.v2` versioned document; validates every record; migrates `weathergpt.saved` read-only; add/edit/delete/activate; `farmToLocation` exposes only coordinates to the weather layer. |
+| `js/farm-ui.js` | Farm CRUD form, active-farm card, farms list, dashboard (next 72 h hazards + actions), provenance details and acidity panel. All rendering is local. |
+| `js/provenance.js` | Source, requested vs model grid-cell coordinates, 90 m DEM elevation, local update time, zone, documented resolution range and grid caveat. |
+| `js/acidity.js` | Exact unavailability message, three separate concepts, validated user-provided pH readings in `weathergpt.rain-ph.v1`. |
+| `data/hazard-thresholds.js` | Single configurable threshold file with comments stating the numbers are engineering defaults, not official agronomic thresholds. |
+| `js/hazards.js` | Forecast-derived heavy rain (24/48/72 h), heat, cold/frost screening, gusts, dry spell and humid spell; skips null values and reports them. |
+| `data/crops.js` | Versioned knowledge base for nine crops + generic fallback; each entry EN/HI, hazard, stage, regions, source id or explicit "no crop-specific source" flag. No doses. |
+| `js/advisory.js` | Four-part advisory (expected weather, why, actions, evidence/limits) with calculated vs sourced/general content separated; assistant integration verifies user weather claims. |
+| `js/map.js` (changed) | Draggable preview pin with explicit confirm / "save as farm" / cancel; radar autoplay disabled under reduced motion. |
+| `js/forecast.js` (changed) | Daily temperature bars scaled to the week's real min/max, with accessible text. |
+| `tests/run-browser-tests.js`, `tests/browser-fixtures.js` | Real-browser suite with mocked providers and screenshots. |
+
+State additions: `state.epoch` (latest-location-wins), `state.farm` (active farm
+object). Storage additions are listed in the README. The active farm drives the
+dashboard; `selectLocation(farmToLocation(farm))` keeps the map, forecast,
+advisories and assistant on the same coordinates.
+
 ## Known architectural weaknesses at baseline
 
 1. **Two overlapping parsers.** `intent.js` (regex) and `nlp.js` (Compromise +

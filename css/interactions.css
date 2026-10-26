@@ -652,3 +652,102 @@ body {
     transform: none;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Phase 2/4/6 — farms, provenance, acidity, hazards, accessibility, mobile.
+   Appended as one coherent override layer so the conflicting rules earlier in
+   this file and in style.css have a single, documented final say.
+   ───────────────────────────────────────────────────────────────────────────── */
+:root { --devanagari: 'Noto Sans Devanagari','Nirmala UI','Mangal',system-ui,sans-serif; }
+[lang=hi], .response-entry[lang=hi] p, .hazard-body[lang=hi] { font-family: var(--devanagari); line-height: 1.95; }
+.farm-dashboard { margin: 0 0 18px; padding: 20px 22px; }
+.farm-dashboard .section-heading { margin-bottom: 12px; }
+.farm-dashboard .section-heading a { font-size: 11px; color: var(--green); display: inline-flex; align-items: center; gap: 6px; min-height: 44px; }
+.farm-dashboard .section-heading a svg { width: 13px; height: 13px; }
+#farm-summary-line { font-size: 12px; color: #5c6f61; }
+.farm-actions { display: grid; gap: 8px; }
+.farm-secondary-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.farm-secondary-row details, .hazard-card { border: 1px solid #e1e9df; border-radius: 8px; background: #fbfdfa; }
+.farm-secondary-row details summary, .hazard-card summary { cursor: pointer; padding: 10px 12px; font-size: 11px; font-weight: 650; color: #3f5a48; display: flex; align-items: center; gap: 7px; min-height: 44px; list-style: none; }
+.farm-secondary-row details summary::-webkit-details-marker, .hazard-card summary::-webkit-details-marker { display: none; }
+.farm-secondary-row details summary svg, .hazard-card summary svg { width: 13px; height: 13px; margin-left: auto; }
+.farm-secondary-row details > div, .hazard-body { padding: 0 14px 14px; font-size: 11.5px; line-height: 1.8; color: #4e6253; }
+.hazard-card { background: #fff; }
+.hazard-card summary strong { flex: 1; }
+.hazard-card summary > span:last-of-type { font-variant-numeric: tabular-nums; color: #6b7c6f; }
+.hazard-body ul { margin: 8px 0; padding-left: 18px; }
+.hazard-body li { margin-bottom: 8px; }
+.hazard-body > small { display: block; margin-top: 7px; color: #7d8d80; font-size: 10px; }
+.guidance-tag { font-size: 9px; font-weight: 700; letter-spacing: .4px; padding: 2px 5px; border-radius: 3px; margin-right: 5px; text-transform: uppercase; }
+.guidance-tag.sourced { background: #e3f0e6; color: #2c6b47; }
+.guidance-tag.general { background: #f3ecd8; color: #846a30; }
+.severity-badge { font-size: 8px; font-weight: 750; letter-spacing: .6px; padding: 3px 6px; border-radius: 3px; background: #edf2ea; color: #5b6f5d; }
+.severity-badge.watch { background: #f6f0dc; color: #8a6c2d; }
+.severity-badge.warning { background: #fae6d8; color: #9a5526; }
+.severity-badge.severe { background: #f7dedd; color: #9a3131; }
+.provenance-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap: 9px; margin: 6px 0 10px; }
+.provenance-grid > div { background: #fff; border: 1px solid #e8efe5; border-radius: 6px; padding: 8px 10px; }
+.provenance-grid dt { font-size: 9px; text-transform: uppercase; letter-spacing: .5px; color: #849386; }
+.provenance-grid dd { margin: 4px 0 0; font-size: 11px; font-weight: 600; color: #3d5142; word-break: break-word; }
+.provenance-grid a { color: var(--green); }
+.provenance-caveat, .muted-note { font-size: 10.5px; line-height: 1.8; color: #78877b; }
+.acidity-unavailable { font-weight: 650; color: #3f5a48; margin: 4px 0; }
+.acidity-explain, .ph-concepts { font-size: 10.5px; line-height: 1.8; color: #6b7d6e; }
+.ph-readings { font-size: 11px; padding-left: 18px; }
+.ph-reading-form { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin: 10px 0; }
+.ph-reading-form label, .farm-form-grid label { display: flex; flex-direction: column; gap: 4px; font-size: 10px; font-weight: 600; color: #5b6e5e; }
+.ph-reading-form input, .ph-reading-form select, .farm-form-grid input, .farm-form-grid select, .farm-form-grid textarea { border: 1px solid #d9e4d8; border-radius: 6px; padding: 8px; font: inherit; font-size: 12px; min-height: 40px; background: #fff; color: var(--ink); }
+.ph-reading-form button, .farm-toolbar button, .farm-form-buttons button, .farm-card-actions button, .active-farm-card button { min-height: 44px; }
+.farm-toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 18px; }
+.farm-form-section { background: #fff; border: 1px solid #e1e9df; border-radius: 10px; padding: 18px; margin-bottom: 20px; }
+.farm-form-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); gap: 12px; }
+.farm-form-wide { grid-column: 1 / -1; }
+.farm-form-grid textarea { resize: vertical; }
+.farm-form-buttons { display: flex; gap: 10px; margin-top: 12px; }
+.privacy-note { display: flex; align-items: center; gap: 7px; font-size: 10.5px; color: #6b7d6e; margin-top: 12px; }
+.privacy-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+.farm-list-title { font-size: 11px; text-transform: uppercase; letter-spacing: .7px; color: #7b8c7e; margin: 18px 0 8px; }
+.active-farm-card, .farms-list { background: #fff; border: 1px solid #e5ece2; border-radius: 10px; padding: 12px 16px; }
+.active-farm-main { display: flex; align-items: center; gap: 12px; }
+.active-farm-main h4, .farm-card h4 { margin: 0; font-size: 13px; }
+.active-farm-main p, .farm-card p { margin: 3px 0; font-size: 11px; color: #5c6f61; }
+.active-farm-main small, .farm-card small { font-size: 10px; color: #8a988c; }
+.farm-card { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #eef2ec; }
+.farm-card:last-child { border-bottom: 0; }
+.farm-card.active { background: #f3f9f2; border-radius: 8px; padding: 10px; }
+.farm-card-actions { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.farm-card-actions button { padding: 8px 10px; }
+.farm-card-actions .icon-button svg { width: 15px; height: 15px; }
+.map-pin-confirm { position: fixed; z-index: 2600; bottom: 18px; left: 50%; transform: translateX(-50%); width: min(420px,calc(100vw - 24px)); background: #fff; border: 1px solid #cfdfce; border-radius: 10px; box-shadow: 0 12px 40px rgba(20,45,30,.22); padding: 14px 16px; display: grid; gap: 6px; font-size: 12px; }
+.map-pin-confirm[hidden] { display: none; }
+.map-pin-confirm strong { font-size: 13px; }
+.map-pin-confirm span { font-variant-numeric: tabular-nums; color: var(--green-dark); }
+.map-pin-confirm small { color: #758576; line-height: 1.6; }
+.map-pin-confirm > div { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.search-explicit { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; padding: 10px; font-size: 11px; color: var(--green-dark); background: #f4f9f2; border: 1px dashed #c6d9c4; border-radius: 6px; }
+.search-explicit svg { width: 14px; height: 14px; }
+.search-results button em { display: block; font-style: normal; color: #a2642c; font-size: 10px; margin-top: 3px; }
+/* Temperature-range bars: width is set inline from real min/max by forecast.js. */
+.daily-range { min-width: 0; }
+.daily-range .temp-bar { background: #eef2ea; border-radius: 4px; height: 7px; overflow: hidden; position: relative; display: block; }
+.daily-range .temp-fill { display: block; height: 100%; border-radius: 4px; background: linear-gradient(90deg,#8fb9c9,#e8c777,#d98e6d); min-width: 3px; }
+.daily-range .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid var(--green); outline-offset: 2px; }
+[lang=hi] .response-entry p, [lang=hi] .nlp-clarifications button { font-family: var(--devanagari); line-height: 2; }
+@media (max-width: 950px) {
+  .farm-secondary-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .farm-dashboard { padding: 14px; }
+  .farm-form-grid { grid-template-columns: 1fr; }
+  .daily-row { grid-template-columns: 54px 24px minmax(90px,1fr) 46px; gap: 7px; font-size: 10px; padding: 12px 2px; }
+  .daily-row > .daily-condition, .daily-row > .daily-wind { display: none; }
+  .daily-range strong { font-size: 10px; }
+  .ph-reading-form { gap: 6px; }
+  .ph-reading-form label { flex: 1 1 42%; }
+  .map-pin-confirm > div button { flex: 1 1 auto; }
+  .farm-card { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

@@ -76,6 +76,31 @@ exercised here. Live-API behaviour remains unverified (see below).
   unverified in the README until a live pass is possible.
 * Physical devices, 360/390/768 px layouts, contrast and screen readers.
 
+## Final verification (all phases, 2026-10-26)
+
+| Suite | Command | Result |
+| --- | --- | --- |
+| Deterministic Node | `npm test` | **467 passed, 0 failed** (43 legacy + 7 bug regressions + 316 interpretation assertions over 126 phrasings + 26 reliability + 34 crop advisory + 25 farms/storage + 16 acidity) |
+| Real-browser (mocked providers) | `npm run test:browser` | **47 passed, 0 failed**, 0 uncaught page exceptions |
+| Runner failure semantics | deliberate failing check inserted/removed | exit code `1` with failure, `0` after removal |
+
+The browser suite uses headless Chromium 153.0.8010.0 (via `playwright-core` +
+`@sparticuz/chromium`), a local static server, and deterministic fixtures for
+Open-Meteo, geocoding, Photon/Nominatim, RainViewer, OSM tiles, Leaflet,
+Chart.js and Google Fonts. It verifies all original workspace features plus the
+new farm dashboard, provenance, acidity, farm CRUD persistence, corrected
+assistant behaviour, 360/390/768/1280 px layouts (no horizontal overflow),
+keyboard focus, computed temperature bars and reduced-motion radar behaviour.
+
+Screenshots (generated, gitignored): `screenshots/overview-360.png`,
+`overview-390.png`, `overview-768.png`, `overview-1280.png`,
+`assistant-390.png`, `farms-390.png`, plus `browser-results.json`.
+
+**A live-API browser pass was not possible** from this sandbox (outbound
+network is restricted to a small allowlist). It remains pending, together with
+real microphone / Hindi TTS voices / geolocation permission / physical-device
+checks — see the manual checklist in the README.
+
 ## README browser-test claim
 
 The uploaded README states "Latest functional browser run: 71 passed, 0 failed"

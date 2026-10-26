@@ -5,6 +5,7 @@
 import * as tz from './timezone.js';
 import { DEFAULT_OUTDOOR_WINDOW, windowLabel as partWindowLabel } from '../data/time-windows.js';
 import { temp, wind, number, present, condition, localHour } from './weather.js';
+import { answerCropQuestion } from './advisory.js';
 
 const GRID_NOTE = {
   en: 'Forecast for this model grid cell — not a measurement at your field.',
@@ -217,7 +218,7 @@ export function structuredAnswer(intent, state) {
   if (!intent || intent.clarification) return null;
   if (intent.topic === 'radar') return radarAnswer(intent, state);
   if (intent.topic === 'acidity') return acidityAnswer(intent, state);
-  if (intent.topic === 'crop') return cropFallbackAnswer(intent, state);
+  if (intent.topic === 'crop') return answerCropQuestion(intent.original, intent, state);
   if (intent.topic === 'outdoors') return outdoorAnswer(intent, state);
   if (METRIC_FIELDS[intent.topic]) return metricAnswer(intent, state);
   if (intent.topic === 'feels') return metricAnswer(intent, state);

@@ -1,3 +1,9 @@
+// LEGACY live-API browser suite (kept for reference). Its historical
+// "71 passed" result is NOT claimed in the current README: this page needs
+// live public APIs and could not be reproduced in this environment. Use
+// `npm run test:browser` for the deterministic, committed browser suite.
+// Note: with place-name disambiguation the assistant may now show a choice
+// list before answering a question about a place with multiple matches.
 import { analyzeQuestion } from '../js/assistant.js';
 import { parseWeatherQuestion } from '../js/intent.js';
 import { periodEvidence } from '../js/insights.js';
