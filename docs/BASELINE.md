@@ -13,9 +13,19 @@ TOTAL: 43 passed, 0 failed
 
 * The fixture is a synthetic, frozen 7-day forecast (dates 2026-09-15…21) plus a
   deterministic `current` block. No network is used.
-* **Defect found:** the runner prints failures but never sets a non-zero exit
-  status. `node tests/run-node-tests.js; echo $?` returns `0` even when a check
-  fails. Phase 1 fixes this and proves it with a deliberate failing test.
+* **Defect found (fixed in Phase 1):** the runner printed failures but never set
+  a non-zero exit status. `node tests/run-node-tests.js; echo $?` returned `0`
+  even when a check failed.
+  Proof after the fix (deliberate failing test inserted, then removed):
+  ```
+  $ node tests/run-node-tests.js     # with one deliberate failing check
+  [FAIL] DELIBERATE_FAILING_TEST_PROOF
+  TOTAL: 392 passed, 1 failed
+  exit code: 1
+  $ node tests/run-node-tests.js     # after removal
+  TOTAL: 392 passed, 0 failed
+  exit code: 0
+  ```
 * The browser-only `tests/nlp.html` / `tests/nlp-tests.js` page duplicates most
   of the Node checks; it was not re-run in this environment at baseline.
 

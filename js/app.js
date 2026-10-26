@@ -17,7 +17,7 @@ const state={
   location:isValidLocation(storedLocation)?storedLocation:DEFAULT_LOCATION,
   weather:null,
   prefs:{temperature:storedPrefs.temperature==='fahrenheit'?'fahrenheit':'celsius',wind:storedPrefs.wind==='mph'?'mph':'kmh',language:storedPrefs.language==='hi'?'hi':'en'},
-  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false
+  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false,epoch:0
 };
 const getState=()=>state;
 let weatherController,searchController,searchTimer,toastTimer,clockTimer;
@@ -104,6 +104,8 @@ function toggleSave(onlyAdd=false){
 }
 async function selectLocation(location,fromMap=false){
   if(!isValidLocation(location)){toast('That location is not valid. Try another search.');return;}
+  // Monotonic epoch: only the newest location request may write state.weather.
+  const epoch=++state.epoch;
   weatherController?.abort();weatherController=new AbortController();const signal=weatherController.signal;
   state.location={...location};state.weather=null;state.loading=true;
   writeStorage('weathergpt.location',state.location);
@@ -112,13 +114,13 @@ async function selectLocation(location,fromMap=false){
   assistantView?.updateContext();mapView?.setLocation(state.location,true,fromMap);mapView?.renderPanel();
   closeSearch();
   try{
-    const data=await fetchWeather(location,signal);if(signal.aborted)return;
+    const data=await fetchWeather(location,signal);if(signal.aborted||epoch!==state.epoch)return;
     state.weather=data;state.loading=false;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();assistantView?.updateContext();
     console.info('[WeatherGPT] Live forecast loaded:',location.name,data.timezone);
     document.dispatchEvent(new CustomEvent('weathergpt:weather-loaded',{detail:{location:location.name}}));
     return data;
   }catch(error){
-    if(error.name==='AbortError')return;
+    if(error.name==='AbortError'||epoch!==state.epoch)return;
     state.loading=false;state.weather=null;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();
     $('weather-error').hidden=false;$('weather-error').querySelector('span').textContent=error.message;
     $('connection-status').previousElementSibling.style.background='#bca05e';

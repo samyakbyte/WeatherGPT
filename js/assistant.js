@@ -2,13 +2,16 @@ import { icon, escapeHTML } from './icons.js';
 import { searchLocations } from './api.js';
 import { parseWeatherQuestion } from './intent.js';
 import { loadNLPEngine, interpretWeatherQuestion, topicNames } from './nlp.js';
+import { applyGeocoderResult } from './understanding.js';
+import { createRequestGuard, isFresh } from './request-guard.js';
+import { structuredAnswer, withScope } from './answers.js';
 import { metricInsight, currentInsight } from './nlp-insights.js';
 import { periodInsight, hindiInsight } from './insights.js';
 import { temp, wind, condition, number, present, forecastHours, currentHourIndex, localHour, deriveAdvisories, direction } from './weather.js';
 
 // Deterministic interpreter: every numerical statement comes from the loaded forecast.
 // A production LLM adapter would need a separately hosted, credential-protecting backend.
-export function analyzeQuestion(question, state, parsedIntent = null) {
+function legacyAnswer(question, state, parsedIntent = null) {
   const {weather:data,location,prefs}=state;
   const intent=parsedIntent||parseWeatherQuestion(question,prefs.language||'en');
   if(intent.clarification)return {text:intent.clarification.text,choices:intent.clarification.choices,metrics:[],language:intent.language};
@@ -89,15 +92,54 @@ export function analyzeQuestion(question, state, parsedIntent = null) {
   return result('I can interpret this location’s forecast for rain, temperatures, wind, sunrise and sunset, today versus tomorrow, or a good time to head outside. Try “Will I need an umbrella tomorrow?” For another city, use the location search or ask “What’s the weather in Jaipur?” I don’t have a general-purpose language model connected.');
 }
 
+/**
+ * Public answer entry point. One structured intent in, one answer out:
+ *  1. clarification / unsupported date — honest, no substitution;
+ *  2. unified metric-aware answers (identical coverage in EN and HI);
+ *  3. legacy narrative branches for composite topics, with an explicit
+ *     resolved date/time/zone appended so misreads are visible.
+ */
+export function analyzeQuestion(question, state, parsedIntent = null) {
+  const { weather: data, prefs } = state;
+  const intent = parsedIntent || parseWeatherQuestion(question, prefs?.language || 'en');
+  if (intent.clarification) {
+    return { text: intent.clarification.text, choices: intent.clarification.choices || [], metrics: [], language: intent.language };
+  }
+  if (intent.unsupportedDate || intent.historical) {
+    const daily = state.weather?.daily?.time;
+    const range = daily?.length ? (intent.language === 'hi'
+      ? ` उपलब्ध स्थानीय तारीखें: ${daily[0]} से ${daily.at(-1)}।`
+      : ` Available local dates: ${daily[0]} to ${daily.at(-1)}.`) : '';
+    return {
+      text: intent.language === 'hi'
+        ? `ऐतिहासिक मौसम और जलवायु डेटा इस ऐप से नहीं जुड़े हैं। चुनी हुई तारीख उपलब्ध 7-दिन के पूर्वानुमान के बाहर है।${range} मैं आज का मौसम दूसरी तारीख के रूप में प्रस्तुत नहीं करूँगा।`
+        : `Historical weather and climate datasets are not connected in WeatherGPT. That date is outside the available 7-day forecast.${range} I can explain the loaded forecast, but I will not substitute today’s weather for a different date.`,
+      metrics: [], language: intent.language
+    };
+  }
+  const structured = structuredAnswer(intent, state);
+  if (structured) return structured;
+  if (!data) {
+    return { text: 'I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.', metrics: [], language: intent.language };
+  }
+  return withScope(legacyAnswer(question, state, intent), intent, state);
+}
+
 export function createAssistant({getState,selectLocation,switchLayer,setLanguage,toast}) {
   const $=id=>document.getElementById(id);
   let recognition,listening=false,busy=false,currentSpeech=null,previousIntent=null,latestIntent=null;
+  // Request identity: every submit supersedes the previous one. An older
+  // geocode/weather/answer chain can never render into the current conversation.
+  const guard=createRequestGuard();
+  let activeAbort=null,pendingCandidates=[],pendingQuestion=null;
   function updateInterpretation(intent,loading=false){
     const root=$('nlp-interpretation');if(!root)return;
     root.hidden=false;
-    const locationLabel=intent.locationQuery||getState().location.name;
+    const place=intent.place||{};
+    const locationLabel=place.query||intent.locationQuery||getState().location.name;
+    const placeStatus=place.status==='ambiguous'?(intent.language==='hi'?' · कई विकल्प':' · multiple matches'):place.status==='not-found'?' · not found':'';
     $('nlp-summary').textContent=intent.language==='hi'?'प्रश्न का अर्थ':'Question understood as';
-    $('nlp-slots').innerHTML=[locationLabel,intent.date?`${intent.dateLabel} · ${intent.date}`:intent.dateLabel,intent.timeLabel,topicNames[intent.topic]||intent.topic].filter(Boolean).map(value=>`<span>${escapeHTML(value)}</span>`).join('');
+    $('nlp-slots').innerHTML=[locationLabel+placeStatus,intent.time?.resolvedLabel||(intent.date?`${intent.dateLabel} · ${intent.date}`:intent.dateLabel),intent.timeLabel,topicNames[intent.topic]||intent.topic].filter(Boolean).map(value=>`<span>${escapeHTML(value)}</span>`).join('');
     $('nlp-engine').textContent=`${intent.engine} · ${intent.clarification?'Clarification needed':loading?'Resolving location…':'Local interpretation'}${intent.inherited.length?' · Reused '+intent.inherited.join(', '):''}`;
   }
   function stopSpeech(){currentSpeech=null;window.speechSynthesis?.cancel();$('speech-feedback').hidden=true;}
@@ -119,7 +161,7 @@ export function createAssistant({getState,selectLocation,switchLayer,setLanguage
   if(!('speechSynthesis'in window)){$('speak-answers').disabled=true;$('speak-answers').parentElement.title='Text-to-speech is not supported in this browser.';}
   $('voice-button').addEventListener('click',()=>{if(!recognition){toast('Voice input is unavailable. Try a supported browser or type your question.');return;}if(listening)recognition.stop();else{stopSpeech();try{recognition.start();}catch{toast('The microphone is busy. Wait a moment and try again.');}}});
   $('assistant-form').addEventListener('submit',e=>{e.preventDefault();submit($('assistant-query').value);});
-  $('clear-conversation').addEventListener('click',()=>{if(busy)return;$('conversation').replaceChildren();previousIntent=null;latestIntent=null;if($('nlp-interpretation'))$('nlp-interpretation').hidden=true;stopSpeech();addResponse({text:'A fresh start. Ask about the weather for your currently selected location.',metrics:[]},false);});
+  $('clear-conversation').addEventListener('click',()=>{guard.cancel();activeAbort?.abort();pendingCandidates=[];pendingQuestion=null;busy=false;$('conversation').replaceChildren();previousIntent=null;latestIntent=null;if($('nlp-interpretation'))$('nlp-interpretation').hidden=true;stopSpeech();addResponse({text:'A fresh start. Ask about the weather for your currently selected location.',metrics:[]},false);});
   document.querySelectorAll('[data-question]').forEach(button=>button.addEventListener('click',()=>submit(button.dataset.question)));
   $('assistant-language').value=getState().prefs.language||'en';
   function updateLanguageControls(){
@@ -158,35 +200,86 @@ export function createAssistant({getState,selectLocation,switchLayer,setLanguage
     $('conversation').append(article);$('conversation').scrollTop=$('conversation').scrollHeight;
     if(allowSpeech&&$('speak-answers').checked)speak(response.text,response.language);
   }
-  async function submit(raw){
-    const question=raw.trim().slice(0,400);if(!question||busy)return;
+  async function submit(raw,forcedLocation=null){
+    const question=String(raw||'').trim().slice(0,400);
+    if(!question)return;
+    // Internal selection from a disambiguation list (never exposed as weather text).
+    const selection=question.match(/^select-place:(\d+)$/);
+    if(selection){
+      const candidate=pendingCandidates[Number(selection[1])];
+      if(!candidate){addResponse({text:'That choice is no longer available. Please run the search again.',metrics:[]});return;}
+      pendingCandidates=[];
+      const original=pendingQuestion||'What is the weather?';
+      pendingQuestion=null;
+      return submit(original,candidate);
+    }
+    const id=guard.next();
+    activeAbort?.abort();
+    activeAbort=new AbortController();
+    const signal=activeAbort.signal;
+    const isStale=()=>!guard.isCurrent(id)||signal.aborted;
     busy=true;window.location.hash='assistant';
     $('conversation').querySelector('.assistant-welcome')?.remove();
     const query=document.createElement('p');query.className='query-entry';query.textContent=question;$('conversation').append(query);
     $('assistant-query').value='';$('assistant-form').querySelector('[type=submit]').disabled=true;
     $('voice-status').textContent='Analyzing the available weather conditions…';
+    const epochBefore=getState().epoch||0;
     try{
       $('voice-status').textContent='Interpreting place, time, and weather intent…';
       const engine=await loadNLPEngine();
+      if(isStale())return;
       let intent=interpretWeatherQuestion(question,getState(),{previous:previousIntent,engine});
-      latestIntent=intent;updateInterpretation(intent,Boolean(intent.locationQuery));
-      if(intent.clarification){addResponse(analyzeQuestion(question,getState(),intent));return;}
-      if(intent.locationQuery&&!intent.unsupportedDate){
-        $('voice-status').textContent=intent.language==='hi'?`${intent.locationQuery} का स्थान और मौसम खोज रहे हैं…`:`Finding ${intent.locationQuery} and fetching its forecast…`;
-        const found=await searchLocations(intent.locationQuery);
-        if(!found.length){addResponse({text:intent.language==='hi'?`“${intent.locationQuery}” नहीं मिला। ऊपर की खोज में शहर का नाम या अक्षांश, देशांतर दर्ज करें।`:`I couldn’t find “${intent.locationQuery}”. Try the location search with a city and country, or enter latitude, longitude.`,metrics:[],language:intent.language});return;}
-        const loaded=await selectLocation(found[0]);
-        if(!loaded){addResponse({text:'The requested forecast did not finish loading, or the selected location changed. Please retry for the current location. I won’t substitute a different place’s forecast.',metrics:[]});return;}
-        // Re-resolve dates in the requested city's local forecast timezone.
-        intent=interpretWeatherQuestion(question,getState(),{previous:previousIntent,engine});
+      if(forcedLocation){
+        intent.place={...intent.place,status:'resolved',resolved:forcedLocation,candidates:[forcedLocation]};
+        intent.locationQuery=forcedLocation.name;
       }
+      latestIntent=intent;updateInterpretation(intent,Boolean(intent.place?.query&&intent.place.status!=='resolved'));
+      if(intent.clarification){addResponse(analyzeQuestion(question,getState(),intent));return;}
+      const place=intent.place;
+      const needsLocation=place?.query&&place.status!=='resolved'&&!intent.unsupportedDate;
+      if(needsLocation){
+        const label=place.fullQuery||place.query;
+        $('voice-status').textContent=intent.language==='hi'?`${label} का स्थान और मौसम खोज रहे हैं…`:`Finding ${label} and fetching its forecast…`;
+        const found=await searchLocations(label,signal);
+        if(isStale())return;
+        applyGeocoderResult(intent,found);
+        if(intent.place.status==='ambiguous'){
+          pendingCandidates=intent.place.candidates.slice(0,5);
+          pendingQuestion=question;
+          latestIntent=intent;updateInterpretation(intent);
+          addResponse(analyzeQuestion(question,getState(),intent));
+          return;
+        }
+        if(intent.place.status==='not-found'){
+          addResponse({text:intent.language==='hi'?`“${label}” नहीं मिला। खोज में ज़िला/राज्य जोड़ें या अक्षांश, देशांतर दर्ज करें।`:`I could not find “${label}”. Add a district or state in the search, or enter latitude, longitude.`,metrics:[],language:intent.language});
+          return;
+        }
+        const loaded=await selectLocation(intent.place.resolved);
+        if(isStale()||!isFresh({id,guard,epochAtStart:epochBefore,currentEpoch:getState().epoch||0,expectedEpoch:epochBefore+1,aborted:signal.aborted})||!loaded){
+          if(!isStale())addResponse({text:'The requested forecast did not finish loading, or the selected location changed. Please retry for the current location. I won’t substitute a different place’s forecast.',metrics:[],language:intent.language});
+          return;
+        }
+        // Re-resolve dates in the requested place's own forecast timezone.
+        intent=interpretWeatherQuestion(question,getState(),{previous:previousIntent,engine});
+        if(forcedLocation){intent.place={...intent.place,status:'resolved',resolved:forcedLocation,candidates:[forcedLocation]};}
+      }
+      if(isStale())return;
       latestIntent=intent;updateInterpretation(intent);
       const response=analyzeQuestion(question,getState(),intent);
       if(!intent.clarification&&!intent.unsupportedDate&&getState().weather)previousIntent={...intent};
       addResponse(response);
       if(response.action==='radar'){switchLayer('radar');toast('Radar layer selected. Open Live map to explore past frames.');}
-    }catch(error){addResponse({text:'I couldn’t load the requested location’s weather. Check your connection and try the location search. I won’t use another location’s data to answer.',metrics:[]});}
-    finally{busy=false;$('assistant-form').querySelector('[type=submit]').disabled=false;updateLanguageControls();$('conversation').scrollTop=$('conversation').scrollHeight;}
+    }catch(error){
+      if(isStale()||error.name==='AbortError')return;
+      addResponse({text:'I couldn’t load the requested location’s weather. Check your connection and try the location search. I won’t use another location’s data to answer.',metrics:[],language:getState().prefs.language});
+    }finally{
+      if(!isStale()){
+        busy=false;
+        $('assistant-form').querySelector('[type=submit]').disabled=false;
+        updateLanguageControls();
+        $('conversation').scrollTop=$('conversation').scrollHeight;
+      }
+    }
   }
   return {submit,updateContext(){const{location}=getState();if(previousIntent&&previousIntent.contextKey!==`${location.latitude},${location.longitude}`)previousIntent=null;$('assistant-context').textContent=`Weather context: ${location.name}${location.country?', '+location.country:''}`;},stop(){if(listening)recognition?.abort();stopSpeech();}};
 }

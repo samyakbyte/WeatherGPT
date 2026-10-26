@@ -92,6 +92,21 @@ Nominatim/Photon geocoding (Phase 2), Leaflet 1.9.4 and Chart.js 4.4.8 from
 jsDelivr, DM Sans/Manrope from Google Fonts. Terms, coverage measurements and
 resolution figures: `docs/DATA_SOURCES.md`.
 
+## Phase 1 changes (working tree, 2026-10-26)
+
+| New module | Role |
+| --- | --- |
+| `js/understanding.js` | **Single structured interpreter.** Canonicalises English, Devanagari and Romanized Hindi into one analysis string; removes temporal phrases, activity words and topic words before place extraction; emits a validated intent object (`schemaVersion: 2`) with `topic`, `metric`, `place {query, context, status, candidates}`, `time {date, dayOffset, startHour, endHour, hour, window, zone, resolvedLabel}`, `language`, `script`, `confidence`, `unresolved[]`, `clarification`. `applyGeocoderResult` validates candidates and never silently accepts an unresolved or ambiguous place. |
+| `js/timezone.js` | Target-location civil time: `localToday`, `zonedParts` (IANA/DST), `addDays`, `weekdayOf`, `hourLabel`, `resolvedLabel`, `forecastRange`, `selectHourIndices`. Provider local civil strings are compared directly; `utc_offset_seconds` is used only for the displayed zone abbreviation. |
+| `data/time-windows.js` | Explicit half-open part-of-day windows (morning 06–12, afternoon 12–17, evening 17–20, night 20–24) plus the default outdoor window (06–20). Shared by evidence selection and outdoor scoring. |
+| `js/answers.js` | Unified metric-aware answer engine (feels-like, temperature, humidity, clouds, UV, visibility, pressure), window-constrained outdoor planning, radar, acidity and crop fallback — identical topic coverage in EN and HI. `withScope` appends a checkable resolved date/time/zone to legacy narrative answers. |
+| `js/request-guard.js` | Pure latest-request-wins primitive; `state.epoch` in `app.js` applies the same rule to weather loads. |
+| `js/intent.js`, `js/nlp.js` | Thin compatibility facades; `loadNLPEngine` still lazy-loads the vendored UMD Compromise bundle for tokenisation only. |
+
+`analyzeQuestion` now: clarification → unsupported/historical date → unified structured answer → legacy narrative branch (with resolved scope). `createAssistant.submit` uses a request id + AbortController, validates geocoder results, offers `select-place:N` choices, and rejects stale answers via `isFresh`.
+
+Tests: `tests/harness.js` (frozen clock/fixtures), `tests/legacy-suite.js` (43 original checks), `tests/regression-bugs.js` (7 checks for the 5 reported bugs), `tests/interpretation-cases.js` + `tests/regression-suite.js` (126 phrasings / 316 checks), `tests/reliability-suite.js` (time zones, DST, midnight, missing values, geocoder ambiguity, races), `tests/run-node-tests.js` (unified runner with non-zero exit status).
+
 ## Known architectural weaknesses at baseline
 
 1. **Two overlapping parsers.** `intent.js` (regex) and `nlp.js` (Compromise +
