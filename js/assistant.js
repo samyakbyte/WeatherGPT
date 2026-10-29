@@ -8,6 +8,7 @@ import { structuredAnswer, withScope } from './answers.js';
 import { metricInsight, currentInsight } from './nlp-insights.js';
 import { periodInsight, hindiInsight } from './insights.js';
 import { temp, wind, condition, number, present, forecastHours, currentHourIndex, localHour, deriveAdvisories, direction } from './weather.js';
+import { t } from './i18n.js';
 
 // Deterministic interpreter: every numerical statement comes from the loaded forecast.
 // A production LLM adapter would need a separately hosted, credential-protecting backend.
@@ -161,15 +162,18 @@ export function createAssistant({getState,selectLocation,switchLayer,setLanguage
   if(!('speechSynthesis'in window)){$('speak-answers').disabled=true;$('speak-answers').parentElement.title='Text-to-speech is not supported in this browser.';}
   $('voice-button').addEventListener('click',()=>{if(!recognition){toast('Voice input is unavailable. Try a supported browser or type your question.');return;}if(listening)recognition.stop();else{stopSpeech();try{recognition.start();}catch{toast('The microphone is busy. Wait a moment and try again.');}}});
   $('assistant-form').addEventListener('submit',e=>{e.preventDefault();submit($('assistant-query').value);});
-  $('clear-conversation').addEventListener('click',()=>{guard.cancel();activeAbort?.abort();pendingCandidates=[];pendingQuestion=null;busy=false;$('conversation').replaceChildren();previousIntent=null;latestIntent=null;if($('nlp-interpretation'))$('nlp-interpretation').hidden=true;stopSpeech();addResponse({text:'A fresh start. Ask about the weather for your currently selected location.',metrics:[]},false);});
+  $('clear-conversation').addEventListener('click',()=>{guard.cancel();activeAbort?.abort();pendingCandidates=[];pendingQuestion=null;busy=false;$('conversation').replaceChildren();previousIntent=null;latestIntent=null;if($('nlp-interpretation'))$('nlp-interpretation').hidden=true;stopSpeech();addResponse({text:t('assistant.freshStart',{},getState().prefs.language==='hi'?'hi':'en'),metrics:[],language:getState().prefs.language},false);});
   document.querySelectorAll('[data-question]').forEach(button=>button.addEventListener('click',()=>submit(button.dataset.question)));
   $('assistant-language').value=getState().prefs.language||'en';
   function updateLanguageControls(){
     const hi=getState().prefs.language==='hi';
+    $('assistant-language').value=hi?'hi':'en';
     if(recognition)recognition.lang=hi?'hi-IN':'en-IN';
     $('assistant-query').placeholder=hi?'यहाँ के मौसम के बारे में पूछें…':'Ask about a place, a time, or your day…';
     if($('hindi-prompts'))$('hindi-prompts').hidden=!hi;
     if($('english-prompts'))$('english-prompts').hidden=hi;
+    const welcome=document.querySelector('.assistant-welcome');
+    if(welcome){const heading=welcome.querySelector('h3'),copy=welcome.querySelector(':scope > p');if(heading)heading.textContent=t('assistant.welcome',{},hi?'hi':'en');if(copy)copy.textContent=t('assistant.welcomeCopy',{},hi?'hi':'en');}
     $('voice-status').textContent=hi?(SpeechRecognition?'प्रश्न लिखें या माइक्रोफ़ोन से बोलें। आवाज़ ब्राउज़र की सेवा द्वारा संसाधित होती है।':'इस ब्राउज़र में आवाज़ की सुविधा उपलब्ध नहीं है। कृपया प्रश्न लिखें।'):(SpeechRecognition?'Ready for your question. Voice uses your browser’s speech service.':'Voice unavailable in this browser. Type a question instead.');
   }
   $('assistant-language').addEventListener('change',()=>{if(listening)recognition?.abort();stopSpeech();setLanguage($('assistant-language').value);updateLanguageControls();});
@@ -281,5 +285,5 @@ export function createAssistant({getState,selectLocation,switchLayer,setLanguage
       }
     }
   }
-  return {submit,updateContext(){const{location}=getState();if(previousIntent&&previousIntent.contextKey!==`${location.latitude},${location.longitude}`)previousIntent=null;$('assistant-context').textContent=`Weather context: ${location.name}${location.country?', '+location.country:''}`;},stop(){if(listening)recognition?.abort();stopSpeech();}};
+  return {submit,refreshLanguage(){updateLanguageControls();},updateContext(){const{location}=getState();if(previousIntent&&previousIntent.contextKey!==`${location.latitude},${location.longitude}`)previousIntent=null;$('assistant-context').textContent=`${getState().prefs.language==='hi'?'मौसम संदर्भ':'Weather context'}: ${location.name}${location.country?', '+location.country:''}`;},stop(){if(listening)recognition?.abort();stopSpeech();}};
 }

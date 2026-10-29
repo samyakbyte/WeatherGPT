@@ -18,6 +18,7 @@ export function aciditySuite(check) {
   check(acidity.validateReading({ value: 15, date: '2026-10-26' }) === null, 'pH above 14 is rejected');
   check(acidity.validateReading({ value: -1, date: '2026-10-26' }) === null, 'negative pH is rejected');
   check(acidity.validateReading({ value: 6, date: '26/10/2026' }) === null, 'a reading without an ISO measurement date is rejected');
+  check(acidity.validateReading({ value: 6, date: '2026-02-31' }) === null, 'an impossible calendar date is rejected');
   const storage = memoryStorage();
   const added = acidity.addReading([], { value: 6.2, date: '2026-10-26', method: 'test strip', notes: 'after first shower' }, storage);
   check(added.readings.length === 1 && added.reading.method === 'test strip', 'user reading is stored with method and date');

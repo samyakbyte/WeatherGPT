@@ -1,7 +1,8 @@
 # Data sources research — WeatherGPT
 
-All access dates: **2026-10-26**. Measurements below were made with direct HTTPS
-requests to the public endpoints listed. Where a claim could not be verified,
+Sources in Sections 1–6 were initially checked **2026-10-26**; Mark 3 acidity
+method references were revisited **2026-10-29**. Measurements below were made
+with direct HTTPS requests to the public endpoints listed. Where a claim could not be verified,
 it is marked **unverified** rather than guessed. This document is the evidence
 base for Phase 2 (villages), Phase 3 (rainwater acidity) and Phase 4 (crop
 guidance); it also records the spatial-resolution wording used in the UI.
@@ -133,13 +134,9 @@ station's historical pH to a farm would be misleading, and deriving pH from AQI,
 rain probability, temperature or pollution proxies has no validated method and
 is explicitly out of scope.
 
-Therefore the UI shows exactly: **"Rainwater acidity data unavailable for this
-location."** — no number, no placeholder. It links to the IMD monograph and the
-MAUSAM article as research context, and separately offers **user-provided pH
-readings** (value 0–14, date, method, notes), stored only on the device and
-labelled "User-provided". Rainwater pH, soil pH and irrigation-water quality are
-three separate fields in the data model and in assistant answers; the app never
-recommends soil treatment from a rainwater reading.
+The UI never derives or presents a location-specific pH from weather or air-quality data. It shows an educational reference of approximately pH 5.6 for typical natural rainwater; acid rain is commonly defined as precipitation below approximately pH 5.6 ([US EPA: What is acid rain?](https://www.epa.gov/acidrain/what-acid-rain)). This reference is not a prediction or local measurement.
+
+**Atmospheric screening logic:** when SO₂/NO₂ or weather values are available, display them as modeled context only. Do not assign low/moderate/high acidity concern from pollutant thresholds: no validated atmospheric-to-precipitation screening threshold or precipitation-chemistry model is connected. State that rainwater pH, ions (including sulfate/nitrate and ammonium) and neutralizing capacity/alkalinity are not available. When a matching user-recorded sample exists, show its measured value and the visual pH bands defined in `js/acidity.js`; do not present those bands as an atmospheric forecast, crop-damage threshold, or safety determination. Samples are stored only on the device and labelled user-recorded. Rainwater pH, soil pH and irrigation-water quality remain separate fields; the app never recommends soil treatment from a rainwater reading.
 
 ---
 
@@ -173,3 +170,145 @@ disease from weather.
   not found. Thresholds in `data/hazard-thresholds.js` are **engineering
   defaults for detection**, clearly labelled as configurable and not official
   agronomic thresholds.
+
+---
+
+## 5. Agricultural screening, forecast risk and demonstrations
+
+The dashboard consumes the existing seven-day Open-Meteo model forecast
+documented in §1; it does not add or fabricate live weather. The three-day
+alert/advisory knowledge base described in §4 remains distinct from the
+seven-day view.
+
+`data/hazard-thresholds.js` is the single source for heat, cold, rain, wind,
+humidity and dry-spell screens. These values retain the existing WeatherGPT
+weather-alert defaults where applicable and are engineering detection rules,
+not official IMD warnings or crop-damage thresholds. The dashboard states this
+limitation beside each result. Humidity is a weather-associated disease-pressure
+signal only; the app does not diagnose disease.
+
+The suitability number is a deterministic **shared, crop-agnostic weather
+screen**: temperature 40%, rainfall 30%, gusts 15%, hourly humidity 15%. A
+factor with insufficient/missing input is omitted and the remaining weights
+renormalized; the UI reports available-factor coverage and each factor's value,
+status, and reason. The available data and configured screens are not calibrated
+to crop response curves. Selecting a crop chooses its advisory context, but does
+not change the shared score. It is explicitly not crop health, yield, an
+agronomic recommendation, or proof that conditions are safe. Rainwater pH is
+not a score input; absent pH stays unknown.
+
+Presentation scenarios (`acid-rain` pH 4.2/French Beans, 44 °C/Tomato,
+heavy-rain/Wheat, and normal conditions) are code-defined synthetic fixtures in
+`js/demo.js`. They use no weather or pH provider, are labelled throughout the
+UI, exist only in memory, do not modify live weather, farms or user pH history,
+and disappear on exit/reload. The acid-rain demonstration's simulated pH value
+is not an observation and cannot be saved as one. Real map pH markers are only
+geolocated user-recorded measurements; the app has no connected live pH station
+feed and draws no interpolated pH surface.
+
+---
+
+## 6. Atmospheric monitoring (Open-Meteo Air Quality API)
+
+**Endpoint:** `https://air-quality-api.open-meteo.com/v1/air-quality` —
+<https://open-meteo.com/en/docs/air-quality-api>. WeatherGPT requests one selected
+coordinate at a time with documented `hourly` fields `sulphur_dioxide`,
+`nitrogen_dioxide`, `pm2_5`, `pm10`, and `ozone`, `forecast_days=2`, and
+`timezone=auto`. Request coordinates are rounded to three decimal places; the
+response's returned latitude/longitude are retained and shown as the model-grid
+centre when provided. The UI uses the provider's pollutant units (normally
+µg/m³) and hourly timestamps; a missing value or unit is shown as unavailable,
+never as zero.
+
+These are **atmospheric model/forecast grid estimates**, not direct sensor or
+ground-station observations. Open-Meteo documents this API's CAMS European Air
+Quality Forecast at 0.1° (about 11 km) and CAMS Global Atmospheric Composition
+Forecasts at 0.4° (about 45 km); the European and global domains are not coupled
+and can differ. The provider does not identify the selected model in each
+response, so WeatherGPT does not claim which model supplied an individual value.
+The returned coordinates identify the provider's selected grid point. WeatherGPT
+displays that single point and does not interpolate it, paint a heatmap, or imply
+street/field precision. No regional multi-point grid is requested. Pollutant
+values are shown individually; the app does not infer rainwater pH, acid-rain
+probability, health impact, or crop damage from them. Elevated SO₂/NO₂ can be
+relevant to atmospheric chemistry and deposition but does not establish the
+acidity of rain at a location.
+
+The browser caches successful per-URL responses for 15 minutes, deduplicates
+matching in-flight requests, cancels outdated map-selection requests, bounds
+the cache, and issues no per-pixel requests. A user-triggered refresh bypasses
+the valid cache; HTTP 429 responses receive a temporary retry cooldown. No API
+key or backend is used. The Open-Meteo Air Quality API is documented as
+non-commercial with fewer than 10,000 daily API calls; review the provider's
+current terms before deployment or commercial use. Attribution links to
+Open-Meteo and its Air Quality API documentation are shown in the interface.
+
+Rainfall context is separately read from the existing Open-Meteo weather
+forecast. `current.precipitation` is labelled a model current estimate;
+`daily.precipitation_sum` and `daily.precipitation_probability_max` are labelled
+forecast values. Rain probability is not observed rainfall and none of these
+weather values is rainwater chemistry. No separate Copernicus CAMS client was
+added; atmospheric concentrations are obtained only through the documented
+Open-Meteo API integration.
+
+The app retains the independent user-recorded pH system. Its points remain
+marked `MEASURED · USER-RECORDED`; old records without coordinates remain in
+history and are not assigned invented map coordinates. Demo pH remains
+`SIMULATED` and is never written to the pH cache or persistence.
+
+---
+
+## 7. Mark 3: rainwater-acidity screening and English/Hindi interface
+
+### Scientific method and limitations
+
+The Mark 3 farmer-facing card is an **explainable atmospheric-context screen**,
+not a rainwater chemistry model. It may show provider-supplied atmospheric
+pollutant values, a separately sourced weather-model rainfall amount/probability,
+a matching user-recorded rainwater pH sample, or an explicit unavailable state.
+It creates **no pH number, acidity probability, risk score, or crop-damage
+classification** from SO₂, NO₂, particulate matter, ozone, AQI, rainfall,
+humidity, pressure, or temperature. Pollutant concentration is not equivalent
+to wet deposition: precipitation chemistry also depends on cloud-water
+chemistry, acids and bases, neutralization, scavenging, and other processes.
+
+A peer-reviewed GEOS-Chem study of global cloud-water and precipitation acidity
+(<https://acp.copernicus.org/articles/20/12223/2020/>) simulates detailed aqueous
+chemistry and evaluates results against monitoring networks; this is a full
+chemistry-model pathway, not an integration-ready field pH value exposed through
+the existing Open-Meteo endpoint. The CAMS/IFS-COMPO system literature
+(<https://gmd.copernicus.org/articles/17/7539/2024/>) likewise describes a
+chemistry-model system, not a validated local precipitation-pH field returned
+by WeatherGPT's current API. Open-Meteo's Air Quality integration returns
+atmospheric composition fields documented in §6 and does not expose precipitation
+pH. The historical Indian GAW station research documented in §3 is not a current
+farm-level feed. Therefore, the scientifically supportable product is a
+transparent **screening context only**; a direct rainwater sample and suitable
+pH test are necessary when a decision depends on acidity. Missing pH means
+**unknown**, not safe or unsafe.
+
+The dashboard filters saved pH records to the matching active farm/location,
+labels them as user-recorded or demo-simulated, and does not overwrite user data.
+Atmospheric and rainfall data remain separately identified as model/forecast
+context. A farmer can expand technical pollutant details on the map and open
+the pH-measurement layer or record a sample. No pesticide, fertilizer, lime,
+gypsum, or soil-treatment action is inferred from a rainwater pH entry. Crop
+suitability scoring does not use pH or atmospheric pollution.
+
+### Hindi experience
+
+Mark 3 adds a centralized English/Hindi catalog and keyed static/dynamic
+rendering in `js/i18n.js`. The global, keyboard-accessible header selector
+updates the document language and the assistant language together, persists the
+choice in the existing `weathergpt.preferences` record, and does not reload the
+page. Weather, forecast dates/numbers, agricultural dashboard and advisories,
+map environmental summaries, the acidity intelligence card, pH recording/history,
+demo labels, settings/navigation and relevant status/error/loading content use
+the selected locale. Hindi uses Devanagari number formatting and Noto Sans
+Devanagari; the WeatherGPT brand remains English. User-entered notes and
+provider/source names remain intact rather than being silently rewritten.
+
+The map's farmer view is concise by default, with atmospheric model coordinates,
+timestamps, pollutant values and source caveats behind an expandable technical
+details disclosure. Existing English behavior and the assistant's independent
+question-language recognition remain supported.

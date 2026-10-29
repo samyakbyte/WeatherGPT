@@ -2,8 +2,25 @@
 // sandbox cannot reach those hosts, so all external traffic is intercepted.
 // A separate live-API pass is listed as "needs manual device testing" in the
 // README/PR because it cannot be performed in this environment.
-export const DAYS = Array.from({ length: 7 }, (_, i) => `2026-10-${26 + i}`);
+export const DAYS = Array.from({ length: 7 }, (_, i) => new Date(Date.UTC(2026, 9, 26 + i)).toISOString().slice(0, 10));
 const pad = n => String(n).padStart(2, '0');
+
+export function buildAirQuality() {
+  const time = Array.from({ length: 48 }, (_, i) => `${DAYS[0 + Math.floor((10 + i) / 24)]}T${pad((10 + i) % 24)}:00`);
+  return {
+    latitude: 26.875, longitude: 75.75, elevation: 431.2,
+    utc_offset_seconds: 19800, timezone: 'Asia/Kolkata', timezone_abbreviation: 'IST',
+    hourly_units: { sulphur_dioxide: 'μg/m³', nitrogen_dioxide: 'μg/m³', pm2_5: 'μg/m³', pm10: 'μg/m³', ozone: 'μg/m³' },
+    hourly: {
+      time,
+      sulphur_dioxide: time.map((_, i) => 2 + i / 10),
+      nitrogen_dioxide: time.map((_, i) => 8 + i / 10),
+      pm2_5: time.map((_, i) => 18 + i / 10),
+      pm10: time.map((_, i) => 28 + i / 10),
+      ozone: time.map((_, i) => 38 + i / 10)
+    }
+  };
+}
 
 export function buildForecast() {
   const hours = DAYS.flatMap(d => Array.from({ length: 24 }, (_, h) => `${d}T${pad(h)}:00`));

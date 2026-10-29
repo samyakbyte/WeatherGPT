@@ -8,15 +8,17 @@ import { legacySuite } from './legacy-suite.js';
 import { bugSuite } from './regression-bugs.js';
 import { interpretationSuite } from './regression-suite.js';
 import { reliabilitySuite } from './reliability-suite.js';
+import { mark3Suite } from './mark3-suite.js';
 
 const SUITES = [
   ['Legacy baseline (43 checks)', legacySuite],
   ['Phase 1.1 reported-bug regressions', bugSuite],
   ['Phase 1.4 interpretation table', interpretationSuite],
-  ['Phase 1.3 reliability / time zone / races', reliabilitySuite]
+  ['Phase 1.3 reliability / time zone / races', reliabilitySuite],
+  ['Mark 3 bilingual and acidity intelligence', mark3Suite]
 ];
 
-// Later phases append their suites here (farms, advisory, storage, acidity).
+// Agricultural intelligence suite covers deterministic screens and isolated demo scenarios.
 try {
   const { advisorySuite } = await import('./advisory-suite.js');
   SUITES.push(['Phase 4 crop advisory', advisorySuite]);
@@ -29,12 +31,20 @@ try {
   const { aciditySuite } = await import('./acidity-suite.js');
   SUITES.push(['Phase 3 rainwater acidity', aciditySuite]);
 } catch { /* optional suite not present yet */ }
+try {
+  const { agricultureSuite } = await import('./agriculture-suite.js');
+  SUITES.push(['Agricultural suitability, risk and demo isolation', agricultureSuite]);
+} catch { /* optional suite not present yet */ }
+try {
+  const { airQualitySuite } = await import('./air-quality-suite.js');
+  SUITES.push(['Open-Meteo atmospheric monitoring client', airQualitySuite]);
+} catch { /* optional suite not present yet */ }
 
 const runner = createRunner('WeatherGPT');
 let totalCases = 0;
 for (const [name, suite] of SUITES) {
   const before = runner.result();
-  const extra = suite(runner.check);
+  const extra = await suite(runner.check);
   const after = runner.result();
   const added = after.passed + after.failed - before.passed - before.failed;
   totalCases += typeof extra === 'number' ? extra : 0;
