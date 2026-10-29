@@ -122,7 +122,10 @@ async function main() {
   check(await page.locator('.leaflet-container').count() === 1, 'Leaflet map initialises');
   check(await page.locator('.hour-item').count() > 0, 'hourly strip renders');
   check(await page.locator('#forecast-chart').count() === 1, 'Chart.js canvas present');
+  check(await page.evaluate(()=>{const chart=window.Chart?.getChart(document.getElementById('forecast-chart'));return !!chart?.options.scales.x.display&&chart.config.plugins.some(plugin=>plugin.id==='forecastCrosshair');}), 'forecast chart exposes readable time labels and an interactive crosshair');
+  const chartId = await page.evaluate(()=>window.Chart?.getChart(document.getElementById('forecast-chart'))?.id);
   await page.locator('[data-period="daily"]').click();
+  check(await page.evaluate(()=>window.Chart?.getChart(document.getElementById('forecast-chart'))?.id)===chartId, 'forecast chart updates in place when switching forecast periods');
   check(await page.locator('.daily-row').count() === 7, '7-day forecast rows');
   const widths = await page.locator('.daily-row .temp-fill').evaluateAll(els => els.map(e => e.style.width));
   check(new Set(widths).size > 1, 'temperature bars are computed from real min/max, not identical gradients');
