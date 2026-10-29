@@ -5,9 +5,9 @@ export async function mark3Suite(check) {
   check(missingTranslationKeys().length === 0 && missingBindingKeys().length === 0, 'English and Hindi catalogs cover all defined keys and static bindings');
   check(Object.keys(messages.en).length === Object.keys(messages.hi).length, 'translation catalogs have matching key counts');
   check(t('acidity.measurementDetail', { value:'5.2', date:'2026-10-29', method:'meter' }, 'en').includes('5.2') && t('acidity.measurementDetail', { value:'५.२', date:'2026-10-२९', method:'मीटर' }, 'hi').includes('मीटर'), 'interpolated messages support both languages');
-  check(formatNumber(12345.6, { maximumFractionDigits:1 }, 'hi').includes('१२'), 'Hindi number formatting uses Devanagari digits and Indian grouping');
+  check(formatNumber(12345.6,{maximumFractionDigits:1},'hi').includes('12')&&!/[०-९]/.test(formatNumber(12345.6,{maximumFractionDigits:1},'hi'))&&/[0-9]/.test(formatDate('2026-10-29',{day:'numeric',month:'short'},'hi')), 'Hindi formatting retains Hindi locale with Latin digits for numbers and dates');
   check(formatDate('2026-10-29T12:00:00Z', { day:'numeric', month:'long' }, 'hi').includes('अक्टूबर'), 'Hindi date formatting uses a localized month name');
-  check(plural({ one:'{{count}} observation', other:'{{count}} observations' }, 2) === '2 observations' && tPlural('map.pHCount',2,{},'en').endsWith('measurements') && tPlural('map.pHCount',2,{},'hi').startsWith('२') && tPlural('map.pHCount',2,{},'hi').includes('माप'), 'pluralization helper selects locale-aware count forms');
+  check(plural({ one:'{{count}} observation', other:'{{count}} observations' }, 2) === '2 observations' && tPlural('map.pHCount',2,{},'en').endsWith('measurements') && tPlural('map.pHCount',2,{},'hi').startsWith('2') && tPlural('map.pHCount',2,{},'hi').includes('माप'), 'pluralization helper selects locale-aware count forms');
   setLocale('hi'); check(getLocale() === 'hi', 'global locale setter accepts Hindi'); setLocale('en');
 
   const location={name:'Farm A',latitude:26.9,longitude:75.8}, farm={id:'farm-a',crop:'wheat',latitude:26.9,longitude:75.8};

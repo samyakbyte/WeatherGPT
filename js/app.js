@@ -6,7 +6,7 @@ import { temp, wind, number, condition, direction, currentHourIndex, localHour, 
 import { createWeatherMap } from './map.js';
 import { createForecast } from './forecast.js';
 import { createAssistant } from './assistant.js';
-import { demoScenario } from './demo.js';
+import { fetchAirQuality } from './air-quality.js';
 import { loadNLPEngine, topicNames } from './nlp.js';
 import { parseWeatherQuestion } from './intent.js';
 import { t, setLocale, applyTranslations, formatNumber } from './i18n.js';
@@ -21,14 +21,29 @@ const state={
   location:isValidLocation(storedLocation)?storedLocation:DEFAULT_LOCATION,
   weather:null,
   prefs:{temperature:storedPrefs.temperature==='fahrenheit'?'fahrenheit':'celsius',wind:storedPrefs.wind==='mph'?'mph':'kmh',language:storedPrefs.language==='hi'?'hi':'en'},
-  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false,epoch:0,farm:null,demo:null,environment:null
+  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false,epoch:0,farm:null,demo:null,environment:null,acidityOutlook:{status:'idle',requested:null,data:null,error:'',updatedAt:null}
 };
 setLocale(state.prefs.language);
 applyTranslations();
 renderSourcesContent();
 const getState=()=>state;
-let weatherController,searchController,searchTimer,toastTimer,clockTimer;
-let mapView,forecastView,assistantView;
+let weatherController,searchController,searchTimer,toastTimer,clockTimer,outlookController;
+let outlookEpoch=0,mapView,forecastView,assistantView;
+function refreshAcidityOutlook(location){
+  const request=++outlookEpoch;outlookController?.abort();outlookController=new AbortController();
+  const signal=outlookController.signal;
+  state.acidityOutlook={status:'loading',requested:{...location},data:null,error:'',updatedAt:null};
+  farmUI?.renderAll();
+  fetchAirQuality(location,{signal}).then(data=>{
+    if(signal.aborted||request!==outlookEpoch)return;
+    state.acidityOutlook={status:'ready',requested:data.requested,data,error:'',updatedAt:data.fetchedAt||Date.now()};
+    farmUI?.renderAll();
+  }).catch(error=>{
+    if(signal.aborted||request!==outlookEpoch||error?.name==='AbortError')return;
+    state.acidityOutlook={status:'error',requested:{...location},data:null,error:error?.message||'',updatedAt:Date.now()};
+    farmUI?.renderAll();
+  });
+}
 let results=[],currentSearch=0;
 
 function toast(message){clearTimeout(toastTimer);$('toast').textContent=message;$('toast').hidden=false;toastTimer=setTimeout(()=>$('toast').hidden=true,5000);}
@@ -45,20 +60,12 @@ function renderSourcesContent(){
   ];
   values.forEach(([key,params],index)=>{const paragraph=document.querySelector(`#sources-dialog .source-entry:nth-of-type(${index+1}) p`);if(paragraph)paragraph.innerHTML=t(`sources.${key}`,params,language);});
 }
-function renderDemoBanner(){
-  const root=$('demo-banner');if(!root)return;
-  const scenario=demoScenario(state.demo);
-  if(!scenario){root.hidden=true;root.replaceChildren();delete document.body.dataset.demo;return;}
-  root.hidden=false;document.body.dataset.demo='true';
-  root.innerHTML=`<span class="demo-banner-mark">${escapeHTML(t('demo.simulated'))}</span><span><strong>${escapeHTML(t(`demo.label.${state.demo}`))} · ${escapeHTML(t(`demo.description.${state.demo}`))}</strong><small>${escapeHTML(t('demo.bannerNote'))}</small></span><button type="button" id="demo-banner-exit" class="text-button">${escapeHTML(t('demo.returnToLive'))}</button>`;
-  $('demo-banner-exit')?.addEventListener('click',()=>{state.demo=null;renderDemoBanner();farmUI?.renderAll();mapView?.refreshAcidity();toast(t('toast.demoEnded'));});
-}
 function labelLocation(){return `${state.location.name}${state.location.country&&state.location.country!=='Map coordinates'&&state.location.country!=='Selected map point'&&state.location.country!=='Model sample point'?', '+state.location.country:''}`;}
 function isSaved(p=state.location){return state.saved.some(s=>Math.abs(s.latitude-p.latitude)<.005&&Math.abs(s.longitude-p.longitude)<.005);}
 function updateSavedButton(){const saved=isSaved();$('save-location').setAttribute('aria-pressed',String(saved));$('save-location').setAttribute('aria-label',saved?'Remove saved location':'Save location');$('save-location').title=saved?'Remove saved location':'Save location';$('save-location').innerHTML=icon(saved?'check':'bookmark');}
 function setClock(){
   const timezone=state.weather?.timezone||state.location.timezone||'Asia/Kolkata';
-  const locale=state.prefs.language==='hi'?'hi-IN-u-nu-deva':'en-IN';
+  const locale=state.prefs.language==='hi'?'hi-IN-u-nu-latn':'en-IN';
   try{
     $('today-date').textContent=new Intl.DateTimeFormat(locale,{weekday:'short',month:'short',day:'numeric',year:'numeric',timeZone:timezone}).format(new Date());
     $('local-time').textContent=`${new Intl.DateTimeFormat(locale,{hour:'numeric',minute:'2-digit',timeZone:timezone}).format(new Date())} · ${timezone.replaceAll('_',' ')}`;
@@ -139,6 +146,7 @@ async function selectLocation(location,fromMap=false){
   const epoch=++state.epoch;
   weatherController?.abort();weatherController=new AbortController();const signal=weatherController.signal;
   state.location={...location};state.weather=null;state.loading=true;
+  refreshAcidityOutlook(state.location);
   writeStorage('weathergpt.location',state.location);
   $('weather-error').hidden=true;renderCurrent();renderAdvisories();
   forecastView?.render();$('forecast-empty').textContent='Fetching forecast…';
@@ -273,7 +281,7 @@ function setAppLanguage(language){
   if($('assistant-language'))$('assistant-language').value=state.prefs.language;
   applyTranslations();renderSourcesContent();
   closeSearch();
-  renderCurrent();renderAdvisories();renderSaved();renderDemoBanner();
+  renderCurrent();renderAdvisories();renderSaved();
   forecastView?.render();farmUI?.renderAll();mapView?.refreshEnvironmentUI();mapView?.refreshUnits();
   assistantView?.refreshLanguage?.();assistantView?.updateContext();
   route();
@@ -296,7 +304,7 @@ mapView=createWeatherMap({getState,onSelect:selectLocation,toast,onSaveFarm:poin
 assistantView=createAssistant({getState,selectLocation,switchLayer:layer=>mapView.switchLayer(layer),setLanguage:setAppLanguage,toast});
 farmUI=createFarmUI({getState,selectLocation,toast,
   onFarmChange:farm=>{state.farm=farm;mapView?.refreshAcidity();},
-  onDemoChange:key=>{state.demo=key;renderDemoBanner();mapView?.refreshAcidity();farmUI?.renderAll();if(key==='acid-rain')mapView?.switchLayer('acidity');}
+  onDemoChange:key=>{state.demo=key;mapView?.refreshAcidity();farmUI?.renderAll();if(key==='acid-rain')mapView?.switchLayer('acidity');}
 });
 document.addEventListener('weathergpt:acidity-updated',()=>mapView?.refreshAcidity());
 document.addEventListener('weathergpt:show-acidity',()=>mapView?.switchLayer('acidity'));
@@ -314,7 +322,7 @@ $('overview-nlp-form')?.addEventListener('submit',e=>{
   assistantView?.submit(val);
 });
 loadNLPEngine().catch(()=>{});
-renderSaved();farmUI?.renderAll();renderDemoBanner();route();selectLocation(state.location);
+renderSaved();farmUI?.renderAll();route();selectLocation(state.location);
 clockTimer=setInterval(setClock,60000);
 window.addEventListener('online',()=>toast(t('system.online')));
 window.addEventListener('offline',()=>toast(t('system.offline')));

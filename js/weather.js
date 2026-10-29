@@ -38,7 +38,7 @@ export function dayLabel(iso, index) {
   if (index === 0) return t('weather.today');
   if (index === 1) return t('weather.tomorrow');
   const date=new Date(`${iso}T12:00:00`);
-  return Number.isFinite(date.getTime())?new Intl.DateTimeFormat(getLocale()==='hi'?'hi-IN-u-nu-deva':'en-IN',{weekday:'short',day:'numeric'}).format(date):String(iso||'—');
+  return Number.isFinite(date.getTime())?new Intl.DateTimeFormat(getLocale()==='hi'?'hi-IN-u-nu-latn':'en-IN',{weekday:'short',day:'numeric'}).format(date):String(iso||'—');
 }
 export function currentHourIndex(data) {
   const key = data.current.time.slice(0,13);
@@ -70,7 +70,7 @@ export function deriveAdvisories(data) {
   return advisories.sort((a,b) => order[a.severity] - order[b.severity]);
 }
 export function dailySummary(data, prefs) {
-  const d = data.daily, label = condition(d.weather_code[0]).label.toLocaleLowerCase(getLocale()==='hi'?'hi-IN-u-nu-deva':'en-IN');
+  const d = data.daily, label = condition(d.weather_code[0]).label.toLocaleLowerCase(getLocale()==='hi'?'hi-IN-u-nu-latn':'en-IN');
   const probability = d.precipitation_probability_max[0];
   const rain = present(probability) ? t('weather.rainChance',{probability:formatNumber(Math.round(probability))}) : '';
   return t('weather.summary',{condition:label,high:temp(d.temperature_2m_max[0],prefs),low:temp(d.temperature_2m_min[0],prefs),rain});

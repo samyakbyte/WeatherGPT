@@ -95,7 +95,7 @@ export function dayWord(offset, language = 'en') {
 export function formatDate(date, language = 'en') {
   if (!isCivilDate(date)) return date || '';
   try {
-    return new Intl.DateTimeFormat(language === 'hi' ? 'hi-IN' : 'en-GB', {
+    return new Intl.DateTimeFormat(language === 'hi' ? 'hi-IN-u-nu-latn' : 'en-GB', {
       weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC'
     }).format(new Date(`${date}T12:00:00Z`));
   } catch { return date; }

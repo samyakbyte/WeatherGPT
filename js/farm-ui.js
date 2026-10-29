@@ -8,14 +8,13 @@ import { icon, escapeHTML } from './icons.js';
 import { parseCoordinates } from './geocode.js';
 import { temp, wind } from './weather.js';
 import { POLLUTANTS, selectAirQualityFrame, validAirCoordinates } from './air-quality.js';
-import { renderAcidityIntelligence } from './acidity-intelligence.js';
 import { t, formatNumber, formatDate } from './i18n.js';
 
 export function createFarmUI({ getState, selectLocation, toast, onFarmChange = () => {}, onDemoChange = () => {} }) {
   const $ = id => document.getElementById(id);
   let doc = farms.loadFarms();
   let readings = acidity.loadReadings();
-  let editingId = null, phChart = null;
+  let editingId = null, phChart = null, temporaryCropSelection = null;
   const label = (obj, language) => language === 'hi' ? (obj?.hi || obj?.en) : (obj?.en || obj?.hi);
   const present = value => value !== null && value !== undefined && Number.isFinite(Number(value));
   const esc = escapeHTML;
@@ -119,44 +118,51 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     }).join('');
   }
 
-  function renderSuitability(root, result, crop, language, demo) {
+  function renderSuitability(root, result, crop, language, demo, onCropSelect) {
     if (!root) return;
-    const title = language === 'hi' ? 'साझा मौसम अनुकूलता स्क्रीन' : 'Shared weather suitability screen';
+    const hi=language==='hi';
+    const title=hi?'साझा मौसम अनुकूलता स्क्रीन':'Shared weather suitability screen';
+    const picker=`<label class="suitability-crop-picker" for="suitability-crop-select"><span>${esc(t('crop.selectLabel',{},language))}</span><select id="suitability-crop-select" aria-label="${esc(t('crop.selectLabel',{},language))}"><option value="">${esc(t('crop.selectPlaceholder',{},language))}</option>${farms.CROPS.map(key=>`<option value="${esc(key)}">${esc(cropLabel(key,language))}</option>`).join('')}</select></label>`;
     if (!crop) {
-      root.innerHTML = `<header><span class="card-kicker">${title}</span><p>${language === 'hi' ? 'स्कोर के लिए सक्रिय खेत में फसल चुनें।' : 'Choose a crop on the active farm to calculate this screening score.'}</p></header><div class="score-empty">—</div><small>Rainwater pH is not part of the score; missing pH is not treated as safe.</small>`;
-      return;
+      root.innerHTML=`<header><span class="card-kicker">${title}</span></header>${picker}<p class="score-prompt">${esc(t('crop.selectPrompt',{},language))}</p><small class="score-temporary-note">${esc(t('crop.temporaryNote',{},language))}</small><small class="score-disclaimer">${esc(t('crop.scorePHSeparate',{},language))}</small>`;
+    } else {
+      const score=result?.score, factorRows=suitabilityFactorRows(result||{},language);
+      const summary=score==null?(hi?'पूर्वानुमान उपलब्ध नहीं':'Forecast unavailable'):(hi?`मौसम स्क्रीन ${score}/100`:`${score}/100 weather screen`);
+      const coverage=hi?`उपलब्ध कारक कवरेज: ${result?.dataCoverage??0}%`:`Available factor coverage: ${result?.dataCoverage??0}%`;
+      const classification=suitabilityClassification(result?.classification||'Unavailable',language);
+      const note=hi?`उपलब्ध पूर्वानुमान कारकों से साझा मौसम स्क्रीन। डेटा कवरेज ${result?.dataCoverage??0}%; अनुपलब्ध कारकों के भार पुनः सामान्यीकृत होते हैं। फसल चुनने से सलाह का संदर्भ बदलता है, साझा स्कोर नहीं।`:(result?.note||'No forecast data; no score calculated.');
+      const weights=hi?'उपलब्ध होने पर भार: तापमान 40%, वर्षा 30%, हवा 15%, आर्द्रता 15%; अनुपलब्ध कारक हटाकर शेष भार सामान्यीकृत किए जाते हैं। ये सामान्य स्क्रीनिंग सीमाएँ हैं।':'Weights when available: temperature 40%, rainfall 30%, wind 15%, humidity 15%; missing factors are omitted and remaining weights renormalized. These are general screening defaults.';
+      const disclaimer=hi?'यह मौसम-स्क्रीनिंग है, फसल स्वास्थ्य, उपज या प्रमाणित फसल-क्षति सीमा नहीं। वर्षा-जल pH इस स्कोर में शामिल नहीं है।':'This is a weather screen, not crop health, yield, or a validated crop-damage threshold. Rainwater pH is not part of this score.';
+      root.innerHTML=`<header><span class="card-kicker">${title}${demo?' · SIMULATED':''}</span></header>${picker}<div class="score-layout"><div class="score-ring" style="--score:${score??0}%"><span>${score==null?'—':score}<small>/100</small></span></div><div class="score-copy"><strong>${esc(classification)}</strong><span>${esc(summary)}</span><small>${esc(coverage)}</small></div></div><details class="score-explanation"><summary>${hi?'स्कोर कैसे बना?':'How this score is calculated'}</summary><p>${esc(note)}</p><ul>${factorRows.map(f=>`<li><b>${esc(f.label)}:</b> ${esc(f.status)} · ${esc(f.value)}<small>${esc(f.reason)}</small></li>`).join('')}</ul><small>${esc(weights)}</small></details><p class="score-disclaimer">${esc(disclaimer)}</p>`;
     }
-    const score = result.score;
-    const factorRows = suitabilityFactorRows(result, language);
-    const hi = language === 'hi';
-    const summary = score == null ? (hi ? 'पूर्वानुमान उपलब्ध नहीं' : 'Forecast unavailable') : (hi ? `मौसम स्क्रीन ${score}/100` : `${score}/100 weather screen`);
-    const coverage = hi ? `उपलब्ध कारक कवरेज: ${result.dataCoverage ?? 0}%` : `Available factor coverage: ${result.dataCoverage ?? 0}%`;
-    const classification = suitabilityClassification(result.classification || 'Unavailable', language);
-    const note = hi
-      ? `उपलब्ध पूर्वानुमान कारकों से नियतात्मक, सभी फसलों के लिए साझा मौसम स्क्रीन। डेटा कवरेज ${result.dataCoverage ?? 0}%; अनुपलब्ध कारक छोड़कर उपलब्ध भार फिर से सामान्यीकृत होते हैं। फसल चुनने से सलाह का संदर्भ बदलता है, यह साझा स्कोर नहीं। यह फसल स्वास्थ्य या कृषि सलाह नहीं है।`
-      : (result.note || 'No forecast data; no score calculated.');
-    const weights = hi
-      ? 'उपलब्ध होने पर भार: तापमान 40%, वर्षा 30%, हवा 15%, आर्द्रता 15%; अनुपलब्ध कारक हटाकर शेष भार सामान्यीकृत किए जाते हैं। ये सामान्य स्क्रीनिंग सीमाएँ हैं, प्रमाणित फसल-क्षति सीमाएँ नहीं।'
-      : 'Weights when available: temperature 40%, rainfall 30%, wind 15%, humidity 15%; missing factors are omitted and the remaining weights renormalized. These shared screens are engineering defaults, not validated crop damage limits.';
-    const disclaimer = hi
-      ? 'यह नियतात्मक मौसम-स्क्रीनिंग सूचकांक है—फसल स्वास्थ्य, उपज या फसल-विशिष्ट कृषि सलाह नहीं। वर्षा-जल अम्लता अलग दिखाई जाती है।'
-      : 'This shared weather-screening index is crop-agnostic: selecting a crop changes advisory context, not the score’s thresholds. It is not crop health, yield, or a crop-specific agronomic recommendation. Measured rainwater acidity is shown separately.';
-    root.innerHTML = `<header><span class="card-kicker">${title}${demo ? ' · SIMULATED' : ''}</span><strong>${esc(cropLabel(crop, language))}</strong></header>
-      <div class="score-layout"><div class="score-ring" style="--score:${score ?? 0}%"><span>${score == null ? '—' : score}<small>/100</small></span></div><div class="score-copy"><strong>${esc(classification)}</strong><span>${esc(summary)}</span><small>${esc(coverage)}</small></div></div>
-      <details class="score-explanation"><summary>${hi ? 'स्कोर कैसे बना?' : 'How this score is calculated'}</summary><p>${esc(note)}</p><ul>${factorRows.map(f => `<li><b>${esc(f.label)}:</b> ${esc(f.status)} · ${esc(f.value)}<small>${esc(f.reason)}</small></li>`).join('')}</ul><small>${esc(weights)}</small></details>
-      <p class="score-disclaimer">${esc(disclaimer)}</p>`;
+    const select=root.querySelector('#suitability-crop-select');
+    if(select){select.value=crop||'';select.addEventListener('change',()=>onCropSelect?.(select.value||null));}
   }
 
-  function renderAciditySummary(root, records, language, demo) {
-    if (!root) return;
-    const latest = records.at(-1), hi = language === 'hi';
-    if (!latest) {
-      root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल अम्लता' : 'Rainwater acidity'}</span><strong class="ph-no-data">${esc(t('acidity.notMeasurable',{},language))}</strong><p>${esc(t('acidity.missingUnknown',{},language))}</p><button class="text-button" data-open-ph-map>${esc(t('ph.openMap',{},language))}</button>`;
-      return;
+  function renderAciditySummary(root, language, live) {
+    if(!root)return;
+    const hi=language==='hi',loc=live.location||{},outlook=live.acidityOutlook||{};
+    const coordMatch=(a,b)=>validAirCoordinates(a?.latitude,a?.longitude)&&validAirCoordinates(b?.latitude,b?.longitude)&&Math.abs(Number(a.latitude)-Number(b.latitude))<0.003&&Math.abs(Number(a.longitude)-Number(b.longitude))<0.003;
+    const modelReady=outlook.status==='ready'&&coordMatch(outlook.requested,loc)&&outlook.data;
+    const frame=modelReady?selectAirQualityFrame(outlook.data,live.weather?.current?.time||''):null;
+    const daily=live.weather?.daily||{},current=live.weather?.current||{};
+    const rain=present(daily.precipitation_sum?.[0])?`${formatNumber(Number(daily.precipitation_sum[0]),{minimumFractionDigits:1,maximumFractionDigits:1},language)} mm${present(daily.precipitation_probability_max?.[0])?` · ${formatNumber(Number(daily.precipitation_probability_max[0]),{},language)}%`:''}`:(hi?'उपलब्ध नहीं':'Unavailable');
+    const pollutant=(key)=>frame&&present(frame.values?.[key])?`${formatNumber(Number(frame.values[key]),{minimumFractionDigits:1,maximumFractionDigits:1},language)} ${outlook.data.units?.[key]||'μg/m³'}`:(hi?'उपलब्ध नहीं':'Unavailable');
+    const humidity=present(current.relative_humidity_2m)?`${formatNumber(Number(current.relative_humidity_2m),{},language)}%`:(hi?'उपलब्ध नहीं':'Unavailable');
+    const windValue=present(current.wind_speed_10m)?`${formatNumber(Number(current.wind_speed_10m),{maximumFractionDigits:1},language)} ${live.weather?.current_units?.wind_speed_10m||'km/h'}`:(hi?'उपलब्ध नहीं':'Unavailable');
+    const record=readings.filter(r=>r?.recordType!=='simulated'&&present(r.value)&&r.date&&((loc.farmId&&r.farmId===loc.farmId)||(!r.farmId&&coordMatch(r,loc)))).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
+    let concern=hi?'अपर्याप्त डेटा':'Insufficient data',concernClass='insufficient',measuredNote='';
+    if(record){
+      const band=acidity.classifyPH(record.value).band;
+      const key=band==='near-natural'?'outlook.low':band==='slightly-acidic'?'outlook.moderate':band==='low-ph'||band==='very-low-ph'?'outlook.elevated':'outlook.insufficient';
+      concern=t(key,{},language);concernClass=key.split('.').at(-1);
+      measuredNote=`<p class="outlook-measured">${esc(t('outlook.measuredSample',{value:formatNumber(Number(record.value),{minimumFractionDigits:1,maximumFractionDigits:1},language),date:formatDate(`${record.date}T12:00:00Z`,{day:'numeric',month:'short',year:'numeric'},language)},language))}</p>`;
     }
-    const c = acidity.classifyPH(latest.value);
-    const bandLabel=t(`ph.band.${c.band}`,{},language),note=t(`ph.note.${c.band}`,{},language);
-    root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल pH निगरानी' : 'Rainwater pH monitoring'}${demo ? ` · ${esc(t('demo.simulated',{},language))}` : ''}</span><div class="ph-latest" style="--ph-color:${c.color}"><strong>${formatNumber(Number(latest.value),{minimumFractionDigits:1,maximumFractionDigits:1},language)}</strong><span>pH</span></div><b>${esc(bandLabel)}</b><p>${esc(latest.location || latest.source || (hi?'उपयोगकर्ता द्वारा दर्ज':'User-recorded'))} · ${esc(latest.date)} · ${esc(latest.source || latest.method || (hi?'उपयोगकर्ता द्वारा दर्ज':'User-recorded'))}</p><small>${esc(note)} ${esc(t('ph.notSoilOrDamage',{},language))}</small><button class="text-button" data-open-ph-map>${esc(t('ph.viewMap',{},language))}</button>`;
+    const loading=outlook.status==='loading';
+    const updated=modelReady?formatDate(new Date(outlook.updatedAt||outlook.data.fetchedAt||Date.now()),{day:'numeric',month:'short',hour:'numeric',minute:'2-digit'},language):(hi?'उपलब्ध नहीं':'Unavailable');
+    const source=modelReady?`${esc(outlook.data.source||'Open-Meteo Air Quality API')} · Open-Meteo Weather API`:'Open-Meteo Weather & Air Quality APIs';
+    root.innerHTML=`<header class="outlook-header"><span class="card-kicker">${esc(t('outlook.title',{},language))}</span><span class="outlook-pill ${concernClass}">${esc(t('outlook.concern',{},language))}: <b>${esc(concern)}</b></span></header><p class="outlook-location"><b>${esc(t('outlook.location',{},language))}:</b> ${esc(loc.name|| (hi?'चयनित स्थान':'Selected location'))}</p>${loading?`<p class="outlook-loading" role="status">${esc(t('outlook.loading',{},language))}</p>`:''}${measuredNote}<div class="outlook-metrics"><div><span>${esc(t('outlook.rainfall',{},language))}</span><b>${esc(rain)}</b></div><div><span>SO₂</span><b>${esc(pollutant('sulphur_dioxide'))}</b></div><div><span>NO₂</span><b>${esc(pollutant('nitrogen_dioxide'))}</b></div><div><span>${esc(t('outlook.humidity',{},language))}</span><b>${esc(humidity)}</b></div><div><span>${esc(t('outlook.wind',{},language))}</span><b>${esc(windValue)}</b></div></div><p class="outlook-explanation">${esc(record?t('outlook.measuredExplain',{},language):t('outlook.insufficientExplain',{},language))}</p><p class="outlook-advice">${esc(t('outlook.advice',{},language))}</p><small class="outlook-provenance"><b>${esc(t('outlook.source',{},language))}:</b> ${source}<br>${esc(t('outlook.updated',{},language))}: ${esc(updated)}${frame?` · ${esc(frame.time)}`:''}</small><button type="button" class="text-button outlook-record-button" data-record-ph>${esc(t('outlook.record',{},language))}</button>`;
+    root.dataset.concern=concernClass;
   }
 
   function renderEnvironmentalSummary() {
@@ -164,7 +170,7 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     const live=getState(),farm=farms.getActiveFarm(doc),hi=live.prefs?.language==='hi',language=hi?'hi':'en';
     if(!farm||!validAirCoordinates(farm.latitude,farm.longitude)){root.hidden=true;return;}
     root.hidden=false;
-    const env=live.environment,request=env?.requested;
+    const env=live.acidityOutlook?.status&&live.acidityOutlook.status!=='idle'?live.acidityOutlook:live.environment,request=env?.requested;
     const matches=validAirCoordinates(request?.latitude,request?.longitude)&&Math.abs(Number(request.latitude)-Number(farm.latitude))<0.003&&Math.abs(Number(request.longitude)-Number(farm.longitude))<0.003;
     const openButton=`<button type="button" class="text-button" data-open-farm-atmosphere>${hi?'इस खेत की वायुमंडलीय निगरानी खोलें':'Open atmosphere for this farm'}</button>`;
     if(!matches||!env||env.status==='idle'){
@@ -197,10 +203,10 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     if (!days.length) { root.innerHTML = `<span class="card-kicker">${hi ? 'सात-दिवसीय फसल जोखिम' : 'Seven-day crop risk'}</span><p>${hi ? 'पूर्वानुमान उपलब्ध नहीं।' : 'Seven-day forecast unavailable; no risk is fabricated.'}</p>`; return; }
     const highest = days.reduce((best, d) => ({ UNKNOWN: 0, LOW: 1, MODERATE: 2, HIGH: 3, SEVERE: 4 }[d.risk] > ({ UNKNOWN: 0, LOW: 1, MODERATE: 2, HIGH: 3, SEVERE: 4 }[best.risk]) ? d : best), days[0]);
     const highestText = hi ? ({LOW:'कम',MODERATE:'मध्यम',HIGH:'उच्च',SEVERE:'गंभीर',UNKNOWN:'अज्ञात'}[highest.risk]) : highest.risk;
-    const highestDate = new Date(`${highest.date}T12:00:00Z`).toLocaleDateString(hi ? 'hi-IN' : 'en-US', { weekday:'short', day:'numeric', month:'short', timeZone:'UTC' });
+    const highestDate = new Date(`${highest.date}T12:00:00Z`).toLocaleDateString(hi ? 'hi-IN-u-nu-latn' : 'en-US', { weekday:'short', day:'numeric', month:'short', timeZone:'UTC' });
     const daily = weather.daily;
     const dayCards = days.map(day => {
-      const i = day.index, date = new Date(`${day.date}T12:00:00Z`).toLocaleDateString(language === 'hi' ? 'hi-IN' : 'en-US', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+      const i = day.index, date = new Date(`${day.date}T12:00:00Z`).toLocaleDateString(language === 'hi' ? 'hi-IN-u-nu-latn' : 'en-US', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
       const high = daily.temperature_2m_max?.[i], low = daily.temperature_2m_min?.[i], rain = daily.precipitation_sum?.[i], gust = daily.wind_gusts_10m_max?.[i];
       const riskText = hi ? ({LOW:'कम',MODERATE:'मध्यम',HIGH:'उच्च',SEVERE:'गंभीर',UNKNOWN:'अज्ञात'}[day.risk]) : day.risk;
       const prefs = getState().prefs || {};
@@ -219,24 +225,32 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     const live = getState(), language = live.prefs?.language || 'en', farm = farms.getActiveFarm(doc);
     const demo = live.demo ? makeDemoState(live.demo, live, live.weather?.current?.time ? new Date(live.weather.current.time) : new Date()) : null;
     const state = demo ? { ...live, weather: demo.weather, location: { ...live.location, ...demo.location } } : live;
-    const crop = demo?.crop || farm?.crop || null;
+    const crop = demo?.crop || (farm ? farm.crop : temporaryCropSelection);
     const summary = $('farm-summary-line'), actions = $('farm-actions');
     if (summary) summary.textContent = farm
-      ? `${farm.name} · ${cropLabel(crop, language)} · ${farm.placeLabel || `${farm.latitude.toFixed(3)}, ${farm.longitude.toFixed(3)}`}${demo ? ' · DEMO / SIMULATED DATA' : ''}`
-      : `${demo ? `DEMO / SIMULATED DATA · ${cropLabel(crop, language)} · ` : ''}${live.location.name} · ${crop ? cropLabel(crop, language) : 'No crop selected; add a farm to get crop-specific guidance.'}`;
+      ? t('farm.summaryActive',{farm:farm.name,crop:crop?cropLabel(crop,language):t('crop.noCrop',{},language),place:farm.placeLabel||`${formatNumber(farm.latitude,{maximumFractionDigits:3},language)}, ${formatNumber(farm.longitude,{maximumFractionDigits:3},language)}`},language)
+      : crop?t('crop.summaryTemporary',{location:live.location.name,crop:cropLabel(crop,language)},language):t('crop.summaryNone',{location:live.location.name},language);
     const assessment = buildAgriculturalAlerts(state, { crop, stage: farm?.stage, readings, demo, language });
     if (actions) {
       if (!state.weather) actions.innerHTML = `<div class="empty-state">${icon('cloud-off')}<p>${language === 'hi' ? 'पूर्वानुमान उपलब्ध नहीं। जोखिम की गणना नहीं की जा सकती।' : 'Forecast unavailable. No agricultural weather risk is calculated.'}</p></div>`;
       else renderAlerts(actions, assessment.alerts, assessment.notes, language);
     }
-    renderSuitability($('suitability-card'), assessment.suitability, crop, language, demo);
-    renderAciditySummary($('acidity-summary-card'), contextPHRecords(live, demo), language, demo);
+    renderSuitability($('suitability-card'), assessment.suitability, crop, language, demo, selected => {
+      if(farm){
+        if(farm.crop===selected)return;
+        const outcome=farms.updateFarm(doc,farm.id,{crop:selected});
+        if(outcome.error){toast(outcome.error);return;}
+        doc=outcome.doc;persist();onFarmChange(farms.getActiveFarm(doc));
+        toast(t('crop.savedToFarm',{crop:selected?cropLabel(selected,language):t('crop.noCrop',{},language)},language));
+      }else{
+        temporaryCropSelection=selected;
+        toast(t('crop.temporarySelected',{crop:selected?cropLabel(selected,language):t('crop.noCrop',{},language)},language));
+      }
+      renderAll();
+    });
+    renderAciditySummary($('acidity-summary-card'), language, live);
     renderWeek($('week-risk-card'), assessment.days, state.weather, language, demo);
     renderEnvironmentalSummary();
-    renderAcidityIntelligence($('rain-acidity-intelligence'), {
-      location: live.location, farm, crop, readings, environment: live.environment, weather: live.weather,
-      demo: demo ? { ...demo, crop } : null
-    }, language);
     const controls = $('demo-controls');
     if (controls) {
       const select = $('demo-scenario'); if (select && live.demo) select.value = live.demo;
@@ -365,6 +379,7 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     document.querySelectorAll('[data-demo-key]').forEach(button => button.addEventListener('click', () => startDemo(button.dataset.demoKey)));
     $('demo-exit')?.addEventListener('click', () => { onDemoChange(null); renderAll(); toast('Demo ended. Live weather and saved records are restored.'); });
     $('acidity-details')?.addEventListener('toggle', () => setTimeout(() => phChart?.resize(), 40));
+    $('acidity-summary-card')?.addEventListener('click',event=>{if(event.target.closest('[data-record-ph]'))document.dispatchEvent(new CustomEvent('weathergpt:record-ph'));});
   }
 
   function renderAll() {

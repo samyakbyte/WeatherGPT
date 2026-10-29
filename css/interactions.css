@@ -1003,3 +1003,31 @@ html[lang="hi"] body { font-family:'DM Sans','Noto Sans Devanagari',sans-serif; 
   .global-language-picker { min-height:33px; padding:0 5px; gap:2px; }
   .global-language-picker select { min-width:66px; max-width:80px; font-size:9px; }
 }
+
+/* Compact presentation-ready farm overview and live acidity outlook. */
+.agri-overview-grid { align-items:start; grid-auto-rows:min-content; }
+.agri-overview-grid > section { align-self:start; height:auto; min-height:0; padding:14px; }
+.suitability-crop-picker { display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:8px; margin:2px 0 8px; }
+.suitability-crop-picker > span { color:#536858; font-size:10px; font-weight:700; }
+.suitability-crop-picker select { width:100%; min-width:0; min-height:38px; padding:6px 9px; border:1px solid #cfdccf; border-radius:7px; background:#fff; color:#31463a; font:inherit; font-size:11px; }
+.suitability-card .score-prompt,.suitability-card .score-temporary-note { display:block; margin:5px 0; color:#718074; font-size:10px; line-height:1.55; }
+.suitability-card .score-ring { width:58px; height:58px; }
+.suitability-card .score-layout { gap:9px; padding:4px 0 6px; }
+.outlook-header { display:grid; gap:6px; margin-bottom:5px; }
+.outlook-pill { width:max-content; max-width:100%; padding:4px 8px; border-radius:999px; background:#f2f0e7; color:#61624f; font-size:9px; line-height:1.4; }
+.outlook-pill.low { background:#eaf3eb; color:#3c6747; }
+.outlook-pill.moderate { background:#f8f0dd; color:#80642b; }
+.outlook-pill.elevated { background:#f8e9e3; color:#974d37; }
+.outlook-pill.insufficient { background:#edf0ed; color:#5e6b60; }
+.outlook-location,.outlook-explanation,.outlook-advice,.outlook-measured,.outlook-loading { margin:6px 0; color:#5f7063; font-size:10px; line-height:1.55; }
+.outlook-loading { color:#31704d; }
+.outlook-metrics { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; margin:8px 0; }
+.outlook-metrics > div { display:grid; gap:3px; min-width:0; padding:7px; border:1px solid #edf1eb; border-radius:6px; background:#fbfcfa; }
+.outlook-metrics span { color:#7a887c; font-size:8px; }
+.outlook-metrics b { color:#365942; font-size:10px; font-variant-numeric:tabular-nums; overflow-wrap:anywhere; }
+.outlook-explanation { color:#4e6253; }
+.outlook-advice { padding-left:8px; border-left:2px solid #8eb99a; }
+.outlook-provenance { display:block; margin-top:7px; padding-top:6px; border-top:1px solid #edf1eb; color:#7a887c; font-size:8px; line-height:1.5; overflow-wrap:anywhere; }
+@media(max-width:950px) { .agri-overview-grid > section { min-height:0; } }
+@media(max-width:700px) { .suitability-crop-picker { grid-template-columns:1fr; gap:4px; } }
+.outlook-record-button { min-height:34px; margin-top:7px; padding:5px 8px; border:1px solid #d8e5d9; border-radius:6px; color:#347653; font-size:9px; }

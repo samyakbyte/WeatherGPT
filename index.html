@@ -49,7 +49,6 @@
 
     <main id="main-content" class="main-content" tabindex="-1">
       <header class="page-heading"><div><div class="eyebrow"><span class="status-dot"></span> YOUR DAILY WEATHER, IN FOCUS</div><h1 id="page-title">A clearer view of your day<span>.</span></h1><p id="page-subtitle">Local conditions. Global perspective. A little more certainty.</p></div><div class="date-block"><i data-icon="calendar"></i><span id="today-date"></span><small id="local-time">Times in selected location</small></div></header>
-      <div id="demo-banner" class="demo-banner" role="status" aria-live="polite" hidden></div>
       <div id="weather-error" class="inline-error" role="alert" hidden><i data-icon="cloud-off"></i><span></span><button id="retry-weather">Try again</button></div>
 
       <section id="current-section" class="current-weather" aria-label="Current weather">
@@ -60,15 +59,14 @@
 
       <section id="farm-dashboard" class="farm-dashboard panel" aria-label="Active farm and next 72 hours">
         <header class="section-heading"><div><h2>Your farm, next 72 hours</h2><p id="farm-summary-line">No farm selected. Add one in Saved locations to see crop-specific guidance.</p></div><a href="#locations" id="farm-manage-link">Manage farms <i data-icon="arrow-right"></i></a></header>
-        <section id="rain-acidity-intelligence" class="rain-acidity-intelligence" aria-live="polite" aria-label="Rainwater Acidity Intelligence"></section>
         <div id="farm-actions" class="farm-actions" aria-live="polite"><p class="muted-note">Weather risks and recommended actions appear here once a farm is active and its forecast loads.</p></div>
         <div class="agri-overview-grid">
           <section id="suitability-card" class="suitability-card" aria-label="Crop weather screening score"></section>
-          <section id="acidity-summary-card" class="acidity-summary-card" aria-label="Rainwater pH monitoring summary"></section>
+          <section id="acidity-summary-card" class="acidity-summary-card" aria-live="polite" aria-label="Rainwater acidity outlook"></section>
           <section id="week-risk-card" class="week-risk-card" aria-label="Seven-day agricultural risk"></section>
         </div>
         <section id="farm-environment-summary" class="farm-environment-summary" aria-live="polite" hidden></section>
-        <details id="demo-controls" class="demo-controls"><summary>Presentation demo <span>SIMULATION, never live data</span></summary><div class="demo-controls-body"><div class="demo-quick-picks" role="group" aria-label="Start a simulated crop scenario"><button type="button" class="demo-scenario-button" data-demo-key="acid-rain">Acid rain · pH 4.2 / French Beans</button><button type="button" class="demo-scenario-button" data-demo-key="extreme-heat">44°C heat / Tomato</button><button type="button" class="demo-scenario-button" data-demo-key="heavy-rain">Heavy rain / Wheat</button><button type="button" class="demo-scenario-button" data-demo-key="normal">Normal conditions</button></div><label for="demo-scenario">Choose scenario</label><select id="demo-scenario"><option value="acid-rain">Acid Rain · pH 4.2 / French Beans</option><option value="extreme-heat">Extreme Heat · 44°C / Tomato</option><option value="heavy-rain">Heavy Rainfall / Wheat</option><option value="normal">Normal Conditions</option></select><button id="demo-start" class="text-button">Start / switch scenario</button><button id="demo-exit" class="text-button" hidden>Return to live conditions</button></div><p>Simulated forecasts and pH are isolated in memory, visibly labelled, and never saved as real observations or farm data.</p></details>
+
         <div class="farm-secondary-row">
           <details class="provenance-details"><summary>Data provenance &amp; resolution <i data-icon="chevron-down"></i></summary><div id="provenance-content">Load a forecast to see the source, coordinates and model-grid details.</div></details>
           <details id="acidity-details" class="acidity-details"><summary>Rainwater acidity <i data-icon="chevron-down"></i></summary><div id="acidity-content"><p>Rainwater acidity data unavailable for this location.</p></div></details>

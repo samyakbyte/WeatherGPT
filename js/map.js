@@ -56,6 +56,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       showPinConfirm();
     });
     showPinConfirm();
+    onSelect({...pinPoint},true);
   });
   function showPinConfirm(){
     const panel=$('map-pin-confirm');if(!panel||!pinPoint)return;
@@ -427,7 +428,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     if(!legend)return;
     $('map-legend').innerHTML=`<div class="legend-title"><span>${escapeHTML(legend.title)}</span><span>${escapeHTML(legend.unit)}</span></div><div class="legend-scale" style="background:linear-gradient(90deg,${legend.colors})"></div><div class="legend-values">${legend.values.map(v=>`<span>${escapeHTML(v)}</span>`).join('')}</div><div class="legend-note">${escapeHTML(legend.note)}</div>`;
   }
-  function radarTime(f){return new Date(f.time*1000).toLocaleTimeString(getState().prefs?.language==='hi'?'hi-IN-u-nu-deva':'en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'});}
+  function radarTime(f){return new Date(f.time*1000).toLocaleTimeString(getState().prefs?.language==='hi'?'hi-IN-u-nu-latn':'en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'});}
   function updateTimeline(){
     const ready=activeLayer==='radar'&&radarData?.frames?.length;
     $('radar-timeline').disabled=!ready;
@@ -464,7 +465,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     $('radar-timeline').value=radarIndex;
     $('timeline-current').textContent=`${radarTime(frame)} UTC`;
     const language=getState().prefs?.language==='hi'?'hi':'en';
-    const date=new Intl.DateTimeFormat(language==='hi'?'hi-IN-u-nu-deva':'en-GB',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(frame.time*1000));
+    const date=new Intl.DateTimeFormat(language==='hi'?'hi-IN-u-nu-latn':'en-GB',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(frame.time*1000));
     $('map-data-label').textContent=`${t(frame.future?'map.radar.nowcast':'map.radar.past',{},language)} · ${date} ${radarTime(frame)} UTC`;
   }
   function togglePlay(){

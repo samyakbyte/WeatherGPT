@@ -81,12 +81,12 @@ async function main() {
     const url = route.request().url();
     if (url.includes('air-quality-api.open-meteo.com/v1/air-quality')) {
       airQualityRequests.push(url);
-      if (airQualityRequests.length === 2) {
+      if (airQualityRequests.length === 3) {
         const empty = buildAirQuality();
         for (const key of ['sulphur_dioxide', 'nitrogen_dioxide', 'pm2_5', 'pm10', 'ozone']) empty.hourly[key] = empty.hourly.time.map(() => null);
         return route.fulfill(json(empty));
       }
-      if (airQualityRequests.length === 4) return route.fulfill({ status: 429, headers: { 'retry-after': '2' }, contentType: 'application/json', body: JSON.stringify({ reason: 'fixture rate limit' }) });
+      if (airQualityRequests.length === 5) return route.fulfill({ status: 429, headers: { 'retry-after': '2' }, contentType: 'application/json', body: JSON.stringify({ reason: 'fixture rate limit' }) });
       return route.fulfill(json(buildAirQuality()));
     }
     if (url.includes('api.open-meteo.com/v1/forecast')) return route.fulfill(json(buildForecast()));
@@ -106,6 +106,15 @@ async function main() {
   await page.goto(base + '/index.html', { waitUntil: 'load' });
   await page.waitForSelector('.hour-item', { timeout: 20000 }).catch(() => {});
   await page.waitForTimeout(600);
+
+  // ── Automatic location context and crop selection ──
+  await page.waitForFunction(() => (document.querySelector('#acidity-summary-card')?.textContent||'').includes('2.0 μg/m³'), null, { timeout: 12000 });
+  check((await page.locator('#acidity-summary-card').textContent()||'').includes('Rainwater Acidity Outlook')&&(await page.locator('#acidity-summary-card').textContent()||'').includes('Insufficient data'), 'automatic acidity outlook shows model context without fabricating a pH');
+  check(await page.locator('#suitability-crop-select option').count()===12, 'crop selector lists placeholder plus all 11 supported crops');
+  await page.locator('#suitability-crop-select').selectOption('wheat');
+  check((await page.locator('#suitability-card').textContent()||'').includes('Wheat')&&(await page.locator('#suitability-card .score-layout').count()===1), 'crop selection immediately calculates suitability without farm registration');
+  check(await page.evaluate(()=>!localStorage.getItem('weathergpt.farms.v2')), 'temporary crop choice does not create or overwrite saved farm data');
+  check(await page.locator('#demo-controls, #demo-banner, [data-demo-key], #demo-scenario').count()===0, 'presentation demo UI is absent');
 
   // ── Existing workspace features (no regressions) ──
   check((await page.locator('#current-temperature').textContent() || '').includes('29'), 'current conditions render from forecast');
@@ -174,7 +183,7 @@ async function main() {
   await page.locator('#more-layers').selectOption('atmosphere');
   await page.waitForFunction(() => document.querySelector('#environment-content')?.textContent.includes('Open-Meteo Air Quality API'), null, { timeout: 10000 });
   const environmentText = await page.locator('#environment-content').textContent() || '';
-  check(airQualityRequests.length === 1, 'atmospheric layer issues one bounded provider request');
+  check(airQualityRequests.length === 2, 'automatic acidity outlook fetches once per page and atmospheric monitoring reuses its cached response');
   const airURL = new URL(airQualityRequests[0]);
   check(airURL.searchParams.get('forecast_days') === '2' && airURL.searchParams.get('timezone') === 'auto' && airURL.searchParams.get('hourly').includes('sulphur_dioxide,nitrogen_dioxide,pm2_5,pm10,ozone'), 'browser integration sends only documented, bounded Air Quality API parameters');
   check(environmentText.includes('2.0 μg/m³') && environmentText.includes('8.0 μg/m³') && environmentText.includes('18.0 μg/m³') && environmentText.includes('28.0 μg/m³') && environmentText.includes('38.0 μg/m³'), 'SO₂, NO₂, PM2.5, PM10 and ozone model values render with provider units');
@@ -186,13 +195,13 @@ async function main() {
   check((await page.locator('#environment-content').textContent() || '').includes('No measured rainwater pH records for this area.'), 'missing pH records do not suppress atmospheric values and have a clear empty state');
   await page.locator('#more-layers').selectOption('atmosphere');
   await page.waitForFunction(() => document.querySelector('#environment-content')?.textContent.includes('Open-Meteo Air Quality API'), null, { timeout: 10000 });
-  check(airQualityRequests.length === 1, 'switching environmental layers reuses the successful cached provider response');
+  check(airQualityRequests.length === 2, 'switching environmental layers reuses the successful cached provider response');
   await page.locator('#environment-refresh').click();
   await page.waitForSelector('#environment-content .env-no-data', { timeout: 10000 });
   check((await page.locator('#environment-content').textContent() || '').includes('No pollutant values are available') && (await page.locator('#environment-content').textContent() || '').includes('Unavailable'), 'valid provider response with null pollutant arrays renders an explicit no-data state, not zero');
   await page.locator('#environment-refresh').click();
   await page.waitForFunction(() => (document.querySelector('#environment-content')?.textContent || '').includes('18.0 μg/m³'), null, { timeout: 10000 });
-  check(airQualityRequests.length === 3, 'manual refresh bypasses the cached response and can recover from a provider no-data frame');
+  check(airQualityRequests.length === 4, 'manual refresh bypasses the cached response and can recover from a provider no-data frame');
   await page.evaluate(() => { location.hash = 'overview'; });
   await page.waitForTimeout(250);
   const farmEnvironmentText = await page.locator('#farm-environment-summary').textContent() || '';
@@ -213,41 +222,27 @@ async function main() {
   await page.waitForTimeout(250);
   await page.locator('#environment-refresh').click();
   await page.waitForFunction(() => (document.querySelector('#environment-content')?.textContent || '').includes('service is busy'), null, { timeout: 10000 });
-  check((await page.locator('#environment-content [data-retry-atmosphere]').isDisabled()) && airQualityRequests.length === 4, 'HTTP 429 presents a cooldown and prevents immediate repeated retries');
+  check((await page.locator('#environment-content [data-retry-atmosphere]').isDisabled()) && airQualityRequests.length === 5, 'HTTP 429 presents a cooldown and prevents immediate repeated retries');
+  await page.locator('#weather-map').scrollIntoViewIfNeeded();
+  const priorMapLocation=(await page.locator('#location-name').textContent()||'').trim();
+  const clickMap=await page.locator('#weather-map').boundingBox();
+  await page.mouse.click(clickMap.x+clickMap.width*.30,clickMap.y+clickMap.height*.72);
+  await page.waitForFunction(previous=>(document.querySelector('#location-name')?.textContent||'').trim()!==previous,priorMapLocation,{timeout:8000});
+  await page.waitForFunction(()=>(document.querySelector('#acidity-summary-card')?.textContent||'').includes('2.0 μg/m³'),null,{timeout:12000});
+  check((await page.locator('#acidity-summary-card').textContent()||'').includes((await page.locator('#location-name').textContent()||'').trim()), 'map click immediately selects a location and auto-refreshes its acidity outlook');
 
-  // ── Agricultural intelligence: transient demo fixtures + pH layer ──
-  await page.evaluate(() => { location.hash = 'overview'; });
-  await page.waitForTimeout(200);
-  const liveTemperature = (await page.locator('#current-temperature').textContent() || '').trim();
-  await page.locator('#demo-controls > summary').click();
-  await page.locator('[data-demo-key="acid-rain"]').click();
-  check(!(await page.locator('#demo-banner').isHidden()) && (await page.locator('#demo-banner').textContent() || '').includes('DEMO / SIMULATED DATA'), 'acid-rain demo is unmistakably labelled');
-  check((await page.locator('#farm-summary-line').textContent() || '').includes('French Beans'), 'acid-rain demo selects the requested French Beans crop');
-  check((await page.locator('#farm-actions').textContent() || '').includes('4.2'), 'synthetic pH 4.2 appears as an agricultural monitoring alert');
-  check(await page.locator('#rain-acidity-intelligence').getAttribute('data-reliability') === 'demonstration' && (await page.locator('#rain-acidity-intelligence').textContent() || '').includes('synthetic demonstration data'), 'acidity intelligence distinguishes synthetic demo pH from measurements');
-  check((await page.locator('#provenance-content').textContent() || '').includes('locally generated'), 'demo provenance explicitly names synthetic local generation rather than live sources');
-  check((await page.locator('#current-temperature').textContent() || '').trim() === liveTemperature, 'demo does not replace or mutate live weather');
-  check(await page.evaluate(() => localStorage.getItem('weathergpt.rain-ph.v1')) === null, 'synthetic pH is not written to user-recorded storage');
-  await page.locator('#more-layers').selectOption('acidity');
-  check((await page.locator('#map-data-label').textContent() || '').includes('simulated demo point'), 'acid-rain layer maps its explicitly simulated pH point');
-  check((await page.locator('#map-mode-label').textContent() || '').includes('DEMO'), 'pH map header replaces the generic LIVE badge with demo provenance');
-  await page.locator('#demo-banner-exit').click();
-  check(await page.locator('#demo-banner').isHidden(), 'return-to-live action exits demo mode');
-  check((await page.locator('#map-mode-label').textContent() || '') === 'USER RECORDS', 'pH layer remains clearly marked as records, not live data, after demo exit');
-  check(!(await page.locator('#farm-actions').textContent() || '').includes('pH 4.2'), 'exiting demo removes simulated pH alert from live dashboard');
-  check(await page.evaluate(() => localStorage.getItem('weathergpt.rain-ph.v1')) === null, 'exiting demo leaves pH history untouched');
-  for (const [key, cropName, evidence] of [['extreme-heat', 'Tomato', '44°C'], ['heavy-rain', 'Wheat', '75.0 mm'], ['normal', 'French Beans', 'SIMULATED']]) {
-    await page.locator(`[data-demo-key="${key}"]`).click();
-    check((await page.locator('#farm-summary-line').textContent() || '').includes(cropName), `${key} demo selects ${cropName}`);
-    check((await page.locator('#week-risk-card').textContent() || '').includes(evidence), `${key} demo renders its synthetic weather evidence`);
-    await page.locator('#demo-banner-exit').click();
-  }
+  // Presentation/demo controls are intentionally removed from the product UI.
+  check(await page.locator('#demo-controls, #demo-banner, [data-demo-key], #demo-scenario').count()===0, 'presentation demo controls and simulation banners are absent from the homepage');
+  await page.evaluate(()=>{location.hash='locations';});await page.waitForTimeout(200);
+  await page.locator('#farms-list [data-farm-activate]').first().click();await page.waitForTimeout(300);
+  await page.evaluate(()=>{location.hash='overview';});await page.waitForTimeout(200);
   await page.locator('#acidity-details > summary').click();
   await page.locator('#ph-value').fill('4.7');
   await page.locator('#ph-date').fill('2026-10-29');
   await page.locator('#ph-source').fill('browser test strip');
   await page.locator('#ph-reading-form').dispatchEvent('submit');
   check((await page.locator('#acidity-content').textContent() || '').includes('4.7'), 'user pH measurement is saved and appears in history');
+  check((await page.locator('#acidity-summary-card').textContent()||'').includes('Elevated')&&(await page.locator('#acidity-summary-card').textContent()||'').includes('user-recorded sample'), 'outlook labels measured pH evidence separately from atmospheric model context');
   check((await page.evaluate(() => JSON.parse(localStorage.getItem('weathergpt.rain-ph.v1') || '[]')[0]?.recordType)) === 'user-recorded', 'saved observation provenance is user-recorded');
   await page.locator('#more-layers').selectOption('acidity');
   check((await page.locator('#map-data-label').textContent() || '').includes('1 geolocated user reading'), 'user pH history refreshes the map marker');
@@ -277,6 +272,11 @@ async function main() {
   const cropText = (await crop.textContent() || '');
   check(/Sourced|General precaution|No configured forecast hazard/.test(cropText), 'crop advisory labels sourced/general guidance, or honestly reports no hazard');
   check(/does not show heavy rain|matches the forecast/.test(cropText), 'crop advisory verifies the heavy-rain claim against the forecast');
+  await page.evaluate(()=>{location.hash='overview';});await page.waitForTimeout(200);
+  await page.locator('#suitability-crop-select').selectOption('tomato');
+  const persistedFarm=await page.evaluate(()=>JSON.parse(localStorage.getItem('weathergpt.farms.v2')||'{}').farms?.[0]);
+  check(persistedFarm?.crop==='tomato'&&persistedFarm?.name==='Test field'&&(await page.locator('#active-farm-card').textContent()||'').includes('Tomato'), 'explicit crop selection synchronizes only the crop field on the active farm');
+  await page.evaluate(()=>{location.hash='assistant';});await page.waitForTimeout(200);
   await page.locator('#assistant-language').selectOption('hi');
   const farmHindi = await page.locator('#farm-dashboard').textContent() || '';
   check(farmHindi.includes('साझा मौसम अनुकूलता स्क्रीन') && farmHindi.includes('तापमान'), 'agricultural score and factor explanations localize in Hindi');
@@ -292,6 +292,8 @@ async function main() {
   const unresolvedTranslations=await page.evaluate(async()=>{const i=await import('./js/i18n.js');return i.unresolvedStaticBindings(document)});
   check(unresolvedTranslations.length===0, `every centralized static translation selector maps to the page${unresolvedTranslations.length?`: ${unresolvedTranslations.join(', ')}`:''}`);
   check((await page.locator('#current-condition').textContent()||'').includes('बारिश') && (await page.locator('#assistant-language').inputValue())==='hi', 'global language change updates dynamic weather and assistant controls');
+  const hindiNumericText=(await page.locator('#current-temperature').textContent()||'')+(await page.locator('#acidity-summary-card').textContent()||'');
+  check(/[0-9]/.test(hindiNumericText)&&!/[०-९]/.test(hindiNumericText), 'Hindi weather and acidity values use Latin digits');
   check((await page.evaluate(()=>localStorage.getItem('weathergpt.preferences'))||'').includes('"language":"hi"') && await page.evaluate(()=>performance.timeOrigin)===languageEpoch, 'Hindi preference persists locally without reloading the app');
   await page.evaluate(() => { location.hash = 'map'; });
   await page.waitForTimeout(150);
