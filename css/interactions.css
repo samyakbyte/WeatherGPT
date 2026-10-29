@@ -1033,3 +1033,23 @@ html[lang="hi"] body { font-family:'DM Sans','Noto Sans Devanagari',sans-serif; 
 .outlook-record-button { min-height:34px; margin-top:7px; padding:5px 8px; border:1px solid #d8e5d9; border-radius:6px; color:#347653; font-size:9px; }
 .outlook-pill.context { background:#eaf1f5; color:#385b70; }
 .outlook-pill.weather-only,.outlook-pill.updating { background:#edf0ed; color:#5e6b60; }
+.outlook-reference { margin:7px 0 5px; padding:7px 8px; border:1px solid #e2e9d8; border-radius:7px; background:#f7faf3; }
+.outlook-reference strong { display:block; color:#355b40; font-size:10px; line-height:1.4; }
+.outlook-reference p { margin:3px 0 0; color:#647366; font-size:8px; line-height:1.45; }
+.outlook-measured-card { display:grid; grid-template-columns:1fr auto; align-items:center; gap:2px 8px; margin:7px 0; padding:7px 9px; border:1px solid #cfe1d2; border-radius:7px; background:#edf6ed; }
+.outlook-measured-card span { color:#386b47; font-size:9px; font-weight:700; }
+.outlook-measured-card strong { grid-column:2; grid-row:1 / span 2; color:#285638; font-size:19px; font-variant-numeric:tabular-nums; }
+.outlook-measured-card small,.outlook-measured-card b { color:#6d7e6e; font-size:8px; line-height:1.4; }
+.outlook-measured-card b { grid-column:1 / -1; font-weight:600; }
+.outlook-scale { margin:5px 0 7px; }
+.outlook-scale-ends,.outlook-scale-ticks { display:flex; justify-content:space-between; color:#738175; font-size:8px; line-height:1.2; }
+.outlook-ph-track { position:relative; height:22px; margin:5px 0 3px; border:1px solid #e0e6dc; border-radius:999px; background:linear-gradient(90deg,#d66760 0%,#e69b6a 25%,#e5d17e 40%,#b8cd86 56%,#76b184 78%,#4d987b 100%); }
+.outlook-scale-marker { position:absolute; z-index:1; width:2px; height:100%; background:#243a2c; transform:translateX(-50%); }
+.outlook-scale-marker i { position:absolute; left:50%; padding:2px 4px; border-radius:4px; background:#fff; color:#35463a; box-shadow:0 1px 4px #2338; font-size:7px; font-style:normal; font-weight:700; white-space:nowrap; transform:translateX(-50%); }
+.reference-marker { top:0; height:100%; width:0; border-left:2px dashed #253b31; background:transparent; }
+.reference-marker i { top:-7px; }
+.measured-marker { top:0; width:3px; height:100%; background:#225d39; }
+.measured-marker i { top:15px; }
+.outlook-ph-track { margin-top:13px; }
+.reference-marker i { top:-12px; }
+.measured-marker i { top:12px; }

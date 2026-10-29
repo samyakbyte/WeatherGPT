@@ -110,7 +110,7 @@ async function main() {
   // ── Automatic location context and crop selection ──
   await page.waitForFunction(() => (document.querySelector('#acidity-summary-card')?.textContent||'').includes('2.0 μg/m³'), null, { timeout: 12000 });
   const initialOutlook=await page.locator('#acidity-summary-card').textContent()||'';
-  check(initialOutlook.includes('Rainwater Acidity Outlook')&&initialOutlook.includes('Context only — no validated pH estimate')&&initialOutlook.includes('Rainwater pH, sulfate/nitrate')&&!initialOutlook.includes('Insufficient data'), 'automatic acidity outlook presents available model context, names missing chemistry inputs and avoids unsupported pH');
+  check(initialOutlook.includes('Rainwater Acidity Outlook')&&initialOutlook.includes('Context only — concern not classified')&&initialOutlook.includes('Typical natural rainwater: approximately pH 5.6')&&initialOutlook.includes('not a location-specific prediction')&&initialOutlook.includes('Rainwater pH, sulfate/nitrate')&&await page.locator('#acidity-summary-card .outlook-ph-track').count()===1&&!initialOutlook.includes('Insufficient data'), 'automatic acidity outlook presents available model context, names missing chemistry inputs and avoids unsupported pH');
   check(await page.locator('#suitability-crop-select option').count()===12, 'crop selector lists placeholder plus all 11 supported crops');
   await page.locator('#suitability-crop-select').selectOption('wheat');
   check((await page.locator('#suitability-card').textContent()||'').includes('Wheat')&&(await page.locator('#suitability-card .score-layout').count()===1), 'crop selection immediately calculates suitability without farm registration');
@@ -243,7 +243,7 @@ async function main() {
   await page.locator('#ph-source').fill('browser test strip');
   await page.locator('#ph-reading-form').dispatchEvent('submit');
   check((await page.locator('#acidity-content').textContent() || '').includes('4.7'), 'user pH measurement is saved and appears in history');
-  check((await page.locator('#acidity-summary-card').textContent()||'').includes('Elevated')&&(await page.locator('#acidity-summary-card').textContent()||'').includes('user-recorded sample'), 'outlook labels measured pH evidence separately from atmospheric model context');
+  check((await page.locator('#acidity-summary-card').textContent()||'').includes('Measured sample')&&(await page.locator('#acidity-summary-card').textContent()||'').includes('pH 4.7')&&(await page.locator('#acidity-summary-card .outlook-scale-marker.measured-marker').count()===1), 'outlook prominently shows a matching measured sample and marks it on the pH scale');
   check((await page.evaluate(() => JSON.parse(localStorage.getItem('weathergpt.rain-ph.v1') || '[]')[0]?.recordType)) === 'user-recorded', 'saved observation provenance is user-recorded');
   await page.locator('#more-layers').selectOption('acidity');
   check((await page.locator('#map-data-label').textContent() || '').includes('1 geolocated user reading'), 'user pH history refreshes the map marker');
@@ -293,7 +293,9 @@ async function main() {
   const unresolvedTranslations=await page.evaluate(async()=>{const i=await import('./js/i18n.js');return i.unresolvedStaticBindings(document)});
   check(unresolvedTranslations.length===0, `every centralized static translation selector maps to the page${unresolvedTranslations.length?`: ${unresolvedTranslations.join(', ')}`:''}`);
   check((await page.locator('#current-condition').textContent()||'').includes('बारिश') && (await page.locator('#assistant-language').inputValue())==='hi', 'global language change updates dynamic weather and assistant controls');
-  const hindiNumericText=(await page.locator('#current-temperature').textContent()||'')+(await page.locator('#acidity-summary-card').textContent()||'');
+  const hindiOutlookText=await page.locator('#acidity-summary-card').textContent()||'';
+  check(hindiOutlookText.includes('प्राकृतिक वर्षा-जल का सामान्य मान')&&hindiOutlookText.includes('अधिक अम्लीय')&&hindiOutlookText.includes('5.6')&&!/[०-९]/.test(hindiOutlookText), 'Hindi acidity reference and scale are translated and keep Latin digits');
+  const hindiNumericText=(await page.locator('#current-temperature').textContent()||'')+hindiOutlookText;
   check(/[0-9]/.test(hindiNumericText)&&!/[०-९]/.test(hindiNumericText), 'Hindi weather and acidity values use Latin digits');
   check((await page.evaluate(()=>localStorage.getItem('weathergpt.preferences'))||'').includes('"language":"hi"') && await page.evaluate(()=>performance.timeOrigin)===languageEpoch, 'Hindi preference persists locally without reloading the app');
   await page.evaluate(() => { location.hash = 'map'; });

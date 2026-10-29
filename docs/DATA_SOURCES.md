@@ -134,16 +134,9 @@ station's historical pH to a farm would be misleading, and deriving pH from AQI,
 rain probability, temperature or pollution proxies has no validated method and
 is explicitly out of scope.
 
-Therefore the UI shows exactly: **"Rainwater acidity data unavailable for this
-location."** — no number, no placeholder. It links to the IMD monograph and the
-MAUSAM article as research context, and separately offers **user-provided pH
-readings** (value 0–14, date, method, notes), stored only on the device and
-labelled as user-recorded. A record may include value (0–14), date, method,
-source, place, coordinates, farm linkage and notes; older records without
-coordinates remain in history but are not plotted. Rainwater pH, soil pH and
-irrigation-water quality are three separate fields in the data model and in
-assistant answers; the app never recommends soil treatment from a rainwater
-reading.
+The UI never derives or presents a location-specific pH from weather or air-quality data. It shows an educational reference of approximately pH 5.6 for typical natural rainwater; acid rain is commonly defined as precipitation below approximately pH 5.6 ([US EPA: What is acid rain?](https://www.epa.gov/acidrain/what-acid-rain)). This reference is not a prediction or local measurement.
+
+**Atmospheric screening logic:** when SO₂/NO₂ or weather values are available, display them as modeled context only. Do not assign low/moderate/high acidity concern from pollutant thresholds: no validated atmospheric-to-precipitation screening threshold or precipitation-chemistry model is connected. State that rainwater pH, ions (including sulfate/nitrate and ammonium) and neutralizing capacity/alkalinity are not available. When a matching user-recorded sample exists, show its measured value and the visual pH bands defined in `js/acidity.js`; do not present those bands as an atmospheric forecast, crop-damage threshold, or safety determination. Samples are stored only on the device and labelled user-recorded. Rainwater pH, soil pH and irrigation-water quality remain separate fields; the app never recommends soil treatment from a rainwater reading.
 
 ---
 
