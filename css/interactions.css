@@ -1031,3 +1031,5 @@ html[lang="hi"] body { font-family:'DM Sans','Noto Sans Devanagari',sans-serif; 
 @media(max-width:950px) { .agri-overview-grid > section { min-height:0; } }
 @media(max-width:700px) { .suitability-crop-picker { grid-template-columns:1fr; gap:4px; } }
 .outlook-record-button { min-height:34px; margin-top:7px; padding:5px 8px; border:1px solid #d8e5d9; border-radius:6px; color:#347653; font-size:9px; }
+.outlook-pill.context { background:#eaf1f5; color:#385b70; }
+.outlook-pill.weather-only,.outlook-pill.updating { background:#edf0ed; color:#5e6b60; }

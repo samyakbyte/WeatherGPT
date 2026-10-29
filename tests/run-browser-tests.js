@@ -109,7 +109,8 @@ async function main() {
 
   // ── Automatic location context and crop selection ──
   await page.waitForFunction(() => (document.querySelector('#acidity-summary-card')?.textContent||'').includes('2.0 μg/m³'), null, { timeout: 12000 });
-  check((await page.locator('#acidity-summary-card').textContent()||'').includes('Rainwater Acidity Outlook')&&(await page.locator('#acidity-summary-card').textContent()||'').includes('Insufficient data'), 'automatic acidity outlook shows model context without fabricating a pH');
+  const initialOutlook=await page.locator('#acidity-summary-card').textContent()||'';
+  check(initialOutlook.includes('Rainwater Acidity Outlook')&&initialOutlook.includes('Context only — no validated pH estimate')&&initialOutlook.includes('Rainwater pH, sulfate/nitrate')&&!initialOutlook.includes('Insufficient data'), 'automatic acidity outlook presents available model context, names missing chemistry inputs and avoids unsupported pH');
   check(await page.locator('#suitability-crop-select option').count()===12, 'crop selector lists placeholder plus all 11 supported crops');
   await page.locator('#suitability-crop-select').selectOption('wheat');
   check((await page.locator('#suitability-card').textContent()||'').includes('Wheat')&&(await page.locator('#suitability-card .score-layout').count()===1), 'crop selection immediately calculates suitability without farm registration');

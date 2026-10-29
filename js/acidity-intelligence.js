@@ -40,6 +40,8 @@ export function buildAcidityIntelligence({ location, farm = null, crop = null, r
     measurement, demoReading, pollutants, modelTime: frame?.time || '', modelCentre: data?.modelGrid || null,
     source: data?.source || '', rain, crop: crop || farm?.crop || null,
     pHValue: measurement ? Number(measurement.value) : null,
+    // Intentionally null: no validated precipitation-chemistry model supports a numerical pH estimate.
+    // The homepage instead presents the available atmospheric/weather context and its limitations.
     prediction: null,
     hasRainForecast: rain.amount !== null && rain.amount > 0 || rain.probability !== null && rain.probability > 0
   };
