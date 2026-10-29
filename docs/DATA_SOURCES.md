@@ -137,9 +137,12 @@ Therefore the UI shows exactly: **"Rainwater acidity data unavailable for this
 location."** — no number, no placeholder. It links to the IMD monograph and the
 MAUSAM article as research context, and separately offers **user-provided pH
 readings** (value 0–14, date, method, notes), stored only on the device and
-labelled "User-provided". Rainwater pH, soil pH and irrigation-water quality are
-three separate fields in the data model and in assistant answers; the app never
-recommends soil treatment from a rainwater reading.
+labelled as user-recorded. A record may include value (0–14), date, method,
+source, place, coordinates, farm linkage and notes; older records without
+coordinates remain in history but are not plotted. Rainwater pH, soil pH and
+irrigation-water quality are three separate fields in the data model and in
+assistant answers; the app never recommends soil treatment from a rainwater
+reading.
 
 ---
 
@@ -173,3 +176,38 @@ disease from weather.
   not found. Thresholds in `data/hazard-thresholds.js` are **engineering
   defaults for detection**, clearly labelled as configurable and not official
   agronomic thresholds.
+
+---
+
+## 5. Agricultural screening, forecast risk and demonstrations
+
+The dashboard consumes the existing seven-day Open-Meteo model forecast
+documented in §1; it does not add or fabricate live weather. The three-day
+alert/advisory knowledge base described in §4 remains distinct from the
+seven-day view.
+
+`data/hazard-thresholds.js` is the single source for heat, cold, rain, wind,
+humidity and dry-spell screens. These values retain the existing WeatherGPT
+weather-alert defaults where applicable and are engineering detection rules,
+not official IMD warnings or crop-damage thresholds. The dashboard states this
+limitation beside each result. Humidity is a weather-associated disease-pressure
+signal only; the app does not diagnose disease.
+
+The suitability number is a deterministic **shared, crop-agnostic weather
+screen**: temperature 40%, rainfall 30%, gusts 15%, hourly humidity 15%. A
+factor with insufficient/missing input is omitted and the remaining weights
+renormalized; the UI reports available-factor coverage and each factor's value,
+status, and reason. The available data and configured screens are not calibrated
+to crop response curves. Selecting a crop chooses its advisory context, but does
+not change the shared score. It is explicitly not crop health, yield, an
+agronomic recommendation, or proof that conditions are safe. Rainwater pH is
+not a score input; absent pH stays unknown.
+
+Presentation scenarios (`acid-rain` pH 4.2/French Beans, 44 °C/Tomato,
+heavy-rain/Wheat, and normal conditions) are code-defined synthetic fixtures in
+`js/demo.js`. They use no weather or pH provider, are labelled throughout the
+UI, exist only in memory, do not modify live weather, farms or user pH history,
+and disappear on exit/reload. The acid-rain demonstration's simulated pH value
+is not an observation and cannot be saved as one. Real map pH markers are only
+geolocated user-recorded measurements; the app has no connected live pH station
+feed and draws no interpolated pH surface.

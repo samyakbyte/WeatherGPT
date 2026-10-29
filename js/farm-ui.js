@@ -1,21 +1,24 @@
-// Farm management UI, active-farm dashboard, data provenance and rainwater
-// acidity panel. All data stays on the device (js/farms.js, js/acidity.js).
+// Farm management, explainable agricultural intelligence, pH records and local demo mode.
 import * as farms from './farms.js';
 import * as acidity from './acidity.js';
 import { buildProvenance, provenanceHTML } from './provenance.js';
-import { buildAdvisories } from './advisory.js';
-import { computeHazards } from './hazards.js';
-import { HAZARD_LABELS } from '../data/crops.js';
+import { buildAgriculturalAlerts, cropName, hazardName, suitabilityFactorRows, suitabilityClassification } from './agriculture.js';
+import { makeDemoState } from './demo.js';
 import { icon, escapeHTML } from './icons.js';
 import { parseCoordinates } from './geocode.js';
+import { temp, wind } from './weather.js';
 
-export function createFarmUI({ getState, selectLocation, toast, onFarmChange = () => {} }) {
+export function createFarmUI({ getState, selectLocation, toast, onFarmChange = () => {}, onDemoChange = () => {} }) {
   const $ = id => document.getElementById(id);
   let doc = farms.loadFarms();
   let readings = acidity.loadReadings();
-  let editingId = null;
-
+  let editingId = null, phChart = null;
   const label = (obj, language) => language === 'hi' ? (obj?.hi || obj?.en) : (obj?.en || obj?.hi);
+  const present = value => value !== null && value !== undefined && Number.isFinite(Number(value));
+  const esc = escapeHTML;
+  const cropLabel = (crop, language) => cropName(crop, language);
+  const riskNames = { LOW: 'LOW', MODERATE: 'MODERATE', HIGH: 'HIGH', SEVERE: 'SEVERE', UNKNOWN: 'UNKNOWN' };
+  const localDate = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
 
   function persist() {
     if (!farms.persistFarms(doc)) toast('Browser storage is unavailable. Farm changes will last only for this session.');
@@ -26,17 +29,16 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     const root = $('active-farm-card'); if (!root) return;
     const farm = farms.getActiveFarm(doc);
     if (!farm) { root.innerHTML = '<p class="muted-note">No active farm. Choose one below or add a farm from the current location.</p>'; return; }
-    const crop = farm.crop ? (farm.crop[0].toUpperCase() + farm.crop.slice(1)) : 'No crop set';
-    root.innerHTML = `<div class="active-farm-main"><span class="place-icon">${icon('map-pin')}</span><div><h4>${escapeHTML(farm.name)}</h4><p>${escapeHTML(crop)}${farm.stage ? ' · ' + escapeHTML(farm.stage) : ''}${farm.sowingDate ? ' · sown ' + escapeHTML(farm.sowingDate) : ''}</p><small>${escapeHTML(farm.placeLabel || `${farm.latitude.toFixed(4)}, ${farm.longitude.toFixed(4)}`)}</small></div><button class="text-button" data-farm-deactivate>Deactivate</button></div>`;
+    root.innerHTML = `<div class="active-farm-main"><span class="place-icon">${icon('map-pin')}</span><div><h4>${esc(farm.name)}</h4><p>${esc(cropLabel(farm.crop, language))}${farm.stage ? ' · ' + esc(farm.stage) : ''}${farm.sowingDate ? ' · sown ' + esc(farm.sowingDate) : ''}</p><small>${esc(farm.placeLabel || `${farm.latitude.toFixed(4)}, ${farm.longitude.toFixed(4)}`)}</small></div><button class="text-button" data-farm-deactivate>Deactivate</button></div>`;
     root.querySelector('[data-farm-deactivate]')?.addEventListener('click', () => { doc = farms.setActiveFarm(doc, null); persist(); renderAll(); });
   }
 
-  function renderFarmsList() {
+  function renderFarmsList(language = 'en') {
     const root = $('farms-list'); if (!root) return;
     if (!doc.farms.length) { root.innerHTML = '<p class="muted-note">No farms saved yet. Farms are stored only in this browser.</p>'; return; }
     root.innerHTML = doc.farms.map(f => `<article class="farm-card ${f.id === doc.activeFarmId ? 'active' : ''}">
-      <div><h4>${escapeHTML(f.name)}</h4><p>${escapeHTML(f.crop || 'No crop')} · ${escapeHTML(f.placeLabel || `${Number(f.latitude).toFixed(3)}, ${Number(f.longitude).toFixed(3)}`)}</p><small>${Number(f.latitude).toFixed(4)}, ${Number(f.longitude).toFixed(4)}${f.stage ? ' · ' + escapeHTML(f.stage) : ''}</small></div>
-      <div class="farm-card-actions"><button data-farm-activate="${escapeHTML(f.id)}" class="text-button">${f.id === doc.activeFarmId ? 'Active' : 'Use'}</button><button data-farm-edit="${escapeHTML(f.id)}" class="text-button">Edit</button><button data-farm-delete="${escapeHTML(f.id)}" class="icon-button" aria-label="Delete ${escapeHTML(f.name)}">${icon('trash')}</button></div></article>`).join('');
+      <div><h4>${esc(f.name)}</h4><p>${esc(cropLabel(f.crop, language))} · ${esc(f.placeLabel || `${Number(f.latitude).toFixed(3)}, ${Number(f.longitude).toFixed(3)}`)}</p><small>${Number(f.latitude).toFixed(4)}, ${Number(f.longitude).toFixed(4)}${f.stage ? ' · ' + esc(f.stage) : ''}</small></div>
+      <div class="farm-card-actions"><button data-farm-activate="${esc(f.id)}" class="text-button">${f.id === doc.activeFarmId ? 'Active' : 'Use'}</button><button data-farm-edit="${esc(f.id)}" class="text-button">Edit</button><button data-farm-delete="${esc(f.id)}" class="icon-button" aria-label="Delete ${esc(f.name)}">${icon('trash')}</button></div></article>`).join('');
     root.querySelectorAll('[data-farm-activate]').forEach(b => b.addEventListener('click', async () => {
       doc = farms.setActiveFarm(doc, b.dataset.farmActivate); persist();
       const farm = farms.getActiveFarm(doc);
@@ -70,59 +72,194 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
 
   function closeForm() { const section = $('farm-form-section'); if (section) section.hidden = true; editingId = null; }
 
-  function renderDashboard() {
-    const state = getState(), language = state.prefs?.language || 'en';
+  function contextPHRecords(state, demo) {
+    if (demo?.pHReading) return [demo.pHReading];
     const farm = farms.getActiveFarm(doc);
+    return readings.filter(r => farm
+      ? r.farmId === farm.id || (!r.farmId && Number.isFinite(Number(r.latitude)) && Math.abs(Number(r.latitude) - Number(farm.latitude)) < 0.001 && Math.abs(Number(r.longitude) - Number(farm.longitude)) < 0.001)
+      : Number.isFinite(Number(r.latitude)) && Math.abs(Number(r.latitude) - Number(state.location.latitude)) < 0.001 && Math.abs(Number(r.longitude) - Number(state.location.longitude)) < 0.001)
+      .sort((a, b) => a.date.localeCompare(b.date));
+  }
+
+  function renderAlerts(container, alerts, notes, language) {
+    if (!container) return;
+    if (!alerts.length) {
+      container.innerHTML = `<div class="agri-empty"><span class="agri-empty-mark">✓</span><div><strong>${language === 'hi' ? 'कोई कॉन्फ़िगर किया गया जोखिम संकेत नहीं' : 'No configured risk thresholds triggered'}</strong><p>${language === 'hi' ? 'उपलब्ध पूर्वानुमान में निर्धारित मौसम सीमाएँ पार नहीं हुईं। यह आधिकारिक सुरक्षा-सूचना नहीं है।' : 'The available forecast does not cross configured screens. This is not an official all-clear.'}</p>${notes?.length ? `<small>${esc(notes.join(' '))}</small>` : ''}</div></div>`;
+      return;
+    }
+    container.innerHTML = alerts.slice(0, 5).map(a => {
+      const actionList = (a.actions || []).map(act => {
+        const text = typeof act.text === 'string' ? act.text : label(act.text, language);
+        return `<li><span class="guidance-tag ${esc(act.kind || 'monitoring')}">${act.kind === 'sourced' ? (language === 'hi' ? 'स्रोत-आधारित' : 'Sourced') : (language === 'hi' ? 'सावधानी' : 'Precaution')}</span> ${esc(text)}${act.regions?.length ? ` <small>(${esc(act.regions.join(', '))})</small>` : ''}</li>`;
+      }).join('');
+      const why = label(a.why, language), expected = label(a.expected, language);
+      const source = typeof a.source === 'string' ? a.source : 'Forecast + crop advisory rules';
+      return `<details class="hazard-card agri-alert severity-${a.severity.toLowerCase()}" ${a.severity === 'SEVERE' ? 'open' : ''}>
+        <summary><span class="severity-badge ${a.severity.toLowerCase()}">${riskNames[a.severity] || esc(a.severity)}</span><strong>${esc(hazardName(a.kind, language))}</strong><span class="alert-value">${esc(`${a.value} ${a.unit}`)}</span>${icon('chevron-down')}</summary>
+        <div class="hazard-body"><p><b>${language === 'hi' ? 'फसल' : 'Crop'}:</b> ${esc(cropLabel(a.crop || farms.getActiveFarm(doc)?.crop, language))} · <b>${language === 'hi' ? 'जोखिम अवधि' : 'Forecast window'}:</b> ${esc(a.windowLabel || 'Next 72 hours')}</p>
+        <p><b>${language === 'hi' ? 'पूर्वानुमान' : 'Forecast'}:</b> ${esc(expected)}</p>
+        <details class="why-alert"><summary>${language === 'hi' ? 'यह चेतावनी क्यों?' : 'Why this alert?'}</summary><p>${esc(why)}</p></details>
+        ${actionList ? `<h4>${language === 'hi' ? 'अनुशंसित सावधानियाँ' : 'Recommended precautions'}</h4><ul>${actionList}</ul>` : ''}
+        <p class="alert-source"><b>${language === 'hi' ? 'स्रोत' : 'Source'}:</b> ${esc(source)}${a.simulated ? ' · DEMO / SIMULATED DATA' : ''}</p>
+        <small>${esc(label(a.evidence, language) || 'Risk derived from available forecast/measurement data.')}</small><small>${esc(label(a.limitations, language) || 'Forecast screens are uncertain; verify locally. Weather alone cannot diagnose crop disease.')}</small></div></details>`;
+    }).join('');
+  }
+
+  function renderSuitability(root, result, crop, language, demo) {
+    if (!root) return;
+    const title = language === 'hi' ? 'साझा मौसम अनुकूलता स्क्रीन' : 'Shared weather suitability screen';
+    if (!crop) {
+      root.innerHTML = `<header><span class="card-kicker">${title}</span><p>${language === 'hi' ? 'स्कोर के लिए सक्रिय खेत में फसल चुनें।' : 'Choose a crop on the active farm to calculate this screening score.'}</p></header><div class="score-empty">—</div><small>Rainwater pH is not part of the score; missing pH is not treated as safe.</small>`;
+      return;
+    }
+    const score = result.score;
+    const factorRows = suitabilityFactorRows(result, language);
+    const hi = language === 'hi';
+    const summary = score == null ? (hi ? 'पूर्वानुमान उपलब्ध नहीं' : 'Forecast unavailable') : (hi ? `मौसम स्क्रीन ${score}/100` : `${score}/100 weather screen`);
+    const coverage = hi ? `उपलब्ध कारक कवरेज: ${result.dataCoverage ?? 0}%` : `Available factor coverage: ${result.dataCoverage ?? 0}%`;
+    const classification = suitabilityClassification(result.classification || 'Unavailable', language);
+    const note = hi
+      ? `उपलब्ध पूर्वानुमान कारकों से नियतात्मक, सभी फसलों के लिए साझा मौसम स्क्रीन। डेटा कवरेज ${result.dataCoverage ?? 0}%; अनुपलब्ध कारक छोड़कर उपलब्ध भार फिर से सामान्यीकृत होते हैं। फसल चुनने से सलाह का संदर्भ बदलता है, यह साझा स्कोर नहीं। यह फसल स्वास्थ्य या कृषि सलाह नहीं है।`
+      : (result.note || 'No forecast data; no score calculated.');
+    const weights = hi
+      ? 'उपलब्ध होने पर भार: तापमान 40%, वर्षा 30%, हवा 15%, आर्द्रता 15%; अनुपलब्ध कारक हटाकर शेष भार सामान्यीकृत किए जाते हैं। ये सामान्य स्क्रीनिंग सीमाएँ हैं, प्रमाणित फसल-क्षति सीमाएँ नहीं।'
+      : 'Weights when available: temperature 40%, rainfall 30%, wind 15%, humidity 15%; missing factors are omitted and the remaining weights renormalized. These shared screens are engineering defaults, not validated crop damage limits.';
+    const disclaimer = hi
+      ? 'यह नियतात्मक मौसम-स्क्रीनिंग सूचकांक है—फसल स्वास्थ्य, उपज या फसल-विशिष्ट कृषि सलाह नहीं। वर्षा-जल अम्लता अलग दिखाई जाती है।'
+      : 'This shared weather-screening index is crop-agnostic: selecting a crop changes advisory context, not the score’s thresholds. It is not crop health, yield, or a crop-specific agronomic recommendation. Measured rainwater acidity is shown separately.';
+    root.innerHTML = `<header><span class="card-kicker">${title}${demo ? ' · SIMULATED' : ''}</span><strong>${esc(cropLabel(crop, language))}</strong></header>
+      <div class="score-layout"><div class="score-ring" style="--score:${score ?? 0}%"><span>${score == null ? '—' : score}<small>/100</small></span></div><div class="score-copy"><strong>${esc(classification)}</strong><span>${esc(summary)}</span><small>${esc(coverage)}</small></div></div>
+      <details class="score-explanation"><summary>${hi ? 'स्कोर कैसे बना?' : 'How this score is calculated'}</summary><p>${esc(note)}</p><ul>${factorRows.map(f => `<li><b>${esc(f.label)}:</b> ${esc(f.status)} · ${esc(f.value)}<small>${esc(f.reason)}</small></li>`).join('')}</ul><small>${esc(weights)}</small></details>
+      <p class="score-disclaimer">${esc(disclaimer)}</p>`;
+  }
+
+  function renderAciditySummary(root, records, language, demo) {
+    if (!root) return;
+    const latest = records.at(-1), hi = language === 'hi';
+    if (!latest) {
+      root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल अम्लता' : 'Rainwater acidity'}</span><strong class="ph-no-data">${acidity.ACIDITY_UNAVAILABLE}</strong><p>${hi ? 'माप की अनुपलब्धता को सुरक्षित pH नहीं माना जाता।' : 'Missing pH is unknown, not a safe reading.'}</p><button class="text-button" data-open-ph-map>${hi ? 'pH मानचित्र खोलें' : 'Open pH map'}</button>`;
+      return;
+    }
+    const c = acidity.classifyPH(latest.value);
+    root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल pH निगरानी' : 'Rainwater pH monitoring'}${demo ? ' · DEMO / SIMULATED DATA' : ''}</span><div class="ph-latest" style="--ph-color:${c.color}"><strong>${Number(latest.value).toFixed(1)}</strong><span>pH</span></div><b>${esc(c.label)}</b><p>${esc(latest.location || latest.source || 'User-recorded')} · ${esc(latest.date)} · ${esc(latest.source || latest.method || 'User-recorded')}</p><small>${esc(c.note)} A rainwater value is not a soil test or crop-damage threshold.</small><button class="text-button" data-open-ph-map>${hi ? 'मानचित्र पर माप देखें' : 'View measurement on map'}</button>`;
+  }
+
+  function renderWeek(root, days, weather, language, demo) {
+    if (!root) return;
+    const hi = language === 'hi';
+    if (!days.length) { root.innerHTML = `<span class="card-kicker">${hi ? 'सात-दिवसीय फसल जोखिम' : 'Seven-day crop risk'}</span><p>${hi ? 'पूर्वानुमान उपलब्ध नहीं।' : 'Seven-day forecast unavailable; no risk is fabricated.'}</p>`; return; }
+    const highest = days.reduce((best, d) => ({ UNKNOWN: 0, LOW: 1, MODERATE: 2, HIGH: 3, SEVERE: 4 }[d.risk] > ({ UNKNOWN: 0, LOW: 1, MODERATE: 2, HIGH: 3, SEVERE: 4 }[best.risk]) ? d : best), days[0]);
+    const highestText = hi ? ({LOW:'कम',MODERATE:'मध्यम',HIGH:'उच्च',SEVERE:'गंभीर',UNKNOWN:'अज्ञात'}[highest.risk]) : highest.risk;
+    const highestDate = new Date(`${highest.date}T12:00:00Z`).toLocaleDateString(hi ? 'hi-IN' : 'en-US', { weekday:'short', day:'numeric', month:'short', timeZone:'UTC' });
+    const daily = weather.daily;
+    const dayCards = days.map(day => {
+      const i = day.index, date = new Date(`${day.date}T12:00:00Z`).toLocaleDateString(language === 'hi' ? 'hi-IN' : 'en-US', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+      const high = daily.temperature_2m_max?.[i], low = daily.temperature_2m_min?.[i], rain = daily.precipitation_sum?.[i], gust = daily.wind_gusts_10m_max?.[i];
+      const riskText = hi ? ({LOW:'कम',MODERATE:'मध्यम',HIGH:'उच्च',SEVERE:'गंभीर',UNKNOWN:'अज्ञात'}[day.risk]) : day.risk;
+      const prefs = getState().prefs || {};
+      const weatherLine = `${present(low) ? `${temp(low, prefs, true)}–` : ''}${present(high) ? temp(high, prefs, true) : '—'} · ${present(rain) ? `${Number(rain).toFixed(1)} mm` : 'rain —'}${present(gust) ? ` · gust ${wind(gust, prefs, true)}` : ''}`;
+      const eventNames = day.events.map(e => hazardName(e.kind, language)).join(', ');
+      const action = day.precaution ? label(day.precaution, language) : (hi ? 'नियमित रूप से खेत की निगरानी करें।' : 'Continue routine field scouting; no configured hazard screen was triggered.');
+      const reason = day.events.map(e => e.reason).join(' ');
+      const sourceText = day.source === 'DEMO / SIMULATED DATA' ? (hi ? 'डेमो / काल्पनिक डेटा' : day.source) : (hi ? 'Open-Meteo पूर्वानुमान' : day.source);
+      const limitationText = hi ? 'यह मॉडल-ग्रिड का पूर्वानुमान है, खेत का माप नहीं। स्क्रीनिंग सीमाएँ आधिकारिक चेतावनी या फसल-क्षति सीमा नहीं हैं।' : day.limitation;
+      return `<details class="week-risk-day"><summary><span class="week-day-date">${esc(date)}</span><span class="severity-badge ${day.risk.toLowerCase()}">${esc(riskText)}</span><span class="week-day-temp">${esc(weatherLine)}</span></summary><div><b>${hi ? 'मुख्य संकेत' : 'Main potential hazard'}:</b> ${esc(eventNames || (hi ? 'कोई कॉन्फ़िगर संकेत नहीं' : 'No configured hazard screen'))}<p>${esc(action)}</p>${reason ? `<small>${esc(reason)}</small>` : ''}<small>${hi ? 'स्रोत' : 'Source'}: ${esc(sourceText)} · ${esc(limitationText)}</small></div></details>`;
+    }).join('');
+    root.innerHTML = `<header class="week-risk-header"><span class="card-kicker">${hi ? 'सात-दिवसीय फसल मौसम जोखिम' : 'Seven-day crop weather risk'}${demo ? ' · SIMULATED' : ''}</span><span>${hi ? 'सबसे अधिक' : 'Highest'}: <b class="severity-badge ${highest.risk.toLowerCase()}">${esc(highestText)}</b> · ${esc(highestDate)}</span></header><div class="week-risk-list">${dayCards}</div><small class="risk-note">${hi ? 'मॉडल पूर्वानुमान खेत का माप नहीं है।' : 'Forecasts are model estimates for grid cells, not field measurements. Risk levels use transparent configured weather screens, not official warnings.'}</small>`;
+  }
+
+  function renderDashboard() {
+    const live = getState(), language = live.prefs?.language || 'en', farm = farms.getActiveFarm(doc);
+    const demo = live.demo ? makeDemoState(live.demo, live, live.weather?.current?.time ? new Date(live.weather.current.time) : new Date()) : null;
+    const state = demo ? { ...live, weather: demo.weather, location: { ...live.location, ...demo.location } } : live;
+    const crop = demo?.crop || farm?.crop || null;
     const summary = $('farm-summary-line'), actions = $('farm-actions');
     if (summary) summary.textContent = farm
-      ? `${farm.name} · ${farm.crop || 'crop not set'} · ${farm.placeLabel || `${farm.latitude.toFixed(3)}, ${farm.longitude.toFixed(3)}`}`
-      : 'No farm selected. Add one in Saved locations to see crop-specific guidance.';
+      ? `${farm.name} · ${cropLabel(crop, language)} · ${farm.placeLabel || `${farm.latitude.toFixed(3)}, ${farm.longitude.toFixed(3)}`}${demo ? ' · DEMO / SIMULATED DATA' : ''}`
+      : `${demo ? `DEMO / SIMULATED DATA · ${cropLabel(crop, language)} · ` : ''}${live.location.name} · ${crop ? cropLabel(crop, language) : 'No crop selected; add a farm to get crop-specific guidance.'}`;
+    const assessment = buildAgriculturalAlerts(state, { crop, stage: farm?.stage, readings, demo, language });
     if (actions) {
-      if (!state.weather) {
-        actions.innerHTML = `<div class="empty-state">${icon('cloud-off')}<p>Forecast unavailable. Retry the weather service to calculate the next 72 hours of risk.</p></div>`;
-      } else {
-        const { hazards, notes } = computeHazards(state);
-        const advisories = buildAdvisories(state, { language, crop: farm?.crop, stage: farm?.stage });
-        if (!hazards.length) {
-          actions.innerHTML = `<p class="muted-note">No configured forecast hazard threshold crossed in the next 72 hours. Keep scouting and check official IMD / KVK advisories.</p>${notes.length ? `<small>${escapeHTML(notes.join(' '))}</small>` : ''}`;
-        } else {
-          actions.innerHTML = advisories.slice(0, 4).map(a => `<details class="hazard-card severity-${a.severity.toLowerCase()}" ${a.severity === 'SEVERE' ? 'open' : ''}><summary><span class="severity-badge ${a.severity.toLowerCase()}">${a.severity}</span><strong>${escapeHTML(label(HAZARD_LABELS[a.hazard] || { en: a.hazard }, language))}</strong><span>${escapeHTML(`${a.value} ${a.unit}`)}</span>${icon('chevron-down')}</summary>
-            <div class="hazard-body"><p><b>${language === 'hi' ? 'मौसम' : 'Weather'}:</b> ${escapeHTML(label(a.expected, language))}</p><p><b>${language === 'hi' ? 'असर' : 'Why'}:</b> ${escapeHTML(label(a.why, language))}</p>
-            <ul>${a.actions.map(act => `<li><span class="guidance-tag ${act.kind}">${act.kind === 'sourced' ? (language === 'hi' ? 'स्रोत-आधारित' : 'Sourced') : (language === 'hi' ? 'सामान्य' : 'General')}</span> ${escapeHTML(act.text)}${act.regions?.length ? ` <small>(${escapeHTML(act.regions.join(', '))})</small>` : ''}</li>`).join('')}</ul>
-            <small>${escapeHTML(label(a.evidence, language))}</small><small>${escapeHTML(label(a.limitations, language))}</small></div></details>`).join('') +
-            (notes.length ? `<p class="muted-note">${escapeHTML(notes.join(' '))}</p>` : '');
-        }
-      }
+      if (!state.weather) actions.innerHTML = `<div class="empty-state">${icon('cloud-off')}<p>${language === 'hi' ? 'पूर्वानुमान उपलब्ध नहीं। जोखिम की गणना नहीं की जा सकती।' : 'Forecast unavailable. No agricultural weather risk is calculated.'}</p></div>`;
+      else renderAlerts(actions, assessment.alerts, assessment.notes, language);
+    }
+    renderSuitability($('suitability-card'), assessment.suitability, crop, language, demo);
+    renderAciditySummary($('acidity-summary-card'), contextPHRecords(live, demo), language, demo);
+    renderWeek($('week-risk-card'), assessment.days, state.weather, language, demo);
+    const controls = $('demo-controls');
+    if (controls) {
+      const select = $('demo-scenario'); if (select && live.demo) select.value = live.demo;
+      const exit = $('demo-exit'), start = $('demo-start');
+      if (exit) exit.hidden = !live.demo;
+      if (start) start.textContent = live.demo ? 'Switch scenario' : 'Start demonstration';
+      if (live.demo) controls.open = true;
     }
     renderProvenance();
     renderAcidity();
+    rootMapButtons();
+  }
+
+  function rootMapButtons() {
+    document.querySelectorAll('[data-open-ph-map]').forEach(button => button.addEventListener('click', () => {
+      window.location.hash = 'map';
+      document.dispatchEvent(new CustomEvent('weathergpt:show-acidity'));
+    }));
   }
 
   function renderProvenance() {
     const root = $('provenance-content'); if (!root) return;
-    const p = buildProvenance(getState(), getState().prefs?.language || 'en');
-    root.innerHTML = p ? provenanceHTML(p, getState().prefs?.language || 'en') + `<p class="muted-note">${escapeHTML(p.resolution)}</p><p class="muted-note">${escapeHTML(p.radarNote)}</p>` : 'Load a forecast to see the source, coordinates and model-grid details.';
+    const s = getState(), language = s.prefs?.language || 'en';
+    if (s.demo) {
+      const scenario = makeDemoState(s.demo, s, s.weather?.current?.time ? new Date(s.weather.current.time) : new Date());
+      root.innerHTML = language === 'hi'
+        ? `<p><b>डेमो / काल्पनिक डेटा:</b> ${esc(scenario?.scenario.description || 'काल्पनिक परिदृश्य')}। मौसम और pH मान स्थानीय रूप से बनाए गए हैं; कोई लाइव मौसम API या मापा गया pH स्रोत इन्हें प्रदान नहीं करता। यह डेटा सहेजा नहीं जाता।</p><p class="muted-note">लाइव मौसम ऊपर अलग से यथावत है। यह पैनल डेमो के लिए Open-Meteo मॉडल ग्रिड का दावा नहीं करता।</p>`
+        : `<p><b>DEMO / SIMULATED DATA:</b> ${esc(scenario?.scenario.description || 'Synthetic scenario')}. Weather and pH values are locally generated; no live weather API or measured-pH source supplied them. Nothing is saved.</p><p class="muted-note">Live weather remains separate above. This panel does not claim an Open-Meteo model grid for the demo.</p>`;
+      return;
+    }
+    const p = buildProvenance(s, language);
+    root.innerHTML = p ? provenanceHTML(p, language) + `<p class="muted-note">${esc(p.resolution)}</p><p class="muted-note">${esc(p.radarNote)}</p>` : (language === 'hi' ? 'स्रोत, निर्देशांक और मॉडल-ग्रिड विवरण देखने के लिए पूर्वानुमान लोड करें।' : 'Load a forecast to see the source, coordinates and model-grid details.');
   }
 
   function renderAcidity() {
     const root = $('acidity-content'); if (!root) return;
-    const language = getState().prefs?.language || 'en';
-    root.innerHTML = acidity.acidityHTML(language, readings);
+    phChart?.destroy(); phChart = null;
+    const state = getState(), language = state.prefs?.language || 'en', farm = farms.getActiveFarm(doc);
+    root.innerHTML = acidity.acidityHTML(language, readings, {
+      locationName: farm?.name || state.location?.name || '',
+      latitude: farm?.latitude ?? state.location?.latitude,
+      longitude: farm?.longitude ?? state.location?.longitude
+    });
     const form = $('ph-reading-form');
     if (form) {
       const dateInput = $('ph-date');
-      if (dateInput && !dateInput.value) dateInput.value = new Date().toISOString().slice(0, 10);
+      if (dateInput && !dateInput.value) dateInput.value = localDate();
       form.addEventListener('submit', event => {
         event.preventDefault();
         const outcome = acidity.addReading(readings, {
           value: $('ph-value').value, date: $('ph-date').value,
-          method: $('ph-method').value, notes: $('ph-notes').value,
-          farmId: farms.getActiveFarm(doc)?.id || null
+          method: $('ph-method').value, source: $('ph-source').value,
+          location: $('ph-location').value, latitude: $('ph-latitude').value,
+          longitude: $('ph-longitude').value, notes: $('ph-notes').value,
+          farmId: farm?.id || null
         });
         readings = outcome.readings;
         if (outcome.error) toast(outcome.error);
-        else toast('User-provided pH reading saved on this device only.');
-        renderAcidity();
+        else toast('User-recorded pH measurement saved on this device.');
+        document.dispatchEvent(new CustomEvent('weathergpt:acidity-updated'));
+        renderAll();
+      });
+    }
+    root.querySelectorAll('[data-delete-ph]').forEach(button => button.addEventListener('click', () => {
+      readings = acidity.deleteReading(readings, button.dataset.deletePh);
+      document.dispatchEvent(new CustomEvent('weathergpt:acidity-updated'));
+      renderAll(); toast('pH measurement removed from this device.');
+    }));
+    const canvas = $('ph-history-chart');
+    if (canvas && globalThis.Chart && readings.length) {
+      const sorted = readings.slice().sort((a, b) => a.date.localeCompare(b.date));
+      phChart = new Chart(canvas, {
+        type: 'line',
+        data: { labels: sorted.map(r => r.date), datasets: [{ label: 'User-recorded rainwater pH', data: sorted.map(r => Number(r.value)), borderColor: '#4e9b75', backgroundColor: 'rgba(78,155,117,.14)', pointBackgroundColor: sorted.map(r => acidity.classifyPH(r.value).color), pointRadius: 4, borderWidth: 2, tension: 0.18, fill: true }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => `pH ${Number(c.parsed.y).toFixed(1)} · ${sorted[c.dataIndex]?.source || 'User-recorded'}` } } }, scales: { y: { min: 0, max: 14, title: { display: true, text: 'Measured pH (0–14)' } }, x: { title: { display: true, text: 'Measurement date' } } } }
       });
     }
   }
@@ -152,17 +289,23 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
       const s = getState();
       openForm(null, { latitude: Number(s.location.latitude).toFixed(4), longitude: Number(s.location.longitude).toFixed(4), placeLabel: `${s.location.name}${s.location.region ? ', ' + s.location.region : ''}` });
     });
-    $('add-farm-coords')?.addEventListener('click', () => {
-      openForm(null, { latitude: '', longitude: '', placeLabel: '' });
-      $('farm-lat').focus();
-    });
-    $('add-farm-map')?.addEventListener('click', () => {
-      window.location.hash = 'map';
-      toast('Click (or tap) the map to drop a draggable pin, then confirm the point.');
-    });
+    $('add-farm-coords')?.addEventListener('click', () => { openForm(null, { latitude: '', longitude: '', placeLabel: '' }); $('farm-lat').focus(); });
+    $('add-farm-map')?.addEventListener('click', () => { window.location.hash = 'map'; toast('Click (or tap) the map to drop a draggable pin, then confirm the point.'); });
+    const startDemo = scenario => {
+      if (!['acid-rain', 'extreme-heat', 'heavy-rain', 'normal'].includes(scenario)) return;
+      const select = $('demo-scenario'); if (select) select.value = scenario;
+      onDemoChange(scenario); renderAll(); toast(`Demo scenario active: ${scenario}. All agricultural demo values are simulated and not saved.`);
+    };
+    $('demo-start')?.addEventListener('click', () => startDemo($('demo-scenario')?.value || 'acid-rain'));
+    document.querySelectorAll('[data-demo-key]').forEach(button => button.addEventListener('click', () => startDemo(button.dataset.demoKey)));
+    $('demo-exit')?.addEventListener('click', () => { onDemoChange(null); renderAll(); toast('Demo ended. Live weather and saved records are restored.'); });
+    $('acidity-details')?.addEventListener('toggle', () => setTimeout(() => phChart?.resize(), 40));
   }
 
-  function renderAll() { renderActiveFarm(getState().prefs?.language || 'en'); renderFarmsList(); renderDashboard(); }
+  function renderAll() {
+    const language = getState().prefs?.language || 'en';
+    renderActiveFarm(language); renderFarmsList(language); renderDashboard();
+  }
 
   wire();
   onFarmChange(farms.getActiveFarm(doc));
@@ -170,6 +313,7 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     renderAll, openForm,
     getActiveFarm: () => farms.getActiveFarm(doc),
     doc: () => doc,
+    readings: () => readings.slice(),
     setPoint: point => openForm(null, { latitude: Number(point.latitude).toFixed(4), longitude: Number(point.longitude).toFixed(4), placeLabel: point.name || '' })
   };
 }

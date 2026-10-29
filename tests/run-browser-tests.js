@@ -97,6 +97,9 @@ async function main() {
 
   // ── Existing workspace features (no regressions) ──
   check((await page.locator('#current-temperature').textContent() || '').includes('29'), 'current conditions render from forecast');
+  check((await page.locator('#download-project-zip').textContent() || '').trim() === 'Download ZIP', 'topbar exposes a visible Download ZIP button');
+  const zipResponse = await page.request.get(`${base}/WeatherGPT-download.zip`);
+  check(zipResponse.ok() && zipResponse.headers()['content-type'] === 'application/zip', 'Download ZIP target is served as a valid archive');
   check(await page.locator('.leaflet-container').count() === 1, 'Leaflet map initialises');
   check(await page.locator('.hour-item').count() > 0, 'hourly strip renders');
   check(await page.locator('#forecast-chart').count() === 1, 'Chart.js canvas present');
@@ -156,6 +159,48 @@ async function main() {
   check(await page.locator('.farm-card').count() === 1, 'farm persists across reloads');
   check((await page.locator('#active-farm-card').textContent() || '').includes('Test field'), 'active farm persists across reloads');
 
+  // ── Agricultural intelligence: transient demo fixtures + pH layer ──
+  await page.evaluate(() => { location.hash = 'overview'; });
+  await page.waitForTimeout(200);
+  const liveTemperature = (await page.locator('#current-temperature').textContent() || '').trim();
+  await page.locator('#demo-controls > summary').click();
+  await page.locator('[data-demo-key="acid-rain"]').click();
+  check(!(await page.locator('#demo-banner').isHidden()) && (await page.locator('#demo-banner').textContent() || '').includes('DEMO / SIMULATED DATA'), 'acid-rain demo is unmistakably labelled');
+  check((await page.locator('#farm-summary-line').textContent() || '').includes('French Beans'), 'acid-rain demo selects the requested French Beans crop');
+  check((await page.locator('#farm-actions').textContent() || '').includes('4.2'), 'synthetic pH 4.2 appears as an agricultural monitoring alert');
+  check((await page.locator('#provenance-content').textContent() || '').includes('locally generated'), 'demo provenance explicitly names synthetic local generation rather than live sources');
+  check((await page.locator('#current-temperature').textContent() || '').trim() === liveTemperature, 'demo does not replace or mutate live weather');
+  check(await page.evaluate(() => localStorage.getItem('weathergpt.rain-ph.v1')) === null, 'synthetic pH is not written to user-recorded storage');
+  await page.locator('#more-layers').selectOption('acidity');
+  check((await page.locator('#map-data-label').textContent() || '').includes('simulated demo point'), 'acid-rain layer maps its explicitly simulated pH point');
+  check((await page.locator('#map-mode-label').textContent() || '').includes('DEMO'), 'pH map header replaces the generic LIVE badge with demo provenance');
+  await page.locator('#demo-banner-exit').click();
+  check(await page.locator('#demo-banner').isHidden(), 'return-to-live action exits demo mode');
+  check((await page.locator('#map-mode-label').textContent() || '') === 'USER RECORDS', 'pH layer remains clearly marked as records, not live data, after demo exit');
+  check(!(await page.locator('#farm-actions').textContent() || '').includes('pH 4.2'), 'exiting demo removes simulated pH alert from live dashboard');
+  check(await page.evaluate(() => localStorage.getItem('weathergpt.rain-ph.v1')) === null, 'exiting demo leaves pH history untouched');
+  for (const [key, cropName, evidence] of [['extreme-heat', 'Tomato', '44°C'], ['heavy-rain', 'Wheat', '75.0 mm'], ['normal', 'French Beans', 'SIMULATED']]) {
+    await page.locator(`[data-demo-key="${key}"]`).click();
+    check((await page.locator('#farm-summary-line').textContent() || '').includes(cropName), `${key} demo selects ${cropName}`);
+    check((await page.locator('#week-risk-card').textContent() || '').includes(evidence), `${key} demo renders its synthetic weather evidence`);
+    await page.locator('#demo-banner-exit').click();
+  }
+  await page.locator('#acidity-details > summary').click();
+  await page.locator('#ph-value').fill('4.7');
+  await page.locator('#ph-date').fill('2026-10-29');
+  await page.locator('#ph-source').fill('browser test strip');
+  await page.locator('#ph-reading-form').dispatchEvent('submit');
+  check((await page.locator('#acidity-content').textContent() || '').includes('4.7'), 'user pH measurement is saved and appears in history');
+  check((await page.evaluate(() => JSON.parse(localStorage.getItem('weathergpt.rain-ph.v1') || '[]')[0]?.recordType)) === 'user-recorded', 'saved observation provenance is user-recorded');
+  await page.locator('#more-layers').selectOption('acidity');
+  check((await page.locator('#map-data-label').textContent() || '').includes('1 geolocated user reading'), 'user pH history refreshes the map marker');
+  await page.locator('#weather-map').scrollIntoViewIfNeeded();
+  const mapBox = await page.locator('#weather-map').boundingBox();
+  await page.mouse.click(mapBox.x + mapBox.width / 2, mapBox.y + mapBox.height / 2);
+  check((await page.locator('.leaflet-popup-content').textContent() || '').includes('MEASURED · USER-RECORDED'), 'map popup distinguishes measured pH from simulated data');
+  await page.locator('[data-delete-ph]').click();
+  check((await page.evaluate(() => JSON.parse(localStorage.getItem('weathergpt.rain-ph.v1') || '[]').length)) === 0, 'user can delete pH records and persistence updates');
+
   // ── Assistant: corrected behaviour + crop advisory ──
   await page.evaluate(() => { location.hash = 'assistant'; });
   await page.waitForTimeout(200);
@@ -176,6 +221,8 @@ async function main() {
   check(/Sourced|General precaution|No configured forecast hazard/.test(cropText), 'crop advisory labels sourced/general guidance, or honestly reports no hazard');
   check(/does not show heavy rain|matches the forecast/.test(cropText), 'crop advisory verifies the heavy-rain claim against the forecast');
   await page.locator('#assistant-language').selectOption('hi');
+  const farmHindi = await page.locator('#farm-dashboard').textContent() || '';
+  check(farmHindi.includes('साझा मौसम अनुकूलता स्क्रीन') && farmHindi.includes('तापमान'), 'agricultural score and factor explanations localize in Hindi');
   const hindi = await ask('Temperature tomorrow?');
   check((await hindi.getAttribute('lang')) === 'hi' && /तापमान/.test(await hindi.textContent() || ''), 'Hindi-selected temperature question is answered in Hindi');
   const radar = await ask('Open radar');

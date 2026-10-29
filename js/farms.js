@@ -8,7 +8,7 @@ export const LEGACY_SAVED_KEY = 'weathergpt.saved';
 export const FARM_SCHEMA_VERSION = 2;
 export const MAX_FARMS = 30;
 
-export const CROPS = ['wheat', 'rice', 'maize', 'mustard', 'cotton', 'soybean', 'potato', 'tomato', 'sugarcane', 'other'];
+export const CROPS = ['wheat', 'rice', 'maize', 'mustard', 'cotton', 'soybean', 'potato', 'tomato', 'sugarcane', 'french-beans', 'other'];
 export const STAGES = ['sowing', 'vegetative', 'flowering', 'grain filling', 'maturity', 'harvest'];
 export const IRRIGATION = ['rainfed', 'canal', 'tube well', 'drip', 'sprinkler', 'other'];
 export const DRAINAGE = ['good', 'moderate', 'poor', 'unknown'];

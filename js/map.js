@@ -1,10 +1,12 @@
 import { fetchSamples, fetchRadar } from './api.js';
 import { icon, escapeHTML } from './icons.js';
 import { temp, wind, number, direction, present, condition, currentHourIndex, localHour, deriveAdvisories } from './weather.js';
+import { classifyPH, loadReadings } from './acidity.js';
+import { makeDemoState } from './demo.js';
 
 export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () => {} }) {
   const $ = id => document.getElementById(id);
-  let map, selectedMarker, samplesGroup, sampleData = [], sampleController, sampleTimer;
+  let map, selectedMarker, samplesGroup, acidityGroup, sampleData = [], sampleController, sampleTimer;
   let pinMarker = null, pinPoint = null;
   let activeLayer = 'temperature', radarData, radarIndex = 0, playing = false, playTimer, speed = 1, radarLayer, visible = true;
   let radarRequest = 0, radarTileFailed = false, pendingCenter = null;
@@ -16,7 +18,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   };
   if (!window.L) {
     status('The map library could not load. Check your connection and reload the page. Forecasts are still available.');
-    return { setLocation:()=>{}, renderPanel:()=>{}, resize:()=>{}, setVisible:()=>{}, refreshUnits:()=>{}, switchLayer:()=>{} };
+    return { setLocation:()=>{}, renderPanel:()=>{}, resize:()=>{}, setVisible:()=>{}, refreshUnits:()=>{}, refreshAcidity:()=>{}, switchLayer:()=>{} };
   }
   const { location } = getState();
   map = L.map('weather-map',{zoomControl:false, minZoom:2,maxZoom:12,zoomSnap:.25,worldCopyJump:true,preferCanvas:true,scrollWheelZoom:false}).setView([location.latitude-3,location.longitude+1],4.5);
@@ -27,6 +29,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   let baseErrors=0;
   base.on('tileerror',()=>{ if(++baseErrors===5) status('Some map tiles could not load. Check your connection; weather values remain available.'); });
   samplesGroup = L.layerGroup().addTo(map);
+  acidityGroup = L.layerGroup();
   // Clicking drops a DRAGGABLE preview pin with an explicit confirm step.
   // Nothing is selected until the user confirms, so an accidental tap cannot
   // silently change the active farm location.
@@ -61,7 +64,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   $('map-pin-use')?.addEventListener('click',()=>{if(pinPoint)onSelect({...pinPoint},true);clearPin();});
   $('map-pin-farm')?.addEventListener('click',()=>{if(pinPoint)onSaveFarm({...pinPoint});clearPin();window.location.hash='locations';});
   $('map-pin-cancel')?.addEventListener('click',clearPin);
-  map.on('moveend',()=> { clearTimeout(sampleTimer); if(activeLayer !== 'radar' && visible) sampleTimer=setTimeout(loadSamples,1000); });
+  map.on('moveend',()=> { clearTimeout(sampleTimer); if(!['radar','acidity'].includes(activeLayer) && visible) sampleTimer=setTimeout(loadSamples,1000); });
   // Wheel zoom is enabled only after focus to avoid hijacking page scrolling.
   $('weather-map').addEventListener('focusin',()=>map.scrollWheelZoom.enable());
   $('weather-map').addEventListener('focusout',()=>map.scrollWheelZoom.disable());
@@ -93,6 +96,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   function setLocation(p, fly = true, openPanel = false) {
     selectedMarker?.remove();
     selectedMarker=L.marker([p.latitude,p.longitude],{icon:L.divIcon({className:'selected-location-marker',html:'<div class="selected-map-pin"></div>',iconSize:[15,15],iconAnchor:[7.5,7.5]}),zIndexOffset:1000}).addTo(map);
+    if(activeLayer==='acidity')selectedMarker.remove();
     selectedMarker.bindTooltip(escapeHTML(p.name),{permanent:true,direction:'right',offset:[10,0],className:'selected-map-tooltip'});
     selectedMarker.on('click',()=>{renderPanel();$('map-location-panel').hidden=false;});
     if(fly){
@@ -105,6 +109,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     }
     if(openPanel){$('map-location-panel').hidden=false;renderPanel();}
     else if(!$('map-location-panel').hidden)renderPanel();
+    if(activeLayer==='acidity')renderAcidityMarkers();
   }
   function renderPanel(){
     const {location,weather,prefs,loading}=getState();
@@ -134,7 +139,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     return points;
   }
   async function loadSamples(){
-    if(activeLayer==='radar'||!visible)return;
+    if(['radar','acidity'].includes(activeLayer)||!visible)return;
     sampleController?.abort(); sampleController=new AbortController();
     const signal=sampleController.signal;
     $('map-data-label').textContent='Updating geographic model samples…';
@@ -167,7 +172,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     return '#'+a.map((n,i)=>Math.round(n+(b[i]-n)*fraction).toString(16).padStart(2,'0')).join('');
   }
   function renderSamples(){
-    if(activeLayer==='radar')return;
+    if(['radar','acidity'].includes(activeLayer))return;
     samplesGroup.clearLayers();
     if(!map.hasLayer(samplesGroup))samplesGroup.addTo(map);
     const prefs=getState().prefs;
@@ -183,13 +188,56 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     const time=sampleData[0]?.current?.time;
     $('map-data-label').textContent=`${layerTitle()} · ${sampleData.length} model samples${time?' · '+time.slice(11,16)+' UTC':''}`;
   }
-  function layerTitle(){return {temperature:'Temperature',wind:'Wind',clouds:'Cloud cover',humidity:'Humidity',pressure:'Sea-level pressure',radar:'Precipitation radar'}[activeLayer];}
+  function renderAcidityMarkers(){
+    if(!acidityGroup)return;
+    acidityGroup.clearLayers();
+    if(!map.hasLayer(acidityGroup))acidityGroup.addTo(map);
+    const state=getState(), records=state.acidityReadings||loadReadings();
+    const valid=records.filter(r=>r.recordType!=='simulated'&&Number.isFinite(Number(r.latitude))&&Number.isFinite(Number(r.longitude))&&Number(r.latitude)>=-90&&Number(r.latitude)<=90&&Number(r.longitude)>=-180&&Number(r.longitude)<=180);
+    const demo=state.demo?makeDemoState(state.demo,state):null;
+    const rows=[...valid.slice(-100),...(demo?.pHReading?[demo.pHReading]:[])];
+    rows.forEach(r=>{
+      const pH=Number(r.value),c=classifyPH(pH),simulated=r.recordType==='simulated';
+      const marker=L.circleMarker([Number(r.latitude),Number(r.longitude)],{
+        radius:simulated?10:8,color:simulated?'#7157b8':c.color,weight:simulated?3:2,
+        fillColor:c.color,fillOpacity:.88,dashArray:simulated?'4 3':null,keyboard:true
+      }).addTo(acidityGroup);
+      const stateLocation=state.location||{}, hi=state.prefs?.language==='hi';
+      const colocated=Math.abs(Number(stateLocation.latitude)-Number(r.latitude))<0.001&&Math.abs(Number(stateLocation.longitude)-Number(r.longitude))<0.001&&state.weather;
+      const current=colocated?`<p><b>${hi?'चयनित स्थान का मॉडल संदर्भ':'Selected-location model context'}</b><br>${hi?'तापमान':'Temperature'} ${escapeHTML(temp(state.weather.current.temperature_2m,state.prefs))}; ${hi?'आर्द्रता':'humidity'} ${escapeHTML(number(state.weather.current.relative_humidity_2m))}%. ${hi?'यह pH माप का हिस्सा नहीं, बल्कि पूर्वानुमान/मॉडल अनुमान है।':'This is a forecast/model estimate, not part of the pH measurement.'}</p>`:'';
+      const method=escapeHTML(r.method||(hi?'उल्लेख नहीं':'not stated')),source=escapeHTML(r.source||(hi?'उपयोगकर्ता द्वारा दर्ज':'User-recorded'));
+      const classLabel=hi?({'near-natural':'pH 5.6 से अधिक','slightly-acidic':'pH 5.0–5.6','low-ph':'pH 4.0–4.9','very-low-ph':'pH 4.0 से कम'}[c.band]||'उपलब्ध नहीं'):c.label;
+      const concern=hi?({'near-natural':'सामान्य वर्षा संदर्भ से ऊपर; फसल-सुरक्षा का निर्णय नहीं।','slightly-acidic':'हल्की अम्लीय वर्षा सीमा; प्रवृत्ति और विधि महत्वपूर्ण हैं।','low-ph':'कम pH माप; विधि की पुष्टि करें और दोहराए गए माप देखें।','very-low-ph':'बहुत कम pH माप; कैलिब्रेटेड उपकरण या प्रयोगशाला से पुष्टि करें।'}[c.band]||'कोई मान्य माप नहीं।'):c.note;
+      const precaution=pH<5
+        ? (hi?'मापन विधि जाँचें और स्वतंत्र रूप से दोहराएँ। फसल की चिंता बनी रहे तो मिट्टी का अलग परीक्षण कराएँ; केवल वर्षा-जल pH के आधार पर संशोधन न करें।':'Check the measurement method and repeat/independently verify. If crop concerns persist, test soil separately; do not apply amendments from rainwater pH alone.')
+        : (hi?'एक ही विधि से दोहराए गए माप दर्ज करें। यह फसल-क्षति की सीमा नहीं है।':'Keep records and compare repeat measurements using a consistent method. This is not a crop-damage threshold.');
+      const tag=simulated?'DEMO / SIMULATED DATA':(hi?'मापा · उपयोगकर्ता द्वारा दर्ज':'MEASURED · USER-RECORDED');
+      const html=`<article class="ph-map-popup ${simulated?'simulated':''}"><span class="ph-popup-tag">${tag}</span><h3>${escapeHTML(r.location||stateLocation.name||(hi?'दर्ज स्थान':'Recorded location'))}</h3><p class="ph-popup-value" style="--ph-color:${c.color}">${hi?'वर्षा-जल pH':'Rainwater pH'} <strong>${Number.isFinite(pH)?pH.toFixed(1):'—'}</strong></p><p><b>${hi?'वर्गीकरण':'Classification'}:</b> ${escapeHTML(classLabel)}<br><b>${hi?'तारीख':'Date'}:</b> ${escapeHTML(r.date||(hi?'उल्लेख नहीं':'not recorded'))}<br><b>${hi?'विधि':'Method'}:</b> ${method}<br><b>${hi?'स्रोत':'Source'}:</b> ${source}</p><p><b>${hi?'विश्वसनीयता':'Reliability'}:</b> ${hi?'उपयोगकर्ता द्वारा बताया गया; उपकरण अंशांकन या स्रोत स्वतंत्र रूप से सत्यापित नहीं है।':'user-reported; instrument calibration or source report is not independently verified.'}</p><p><b>${hi?'निगरानी संदर्भ':'Monitoring concern'}:</b> ${escapeHTML(concern)}</p><p><b>${hi?'सावधानी':'Precaution'}:</b> ${escapeHTML(precaution)}</p>${current}<p class="ph-popup-foot">${hi?'कोई प्रत्यक्ष वायु-प्रदूषण संकेतक जुड़ा नहीं है। SO₂/NO₂/AQI वर्षा-जल pH का माप नहीं हैं।':'No direct air-pollution indicator is connected. SO₂/NO₂/AQI would not be a rainwater pH measurement.'}</p></article>`;
+      marker.bindPopup(html,{maxWidth:320,autoPan:true,keepInView:true});
+      marker.bindTooltip(`pH ${pH.toFixed(1)}${simulated?' · DEMO':''}`,{direction:'top',offset:[0,-5]});
+    });
+    const missing=records.length-valid.length;
+    $('map-data-label').textContent=rows.length?`${valid.length} geolocated user reading${valid.length===1?'':'s'}${demo?.pHReading?' · 1 simulated demo point':''}${missing?` · ${missing} without coordinates`:''}`:'No geolocated pH measurements. Record one in the Rainwater acidity panel.';
+    if(!rows.length)status('No geolocated pH readings yet. Existing records without coordinates remain saved; add coordinates to map new readings.');
+    else status('Measured/user-recorded points only. No continuous or interpolated pH surface is shown.');
+  }
+  function layerTitle(){return {temperature:'Temperature',wind:'Wind',clouds:'Cloud cover',humidity:'Humidity',pressure:'Sea-level pressure',radar:'Precipitation radar',acidity:'Acid Rain & Rainwater pH'}[activeLayer];}
+  function updateMapMode(){
+    const badge=$('map-data-mode'), label=$('map-mode-label');if(!badge||!label)return;
+    const pHMode=activeLayer==='acidity', demoPH=getState().demo==='acid-rain';
+    label.textContent=pHMode?(demoPH?'USER + DEMO':'USER RECORDS'):'LIVE';
+    badge.classList.toggle('ph-mode',pHMode);
+    badge.title=pHMode?'Geolocated user-recorded pH only; no live pH feed is connected. Demo point, if present, is simulated.':'Weather map view; forecast and model data are not field measurements.';
+  }
   async function switchLayer(layer){
-    if(!['temperature','wind','clouds','humidity','pressure','radar'].includes(layer))return;
-    const wasRadar=activeLayer==='radar'; activeLayer=layer;stop();status('');
+    if(!['temperature','wind','clouds','humidity','pressure','radar','acidity'].includes(layer))return;
+    const wasRadar=activeLayer==='radar'; activeLayer=layer;stop();status('');updateMapMode();
+    if(layer==='acidity')selectedMarker?.remove();
+    else if(selectedMarker&&!map.hasLayer(selectedMarker))selectedMarker.addTo(map);
+    if(layer!=='acidity'&&map.hasLayer(acidityGroup))map.removeLayer(acidityGroup);
     document.querySelectorAll('[data-layer]').forEach(b=>{b.classList.toggle('active',b.dataset.layer===layer);b.setAttribute('aria-pressed',String(b.dataset.layer===layer));});
-    $('more-layers').value=['humidity','pressure'].includes(layer)?layer:'';
-    $('more-layers').closest('label').style.background=['humidity','pressure'].includes(layer)?'#eaf2ec':'';
+    $('more-layers').value=['humidity','pressure','acidity'].includes(layer)?layer:'';
+    $('more-layers').closest('label').style.background=['humidity','pressure','acidity'].includes(layer)?'#eaf2ec':'';
     radarLayers.forEach(l=>{if(map.hasLayer(l))map.removeLayer(l);});radarLayers.clear();radarLayer=null;
     updateLegend();updateTimeline();
     if(layer==='radar'){
@@ -208,7 +256,13 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
         radarData=null;updateTimeline();$('map-data-label').textContent='Radar unavailable';
         status('Radar data could not be loaded. Explore a model layer or retry.',()=>switchLayer('radar'));
       }
-    }else{renderSamples();if(wasRadar||!sampleData.length)loadSamples();}
+    }else if(layer==='acidity'){
+      samplesGroup.clearLayers();sampleController?.abort();
+      renderAcidityMarkers();
+    }else{
+      if(map.hasLayer(acidityGroup))map.removeLayer(acidityGroup);
+      renderSamples();if(wasRadar||!sampleData.length)loadSamples();
+    }
   }
   function updateLegend(){
     const prefs=getState().prefs;
@@ -218,7 +272,8 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       clouds:{title:'Cloud cover',unit:'%',values:['0 · Clear','50','100 · Overcast'],colors:'#f2f4ef,#b9c8cd,#859eac',note:'Model cloud cover, not satellite imagery'},
       humidity:{title:'Relative humidity',unit:'%',values:['0 · Dry','50','100 · Saturated'],colors:'#eee7cf,#c1d7cc,#81aeb6',note:'Current model point estimates'},
       pressure:{title:'Sea-level pressure',unit:'hPa',values:['980','1013','1040'],colors:'#c6b4ce,#e3dddc,#a1b9cb',note:'Current model point estimates'},
-      radar:{title:'Radar reflectivity',unit:'dBZ',values:['Light','Moderate','Heavy'],colors:'#69adcf,#55b35c,#e2d945,#e47742,#ca5364',note:'Approximate intensity · radar coverage varies'}
+      radar:{title:'Radar reflectivity',unit:'dBZ',values:['Light','Moderate','Heavy'],colors:'#69adcf,#55b35c,#e2d945,#e47742,#ca5364',note:'Approximate intensity · radar coverage varies'},
+      acidity:{title:'Acid Rain & Rainwater pH',unit:'Measured pH',values:['>5.6','5.0–5.6','4.0–4.9','<4.0'],colors:'#438b68,#c7a83b,#db873d,#c95050',note:'Point observations only · gray = no data · bands are not crop-damage limits'}
     }[activeLayer];
     $('map-legend').innerHTML=`<div class="legend-title"><span>${legend.title}</span><span>${legend.unit}</span></div><div class="legend-scale" style="background:linear-gradient(90deg,${legend.colors})"></div><div class="legend-values">${legend.values.map(v=>`<span>${v}</span>`).join('')}</div><div class="legend-note">${legend.note}</div>`;
   }
@@ -275,9 +330,11 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       else{
         map.invalidateSize();
         if(pendingCenter){const p=pendingCenter;pendingCenter=null;map.setView([p.lat,p.lng],p.zoom,{animate:false});sampleData=[];samplesGroup.clearLayers();}
-        if(activeLayer!=='radar'&&!sampleData.length)sampleTimer=setTimeout(loadSamples,1000);
+        if(activeLayer==='acidity')renderAcidityMarkers();
+        else if(activeLayer!=='radar'&&!sampleData.length)sampleTimer=setTimeout(loadSamples,1000);
       }
     },
-    refreshUnits(){updateLegend();renderSamples();renderPanel();}
+    refreshUnits(){updateLegend();if(activeLayer==='acidity')renderAcidityMarkers();else renderSamples();renderPanel();},
+    refreshAcidity(){if(activeLayer==='acidity'){updateMapMode();renderAcidityMarkers();}}
   };
 }

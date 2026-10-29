@@ -40,13 +40,13 @@ export const SOURCES = {
   }
 };
 
-export const CROPS = ['wheat', 'rice', 'maize', 'mustard', 'cotton', 'soybean', 'potato', 'tomato', 'sugarcane'];
+export const CROPS = ['wheat', 'rice', 'maize', 'mustard', 'cotton', 'soybean', 'potato', 'tomato', 'sugarcane', 'french-beans'];
 export const CROP_LABELS = {
   wheat: { en: 'Wheat', hi: 'गेहूँ' }, rice: { en: 'Rice / paddy', hi: 'धान' },
   maize: { en: 'Maize', hi: 'मक्का' }, mustard: { en: 'Mustard', hi: 'सरसों' },
   cotton: { en: 'Cotton', hi: 'कपास' }, soybean: { en: 'Soybean', hi: 'सोयाबीन' },
   potato: { en: 'Potato', hi: 'आलू' }, tomato: { en: 'Tomato', hi: 'टमाटर' },
-  sugarcane: { en: 'Sugarcane', hi: 'गन्ना' }, other: { en: 'Other crop', hi: 'अन्य फसल' }
+  sugarcane: { en: 'Sugarcane', hi: 'गन्ना' }, 'french-beans': { en: 'French Beans', hi: 'फ्रेंच बीन्स' }, other: { en: 'Other crop', hi: 'अन्य फसल' }
 };
 export const STAGE_LABELS = {
   sowing: { en: 'sowing', hi: 'बुवाई' }, vegetative: { en: 'vegetative', hi: 'वानस्पतिक वृद्धि' },

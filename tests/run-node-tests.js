@@ -16,7 +16,7 @@ const SUITES = [
   ['Phase 1.3 reliability / time zone / races', reliabilitySuite]
 ];
 
-// Later phases append their suites here (farms, advisory, storage, acidity).
+// Agricultural intelligence suite covers deterministic screens and isolated demo scenarios.
 try {
   const { advisorySuite } = await import('./advisory-suite.js');
   SUITES.push(['Phase 4 crop advisory', advisorySuite]);
@@ -28,6 +28,10 @@ try {
 try {
   const { aciditySuite } = await import('./acidity-suite.js');
   SUITES.push(['Phase 3 rainwater acidity', aciditySuite]);
+} catch { /* optional suite not present yet */ }
+try {
+  const { agricultureSuite } = await import('./agriculture-suite.js');
+  SUITES.push(['Agricultural suitability, risk and demo isolation', agricultureSuite]);
 } catch { /* optional suite not present yet */ }
 
 const runner = createRunner('WeatherGPT');
