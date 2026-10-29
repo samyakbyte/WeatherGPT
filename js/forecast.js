@@ -2,6 +2,27 @@ import { icon, escapeHTML } from './icons.js';
 import { temp, wind, condition, currentHourIndex, localHour, dayLabel, number, present } from './weather.js';
 import { t, formatNumber } from './i18n.js';
 
+const forecastCrosshair = {
+  id: 'forecastCrosshair',
+  beforeDatasetsDraw(chart, _args, options) {
+    const active = chart.tooltip?.getActiveElements?.() || [];
+    if (!active.length) return;
+
+    const { top, bottom } = chart.chartArea;
+    const x = active[0].element.x;
+    const ctx = chart.ctx;
+    ctx.save();
+    ctx.beginPath();
+    ctx.setLineDash(options.dash || [4, 4]);
+    ctx.lineWidth = options.width || 1;
+    ctx.strokeStyle = options.color || 'rgba(36, 111, 79, 0.28)';
+    ctx.moveTo(x, top);
+    ctx.lineTo(x, bottom);
+    ctx.stroke();
+    ctx.restore();
+  }
+};
+
 export function createForecast(getState) {
   let chart, period = 'hourly', metric = 'temperature';
   const container = document.querySelector('.chart-container');
@@ -38,10 +59,8 @@ export function createForecast(getState) {
     });
     const unit = metric === 'temperature' ? (prefs.temperature === 'fahrenheit' ? '°F' : '°C') : metric === 'rain' ? '%' : prefs.wind === 'mph' ? 'mph' : 'km/h';
     document.getElementById('chart-unit').textContent = unit;
-    const color = metric === 'rain' ? '#76a2b0' : metric === 'wind' ? '#809f95' : '#b5a164';
     document.getElementById('forecast-description').textContent = period === 'daily' ? t('forecast.dailyDescription') : t('forecast.subtitle');
     if (window.Chart) {
-      chart?.destroy();
       const canvas = document.getElementById('forecast-chart');
       const ctx = canvas.getContext('2d');
       let gradient;
@@ -62,8 +81,9 @@ export function createForecast(getState) {
         gradient.addColorStop(1, 'rgba(16, 185, 129, 0.00)');
       }
       const lineColor = metric === 'rain' ? '#0284c7' : metric === 'wind' ? '#0d9488' : '#059669';
-      chart = new Chart(canvas, {
+      const chartConfig = {
         type: metric === 'rain' ? 'bar' : 'line',
+        plugins: [forecastCrosshair],
         data: {
           labels,
           datasets: [{
@@ -72,9 +92,12 @@ export function createForecast(getState) {
             borderColor: lineColor,
             backgroundColor: gradient,
             fill: true,
-            tension: 0.38,
+            tension: 0.32,
             cubicInterpolationMode: 'monotone',
+            spanGaps: false,
             borderWidth: 2.8,
+            borderCapStyle: 'round',
+            borderJoinStyle: 'round',
             pointRadius: period === 'daily' ? 4 : 0,
             pointBackgroundColor: '#ffffff',
             pointBorderColor: lineColor,
@@ -92,7 +115,13 @@ export function createForecast(getState) {
           responsive: true,
           animation: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? false : { duration: 550, easing: 'easeOutQuart' },
           interaction: { intersect: false, mode: 'index' },
+          layout: { padding: { top: 8, right: 5, bottom: 0, left: 3 } },
           plugins: {
+            forecastCrosshair: {
+              color: 'rgba(36, 111, 79, 0.28)',
+              width: 1,
+              dash: [4, 4]
+            },
             legend: { display: false },
             tooltip: {
               backgroundColor: 'rgba(15, 23, 42, 0.94)',
@@ -117,11 +146,23 @@ export function createForecast(getState) {
             }
           },
           scales: {
-            x: { display: false, grid: { display: false } },
+            x: {
+              display: true,
+              border: { display: false },
+              grid: { display: false, drawTicks: false },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: period === 'daily' ? 7 : 8,
+                maxRotation: 0,
+                padding: 8,
+                color: '#77877e',
+                font: { family: 'DM Sans', size: 9, weight: '500' }
+              }
+            },
             y: {
               position: 'right',
               border: { display: false },
-              grid: { color: 'rgba(38, 114, 97, 0.08)', drawTicks: false },
+              grid: { color: 'rgba(38, 114, 97, 0.10)', drawTicks: false, borderDash: [3, 5] },
               ticks: {
                 maxTicksLimit: 4,
                 padding: 8,
@@ -133,7 +174,17 @@ export function createForecast(getState) {
             }
           }
         }
-      });
+      };
+      if (chart && chart.config.type === chartConfig.type) {
+        chart.setActiveElements([]);
+        chart.tooltip?.setActiveElements([], { x: 0, y: 0 });
+        chart.data = chartConfig.data;
+        chart.options = chartConfig.options;
+        chart.update();
+      } else {
+        chart?.destroy();
+        chart = new Chart(canvas, chartConfig);
+      }
     } else { container.hidden = true; empty.hidden = false; empty.textContent = t('forecast.chartUnavailable'); }
     const strip = document.getElementById('hourly-strip'), daily = document.getElementById('daily-forecast');
     strip.hidden = period === 'daily'; daily.hidden = period !== 'daily';
