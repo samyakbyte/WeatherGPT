@@ -8,6 +8,8 @@ import { icon, escapeHTML } from './icons.js';
 import { parseCoordinates } from './geocode.js';
 import { temp, wind } from './weather.js';
 import { POLLUTANTS, selectAirQualityFrame, validAirCoordinates } from './air-quality.js';
+import { renderAcidityIntelligence } from './acidity-intelligence.js';
+import { t, formatNumber, formatDate } from './i18n.js';
 
 export function createFarmUI({ getState, selectLocation, toast, onFarmChange = () => {}, onDemoChange = () => {} }) {
   const $ = id => document.getElementById(id);
@@ -18,38 +20,49 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
   const present = value => value !== null && value !== undefined && Number.isFinite(Number(value));
   const esc = escapeHTML;
   const cropLabel = (crop, language) => cropName(crop, language);
+  const enumKey = value => String(value||'').toLowerCase().replaceAll(' ','');
+  const stageLabel = (value,language) => value ? t(`farm.stage.${({ 'grainfilling':'grainFilling' })[enumKey(value)]||enumKey(value)}`,{},language) : '';
+  const irrigationLabel = (value,language) => value ? t(`farm.irrigation.${({ 'tubewell':'tubeWell' })[enumKey(value)]||enumKey(value)}`,{},language) : '';
+  const drainageLabel = (value,language) => value ? t(`farm.option.${value}`,{},language) : '';
   const riskNames = { LOW: 'LOW', MODERATE: 'MODERATE', HIGH: 'HIGH', SEVERE: 'SEVERE', UNKNOWN: 'UNKNOWN' };
   const localDate = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
 
   function persist() {
-    if (!farms.persistFarms(doc)) toast('Browser storage is unavailable. Farm changes will last only for this session.');
+    if (!farms.persistFarms(doc)) toast(t('farm.storageUnavailable'));
     onFarmChange(farms.getActiveFarm(doc));
   }
 
   function renderActiveFarm(language = 'en') {
     const root = $('active-farm-card'); if (!root) return;
     const farm = farms.getActiveFarm(doc);
-    if (!farm) { root.innerHTML = '<p class="muted-note">No active farm. Choose one below or add a farm from the current location.</p>'; return; }
-    root.innerHTML = `<div class="active-farm-main"><span class="place-icon">${icon('map-pin')}</span><div><h4>${esc(farm.name)}</h4><p>${esc(cropLabel(farm.crop, language))}${farm.stage ? ' · ' + esc(farm.stage) : ''}${farm.sowingDate ? ' · sown ' + esc(farm.sowingDate) : ''}</p><small>${esc(farm.placeLabel || `${farm.latitude.toFixed(4)}, ${farm.longitude.toFixed(4)}`)}</small></div><button class="text-button" data-farm-deactivate>Deactivate</button></div>`;
+    if (!farm) { root.innerHTML = `<p class="muted-note">${esc(t('farm.noActive',{},language))}</p>`; return; }
+    const coords=`${formatNumber(farm.latitude,{minimumFractionDigits:4,maximumFractionDigits:4},language)}, ${formatNumber(farm.longitude,{minimumFractionDigits:4,maximumFractionDigits:4},language)}`;
+    const sowing=farm.sowingDate?t('farm.sown',{date:formatDate(`${farm.sowingDate}T12:00:00Z`,{day:'numeric',month:'short',year:'numeric'},language)},language):'';
+    const context=[stageLabel(farm.stage,language),sowing,irrigationLabel(farm.irrigation,language),drainageLabel(farm.drainage,language)].filter(Boolean).join(' · ');
+    root.innerHTML = `<div class="active-farm-main"><span class="place-icon">${icon('map-pin')}</span><div><h4>${esc(farm.name)}</h4><p>${esc(cropLabel(farm.crop, language))}${context ? ' · ' + esc(context) : ''}</p><small>${esc(farm.placeLabel || coords)}</small></div><button class="text-button" data-farm-deactivate>${esc(t('farm.deactivate',{},language))}</button></div>`;
     root.querySelector('[data-farm-deactivate]')?.addEventListener('click', () => { doc = farms.setActiveFarm(doc, null); persist(); renderAll(); });
   }
 
   function renderFarmsList(language = 'en') {
     const root = $('farms-list'); if (!root) return;
-    if (!doc.farms.length) { root.innerHTML = '<p class="muted-note">No farms saved yet. Farms are stored only in this browser.</p>'; return; }
-    root.innerHTML = doc.farms.map(f => `<article class="farm-card ${f.id === doc.activeFarmId ? 'active' : ''}">
-      <div><h4>${esc(f.name)}</h4><p>${esc(cropLabel(f.crop, language))} · ${esc(f.placeLabel || `${Number(f.latitude).toFixed(3)}, ${Number(f.longitude).toFixed(3)}`)}</p><small>${Number(f.latitude).toFixed(4)}, ${Number(f.longitude).toFixed(4)}${f.stage ? ' · ' + esc(f.stage) : ''}</small></div>
-      <div class="farm-card-actions"><button data-farm-activate="${esc(f.id)}" class="text-button">${f.id === doc.activeFarmId ? 'Active' : 'Use'}</button><button data-farm-edit="${esc(f.id)}" class="text-button">Edit</button><button data-farm-delete="${esc(f.id)}" class="icon-button" aria-label="Delete ${esc(f.name)}">${icon('trash')}</button></div></article>`).join('');
+    if (!doc.farms.length) { root.innerHTML = `<p class="muted-note">${esc(t('farm.noSaved',{},language))}</p>`; return; }
+    root.innerHTML = doc.farms.map(f => {
+      const shortCoords=`${formatNumber(Number(f.latitude),{minimumFractionDigits:3,maximumFractionDigits:3},language)}, ${formatNumber(Number(f.longitude),{minimumFractionDigits:3,maximumFractionDigits:3},language)}`;
+      const coords=`${formatNumber(Number(f.latitude),{minimumFractionDigits:4,maximumFractionDigits:4},language)}, ${formatNumber(Number(f.longitude),{minimumFractionDigits:4,maximumFractionDigits:4},language)}`;
+      return `<article class="farm-card ${f.id === doc.activeFarmId ? 'active' : ''}">
+      <div><h4>${esc(f.name)}</h4><p>${esc(cropLabel(f.crop, language))} · ${esc(f.placeLabel || shortCoords)}</p><small>${coords}${f.stage ? ' · ' + esc(stageLabel(f.stage,language)) : ''}</small></div>
+      <div class="farm-card-actions"><button data-farm-activate="${esc(f.id)}" class="text-button">${esc(t(f.id === doc.activeFarmId ? 'farm.option.active' : 'farm.use',{},language))}</button><button data-farm-edit="${esc(f.id)}" class="text-button">${esc(t('farm.edit',{},language))}</button><button data-farm-delete="${esc(f.id)}" class="icon-button" aria-label="${esc(t('farm.deleteAria',{farm:f.name},language))}">${icon('trash')}</button></div></article>`;
+    }).join('');
     root.querySelectorAll('[data-farm-activate]').forEach(b => b.addEventListener('click', async () => {
       doc = farms.setActiveFarm(doc, b.dataset.farmActivate); persist();
       const farm = farms.getActiveFarm(doc);
       if (farm) await selectLocation(farms.farmToLocation(farm));
-      toast(`${farm?.name || 'Farm'} is now active. Dashboard, map, forecast and assistant use its location.`);
+      toast(t('farm.activeToast',{farm:farm?.name||t('farm.form.title')}));
       renderAll();
     }));
     root.querySelectorAll('[data-farm-edit]').forEach(b => b.addEventListener('click', () => openForm(doc.farms.find(f => f.id === b.dataset.farmEdit))));
     root.querySelectorAll('[data-farm-delete]').forEach(b => b.addEventListener('click', () => {
-      doc = farms.deleteFarm(doc, b.dataset.farmDelete); persist(); renderAll(); toast('Farm removed from this device.');
+      doc = farms.deleteFarm(doc, b.dataset.farmDelete); persist(); renderAll(); toast(t('farm.removedToast'));
     }));
   }
 
@@ -138,16 +151,17 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     if (!root) return;
     const latest = records.at(-1), hi = language === 'hi';
     if (!latest) {
-      root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल अम्लता' : 'Rainwater acidity'}</span><strong class="ph-no-data">${acidity.ACIDITY_UNAVAILABLE}</strong><p>${hi ? 'माप की अनुपलब्धता को सुरक्षित pH नहीं माना जाता।' : 'Missing pH is unknown, not a safe reading.'}</p><button class="text-button" data-open-ph-map>${hi ? 'pH मानचित्र खोलें' : 'Open pH map'}</button>`;
+      root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल अम्लता' : 'Rainwater acidity'}</span><strong class="ph-no-data">${esc(t('acidity.notMeasurable',{},language))}</strong><p>${esc(t('acidity.missingUnknown',{},language))}</p><button class="text-button" data-open-ph-map>${esc(t('ph.openMap',{},language))}</button>`;
       return;
     }
     const c = acidity.classifyPH(latest.value);
-    root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल pH निगरानी' : 'Rainwater pH monitoring'}${demo ? ' · DEMO / SIMULATED DATA' : ''}</span><div class="ph-latest" style="--ph-color:${c.color}"><strong>${Number(latest.value).toFixed(1)}</strong><span>pH</span></div><b>${esc(c.label)}</b><p>${esc(latest.location || latest.source || 'User-recorded')} · ${esc(latest.date)} · ${esc(latest.source || latest.method || 'User-recorded')}</p><small>${esc(c.note)} A rainwater value is not a soil test or crop-damage threshold.</small><button class="text-button" data-open-ph-map>${hi ? 'मानचित्र पर माप देखें' : 'View measurement on map'}</button>`;
+    const bandLabel=t(`ph.band.${c.band}`,{},language),note=t(`ph.note.${c.band}`,{},language);
+    root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल pH निगरानी' : 'Rainwater pH monitoring'}${demo ? ` · ${esc(t('demo.simulated',{},language))}` : ''}</span><div class="ph-latest" style="--ph-color:${c.color}"><strong>${formatNumber(Number(latest.value),{minimumFractionDigits:1,maximumFractionDigits:1},language)}</strong><span>pH</span></div><b>${esc(bandLabel)}</b><p>${esc(latest.location || latest.source || (hi?'उपयोगकर्ता द्वारा दर्ज':'User-recorded'))} · ${esc(latest.date)} · ${esc(latest.source || latest.method || (hi?'उपयोगकर्ता द्वारा दर्ज':'User-recorded'))}</p><small>${esc(note)} ${esc(t('ph.notSoilOrDamage',{},language))}</small><button class="text-button" data-open-ph-map>${esc(t('ph.viewMap',{},language))}</button>`;
   }
 
   function renderEnvironmentalSummary() {
     const root=$('farm-environment-summary');if(!root)return;
-    const live=getState(),farm=farms.getActiveFarm(doc),hi=live.prefs?.language==='hi';
+    const live=getState(),farm=farms.getActiveFarm(doc),hi=live.prefs?.language==='hi',language=hi?'hi':'en';
     if(!farm||!validAirCoordinates(farm.latitude,farm.longitude)){root.hidden=true;return;}
     root.hidden=false;
     const env=live.environment,request=env?.requested;
@@ -169,11 +183,11 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     if(!frame){root.innerHTML=`<p>${hi?'वायुमंडलीय पूर्वानुमान समय उपलब्ध नहीं है।':'No atmospheric forecast timestamps are available.'}</p>${openButton}`;return;}
     const cells=Object.entries(POLLUTANTS).map(([key,p])=>{
       const value=frame.values[key],unit=data.units[key]||'';
-      return `<div><span>${esc(p[hi?'hi':'en'])}</span><b>${present(value)?`${Number(value).toFixed(1)} ${esc(unit)}`:(hi?'उपलब्ध नहीं':'Unavailable')}</b></div>`;
+      return `<div><span>${esc(p[hi?'hi':'en'])}</span><b>${present(value)?`${formatNumber(Number(value),{minimumFractionDigits:1,maximumFractionDigits:1},language)} ${esc(unit)}`:(hi?'उपलब्ध नहीं':'Unavailable')}</b></div>`;
     }).join('');
     const weatherMatches=Math.abs(Number(live.location?.latitude)-Number(farm.latitude))<0.003&&Math.abs(Number(live.location?.longitude)-Number(farm.longitude))<0.003;
     const daily=weatherMatches?live.weather?.daily:null;
-    const rain=daily&&present(daily.precipitation_sum?.[0])?`${Number(daily.precipitation_sum[0]).toFixed(1)} mm${present(daily.precipitation_probability_max?.[0])?` · ${Number(daily.precipitation_probability_max[0])}% probability`:''}`:(hi?'उपलब्ध नहीं':'Unavailable');
+    const rain=daily&&present(daily.precipitation_sum?.[0])?`${formatNumber(Number(daily.precipitation_sum[0]),{minimumFractionDigits:1,maximumFractionDigits:1},language)} mm${present(daily.precipitation_probability_max?.[0])?` · ${formatNumber(Number(daily.precipitation_probability_max[0]),{},language)}% ${hi?'संभावना':'probability'}`:''}`:(hi?'उपलब्ध नहीं':'Unavailable');
     root.innerHTML=`<header class="farm-environment-heading"><span class="card-kicker">${hi?'पर्यावरणीय जानकारी':'Environmental information'}</span><span class="env-model-tag">${hi?'मॉडल पूर्वानुमान':'MODELED FORECAST'}</span></header><div class="farm-environment-grid">${cells}</div><p>${hi?'वर्षा पूर्वानुमान':'Rainfall forecast'}: ${esc(rain)} · ${esc(frame.time)}</p><small>${hi?'यह वायुमंडलीय मॉडल संदर्भ है, सेंसर माप या वर्षा-जल pH नहीं। इससे फसल को नुकसान या असुरक्षित होने का निष्कर्ष नहीं निकलता।':'Modeled atmospheric context, not sensor measurements or rainwater pH. It does not establish crop damage or safety.'}${live.demo?` ${hi?'डेमो के दौरान लाइव डेटा अलग रहता है।':'Live model data remains separate during the demo.'}`:''}</small>${openButton}`;
   }
 
@@ -219,6 +233,10 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     renderAciditySummary($('acidity-summary-card'), contextPHRecords(live, demo), language, demo);
     renderWeek($('week-risk-card'), assessment.days, state.weather, language, demo);
     renderEnvironmentalSummary();
+    renderAcidityIntelligence($('rain-acidity-intelligence'), {
+      location: live.location, farm, crop, readings, environment: live.environment, weather: live.weather,
+      demo: demo ? { ...demo, crop } : null
+    }, language);
     const controls = $('demo-controls');
     if (controls) {
       const select = $('demo-scenario'); if (select && live.demo) select.value = live.demo;
@@ -305,8 +323,8 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
       const sorted = readings.slice().sort((a, b) => a.date.localeCompare(b.date));
       phChart = new Chart(canvas, {
         type: 'line',
-        data: { labels: sorted.map(r => r.date), datasets: [{ label: 'User-recorded rainwater pH', data: sorted.map(r => Number(r.value)), borderColor: '#4e9b75', backgroundColor: 'rgba(78,155,117,.14)', pointBackgroundColor: sorted.map(r => acidity.classifyPH(r.value).color), pointRadius: 4, borderWidth: 2, tension: 0.18, fill: true }] },
-        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => `pH ${Number(c.parsed.y).toFixed(1)} · ${sorted[c.dataIndex]?.source || 'User-recorded'}` } } }, scales: { y: { min: 0, max: 14, title: { display: true, text: 'Measured pH (0–14)' } }, x: { title: { display: true, text: 'Measurement date' } } } }
+        data: { labels: sorted.map(r => formatDate(`${r.date}T12:00:00Z`,{day:'numeric',month:'short'},language)), datasets: [{ label: t('ph.chartLabel',{},language), data: sorted.map(r => Number(r.value)), borderColor: '#4e9b75', backgroundColor: 'rgba(78,155,117,.14)', pointBackgroundColor: sorted.map(r => acidity.classifyPH(r.value).color), pointRadius: 4, borderWidth: 2, tension: 0.18, fill: true }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => t('ph.chartTooltip',{value:formatNumber(Number(c.parsed.y),{minimumFractionDigits:1,maximumFractionDigits:1},language),source:sorted[c.dataIndex]?.source||(language==='hi'?'उपयोगकर्ता द्वारा दर्ज':'User-recorded')},language) } } }, scales: { y: { min: 0, max: 14, title: { display: true, text: t('ph.chartYAxis',{},language) } }, x: { title: { display: true, text: t('ph.chartXAxis',{},language) } } } }
       });
     }
   }

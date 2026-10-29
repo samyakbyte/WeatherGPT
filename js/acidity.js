@@ -1,3 +1,5 @@
+import { t, formatNumber } from './i18n.js';
+
 // Rainwater acidity records are user-provided. No live measured pH feed is connected.
 // Rainwater pH is never inferred from weather or pollution proxies.
 export const ACIDITY_UNAVAILABLE = 'Rainwater acidity data unavailable for this location.';
@@ -76,41 +78,43 @@ export function summarizeTrend(readings = []) {
 }
 
 /** The three concepts are NEVER conflated. */
-export const CONCEPTS = {
-  rainwater: 'Rainwater pH — acidity of rain, measured at a station or by you.',
-  soil: 'Soil pH — a soil test, not available in this app.',
-  irrigation: 'Irrigation-water quality — a water test, not available in this app.'
-};
+export const CONCEPTS = Object.freeze({
+  rainwater: { en:'Rainwater pH — acidity of rain, measured at a station or by you.', hi:'वर्षा-जल pH — बारिश की अम्लता, जिसे स्टेशन या आप मापते हैं।' },
+  soil: { en:'Soil pH — a soil test, not available in this app.', hi:'मिट्टी का pH — मिट्टी की जाँच; यह ऐप में उपलब्ध नहीं है।' },
+  irrigation: { en:'Irrigation-water quality — a water test, not available in this app.', hi:'सिंचाई के पानी की गुणवत्ता — पानी की जाँच; यह ऐप में उपलब्ध नहीं है।' }
+});
 
 export function acidityHTML(language = 'en', readings = [], context = {}) {
-  const hi = language === 'hi';
+  const hi = language === 'hi', tr = key => t(key,{},language);
   const sorted = readings.slice().sort((a, b) => a.date.localeCompare(b.date));
+  const bandLabel = band => tr(`ph.band.${band}`);
   const list = sorted.length
-    ? `<ul class="ph-readings">${sorted.slice(-5).reverse().map(r => { const c = classifyPH(r.value); return `<li><strong>${Number(r.value).toFixed(1)}</strong> · ${escape(r.date)} · ${escape(r.source || r.method)} · ${escape(c.label)}${r.location ? ' · ' + escape(r.location) : ''}${r.notes ? ' · ' + escape(r.notes) : ''}<button type="button" class="text-button" data-delete-ph="${escape(r.id)}" aria-label="Delete pH reading from ${escape(r.date)}">Delete</button></li>`; }).join('')}</ul>`
-    : `<p class="muted-note">${hi ? 'कोई उपयोगकर्ता-दर्ज माप नहीं है।' : 'No user-provided readings yet.'}</p>`;
+    ? `<ul class="ph-readings">${sorted.slice(-5).reverse().map(r => { const c = classifyPH(r.value); return `<li><strong>${formatNumber(Number(r.value),{minimumFractionDigits:1,maximumFractionDigits:1},language)}</strong> · ${escape(r.date)} · ${escape(r.source || r.method)} · ${escape(bandLabel(c.band))}${r.location ? ' · ' + escape(r.location) : ''}${r.notes ? ' · ' + escape(r.notes) : ''}<button type="button" class="text-button" data-delete-ph="${escape(r.id)}" aria-label="${escape(tr('ph.deleteAria').replace('{{date}}',r.date))}">${escape(tr('common.delete'))}</button></li>`; }).join('')}</ul>`
+    : `<p class="muted-note">${escape(tr('ph.noReadings'))}</p>`;
   const lat = Number.isFinite(Number(context.latitude)) ? Number(context.latitude) : '';
   const lon = Number.isFinite(Number(context.longitude)) ? Number(context.longitude) : '';
   const readingsCount = sorted.length;
-  return `<p class="acidity-unavailable">${ACIDITY_UNAVAILABLE}</p>
-    <p class="acidity-explain">${hi
-      ? 'IMD के GAW स्टेशनों के ऐतिहासिक वर्षा-रसायन अध्ययन उपलब्ध हैं, परंतु वर्तमान, स्थानीय और मशीन-पठनीय pH फ़ीड नहीं है। स्टेशन के पुराने मान को आपके खेत का मान मानना गलत होगा।'
-      : 'Historical IMD GAW precipitation-chemistry studies exist, but there is no current, local, machine-readable pH feed. A station reading cannot be treated as your field’s value.'}</p>
-    <details class="ph-concepts"><summary>${hi ? 'तीन अलग-अलग बातें' : 'Three different things'}</summary><ul>${Object.values(CONCEPTS).map(v => `<li>${escape(v)}</li>`).join('')}</ul></details>
-    <section class="ph-history" aria-label="Recorded rainwater pH history"><h4>${hi ? 'रिकॉर्ड किए गए माप' : 'Recorded measurements'} <span>${hi ? 'उपयोगकर्ता द्वारा दर्ज' : 'User-provided readings'} · ${readingsCount} ${hi ? 'माप' : 'observations'}</span></h4>
-      ${readingsCount ? `<canvas id="ph-history-chart" role="img" aria-label="Chart of user-recorded rainwater pH over time"></canvas><p class="muted-note">${escape(summarizeTrend(sorted).message)} · User-recorded observations only; not a regional trend.</p>` : ''}${list}</section>
-    <h4>${hi ? 'उपयोगकर्ता द्वारा नया माप दर्ज करें' : 'Record a measurement'}</h4>
+  const trend=summarizeTrend(sorted);
+  const trendText=trend.status==='insufficient'?tr('ph.trend.insufficient'):trend.status==='lower'?tr('ph.trend.lower'):trend.status==='higher'?tr('ph.trend.higher'):tr('ph.trend.steady');
+  const methodLabel=m=>tr(`ph.method.${m}`);
+  return `<p class="acidity-unavailable">${escape(tr('acidity.notMeasurable'))}</p>
+    <p class="acidity-explain">${escape(tr('acidity.measurementExplanation'))}</p>
+    <details class="ph-concepts"><summary>${escape(tr('ph.concepts'))}</summary><ul>${Object.values(CONCEPTS).map(v => `<li>${escape(v[language]||v.en)}</li>`).join('')}</ul></details>
+    <section class="ph-history" aria-label="${escape(tr('ph.historyAria'))}"><h4>${escape(tr('ph.history'))} <span>${escape(tr('ph.userRecorded'))} · ${formatNumber(readingsCount,{},language)} ${escape(tr('ph.observations'))}</span></h4>
+      ${readingsCount ? `<canvas id="ph-history-chart" role="img" aria-label="${escape(tr('ph.chartAria'))}"></canvas><p class="muted-note">${escape(trendText)} · ${escape(tr('ph.regionalDisclaimer'))}</p>` : ''}${list}</section>
+    <h4>${escape(tr('ph.formTitle'))}</h4>
     <form id="ph-reading-form" class="ph-reading-form">
-      <label>pH <input id="ph-value" type="number" step="0.1" min="0" max="14" required></label>
-      <label>${hi ? 'तारीख' : 'Measurement date'} <input id="ph-date" type="date" required></label>
-      <label>${hi ? 'विधि' : 'Method'} <select id="ph-method">${METHODS.map(m => `<option value="${m}">${m}</option>`).join('')}</select></label>
-      <label>${hi ? 'स्रोत / विधि विवरण' : 'Measurement source'} <input id="ph-source" maxlength="100" placeholder="e.g. home test strip"></label>
-      <label>${hi ? 'स्थान' : 'Location'} <input id="ph-location" maxlength="120" value="${escape(context.locationName || '')}" required></label>
-      <label>Latitude <input id="ph-latitude" type="number" step="any" min="-90" max="90" value="${lat}" required></label>
-      <label>Longitude <input id="ph-longitude" type="number" step="any" min="-180" max="180" value="${lon}" required></label>
-      <label class="ph-notes-field">${hi ? 'टिप्पणी' : 'Optional notes'} <input id="ph-notes" maxlength="300"></label>
-      <button type="submit" class="text-button">${hi ? 'माप जोड़ें' : 'Save user-recorded reading'}</button>
+      <label>${escape(tr('ph.value'))} <input id="ph-value" type="number" step="0.1" min="0" max="14" required></label>
+      <label>${escape(tr('ph.date'))} <input id="ph-date" type="date" required></label>
+      <label>${escape(tr('ph.method'))} <select id="ph-method">${METHODS.map(m => `<option value="${m}">${escape(methodLabel(m))}</option>`).join('')}</select></label>
+      <label>${escape(tr('ph.source'))} <input id="ph-source" maxlength="100" placeholder="${escape(tr('ph.sourcePlaceholder'))}"></label>
+      <label>${escape(tr('ph.location'))} <input id="ph-location" maxlength="120" value="${escape(context.locationName || '')}" required></label>
+      <label>${escape(tr('ph.latitude'))} <input id="ph-latitude" type="number" step="any" min="-90" max="90" value="${lat}" required></label>
+      <label>${escape(tr('ph.longitude'))} <input id="ph-longitude" type="number" step="any" min="-180" max="180" value="${lon}" required></label>
+      <label class="ph-notes-field">${escape(tr('ph.notes'))} <input id="ph-notes" maxlength="300"></label>
+      <button type="submit" class="text-button">${escape(tr('ph.save'))}</button>
     </form>
-    <p class="muted-note">${hi ? 'स्रोत: उपयोगकर्ता द्वारा दर्ज। ये माप केवल इस डिवाइस पर रहते हैं। कोई रासायनिक उपचार नहीं सुझाया जाता।' : 'Source: user-recorded. Readings stay on this device; pH bands are visual categories, not crop-damage thresholds. No chemical treatment is prescribed.'}</p>`;
+    <p class="muted-note">${escape(tr('ph.storageDisclaimer'))}</p>`;
 }
 
 export default acidityHTML;

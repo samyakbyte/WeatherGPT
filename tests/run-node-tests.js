@@ -8,12 +8,14 @@ import { legacySuite } from './legacy-suite.js';
 import { bugSuite } from './regression-bugs.js';
 import { interpretationSuite } from './regression-suite.js';
 import { reliabilitySuite } from './reliability-suite.js';
+import { mark3Suite } from './mark3-suite.js';
 
 const SUITES = [
   ['Legacy baseline (43 checks)', legacySuite],
   ['Phase 1.1 reported-bug regressions', bugSuite],
   ['Phase 1.4 interpretation table', interpretationSuite],
-  ['Phase 1.3 reliability / time zone / races', reliabilitySuite]
+  ['Phase 1.3 reliability / time zone / races', reliabilitySuite],
+  ['Mark 3 bilingual and acidity intelligence', mark3Suite]
 ];
 
 // Agricultural intelligence suite covers deterministic screens and isolated demo scenarios.

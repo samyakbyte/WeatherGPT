@@ -937,3 +937,69 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 }
 @media(prefers-reduced-motion:reduce) { .env-spinner { animation:none; border-top-color:#438b68; } }
 .env-no-data { margin:10px 0 0; padding:9px 10px; border-left:3px solid #bd7d3e; border-radius:4px; background:#fbf5ee; color:#79552f; font-size:10px; line-height:1.5; }
+
+/* Farmer-first acidity panel: observation and screening remain separate. */
+.rain-acidity-intelligence { margin:0 0 16px; padding:18px 20px; border:1px solid #dbe6dc; border-radius:11px; background:linear-gradient(125deg,#f8fbf6,#fff); }
+.acidity-intelligence-heading { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:12px; }
+.acidity-intelligence-heading>div:first-child { display:flex; align-items:center; flex-wrap:wrap; gap:8px; }
+.acidity-intelligence-heading .card-kicker { font-size:11px; color:#345841; }
+.acidity-reliability { display:inline-flex; width:max-content; max-width:100%; padding:4px 7px; border-radius:999px; background:#edf2ee; color:#57685c; font-size:8px; font-weight:750; letter-spacing:.25px; }
+.acidity-reliability.measured { background:#e7f3ec; color:#286441; }
+.acidity-reliability.screening { background:#edf2f7; color:#425e77; }
+.acidity-reliability.demonstration { background:#f0eafa; color:#63489a; }
+.acidity-reliability.unavailable { background:#f2f1ed; color:#6a6c66; }
+.acidity-ph-block { display:grid; justify-items:end; gap:3px; min-width:160px; }
+.acidity-ph-block>span { color:#758277; font-size:9px; }
+.acidity-intelligence-value { color:#315a40; font-size:24px; font-variant-numeric:tabular-nums; }
+.acidity-intelligence-value small { color:#78877b; font-size:11px; }
+.acidity-intelligence-value.demo-value { color:#7057a5; }
+.acidity-intelligence-unavailable { max-width:245px; color:#616e63; font-size:11px; text-align:right; line-height:1.4; }
+.acidity-intelligence-lede { max-width:900px; margin:10px 0 3px; color:#45584b; font-size:11px; line-height:1.6; }
+.acidity-record-note { margin:4px 0 12px; color:#78847a; font-size:9px; line-height:1.6; }
+.acidity-screen-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.acidity-screen-grid>section { min-width:0; padding:11px 13px; border:1px solid #e8eee7; border-radius:8px; background:rgba(255,255,255,.78); }
+.acidity-screen-grid h4 { margin:0 0 7px; color:#4c6252; font-size:10px; }
+.acidity-screen-grid p { margin:5px 0; color:#637267; font-size:9px; line-height:1.55; }
+.acidity-screen-grid small,.acidity-intelligence-footer { color:#7b887d; font-size:8px; line-height:1.6; }
+.acidity-science-details { margin-top:10px; padding-top:9px; border-top:1px solid #e8eee7; }
+.acidity-science-details>summary { color:#617266; font-size:9px; font-weight:700; cursor:pointer; }
+.acidity-science-details>p { color:#647369; font-size:9px; line-height:1.6; }
+.acidity-tech-list { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; }
+.acidity-tech-row { display:grid; gap:3px; padding:7px; border:1px solid #ebeee9; border-radius:6px; background:#fff; }
+.acidity-tech-row span { color:#748177; font-size:8px; }
+.acidity-tech-row b { color:#365942; font-size:9px; overflow-wrap:anywhere; }
+.acidity-intelligence-footer { display:flex; align-items:center; justify-content:space-between; gap:9px; margin-top:9px; }
+.acidity-intelligence-footer .text-button { min-height:30px; padding:4px 8px; font-size:9px; }
+@media(max-width:700px) {
+  .rain-acidity-intelligence { margin:0 0 12px; padding:14px; }
+  .acidity-intelligence-heading { align-items:start; }
+  .acidity-intelligence-heading .card-kicker { font-size:10px; }
+  .acidity-ph-block { min-width:112px; }
+  .acidity-intelligence-value { font-size:20px; }
+  .acidity-intelligence-unavailable { max-width:135px; font-size:9px; }
+  .acidity-screen-grid { grid-template-columns:1fr; }
+  .acidity-tech-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+.env-farmer-view { display:grid; gap:8px; }
+.env-farmer-view .env-location { padding:9px 0 5px; }
+.env-farmer-view .env-ph-observation,.env-screening-note,.env-farmer-guidance { display:grid; gap:5px; padding:10px; border:1px solid #e8eee7; border-radius:7px; background:#fff; }
+.env-ph-observation > span,.env-screening-note > b,.env-farmer-guidance > b { color:#536a59; font-size:9px; font-weight:750; }
+.env-ph-observation > b { color:#4b6251; font-size:12px; }
+.env-measured-tag { width:max-content; padding:3px 6px; border-radius:999px; background:#e7f3ec; color:#286441!important; font-size:7px!important; }
+.env-ph-observation small,.env-screening-note p,.env-farmer-guidance p { margin:0; color:#6e7e71; font-size:9px; line-height:1.55; }
+.env-farmer-view .env-rain { margin:0; }
+.env-farmer-view .env-actions { margin:0; }
+.env-tech-details { margin-top:2px; padding-top:8px; border-top:1px solid #e5ece4; }
+.env-tech-details>summary { color:#5d7162; font-size:9px; font-weight:700; cursor:pointer; }
+.env-tech-details .env-location { padding-top:9px; }
+.env-tech-details .env-selected { margin:0 0 7px; }
+.env-tech-details .env-provenance { margin-top:8px; }
+.global-language-picker { display:flex; align-items:center; gap:5px; min-height:35px; padding:0 8px; border:1px solid #e1e8df; border-radius:8px; background:#fff; color:#43584a; }
+.global-language-picker>span { font-size:13px; line-height:1; }
+.global-language-picker select { min-width:82px; min-height:32px; border:0; outline:0; background:transparent; color:inherit; font:600 10px 'DM Sans','Noto Sans Devanagari',sans-serif; cursor:pointer; }
+html[lang="hi"] { font-family:'DM Sans','Noto Sans Devanagari',sans-serif; }
+html[lang="hi"] body { font-family:'DM Sans','Noto Sans Devanagari',sans-serif; }
+@media(max-width:700px) {
+  .global-language-picker { min-height:33px; padding:0 5px; gap:2px; }
+  .global-language-picker select { min-width:66px; max-width:80px; font-size:9px; }
+}

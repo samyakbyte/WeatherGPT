@@ -1,7 +1,8 @@
 # Data sources research — WeatherGPT
 
-All access dates: **2026-10-26**. Measurements below were made with direct HTTPS
-requests to the public endpoints listed. Where a claim could not be verified,
+Sources in Sections 1–6 were initially checked **2026-10-26**; Mark 3 acidity
+method references were revisited **2026-10-29**. Measurements below were made
+with direct HTTPS requests to the public endpoints listed. Where a claim could not be verified,
 it is marked **unverified** rather than guessed. This document is the evidence
 base for Phase 2 (villages), Phase 3 (rainwater acidity) and Phase 4 (crop
 guidance); it also records the spatial-resolution wording used in the UI.
@@ -261,3 +262,60 @@ The app retains the independent user-recorded pH system. Its points remain
 marked `MEASURED · USER-RECORDED`; old records without coordinates remain in
 history and are not assigned invented map coordinates. Demo pH remains
 `SIMULATED` and is never written to the pH cache or persistence.
+
+---
+
+## 7. Mark 3: rainwater-acidity screening and English/Hindi interface
+
+### Scientific method and limitations
+
+The Mark 3 farmer-facing card is an **explainable atmospheric-context screen**,
+not a rainwater chemistry model. It may show provider-supplied atmospheric
+pollutant values, a separately sourced weather-model rainfall amount/probability,
+a matching user-recorded rainwater pH sample, or an explicit unavailable state.
+It creates **no pH number, acidity probability, risk score, or crop-damage
+classification** from SO₂, NO₂, particulate matter, ozone, AQI, rainfall,
+humidity, pressure, or temperature. Pollutant concentration is not equivalent
+to wet deposition: precipitation chemistry also depends on cloud-water
+chemistry, acids and bases, neutralization, scavenging, and other processes.
+
+A peer-reviewed GEOS-Chem study of global cloud-water and precipitation acidity
+(<https://acp.copernicus.org/articles/20/12223/2020/>) simulates detailed aqueous
+chemistry and evaluates results against monitoring networks; this is a full
+chemistry-model pathway, not an integration-ready field pH value exposed through
+the existing Open-Meteo endpoint. The CAMS/IFS-COMPO system literature
+(<https://gmd.copernicus.org/articles/17/7539/2024/>) likewise describes a
+chemistry-model system, not a validated local precipitation-pH field returned
+by WeatherGPT's current API. Open-Meteo's Air Quality integration returns
+atmospheric composition fields documented in §6 and does not expose precipitation
+pH. The historical Indian GAW station research documented in §3 is not a current
+farm-level feed. Therefore, the scientifically supportable product is a
+transparent **screening context only**; a direct rainwater sample and suitable
+pH test are necessary when a decision depends on acidity. Missing pH means
+**unknown**, not safe or unsafe.
+
+The dashboard filters saved pH records to the matching active farm/location,
+labels them as user-recorded or demo-simulated, and does not overwrite user data.
+Atmospheric and rainfall data remain separately identified as model/forecast
+context. A farmer can expand technical pollutant details on the map and open
+the pH-measurement layer or record a sample. No pesticide, fertilizer, lime,
+gypsum, or soil-treatment action is inferred from a rainwater pH entry. Crop
+suitability scoring does not use pH or atmospheric pollution.
+
+### Hindi experience
+
+Mark 3 adds a centralized English/Hindi catalog and keyed static/dynamic
+rendering in `js/i18n.js`. The global, keyboard-accessible header selector
+updates the document language and the assistant language together, persists the
+choice in the existing `weathergpt.preferences` record, and does not reload the
+page. Weather, forecast dates/numbers, agricultural dashboard and advisories,
+map environmental summaries, the acidity intelligence card, pH recording/history,
+demo labels, settings/navigation and relevant status/error/loading content use
+the selected locale. Hindi uses Devanagari number formatting and Noto Sans
+Devanagari; the WeatherGPT brand remains English. User-entered notes and
+provider/source names remain intact rather than being silently rewritten.
+
+The map's farmer view is concise by default, with atmospheric model coordinates,
+timestamps, pollutant values and source caveats behind an expandable technical
+details disclosure. Existing English behavior and the assistant's independent
+question-language recognition remain supported.

@@ -4,6 +4,8 @@ import { temp, wind, number, direction, present, condition, currentHourIndex, lo
 import { classifyPH, loadReadings } from './acidity.js';
 import { makeDemoState } from './demo.js';
 import { fetchAirQuality, selectAirQualityFrame, POLLUTANTS, AIR_QUALITY_VARIABLES, validAirCoordinates } from './air-quality.js';
+import { t, tPlural } from './i18n.js';
+import { cropName } from './agriculture.js';
 
 export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () => {}, onEnvironmentChange = () => {} }) {
   const $ = id => document.getElementById(id);
@@ -83,6 +85,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   $('environment-content').addEventListener('click',e=>{
     if(e.target.closest('[data-record-ph]'))document.dispatchEvent(new CustomEvent('weathergpt:record-ph'));
     if(e.target.closest('[data-open-atmosphere]'))switchLayer('atmosphere');
+    if(e.target.closest('[data-open-acidity]'))switchLayer('acidity');
     if(e.target.closest('[data-retry-atmosphere]'))loadAtmosphere(true);
   });
   $('map-recenter').addEventListener('click',()=>{ const p=getState().location; map.flyTo([p.latitude,p.longitude],5,{animate:!reduceMotion(),duration:.7}); });
@@ -130,15 +133,16 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   function renderPanel(){
     const {location,weather,prefs,loading}=getState();
     $('map-panel-name').textContent=location.name;
-    $('map-panel-weather').textContent=weather?`${temp(weather.current.temperature_2m,prefs,true)} · ${condition(weather.current.weather_code,!!weather.current.is_day).label}`:loading?'Fetching conditions…':'Weather unavailable';
-    $('map-panel-metrics').textContent=weather?`Wind ${wind(weather.current.wind_speed_10m,prefs)} ${direction(weather.current.wind_direction_10m)} · Humidity ${number(weather.current.relative_humidity_2m)}%`:loading?'Updating this location’s weather.':'Retry the weather service or choose another location.';
+    const hi=prefs?.language==='hi';
+    $('map-panel-weather').textContent=weather?`${temp(weather.current.temperature_2m,prefs,true)} · ${condition(weather.current.weather_code,!!weather.current.is_day).label}`:loading?t('map.fetchingConditions',{},hi?'hi':'en'):t('map.weatherUnavailable',{},hi?'hi':'en');
+    $('map-panel-metrics').textContent=weather?`${t('map.wind',{},hi?'hi':'en')} ${wind(weather.current.wind_speed_10m,prefs)} ${direction(weather.current.wind_direction_10m)} · ${t('map.humidity',{},hi?'hi':'en')} ${number(weather.current.relative_humidity_2m)}%`:loading?t('map.updatingWeather',{},hi?'hi':'en'):t('map.retryWeather',{},hi?'hi':'en');
     $('map-panel-forecast').replaceChildren();
     $('map-panel-advisories').hidden=!weather;
     if(weather){
       const h=weather.hourly,start=currentHourIndex(weather);
-      $('map-panel-forecast').innerHTML=[1,2,3].filter(offset=>start+offset<h.time.length).map(offset=>{const i=start+offset;return `<div><small>${escapeHTML(localHour(h.time[i],true))}</small>${icon(condition(h.weather_code[i]).icon)}<strong>${temp(h.temperature_2m[i],prefs)}</strong><small>${number(h.precipitation_probability[i])}% rain</small></div>`;}).join('');
+      $('map-panel-forecast').innerHTML=[1,2,3].filter(offset=>start+offset<h.time.length).map(offset=>{const i=start+offset;return `<div><small>${escapeHTML(localHour(h.time[i],true))}</small>${icon(condition(h.weather_code[i]).icon)}<strong>${temp(h.temperature_2m[i],prefs)}</strong><small>${number(h.precipitation_probability[i])}% ${escapeHTML(t('map.rainChance',{},hi?'hi':'en'))}</small></div>`;}).join('');
       const count=deriveAdvisories(weather).length;
-      $('map-panel-advisories').textContent=count?`${count} forecast ${count===1?'advisory':'advisories'} · View guidance →`:'View forecast guidance →';
+      $('map-panel-advisories').textContent=count?(hi?`${number(count)} मौसम सलाह · ${t('map.viewGuidance',{},'hi')}`:`${count} ${count===1?'forecast advisory':'forecast advisories'} · ${t('map.viewGuidance')}`):t('map.noGuidance',{},hi?'hi':'en');
     }
   }
   function samplePoints(){
@@ -158,7 +162,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     if(['radar','acidity','atmosphere'].includes(activeLayer)||!visible)return;
     sampleController?.abort(); sampleController=new AbortController();
     const signal=sampleController.signal;
-    $('map-data-label').textContent='Updating geographic model samples…';
+    $('map-data-label').textContent=t('map.samplesLoading',{},getState().prefs?.language==='hi'?'hi':'en');
     try{
       const results=await fetchSamples(samplePoints(),signal);
       if(signal.aborted||activeLayer==='radar')return;
@@ -168,8 +172,8 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       if(error.name==='AbortError')return;
       // Never leave values from a previous region presented as a new region.
       samplesGroup.clearLayers(); sampleData=[];
-      $('map-data-label').textContent='Model samples unavailable';
-      status('The geographic weather samples are unavailable. Your selected-location forecast is separate.',loadSamples);
+      $('map-data-label').textContent=t('map.samplesUnavailable',{},getState().prefs?.language==='hi'?'hi':'en');
+      status(t('map.samplesError',{},getState().prefs?.language==='hi'?'hi':'en'),loadSamples);
     }
   }
   function sampleValue(p){
@@ -239,8 +243,8 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     if(!validAirCoordinates(grid.latitude,grid.longitude))return;
     const lat=grid.latitude,lng=grid.longitude;
     const marker=L.circleMarker([lat,lng],{radius:10,color:info.color,weight:2,fillColor:info.color,fillOpacity:.88,keyboard:true}).addTo(airQualityGroup);
-    marker.bindTooltip(`${info.short} ${Number(value).toFixed(1)} ${unit}`,{direction:'top',offset:[0,-7]});
-    marker.bindPopup(`<article class="env-marker-popup"><span>${hi?'मॉडल/पूर्वानुमान ग्रिड मान':'MODELED / FORECAST GRID VALUE'}</span><h3>${escapeHTML(requested.name||getState().location.name)}</h3><b>${escapeHTML(info[hi?'hi':'en'])}: ${Number(value).toFixed(1)} ${escapeHTML(unit)}</b><p>${hi?'समय':'Timestamp'}: ${escapeHTML(frame.time)} ${escapeHTML(airData.timezoneAbbreviation||airData.timezone||'provider local time')}</p><small>${hi?'मॉडल ग्रिड केंद्र':'Model grid centre'}: ${Number.isFinite(grid.latitude)&&Number.isFinite(grid.longitude)?`${grid.latitude.toFixed(3)}, ${grid.longitude.toFixed(3)}`:envText('not supplied','उपलब्ध नहीं')}. ${hi?'यह मॉडल अनुमान है, सेंसर माप नहीं। वायुमंडलीय सांद्रताएँ वर्षा-जल pH नहीं मापतीं।':'This point is a model estimate, not a sensor station. Atmospheric concentrations do not measure rainwater pH.'}</small></article>`,{maxWidth:300});
+    marker.bindTooltip(`${info.short} ${number(Number(value),1)} ${unit}`,{direction:'top',offset:[0,-7]});
+    marker.bindPopup(`<article class="env-marker-popup"><span>${hi?'मॉडल/पूर्वानुमान ग्रिड मान':'MODELED / FORECAST GRID VALUE'}</span><h3>${escapeHTML(requested.name||getState().location.name)}</h3><b>${escapeHTML(info[hi?'hi':'en'])}: ${number(Number(value),1)} ${escapeHTML(unit)}</b><p>${hi?'समय':'Timestamp'}: ${escapeHTML(frame.time)} ${escapeHTML(airData.timezoneAbbreviation||airData.timezone||'provider local time')}</p><small>${hi?'मॉडल ग्रिड केंद्र':'Model grid centre'}: ${Number.isFinite(grid.latitude)&&Number.isFinite(grid.longitude)?`${number(grid.latitude,3)}, ${number(grid.longitude,3)}`:envText('not supplied','उपलब्ध नहीं')}. ${hi?'यह मॉडल अनुमान है, सेंसर माप नहीं। वायुमंडलीय सांद्रताएँ वर्षा-जल pH नहीं मापतीं।':'This point is a model estimate, not a sensor station. Atmospheric concentrations do not measure rainwater pH.'}</small></article>`,{maxWidth:300});
   }
   function renderEnvironmentPanel(){
     const panel=$('environment-panel'),content=$('environment-content');
@@ -257,7 +261,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       const records=(getState().acidityReadings||loadReadings()).filter(r=>r.recordType!=='simulated'&&validAirCoordinates(r.latitude,r.longitude));
       const demo=getState().demo==='acid-rain';
       const available=!!airData;
-      $('map-data-label').textContent=records.length?`${records.length} ${hi?'भू-स्थानित उपयोगकर्ता pH माप':'geolocated user pH measurement'}${records.length===1?'':'s'}`:(hi?'इस दृश्य में मापा pH रिकॉर्ड नहीं':'No measured pH records in view');
+      $('map-data-label').textContent=records.length?tPlural('map.pHCount',records.length,{},hi?'hi':'en'):(hi?'इस दृश्य में मापा pH रिकॉर्ड नहीं':'No measured pH records in view');
       if(records.length){
         content.innerHTML=`<div class="env-empty"><p>${hi?'मानचित्र पर बिंदु केवल उपयोगकर्ता द्वारा दर्ज pH माप हैं।':'Map points are user-recorded rainwater pH measurements only.'}</p>${demo?`<p class="env-demo-note">${hi?'बैंगनी डेमो बिंदु काल्पनिक है, मापा हुआ नहीं।':'Purple demo point is simulated, not measured.'}</p>`:''}<button type="button" class="text-button" data-record-ph>${hi?'माप दर्ज करें':'Record a pH measurement'}</button></div>`;
       }else{
@@ -277,14 +281,20 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       return;
     }
     const selected=POLLUTANTS[activeAirPollutant], unitFor=k=>airData.units[k]||envText('unit unavailable','इकाई उपलब्ध नहीं');
-    const display=(key)=>present(frame.values[key])?`${Number(frame.values[key]).toFixed(1)} ${escapeHTML(unitFor(key)||'')}`:envText('Unavailable','उपलब्ध नहीं');
+    const display=(key)=>present(frame.values[key])?`${number(Number(frame.values[key]),1)} ${escapeHTML(unitFor(key)||'')}`:envText('Unavailable','उपलब्ध नहीं');
     const pollutantCards=Object.entries(POLLUTANTS).map(([key,p])=>`<div class="env-pollutant ${key===activeAirPollutant?'selected':''}"><span class="env-pollutant-dot" style="--pollutant:${p.color}"></span><span>${escapeHTML(p[hi?'hi':'en'])}</span><strong>${display(key)}</strong></div>`).join('');
     const noPollutantData=AIR_QUALITY_VARIABLES.every(key=>!present(frame.values[key]));
     const noDataNote=noPollutantData?`<p class="env-no-data" role="status">${hi?'इस मॉडल समय-बिंदु के लिए कोई प्रदूषक मान उपलब्ध नहीं हैं।':'No pollutant values are available for this model time frame.'}</p>`:'';
     const rain=rainfallContext();
-    const rainfall=rain?`<div class="env-rain"><b>${hi?'वर्षा संदर्भ':'Rainfall context'}</b><span>${hi?'मॉडल वर्तमान अनुमान':'Current model estimate'}: ${rain.currentMm===null?envText('Unavailable','उपलब्ध नहीं'):`${rain.currentMm.toFixed(1)} mm`}</span><span>${hi?'आज का पूर्वानुमान':'Today forecast'}: ${rain.forecastMm===null?envText('Unavailable','उपलब्ध नहीं'):`${rain.forecastMm.toFixed(1)} mm`}${rain.probability===null?'':` · ${rain.probability}% ${hi?'संभावना':'probability'}`}</span><small>${hi?'पूर्वानुमान/मॉडल संदर्भ; वर्षा-जल रसायन का माप नहीं।':'Weather-model context; not a rainwater chemistry measurement.'}</small></div>`:`<div class="env-rain"><b>${hi?'वर्षा संदर्भ':'Rainfall context'}</b><span>${envText('Unavailable','उपलब्ध नहीं')}</span></div>`;
-    const modelCenter=validAirCoordinates(airData.modelGrid.latitude,airData.modelGrid.longitude)?`${airData.modelGrid.latitude.toFixed(3)}, ${airData.modelGrid.longitude.toFixed(3)}`:envText('not supplied','उपलब्ध नहीं');
-    content.innerHTML=`<div class="env-location"><b>${escapeHTML(location.name||airData.requested.name||envText('Selected location','चयनित स्थान'))}</b><small>${hi?'चयनित निर्देशांक':'Selected coordinates'}: ${Number(location.latitude).toFixed(3)}, ${Number(location.longitude).toFixed(3)}</small><small>${hi?'मॉडल ग्रिड केंद्र':'Model grid centre'}: ${modelCenter}</small></div><div class="env-selected" style="--pollutant:${selected.color}"><span>${escapeHTML(selected[hi?'hi':'en'])}</span><strong>${display(activeAirPollutant)}</strong><small>${hi?'मॉडल/पूर्वानुमान मान':'Modeled / forecast value'} · ${escapeHTML(frame.time)} ${escapeHTML(airData.timezoneAbbreviation||airData.timezone||'')}</small></div>${noDataNote}<div class="env-pollutant-list">${pollutantCards}</div>${rainfall}<div class="env-provenance"><b>${hi?'स्रोत':'Source'}:</b> <a href="https://open-meteo.com/en/docs/air-quality-api" target="_blank" rel="noopener noreferrer">Open-Meteo Air Quality API</a><small>${hi?'वायुमंडलीय प्रदूषक सांद्रता अम्लीय निक्षेपण से संबंधित परिस्थितियों का संदर्भ दे सकती है, लेकिन वे वर्षा-जल pH को सीधे नहीं मापतीं। CAMS-आधारित मॉडल ग्रिड यूरोप में लगभग 11 km और वैश्विक स्तर पर लगभग 45 km हैं; प्रदाता हर प्रतिक्रिया में प्रयुक्त मॉडल की पहचान नहीं बताता।':'Atmospheric pollutant concentrations can help assess conditions relevant to acid deposition, but they do not directly measure rainwater pH. CAMS-backed grids are about 11 km in Europe and 45 km globally; the provider does not identify the contributing model in each response.'}</small></div>`;
+    const rainfall=rain?`<div class="env-rain"><b>${hi?'वर्षा संदर्भ':'Rainfall context'}</b><span>${hi?'मॉडल वर्तमान अनुमान':'Current model estimate'}: ${rain.currentMm===null?envText('Unavailable','उपलब्ध नहीं'):`${number(rain.currentMm,1)} mm`}</span><span>${hi?'आज का पूर्वानुमान':'Today forecast'}: ${rain.forecastMm===null?envText('Unavailable','उपलब्ध नहीं'):`${number(rain.forecastMm,1)} mm`}${rain.probability===null?'':` · ${number(rain.probability)}% ${hi?'संभावना':'probability'}`}</span><small>${hi?'पूर्वानुमान/मॉडल संदर्भ; वर्षा-जल रसायन का माप नहीं।':'Weather-model context; not a rainwater chemistry measurement.'}</small></div>`:`<div class="env-rain"><b>${hi?'वर्षा संदर्भ':'Rainfall context'}</b><span>${envText('Unavailable','उपलब्ध नहीं')}</span></div>`;
+    const modelCenter=validAirCoordinates(airData.modelGrid.latitude,airData.modelGrid.longitude)?`${number(airData.modelGrid.latitude,3)}, ${number(airData.modelGrid.longitude,3)}`:envText('not supplied','उपलब्ध नहीं');
+    const measured=(state.acidityReadings||loadReadings()).filter(r=>r.recordType!=='simulated'&&validAirCoordinates(r.latitude,r.longitude)&&((location.farmId&&r.farmId===location.farmId)||(!r.farmId&&Math.abs(Number(r.latitude)-Number(location.latitude))<=0.001&&Math.abs(Number(r.longitude)-Number(location.longitude))<=0.001))).sort((a,b)=>b.date.localeCompare(a.date))[0]||null;
+    const observation=measured?`<div class="env-ph-observation"><span class="env-measured-tag">${t('acidity.measured',{},hi?'hi':'en')}</span><b>${number(Number(measured.value),1)} pH</b><small>${escapeHTML(measured.date)} · ${escapeHTML(measured.method||measured.source||envText('method not specified','विधि उपलब्ध नहीं'))} · ${escapeHTML(measured.source||'')}</small><small>${hi?'यह उसी दर्ज नमूने का मान है, भविष्य की बारिश का नहीं।':'This is a user-recorded sample value, not a forecast for future rain.'}</small></div>`:`<div class="env-ph-observation"><span>${escapeHTML(t('map.phObservation',{},hi?'hi':'en'))}</span><b>${escapeHTML(t('map.pHUnavailable',{},hi?'hi':'en'))}</b><small>${escapeHTML(t('acidity.noEstimate',{},hi?'hi':'en'))}</small></div>`;
+    const crop=state.farm?.crop||'';
+    const cropLabel=crop?cropName(crop,hi?'hi':'en'):(hi?'चुनी हुई फसल':'the selected crop');
+    const farmerGuidance=`<div class="env-farmer-guidance"><b>${hi?'खेती के लिए सलाह':'Farm guidance'}</b><p>${escapeHTML(t('acidity.cropGuidance',{crop:cropLabel},hi?'hi':'en'))}</p><p>${escapeHTML(t('acidity.precaution',{},hi?'hi':'en'))}</p></div>`;
+    const techDetails=`<details class="env-tech-details"><summary>${escapeHTML(t('map.techDetails',{},hi?'hi':'en'))}</summary><div class="env-location"><b>${escapeHTML(location.name||airData.requested.name||envText('Selected location','चयनित स्थान'))}</b><small>${hi?'चुने हुए निर्देशांक':'Selected coordinates'}: ${number(Number(location.latitude),3)}, ${number(Number(location.longitude),3)}</small><small>${hi?'मॉडल ग्रिड केंद्र':'Model grid centre'}: ${modelCenter}</small></div><div class="env-selected" style="--pollutant:${selected.color}"><span>${escapeHTML(selected[hi?'hi':'en'])}</span><strong>${display(activeAirPollutant)}</strong><small>${hi?'मॉडल/पूर्वानुमान मान':'Modeled / forecast value'} · ${escapeHTML(frame.time)} ${escapeHTML(airData.timezoneAbbreviation||airData.timezone||'')}</small></div><div class="env-pollutant-list">${pollutantCards}</div><div class="env-provenance"><b>${hi?'स्रोत':'Source'}:</b> <a href="https://open-meteo.com/en/docs/air-quality-api" target="_blank" rel="noopener noreferrer">Open-Meteo Air Quality API</a><small>${hi?'वायुमंडलीय प्रदूषक सांद्रता बारिश के पानी का pH सीधे नहीं बताती। CAMS-आधारित मॉडल ग्रिड यूरोप में लगभग 11 km और वैश्विक स्तर पर लगभग 45 km हैं; प्रदाता हर मान का मॉडल नहीं बताता।':'Atmospheric pollutant concentrations do not directly measure rainwater pH. CAMS-backed grids are about 11 km in Europe and 45 km globally; the provider does not identify the model for each value.'}</small></div></details>`;
+    content.innerHTML=`<div class="env-farmer-view"><div class="env-location"><b>${escapeHTML(location.name||airData.requested.name||envText('Selected location','चयनित स्थान'))}</b><small>${escapeHTML(t('map.farmerMode',{},hi?'hi':'en'))}</small></div>${observation}<div class="env-screening-note"><b>${escapeHTML(t('acidity.screening',{},hi?'hi':'en'))}</b><p>${escapeHTML(t('acidity.indicatorsAvailable',{},hi?'hi':'en'))}</p><p>${escapeHTML(t('acidity.explain',{},hi?'hi':'en'))}</p></div>${noPollutantData?noDataNote:''}${rainfall}${farmerGuidance}<div class="env-actions"><button type="button" class="text-button" data-record-ph>${escapeHTML(t('acidity.sample',{},hi?'hi':'en'))}</button><button type="button" class="text-button" data-open-acidity>${escapeHTML(t('map.openPH',{},hi?'hi':'en'))}</button></div></div>${techDetails}`;
     renderAirMarker();
   }
   async function loadAtmosphere(force=false){
@@ -335,9 +345,9 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
         ? (hi?'मापन विधि जाँचें और स्वतंत्र रूप से दोहराएँ। फसल की चिंता बनी रहे तो मिट्टी का अलग परीक्षण कराएँ; केवल वर्षा-जल pH के आधार पर संशोधन न करें।':'Check the measurement method and repeat/independently verify. If crop concerns persist, test soil separately; do not apply amendments from rainwater pH alone.')
         : (hi?'एक ही विधि से दोहराए गए माप दर्ज करें। यह फसल-क्षति की सीमा नहीं है।':'Keep records and compare repeat measurements using a consistent method. This is not a crop-damage threshold.');
       const tag=simulated?'DEMO / SIMULATED DATA':(hi?'मापा · उपयोगकर्ता द्वारा दर्ज':'MEASURED · USER-RECORDED');
-      const html=`<article class="ph-map-popup ${simulated?'simulated':''}"><span class="ph-popup-tag">${tag}</span><h3>${escapeHTML(r.location||stateLocation.name||(hi?'दर्ज स्थान':'Recorded location'))}</h3><p class="ph-popup-value" style="--ph-color:${c.color}">${hi?'वर्षा-जल pH':'Rainwater pH'} <strong>${Number.isFinite(pH)?pH.toFixed(1):'—'}</strong></p><p><b>${hi?'वर्गीकरण':'Classification'}:</b> ${escapeHTML(classLabel)}<br><b>${hi?'तारीख':'Date'}:</b> ${escapeHTML(r.date||(hi?'उल्लेख नहीं':'not recorded'))}<br><b>${hi?'विधि':'Method'}:</b> ${method}<br><b>${hi?'स्रोत':'Source'}:</b> ${source}</p><p><b>${hi?'विश्वसनीयता':'Reliability'}:</b> ${hi?'उपयोगकर्ता द्वारा बताया गया; उपकरण अंशांकन या स्रोत स्वतंत्र रूप से सत्यापित नहीं है।':'user-reported; instrument calibration or source report is not independently verified.'}</p><p><b>${hi?'निगरानी संदर्भ':'Monitoring concern'}:</b> ${escapeHTML(concern)}</p><p><b>${hi?'सावधानी':'Precaution'}:</b> ${escapeHTML(precaution)}</p>${current}<p class="ph-popup-foot">${hi?'कोई प्रत्यक्ष वायु-प्रदूषण संकेतक जुड़ा नहीं है। SO₂/NO₂/AQI वर्षा-जल pH का माप नहीं हैं।':'No direct air-pollution indicator is connected. SO₂/NO₂/AQI would not be a rainwater pH measurement.'}</p></article>`;
+      const html=`<article class="ph-map-popup ${simulated?'simulated':''}"><span class="ph-popup-tag">${tag}</span><h3>${escapeHTML(r.location||stateLocation.name||(hi?'दर्ज स्थान':'Recorded location'))}</h3><p class="ph-popup-value" style="--ph-color:${c.color}">${hi?'वर्षा-जल pH':'Rainwater pH'} <strong>${Number.isFinite(pH)?number(pH,1):'—'}</strong></p><p><b>${hi?'वर्गीकरण':'Classification'}:</b> ${escapeHTML(classLabel)}<br><b>${hi?'तारीख':'Date'}:</b> ${escapeHTML(r.date||(hi?'उल्लेख नहीं':'not recorded'))}<br><b>${hi?'विधि':'Method'}:</b> ${method}<br><b>${hi?'स्रोत':'Source'}:</b> ${source}</p><p><b>${hi?'विश्वसनीयता':'Reliability'}:</b> ${hi?'उपयोगकर्ता द्वारा बताया गया; उपकरण अंशांकन या स्रोत स्वतंत्र रूप से सत्यापित नहीं है।':'user-reported; instrument calibration or source report is not independently verified.'}</p><p><b>${hi?'निगरानी संदर्भ':'Monitoring concern'}:</b> ${escapeHTML(concern)}</p><p><b>${hi?'सावधानी':'Precaution'}:</b> ${escapeHTML(precaution)}</p>${current}<p class="ph-popup-foot">${hi?'कोई प्रत्यक्ष वायु-प्रदूषण संकेतक जुड़ा नहीं है। SO₂/NO₂/AQI वर्षा-जल pH का माप नहीं हैं।':'No direct air-pollution indicator is connected. SO₂/NO₂/AQI would not be a rainwater pH measurement.'}</p></article>`;
       marker.bindPopup(html,{maxWidth:320,autoPan:true,keepInView:true});
-      marker.bindTooltip(`pH ${pH.toFixed(1)}${simulated?' · DEMO':''}`,{direction:'top',offset:[0,-5]});
+      marker.bindTooltip(`pH ${number(pH,1)}${simulated?' · DEMO':''}`,{direction:'top',offset:[0,-5]});
     });
     const missing=records.length-valid.length;
     const pHParts=[];
@@ -347,13 +357,14 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     $('map-data-label').textContent=pHParts.join(' · ')||'No measured pH records in this view';
     status('');
   }
-  function layerTitle(){return {temperature:'Temperature',wind:'Wind',clouds:'Cloud cover',humidity:'Humidity',pressure:'Sea-level pressure',radar:'Precipitation radar',atmosphere:'Atmospheric monitoring',acidity:'Rainwater pH measurements'}[activeLayer];}
+  function layerTitle(){return t(`map.layer.${activeLayer}`,{},getState().prefs?.language==='hi'?'hi':'en');}
   function updateMapMode(){
     const badge=$('map-data-mode'), label=$('map-mode-label');if(!badge||!label)return;
     const pHMode=activeLayer==='acidity',airMode=activeLayer==='atmosphere',demoPH=getState().demo==='acid-rain';
-    label.textContent=pHMode?(demoPH?(getState().prefs?.language==='hi'?'उपयोगकर्ता + डेमो':'USER + DEMO'):(getState().prefs?.language==='hi'?'उपयोगकर्ता रिकॉर्ड':'USER RECORDS')):airMode?(getState().prefs?.language==='hi'?'वायु मॉडल':'AIR MODEL'):(getState().prefs?.language==='hi'?'लाइव':'LIVE');
+    const language=getState().prefs?.language==='hi'?'hi':'en';
+    label.textContent=pHMode?(demoPH?t('map.mode.pHDemo',{},language):t('map.mode.pH',{},language)):airMode?t('map.mode.air',{},language):t('map.mode.live',{},language);
     badge.classList.toggle('ph-mode',pHMode);badge.classList.toggle('air-mode',airMode);
-    badge.title=pHMode?'Geolocated user-recorded pH only; no live pH feed is connected. Demo point, if present, is simulated.':airMode?'Open-Meteo modeled atmospheric concentrations, not ground-station measurements.':'Weather map view; forecast and model data are not field measurements.';
+    badge.title=pHMode?t('map.mode.titlePH',{},language):airMode?t('map.mode.titleAir',{},language):t('map.mode.titleWeather',{},language);
   }
   async function switchLayer(layer){
     if(!['temperature','wind','clouds','humidity','pressure','radar','atmosphere','acidity'].includes(layer))return;
@@ -371,7 +382,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     renderEnvironmentPanel();updateLegend();updateTimeline();
     if(layer==='radar'){
       samplesGroup.clearLayers();sampleController?.abort();
-      $('map-data-label').textContent='Loading available radar frames…';
+      $('map-data-label').textContent=t('map.radar.loading',{},getState().prefs?.language==='hi'?'hi':'en');
       const id=++radarRequest;
       try{
         radarData=await fetchRadar();
@@ -379,11 +390,11 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
         const lastPast=radarData.frames.findLastIndex(f=>!f.future);
         radarIndex=Math.max(0,lastPast);
         radarTileFailed=false;updateTimeline();showFrame(radarIndex);
-        status('Coverage varies, particularly in India. Blank radar is not evidence of no rain.');
+        status(t('map.radar.coverage',{},getState().prefs?.language==='hi'?'hi':'en'));
       }catch(error){
         if(activeLayer!=='radar')return;
-        radarData=null;updateTimeline();$('map-data-label').textContent='Radar unavailable';
-        status('Radar data could not be loaded. Explore a model layer or retry.',()=>switchLayer('radar'));
+        radarData=null;updateTimeline();$('map-data-label').textContent=t('map.radar.unavailable',{},getState().prefs?.language==='hi'?'hi':'en');
+        status(t('map.radar.error',{},getState().prefs?.language==='hi'?'hi':'en'),()=>switchLayer('radar'));
       }
     }else if(layer==='atmosphere'){
       samplesGroup.clearLayers();sampleController?.abort();
@@ -398,34 +409,36 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     }
   }
   function updateLegend(){
-    const prefs=getState().prefs;
+    const prefs=getState().prefs,hi=prefs?.language==='hi',language=hi?'hi':'en';
     if(activeLayer==='atmosphere'){
-      const hi=prefs?.language==='hi',pollutant=POLLUTANTS[activeAirPollutant];
-      $('map-legend').innerHTML=`<div class="legend-title"><span>${hi?'वायुमंडलीय निगरानी':'Atmospheric Monitoring'}</span><span>${escapeHTML(airData?.units?.[activeAirPollutant]||envText('Unit unavailable','इकाई उपलब्ध नहीं'))}</span></div><div class="environment-legend-key"><i style="--pollutant:${pollutant.color}"></i><span>${escapeHTML(pollutant[hi?'hi':'en'])}</span></div><div class="legend-note">${hi?'मॉडल ग्रिड केंद्र उपलब्ध होने पर एक बिंदु; रंग केवल प्रदूषक पहचानता है, स्तर नहीं। यह सेंसर माप नहीं है।':'One model-grid point when the provider supplies its centre; color identifies the pollutant, not its concentration level. Not a sensor reading.'}</div>`;
+      const pollutant=POLLUTANTS[activeAirPollutant];
+      $('map-legend').innerHTML=`<div class="legend-title"><span>${escapeHTML(t('map.layer.atmosphere',{},language))}</span><span>${escapeHTML(airData?.units?.[activeAirPollutant]||t('common.unavailable',{},language))}</span></div><div class="environment-legend-key"><i style="--pollutant:${pollutant.color}"></i><span>${escapeHTML(pollutant[language])}</span></div><div class="legend-note">${hi?'एक मॉडल-ग्रिड बिंदु; रंग प्रदूषक की पहचान करता है, स्तर नहीं। सेंसर माप नहीं।':'One model-grid point; color identifies the pollutant, not its concentration level. Not a sensor reading.'}</div>`;
       return;
     }
     const legend={
-      temperature:{title:'Air temperature',unit:prefs.temperature==='fahrenheit'?'°F':'°C',values:[temp(0,prefs),temp(15,prefs),temp(30,prefs),temp(45,prefs)],colors:'#76a8c1,#a7c9a3,#e7d081,#d98e6d',note:'Colored points = model samples, not a raster'},
-      wind:{title:'Wind speed',unit:prefs.wind==='mph'?'mph':'km/h',values:[wind(0,prefs,false),wind(25,prefs,false),wind(60,prefs,false)],colors:'#dce8dc,#adcbb9,#6a9e90',note:'Arrow shows direction of flow · point values'},
-      clouds:{title:'Cloud cover',unit:'%',values:['0 · Clear','50','100 · Overcast'],colors:'#f2f4ef,#b9c8cd,#859eac',note:'Model cloud cover, not satellite imagery'},
-      humidity:{title:'Relative humidity',unit:'%',values:['0 · Dry','50','100 · Saturated'],colors:'#eee7cf,#c1d7cc,#81aeb6',note:'Current model point estimates'},
-      pressure:{title:'Sea-level pressure',unit:'hPa',values:['980','1013','1040'],colors:'#c6b4ce,#e3dddc,#a1b9cb',note:'Current model point estimates'},
-      radar:{title:'Radar reflectivity',unit:'dBZ',values:['Light','Moderate','Heavy'],colors:'#69adcf,#55b35c,#e2d945,#e47742,#ca5364',note:'Approximate intensity · radar coverage varies'},
-      acidity:{title:'Acid Rain & Rainwater pH',unit:'Measured pH',values:['>5.6','5.0–5.6','4.0–4.9','<4.0'],colors:'#438b68,#c7a83b,#db873d,#c95050',note:'Point observations only · gray = no data · bands are not crop-damage limits'}
+      temperature:{title:t('map.legend.temp',{},language),unit:prefs.temperature==='fahrenheit'?'°F':'°C',values:[temp(0,prefs),temp(15,prefs),temp(30,prefs),temp(45,prefs)],colors:'#76a8c1,#a7c9a3,#e7d081,#d98e6d',note:t('map.legend.tempNote',{},language)},
+      wind:{title:t('map.legend.wind',{},language),unit:prefs.wind==='mph'?'mph':'km/h',values:[wind(0,prefs,false),wind(25,prefs,false),wind(60,prefs,false)],colors:'#dce8dc,#adcbb9,#6a9e90',note:t('map.legend.windNote',{},language)},
+      clouds:{title:t('map.legend.clouds',{},language),unit:'%',values:[`0 · ${t('map.legend.clear',{},language)}`,'50',`100 · ${t('map.legend.overcast',{},language)}`],colors:'#f2f4ef,#b9c8cd,#859eac',note:t('map.legend.cloudsNote',{},language)},
+      humidity:{title:t('map.legend.humidity',{},language),unit:'%',values:[`0 · ${t('map.legend.dry',{},language)}`,'50',`100 · ${t('map.legend.saturated',{},language)}`],colors:'#eee7cf,#c1d7cc,#81aeb6',note:t('map.legend.humidityNote',{},language)},
+      pressure:{title:t('map.legend.pressure',{},language),unit:'hPa',values:['980','1013','1040'],colors:'#c6b4ce,#e3dddc,#a1b9cb',note:t('map.legend.pressureNote',{},language)},
+      radar:{title:t('map.legend.radar',{},language),unit:'dBZ',values:[t('map.legend.light',{},language),t('map.legend.moderate',{},language),t('map.legend.heavy',{},language)],colors:'#69adcf,#55b35c,#e2d945,#e47742,#ca5364',note:t('map.legend.radarNote',{},language)},
+      acidity:{title:t('map.legend.acidity',{},language),unit:t('map.legend.measuredPH',{},language),values:['>5.6','5.0–5.6','4.0–4.9','<4.0'],colors:'#438b68,#c7a83b,#db873d,#c95050',note:t('map.legend.acidityNote',{},language)}
     }[activeLayer];
-    $('map-legend').innerHTML=`<div class="legend-title"><span>${legend.title}</span><span>${legend.unit}</span></div><div class="legend-scale" style="background:linear-gradient(90deg,${legend.colors})"></div><div class="legend-values">${legend.values.map(v=>`<span>${v}</span>`).join('')}</div><div class="legend-note">${legend.note}</div>`;
+    if(!legend)return;
+    $('map-legend').innerHTML=`<div class="legend-title"><span>${escapeHTML(legend.title)}</span><span>${escapeHTML(legend.unit)}</span></div><div class="legend-scale" style="background:linear-gradient(90deg,${legend.colors})"></div><div class="legend-values">${legend.values.map(v=>`<span>${escapeHTML(v)}</span>`).join('')}</div><div class="legend-note">${escapeHTML(legend.note)}</div>`;
   }
-  function radarTime(f){return new Date(f.time*1000).toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'});}
+  function radarTime(f){return new Date(f.time*1000).toLocaleTimeString(getState().prefs?.language==='hi'?'hi-IN-u-nu-deva':'en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'});}
   function updateTimeline(){
     const ready=activeLayer==='radar'&&radarData?.frames?.length;
     $('radar-timeline').disabled=!ready;
     $('radar-prev').disabled=!ready;$('radar-next').disabled=!ready;$('radar-speed').disabled=!ready;
     $('radar-play').disabled=activeLayer==='radar'&&!ready;
-    $('radar-play').setAttribute('aria-label',activeLayer==='radar'?'Play radar animation':'Switch to radar playback');
-    $('timeline-start').textContent=ready?`${radarTime(radarData.frames[0])} UTC · PAST`:'CURRENT CONDITIONS';
-    $('timeline-end').textContent=ready?(radarData.frames.some(f=>f.future)?'FORECAST AVAILABLE':'LATEST OBSERVATION'):'MODEL ESTIMATES';
-    $('timeline-current').textContent=ready?'Radar':'Now';
-    $('timeline-caption').textContent=ready?(radarData.frames.some(f=>f.future)?'Past observations → now → provider nowcast':'Past radar only · forecast radar is not supplied'):'Spatial samples · select Radar to explore past weather';
+    const language=getState().prefs?.language==='hi'?'hi':'en';
+    $('radar-play').setAttribute('aria-label',activeLayer==='radar'?t('map.radar.play',{},language):t('map.radar.switch',{},language));
+    $('timeline-start').textContent=ready?`${radarTime(radarData.frames[0])} UTC · ${t('map.timeline.past',{},language)}`:t('map.timeline.start',{},language);
+    $('timeline-end').textContent=ready?(radarData.frames.some(f=>f.future)?t('map.timeline.forecast',{},language):t('map.timeline.latest',{},language)):t('map.timeline.model',{},language);
+    $('timeline-current').textContent=ready?t('map.timeline.radar',{},language):t('map.timeline.now',{},language);
+    $('timeline-caption').textContent=ready?(radarData.frames.some(f=>f.future)?t('map.timeline.nowcastCaption',{},language):t('map.timeline.pastCaption',{},language)):t('map.timeline.samplesCaption',{},language);
     $('radar-timeline').max=ready?radarData.frames.length-1:0;
     $('radar-timeline').value=ready?radarIndex:0;
   }
@@ -434,7 +447,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     const frame=radarData.frames[i];
     const layer=L.tileLayer(`${radarData.host}${frame.path}/256/{z}/{x}/{y}/2/1_1.png`,{opacity:0,zIndex:350,maxNativeZoom:7,maxZoom:12,attribution:'Radar &copy; <a href="https://www.rainviewer.com/" target="_blank" rel="noopener noreferrer">RainViewer</a>',crossOrigin:true,keepBuffer:2});
     layer.on('tileerror',()=>{
-      if(activeLayer==='radar'&&!radarTileFailed){radarTileFailed=true;stop();status('Some radar tiles failed to load. Playback is paused; no rain inference can be made.',()=>switchLayer('radar'));}
+      if(activeLayer==='radar'&&!radarTileFailed){radarTileFailed=true;stop();status(t('map.radar.tileError',{},getState().prefs?.language==='hi'?'hi':'en'),()=>switchLayer('radar'));}
     });
     radarLayers.set(i,layer);return layer;
   }
@@ -450,15 +463,17 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
     for(const [idx,layer] of radarLayers)if(idx!==radarIndex&&idx!==next){map.removeLayer(layer);radarLayers.delete(idx);}
     $('radar-timeline').value=radarIndex;
     $('timeline-current').textContent=`${radarTime(frame)} UTC`;
-    $('map-data-label').textContent=`${frame.future?'Provider nowcast':'Past radar'} · ${new Date(frame.time*1000).toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'})} ${radarTime(frame)} UTC`;
+    const language=getState().prefs?.language==='hi'?'hi':'en';
+    const date=new Intl.DateTimeFormat(language==='hi'?'hi-IN-u-nu-deva':'en-GB',{day:'numeric',month:'short',timeZone:'UTC'}).format(new Date(frame.time*1000));
+    $('map-data-label').textContent=`${t(frame.future?'map.radar.nowcast':'map.radar.past',{},language)} · ${date} ${radarTime(frame)} UTC`;
   }
   function togglePlay(){
     if(playing){stop();return;}if(!radarData)return;
-    if(reduceMotion()){status('Radar autoplay is disabled because your system requests reduced motion. Use the previous/next controls instead.');return;}
-    playing=true;$('radar-play').innerHTML=icon('pause');$('radar-play').setAttribute('aria-label','Pause radar animation');
+    if(reduceMotion()){status(t('map.radar.reducedMotion',{},getState().prefs?.language==='hi'?'hi':'en'));return;}
+    playing=true;$('radar-play').innerHTML=icon('pause');$('radar-play').setAttribute('aria-label',t('map.radar.pause',{},getState().prefs?.language==='hi'?'hi':'en'));
     playTimer=setInterval(()=>showFrame(radarIndex+1),1200/speed);
   }
-  function stop(){playing=false;clearInterval(playTimer);$('radar-play').innerHTML=icon('play');$('radar-play').setAttribute('aria-label',activeLayer==='radar'?'Play radar animation':'Switch to radar playback');}
+  function stop(){playing=false;clearInterval(playTimer);$('radar-play').innerHTML=icon('play');const language=getState().prefs?.language==='hi'?'hi':'en';$('radar-play').setAttribute('aria-label',activeLayer==='radar'?t('map.radar.play',{},language):t('map.radar.switch',{},language));}
   return {
     setLocation,renderPanel,switchLayer,
     resize:()=>setTimeout(()=>{if(visible)map.invalidateSize();},50),

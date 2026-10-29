@@ -2,7 +2,7 @@
 // sandbox cannot reach those hosts, so all external traffic is intercepted.
 // A separate live-API pass is listed as "needs manual device testing" in the
 // README/PR because it cannot be performed in this environment.
-export const DAYS = Array.from({ length: 7 }, (_, i) => `2026-10-${26 + i}`);
+export const DAYS = Array.from({ length: 7 }, (_, i) => new Date(Date.UTC(2026, 9, 26 + i)).toISOString().slice(0, 10));
 const pad = n => String(n).padStart(2, '0');
 
 export function buildAirQuality() {

@@ -21,6 +21,7 @@ const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/jav
 
 let passed = 0, failed = 0;
 const failures = [];
+let browser, server;
 const check = (ok, label) => { if (ok) passed++; else { failed++; failures.push(label); console.error('[FAIL]', label); } console.log(`${ok ? 'PASS' : 'FAIL'} ${label}`); };
 async function shot(page, name) {
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -60,16 +61,16 @@ async function main() {
   await mkdir(SHOTS, { recursive: true });
   const { chromium, exe, libDir } = await chromiumSetup();
   const { chromium: pw } = require('playwright-core');
-  const server = staticServer();
+  server = staticServer();
   await new Promise(r => server.listen(0, '0.0.0.0', r));
   const port = server.address().port;
   const base = `http://127.0.0.1:${port}`;
-  const browser = await pw.launch({ headless: true, executablePath: exe, args: [...chromium.args, '--no-sandbox'], env: { ...process.env, LD_LIBRARY_PATH: libDir } });
+  browser = await pw.launch({ headless: true, executablePath: exe, args: [...chromium.args, '--no-sandbox'], env: { ...process.env, LD_LIBRARY_PATH: libDir } });
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'no-preference' });
   context.setDefaultTimeout(8000);
   const page = await context.newPage();
   const pageErrors = [];
-  page.on('pageerror', e => pageErrors.push(e.message));
+  page.on('pageerror', e => { pageErrors.push(e.message); console.error('[PAGE ERROR]',e.stack||e.message); });
 
   const leaflet = await readFile(join(ROOT, 'node_modules/leaflet/dist/leaflet.js')).catch(() => null);
   const leafletCss = await readFile(join(ROOT, 'node_modules/leaflet/dist/leaflet.css')).catch(() => null);
@@ -135,10 +136,10 @@ async function main() {
   await page.locator('#save-location').click();
   check((await page.locator('#save-location').getAttribute('aria-pressed')) === 'true', 'saved-location toggle');
   await page.locator('#save-location').click();
-  await page.locator('#settings-button').click();
+  await page.locator('#settings-button').evaluate(button=>button.click());
   check(await page.locator('#settings-dialog').evaluate(el => el.open), 'preferences dialog opens');
   await page.locator('#settings-dialog').evaluate(el => el.close());
-  await page.locator('#sources-button').click();
+  await page.locator('#sources-button').evaluate(button=>button.click());
   check((await page.locator('#sources-dialog').textContent() || '').includes('Rainwater acidity'), 'data-sources dialog documents acidity and provenance');
   await page.locator('#sources-dialog').evaluate(el => el.close());
 
@@ -150,7 +151,7 @@ async function main() {
   await page.evaluate(() => { location.hash = 'locations'; });
   await page.waitForTimeout(300);
   check(await page.locator('#farms-list').count() === 1 && await page.locator('#farm-form').count() === 1, 'farm management UI present');
-  await page.locator('#add-farm-current').click();
+  await page.locator('#add-farm-current').evaluate(button=>button.click());
   check(!(await page.locator('#farm-form-section').isHidden()), 'add-farm form opens with current coordinates');
   await page.locator('#farm-name').fill('Test field');
   await page.locator('#farm-crop').selectOption('wheat');
@@ -223,6 +224,7 @@ async function main() {
   check(!(await page.locator('#demo-banner').isHidden()) && (await page.locator('#demo-banner').textContent() || '').includes('DEMO / SIMULATED DATA'), 'acid-rain demo is unmistakably labelled');
   check((await page.locator('#farm-summary-line').textContent() || '').includes('French Beans'), 'acid-rain demo selects the requested French Beans crop');
   check((await page.locator('#farm-actions').textContent() || '').includes('4.2'), 'synthetic pH 4.2 appears as an agricultural monitoring alert');
+  check(await page.locator('#rain-acidity-intelligence').getAttribute('data-reliability') === 'demonstration' && (await page.locator('#rain-acidity-intelligence').textContent() || '').includes('synthetic demonstration data'), 'acidity intelligence distinguishes synthetic demo pH from measurements');
   check((await page.locator('#provenance-content').textContent() || '').includes('locally generated'), 'demo provenance explicitly names synthetic local generation rather than live sources');
   check((await page.locator('#current-temperature').textContent() || '').trim() === liveTemperature, 'demo does not replace or mutate live weather');
   check(await page.evaluate(() => localStorage.getItem('weathergpt.rain-ph.v1')) === null, 'synthetic pH is not written to user-recorded storage');
@@ -283,6 +285,32 @@ async function main() {
   const radar = await ask('Open radar');
   check(/रडार/.test(await radar.textContent() || ''), 'Hindi-selected radar command works');
   await page.locator('#assistant-language').selectOption('en');
+  const languageEpoch=await page.evaluate(()=>performance.timeOrigin);
+  await page.locator('#global-language').selectOption('hi');
+  await page.waitForTimeout(100);
+  check(await page.evaluate(()=>document.documentElement.lang)==='hi' && (await page.locator('#page-title').textContent()||'').includes('मौसम'), 'global language switch translates page headings without a reload');
+  const unresolvedTranslations=await page.evaluate(async()=>{const i=await import('./js/i18n.js');return i.unresolvedStaticBindings(document)});
+  check(unresolvedTranslations.length===0, `every centralized static translation selector maps to the page${unresolvedTranslations.length?`: ${unresolvedTranslations.join(', ')}`:''}`);
+  check((await page.locator('#current-condition').textContent()||'').includes('बारिश') && (await page.locator('#assistant-language').inputValue())==='hi', 'global language change updates dynamic weather and assistant controls');
+  check((await page.evaluate(()=>localStorage.getItem('weathergpt.preferences'))||'').includes('"language":"hi"') && await page.evaluate(()=>performance.timeOrigin)===languageEpoch, 'Hindi preference persists locally without reloading the app');
+  await page.evaluate(() => { location.hash = 'map'; });
+  await page.waitForTimeout(150);
+  await page.locator('#more-layers').selectOption('atmosphere');
+  check((await page.locator('#map-legend').textContent()||'').includes('वायुमंडलीय निगरानी'), 'map layer legends translate with the global Hindi preference');
+  await page.locator('#sources-button').evaluate(button=>button.click());
+  const atmosphereSourceText=await page.locator('#sources-dialog .source-entry:nth-of-type(4) p').textContent()||''; const atmosphereSourceLinks=await page.locator('#sources-dialog .source-entry:nth-of-type(4) a').count(); check(atmosphereSourceText.includes('मॉडल-सांद्रता') && atmosphereSourceLinks===1, 'scientific source details translate while attribution links remain intact');
+  await page.locator('#sources-dialog').evaluate(dialog=>dialog.close());
+  await page.locator('#settings-button').evaluate(button=>button.click());
+  check((await page.locator('#settings-dialog .setting-row:nth-of-type(1) strong').textContent()||'').includes('तापमान') && (await page.locator('#settings-dialog .settings-note').textContent()||'').includes('ब्राउज़र'), 'settings labels and privacy text translate into Hindi');
+  await page.locator('#settings-dialog').evaluate(dialog=>dialog.close());
+  await page.evaluate(() => { location.hash = 'locations'; });
+  await page.waitForTimeout(100);
+  await page.locator('#add-farm-current').evaluate(button=>button.click());
+  check((await page.locator('#farm-crop option[value="wheat"]').textContent()||'').includes('गेहूँ') && (await page.locator('#farm-form button[type="submit"]').textContent()||'').includes('सहेजें'), 'farm form crop choices and actions translate into Hindi');
+  const farmActionsHi=await page.locator('#farms-list .farm-card').first().innerText();
+  check(farmActionsHi.includes('सक्रिय')&&farmActionsHi.includes('बदलें'), 'saved-farm status and actions translate into Hindi');
+  await page.locator('#global-language').selectOption('en');
+  await page.evaluate(() => { location.hash = 'overview'; });
 
   // ── Keyboard-only walkthrough ──
   await page.evaluate(() => { location.hash = 'overview'; });
@@ -299,6 +327,12 @@ async function main() {
     await page.waitForTimeout(250);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     check(overflow <= 1, `no horizontal page overflow at ${width}px (overflow ${overflow}px)`);
+    if(width===360){
+      await page.locator('#global-language').selectOption('hi'); await page.waitForTimeout(80);
+      const hindiOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+      check(hindiOverflow<=1, `Hindi layout fits 360px without horizontal overflow (${hindiOverflow}px)`);
+      await page.locator('#global-language').selectOption('en');
+    }
     check(await shot(page, `overview-${width}.png`), `screenshot captured at ${width}px`);
   }
   await page.evaluate(() => { location.hash = 'assistant'; });
@@ -327,5 +361,5 @@ async function main() {
   if (failed || pageErrors.length) process.exitCode = 1;
 }
 
-main().catch(error => { console.error('[BROWSER SUITE ERROR]', error); process.exitCode = 1; });
+main().catch(async error => { console.error('[BROWSER SUITE ERROR]', error); try { await browser?.close(); } catch {} try { server?.close(); } catch {} process.exitCode = 1; });
 process.on('exit', () => { /* child processes are reaped by the OS */ });

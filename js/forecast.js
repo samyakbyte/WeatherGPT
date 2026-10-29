@@ -1,5 +1,6 @@
 import { icon, escapeHTML } from './icons.js';
 import { temp, wind, condition, currentHourIndex, localHour, dayLabel, number, present } from './weather.js';
+import { t, formatNumber } from './i18n.js';
 
 export function createForecast(getState) {
   let chart, period = 'hourly', metric = 'temperature';
@@ -19,7 +20,7 @@ export function createForecast(getState) {
     const empty = document.getElementById('forecast-empty');
     if (!data) {
       chart?.destroy(); chart = null;
-      empty.hidden = false; empty.textContent = 'Forecast unavailable. Choose a location or retry the weather service.';
+      empty.hidden = false; empty.textContent = t('forecast.unavailable');
       document.getElementById('hourly-strip').replaceChildren();
       document.getElementById('daily-forecast').replaceChildren();
       container.hidden = true;
@@ -38,7 +39,7 @@ export function createForecast(getState) {
     const unit = metric === 'temperature' ? (prefs.temperature === 'fahrenheit' ? '°F' : '°C') : metric === 'rain' ? '%' : prefs.wind === 'mph' ? 'mph' : 'km/h';
     document.getElementById('chart-unit').textContent = unit;
     const color = metric === 'rain' ? '#76a2b0' : metric === 'wind' ? '#809f95' : '#b5a164';
-    document.getElementById('forecast-description').textContent = period === 'daily' ? 'Seven days of perspective. Daily highs, lows, and rain chances.' : 'A little planning goes a long way.';
+    document.getElementById('forecast-description').textContent = period === 'daily' ? t('forecast.dailyDescription') : t('forecast.subtitle');
     if (window.Chart) {
       chart?.destroy();
       const canvas = document.getElementById('forecast-chart');
@@ -67,7 +68,7 @@ export function createForecast(getState) {
           labels,
           datasets: [{
             data: values,
-            label: metric === 'rain' ? 'Precipitation probability' : metric === 'wind' ? 'Wind speed' : period === 'daily' ? 'Daily high' : 'Temperature',
+            label: metric === 'rain' ? t('forecast.precipitationProbability') : metric === 'wind' ? t('forecast.windSpeed') : period === 'daily' ? t('forecast.dailyHigh') : t('forecast.temperatureLabel'),
             borderColor: lineColor,
             backgroundColor: gradient,
             fill: true,
@@ -109,8 +110,8 @@ export function createForecast(getState) {
                   const i = indexes[ctx.dataIndex];
                   const cInfo = period === 'daily' ? condition(d.weather_code[i]) : condition(h.weather_code[i]);
                   return period === 'daily'
-                    ? `${cInfo.emoji} ${cInfo.label} · Low ${temp(d.temperature_2m_min[i], prefs)}`
-                    : `${cInfo.emoji} ${cInfo.label} · Rain ${number(h.precipitation_probability[i])}%`;
+                    ? `${cInfo.emoji} ${cInfo.label} · ${t('forecast.low')} ${temp(d.temperature_2m_min[i], prefs)}`
+                    : `${cInfo.emoji} ${cInfo.label} · ${t('forecast.rain')} ${number(h.precipitation_probability[i])}%`;
                 }
               }
             }
@@ -126,19 +127,20 @@ export function createForecast(getState) {
                 padding: 8,
                 color: '#83968b',
                 font: { family: 'DM Sans', size: 8.5, weight: '500' },
-                callback: value => `${value}${metric === 'rain' ? '%' : metric === 'temperature' ? '°' : ''}`
+                callback: value => `${formatNumber(Number(value),{maximumFractionDigits:1})}${metric === 'rain' ? '%' : metric === 'temperature' ? '°' : ''}`
               },
               ...(metric === 'rain' ? { min: 0, max: 100 } : {})
             }
           }
         }
       });
-    } else { container.hidden = true; empty.hidden = false; empty.textContent = 'The chart library is unavailable. Your forecast values are listed below.'; }
+    } else { container.hidden = true; empty.hidden = false; empty.textContent = t('forecast.chartUnavailable'); }
     const strip = document.getElementById('hourly-strip'), daily = document.getElementById('daily-forecast');
     strip.hidden = period === 'daily'; daily.hidden = period !== 'daily';
     strip.innerHTML = indexes.filter((_,i) => i%3 === 0).map((i,j) => {
       const cond = condition(h.weather_code[i]);
-      return `<button class="hour-item ${j===0?'active':''}" data-index="${i-start}" aria-label="${escapeHTML(localHour(h.time[i]))}: ${escapeHTML(cond.label)}, ${temp(h.temperature_2m[i],prefs,true)}, rain chance ${number(h.precipitation_probability[i])}%"><span>${j===0?'Now':localHour(h.time[i],true)}</span><span class="hour-visual">${icon(cond.icon)}<span class="emoji-mini">${cond.emoji}</span></span><strong>${temp(h.temperature_2m[i],prefs)}</strong><small>${icon('droplet')}${number(h.precipitation_probability[i])}%</small></button>`;
+      const timeLabel=localHour(h.time[i]),probability=number(h.precipitation_probability[i]);
+      return `<button class="hour-item ${j===0?'active':''}" data-index="${i-start}" aria-label="${escapeHTML(t('forecast.hourAria',{time:timeLabel,condition:cond.label,temperature:temp(h.temperature_2m[i],prefs,true),probability}))}"><span>${j===0?t('forecast.now'):localHour(h.time[i],true)}</span><span class="hour-visual">${icon(cond.icon)}<span class="emoji-mini">${cond.emoji}</span></span><strong>${temp(h.temperature_2m[i],prefs)}</strong><small>${icon('droplet')}${number(h.precipitation_probability[i])}%</small></button>`;
     }).join('');
     strip.querySelectorAll('.hour-item').forEach(btn => btn.addEventListener('click', () => {
       strip.querySelectorAll('.hour-item').forEach(b => b.classList.toggle('active',b===btn));
@@ -167,11 +169,11 @@ export function createForecast(getState) {
         ? `<span class="temp-bar"><span class="temp-fill" style="margin-left:${left.toFixed(1)}%;width:${width.toFixed(1)}%"></span></span>`
         : `<span class="temp-bar" aria-hidden="true"><span class="temp-fill" style="width:0"></span></span>`;
       const accessible = valid
-        ? `<span class="sr-only">Low ${temp(low,prefs,true)}, high ${temp(high,prefs,true)}. Week range ${temp(weekMin,prefs,true)} to ${temp(weekMax,prefs,true)}.</span>`
-        : `<span class="sr-only">Daily low or high unavailable.</span>`;
-      return `<div class="daily-row"><strong>${dayLabel(time,i)}</strong><span class="daily-weather-cell">${icon(cond.icon)}<span class="emoji-badge">${cond.emoji}</span></span><div class="daily-range" title="Daily low and high"><strong>${temp(low,prefs)}</strong>${bar}<strong>${temp(high,prefs)}</strong>${accessible}</div><span title="Maximum precipitation probability" class="daily-rain-chance">💧 ${number(d.precipitation_probability_max[i])}%</span><span class="daily-wind">💨 ${wind(d.wind_speed_10m_max[i],prefs)}</span><span class="daily-condition">${escapeHTML(cond.label)}</span></div>`;
+        ? `<span class="sr-only">${escapeHTML(t('forecast.dailyRangeAria',{low:temp(low,prefs,true),high:temp(high,prefs,true),minimum:temp(weekMin,prefs,true),maximum:temp(weekMax,prefs,true)}))}</span>`
+        : `<span class="sr-only">${escapeHTML(t('forecast.dailyUnavailable'))}</span>`;
+      return `<div class="daily-row"><strong>${dayLabel(time,i)}</strong><span class="daily-weather-cell">${icon(cond.icon)}<span class="emoji-badge">${cond.emoji}</span></span><div class="daily-range" title="${escapeHTML(t('forecast.dailyRangeTitle'))}"><strong>${temp(low,prefs)}</strong>${bar}<strong>${temp(high,prefs)}</strong>${accessible}</div><span title="${escapeHTML(t('forecast.rainChanceTitle'))}" class="daily-rain-chance">💧 ${number(d.precipitation_probability_max[i])}%</span><span class="daily-wind">💨 ${wind(d.wind_speed_10m_max[i],prefs)}</span><span class="daily-condition">${escapeHTML(cond.label)}</span></div>`;
     }).join('');
-    document.getElementById('forecast-source').textContent = `Open-Meteo · ${data.timezone.replaceAll('_',' ')}`;
+    document.getElementById('forecast-source').textContent = t('forecast.sourceAtTime',{timezone:data.timezone.replaceAll('_',' ')});
   }
   return { render, resize:() => chart?.resize() };
 }
