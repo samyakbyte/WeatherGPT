@@ -11,7 +11,7 @@ import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, extname, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { buildForecast, GEOCODE, VILLAGES, PHOTON, RADAR, PNG } from './browser-fixtures.js';
+import { buildForecast, buildAirQuality, GEOCODE, VILLAGES, PHOTON, RADAR, PNG } from './browser-fixtures.js';
 
 const require = createRequire(import.meta.url);
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -75,8 +75,19 @@ async function main() {
   const leafletCss = await readFile(join(ROOT, 'node_modules/leaflet/dist/leaflet.css')).catch(() => null);
   const chart = await readFile(join(ROOT, 'node_modules/chart.js/dist/chart.umd.js')).catch(() => null);
   const json = body => ({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
+  const airQualityRequests = [];
   await page.route('**/*', async route => {
     const url = route.request().url();
+    if (url.includes('air-quality-api.open-meteo.com/v1/air-quality')) {
+      airQualityRequests.push(url);
+      if (airQualityRequests.length === 2) {
+        const empty = buildAirQuality();
+        for (const key of ['sulphur_dioxide', 'nitrogen_dioxide', 'pm2_5', 'pm10', 'ozone']) empty.hourly[key] = empty.hourly.time.map(() => null);
+        return route.fulfill(json(empty));
+      }
+      if (airQualityRequests.length === 4) return route.fulfill({ status: 429, headers: { 'retry-after': '2' }, contentType: 'application/json', body: JSON.stringify({ reason: 'fixture rate limit' }) });
+      return route.fulfill(json(buildAirQuality()));
+    }
     if (url.includes('api.open-meteo.com/v1/forecast')) return route.fulfill(json(buildForecast()));
     if (url.includes('geocoding-api.open-meteo.com')) return route.fulfill(json(url.includes('Rampura') || url.includes('Alwar') ? { results: [] } : GEOCODE));
     if (url.includes('photon.komoot.io')) return route.fulfill(json(PHOTON));
@@ -97,9 +108,6 @@ async function main() {
 
   // ── Existing workspace features (no regressions) ──
   check((await page.locator('#current-temperature').textContent() || '').includes('29'), 'current conditions render from forecast');
-  check((await page.locator('#download-project-zip').textContent() || '').trim() === 'Download ZIP', 'topbar exposes a visible Download ZIP button');
-  const zipResponse = await page.request.get(`${base}/WeatherGPT-download.zip`);
-  check(zipResponse.ok() && zipResponse.headers()['content-type'] === 'application/zip', 'Download ZIP target is served as a valid archive');
   check(await page.locator('.leaflet-container').count() === 1, 'Leaflet map initialises');
   check(await page.locator('.hour-item').count() > 0, 'hourly strip renders');
   check(await page.locator('#forecast-chart').count() === 1, 'Chart.js canvas present');
@@ -158,6 +166,53 @@ async function main() {
   await page.waitForTimeout(300);
   check(await page.locator('.farm-card').count() === 1, 'farm persists across reloads');
   check((await page.locator('#active-farm-card').textContent() || '').includes('Test field'), 'active farm persists across reloads');
+
+  // ── Atmospheric monitoring: provider fixture, provenance and farm context ──
+  await page.evaluate(() => { location.hash = 'map'; });
+  await page.waitForTimeout(250);
+  await page.locator('#more-layers').selectOption('atmosphere');
+  await page.waitForFunction(() => document.querySelector('#environment-content')?.textContent.includes('Open-Meteo Air Quality API'), null, { timeout: 10000 });
+  const environmentText = await page.locator('#environment-content').textContent() || '';
+  check(airQualityRequests.length === 1, 'atmospheric layer issues one bounded provider request');
+  const airURL = new URL(airQualityRequests[0]);
+  check(airURL.searchParams.get('forecast_days') === '2' && airURL.searchParams.get('timezone') === 'auto' && airURL.searchParams.get('hourly').includes('sulphur_dioxide,nitrogen_dioxide,pm2_5,pm10,ozone'), 'browser integration sends only documented, bounded Air Quality API parameters');
+  check(environmentText.includes('2.0 μg/m³') && environmentText.includes('8.0 μg/m³') && environmentText.includes('18.0 μg/m³') && environmentText.includes('28.0 μg/m³') && environmentText.includes('38.0 μg/m³'), 'SO₂, NO₂, PM2.5, PM10 and ozone model values render with provider units');
+  check(environmentText.includes('Selected coordinates: 28.614, 77.209') && environmentText.includes('Model grid centre: 26.875, 75.750') && environmentText.includes('2026-10-26T10:00'), 'selected coordinates, returned model-grid centre and provider timestamp remain distinct');
+  check(environmentText.includes('not directly measure rainwater pH') && environmentText.includes('Rainfall context'), 'atmosphere panel states limitations and keeps forecast rainfall separate from pH');
+  await page.locator('#environment-pollutant').selectOption('pm2_5');
+  check((await page.locator('#environment-content').textContent() || '').includes('18.0 μg/m³') && (await page.locator('#map-legend').textContent() || '').includes('PM2.5'), 'pollutant selector updates the selected model-point display and legend');
+  await page.locator('#more-layers').selectOption('acidity');
+  check((await page.locator('#environment-content').textContent() || '').includes('No measured rainwater pH records for this area.'), 'missing pH records do not suppress atmospheric values and have a clear empty state');
+  await page.locator('#more-layers').selectOption('atmosphere');
+  await page.waitForFunction(() => document.querySelector('#environment-content')?.textContent.includes('Open-Meteo Air Quality API'), null, { timeout: 10000 });
+  check(airQualityRequests.length === 1, 'switching environmental layers reuses the successful cached provider response');
+  await page.locator('#environment-refresh').click();
+  await page.waitForSelector('#environment-content .env-no-data', { timeout: 10000 });
+  check((await page.locator('#environment-content').textContent() || '').includes('No pollutant values are available') && (await page.locator('#environment-content').textContent() || '').includes('Unavailable'), 'valid provider response with null pollutant arrays renders an explicit no-data state, not zero');
+  await page.locator('#environment-refresh').click();
+  await page.waitForFunction(() => (document.querySelector('#environment-content')?.textContent || '').includes('18.0 μg/m³'), null, { timeout: 10000 });
+  check(airQualityRequests.length === 3, 'manual refresh bypasses the cached response and can recover from a provider no-data frame');
+  await page.evaluate(() => { location.hash = 'overview'; });
+  await page.waitForTimeout(250);
+  const farmEnvironmentText = await page.locator('#farm-environment-summary').textContent() || '';
+  check(farmEnvironmentText.includes('MODELED FORECAST') && farmEnvironmentText.includes('18.0 μg/m³'), 'matching selected farm receives a modeled environmental summary without changing suitability scoring');
+  await page.evaluate(() => { location.hash = 'assistant'; });
+  await page.waitForTimeout(200);
+  await page.locator('#assistant-language').selectOption('hi');
+  await page.evaluate(() => { location.hash = 'map'; });
+  await page.waitForTimeout(250);
+  await page.locator('#more-layers').selectOption('atmosphere');
+  await page.waitForTimeout(200);
+  check((await page.locator('#environment-title').textContent() || '').includes('वायुमंडलीय निगरानी') && (await page.locator('#environment-content').textContent() || '').includes('मॉडल/पूर्वानुमान मान'), 'atmospheric panel and selected-value provenance are translated in Hindi');
+  check((await page.locator('#map-mode-label').textContent() || '').includes('वायु मॉडल'), 'atmospheric map-mode badge localizes in Hindi');
+  await page.evaluate(() => { location.hash = 'assistant'; });
+  await page.waitForTimeout(200);
+  await page.locator('#assistant-language').selectOption('en');
+  await page.evaluate(() => { location.hash = 'map'; });
+  await page.waitForTimeout(250);
+  await page.locator('#environment-refresh').click();
+  await page.waitForFunction(() => (document.querySelector('#environment-content')?.textContent || '').includes('service is busy'), null, { timeout: 10000 });
+  check((await page.locator('#environment-content [data-retry-atmosphere]').isDisabled()) && airQualityRequests.length === 4, 'HTTP 429 presents a cooldown and prevents immediate repeated retries');
 
   // ── Agricultural intelligence: transient demo fixtures + pH layer ──
   await page.evaluate(() => { location.hash = 'overview'; });

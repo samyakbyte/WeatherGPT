@@ -33,12 +33,16 @@ try {
   const { agricultureSuite } = await import('./agriculture-suite.js');
   SUITES.push(['Agricultural suitability, risk and demo isolation', agricultureSuite]);
 } catch { /* optional suite not present yet */ }
+try {
+  const { airQualitySuite } = await import('./air-quality-suite.js');
+  SUITES.push(['Open-Meteo atmospheric monitoring client', airQualitySuite]);
+} catch { /* optional suite not present yet */ }
 
 const runner = createRunner('WeatherGPT');
 let totalCases = 0;
 for (const [name, suite] of SUITES) {
   const before = runner.result();
-  const extra = suite(runner.check);
+  const extra = await suite(runner.check);
   const after = runner.result();
   const added = after.passed + after.failed - before.passed - before.failed;
   totalCases += typeof extra === 'number' ? extra : 0;

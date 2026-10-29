@@ -20,7 +20,7 @@ const state={
   location:isValidLocation(storedLocation)?storedLocation:DEFAULT_LOCATION,
   weather:null,
   prefs:{temperature:storedPrefs.temperature==='fahrenheit'?'fahrenheit':'celsius',wind:storedPrefs.wind==='mph'?'mph':'kmh',language:storedPrefs.language==='hi'?'hi':'en'},
-  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false,epoch:0,farm:null,demo:null
+  saved:Array.isArray(rawSaved)?rawSaved.filter(isValidLocation).slice(0,30):[],view:'overview',loading:false,epoch:0,farm:null,demo:null,environment:null
 };
 const getState=()=>state;
 let weatherController,searchController,searchTimer,toastTimer,clockTimer;
@@ -33,7 +33,7 @@ function renderDemoBanner(){
   const scenario=demoScenario(state.demo);
   if(!scenario){root.hidden=true;root.replaceChildren();delete document.body.dataset.demo;return;}
   root.hidden=false;document.body.dataset.demo='true';
-  root.innerHTML=`<span class="demo-banner-mark">DEMO / SIMULATED DATA</span><span><strong>${escapeHTML(scenario.label)} scenario · ${escapeHTML(scenario.description)}</strong><small>Only agricultural intelligence and the acidity overlay use simulation. Live weather remains unchanged; nothing simulated is saved.</small></span><button type="button" id="demo-banner-exit" class="text-button">Return to live</button>`;
+  root.innerHTML=`<span class="demo-banner-mark">DEMO / SIMULATED DATA</span><span><strong>${escapeHTML(scenario.label)} scenario · ${escapeHTML(scenario.description)}</strong><small>Only the agricultural scenario and demo pH marker are simulated. Live weather and atmospheric monitoring remain separate; nothing simulated is saved.</small></span><button type="button" id="demo-banner-exit" class="text-button">Return to live</button>`;
   $('demo-banner-exit')?.addEventListener('click',()=>{state.demo=null;renderDemoBanner();farmUI?.renderAll();mapView?.refreshAcidity();toast('Demo ended. Live weather and saved records are restored.');});
 }
 function labelLocation(){return `${state.location.name}${state.location.country&&state.location.country!=='Map coordinates'&&state.location.country!=='Selected map point'&&state.location.country!=='Model sample point'?', '+state.location.country:''}`;}
@@ -122,17 +122,17 @@ async function selectLocation(location,fromMap=false){
   writeStorage('weathergpt.location',state.location);
   $('weather-error').hidden=true;renderCurrent();renderAdvisories();
   forecastView?.render();$('forecast-empty').textContent='Fetching forecast…';
-  assistantView?.updateContext();mapView?.setLocation(state.location,true,fromMap);mapView?.renderPanel();farmUI?.renderAll();
+  assistantView?.updateContext();mapView?.setLocation(state.location,true,fromMap);mapView?.renderPanel();mapView?.refreshEnvironmentUI();farmUI?.renderAll();
   closeSearch();
   try{
     const data=await fetchWeather(location,signal);if(signal.aborted||epoch!==state.epoch)return;
-    state.weather=data;state.loading=false;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();mapView?.refreshAcidity();assistantView?.updateContext();farmUI?.renderAll();
+    state.weather=data;state.loading=false;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();mapView?.refreshAcidity();mapView?.refreshEnvironmentUI();assistantView?.updateContext();farmUI?.renderAll();
     console.info('[WeatherGPT] Live forecast loaded:',location.name,data.timezone);
     document.dispatchEvent(new CustomEvent('weathergpt:weather-loaded',{detail:{location:location.name}}));
     return data;
   }catch(error){
     if(error.name==='AbortError'||epoch!==state.epoch)return;
-    state.loading=false;state.weather=null;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();mapView?.refreshAcidity();farmUI?.renderAll();
+    state.loading=false;state.weather=null;renderCurrent();renderAdvisories();forecastView?.render();mapView?.renderPanel();mapView?.refreshAcidity();mapView?.refreshEnvironmentUI();farmUI?.renderAll();
     $('weather-error').hidden=false;$('weather-error').querySelector('span').textContent=error.message;
     $('connection-status').previousElementSibling.style.background='#bca05e';
     $('map-panel-weather').textContent='Weather unavailable';
@@ -258,14 +258,19 @@ function updatePreferences(){writeStorage('weathergpt.preferences',state.prefs);
 
 let farmUI;
 forecastView=createForecast(getState);
-mapView=createWeatherMap({getState,onSelect:selectLocation,toast,onSaveFarm:point=>farmUI?.setPoint(point)});
-assistantView=createAssistant({getState,selectLocation,switchLayer:layer=>mapView.switchLayer(layer),setLanguage:language=>{state.prefs.language=language==='hi'?'hi':'en';writeStorage('weathergpt.preferences',state.prefs);farmUI?.renderAll();},toast});
+mapView=createWeatherMap({getState,onSelect:selectLocation,toast,onSaveFarm:point=>farmUI?.setPoint(point),onEnvironmentChange:environment=>{state.environment=environment;farmUI?.renderAll();}});
+assistantView=createAssistant({getState,selectLocation,switchLayer:layer=>mapView.switchLayer(layer),setLanguage:language=>{state.prefs.language=language==='hi'?'hi':'en';writeStorage('weathergpt.preferences',state.prefs);farmUI?.renderAll();mapView?.refreshEnvironmentUI();},toast});
 farmUI=createFarmUI({getState,selectLocation,toast,
   onFarmChange:farm=>{state.farm=farm;mapView?.refreshAcidity();},
   onDemoChange:key=>{state.demo=key;renderDemoBanner();mapView?.refreshAcidity();farmUI?.renderAll();if(key==='acid-rain')mapView?.switchLayer('acidity');}
 });
 document.addEventListener('weathergpt:acidity-updated',()=>mapView?.refreshAcidity());
 document.addEventListener('weathergpt:show-acidity',()=>mapView?.switchLayer('acidity'));
+document.addEventListener('weathergpt:show-atmosphere',()=>mapView?.switchLayer('atmosphere'));
+document.addEventListener('weathergpt:record-ph',()=>{
+  window.location.hash='overview';
+  setTimeout(()=>{const details=$('acidity-details');if(details)details.open=true;$('ph-value')?.focus();},250);
+});
 $('overview-nlp-form')?.addEventListener('submit',e=>{
   e.preventDefault();
   const input=$('overview-nlp-input');

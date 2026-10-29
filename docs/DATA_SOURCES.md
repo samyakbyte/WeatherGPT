@@ -211,3 +211,53 @@ and disappear on exit/reload. The acid-rain demonstration's simulated pH value
 is not an observation and cannot be saved as one. Real map pH markers are only
 geolocated user-recorded measurements; the app has no connected live pH station
 feed and draws no interpolated pH surface.
+
+---
+
+## 6. Atmospheric monitoring (Open-Meteo Air Quality API)
+
+**Endpoint:** `https://air-quality-api.open-meteo.com/v1/air-quality` —
+<https://open-meteo.com/en/docs/air-quality-api>. WeatherGPT requests one selected
+coordinate at a time with documented `hourly` fields `sulphur_dioxide`,
+`nitrogen_dioxide`, `pm2_5`, `pm10`, and `ozone`, `forecast_days=2`, and
+`timezone=auto`. Request coordinates are rounded to three decimal places; the
+response's returned latitude/longitude are retained and shown as the model-grid
+centre when provided. The UI uses the provider's pollutant units (normally
+µg/m³) and hourly timestamps; a missing value or unit is shown as unavailable,
+never as zero.
+
+These are **atmospheric model/forecast grid estimates**, not direct sensor or
+ground-station observations. Open-Meteo documents this API's CAMS European Air
+Quality Forecast at 0.1° (about 11 km) and CAMS Global Atmospheric Composition
+Forecasts at 0.4° (about 45 km); the European and global domains are not coupled
+and can differ. The provider does not identify the selected model in each
+response, so WeatherGPT does not claim which model supplied an individual value.
+The returned coordinates identify the provider's selected grid point. WeatherGPT
+displays that single point and does not interpolate it, paint a heatmap, or imply
+street/field precision. No regional multi-point grid is requested. Pollutant
+values are shown individually; the app does not infer rainwater pH, acid-rain
+probability, health impact, or crop damage from them. Elevated SO₂/NO₂ can be
+relevant to atmospheric chemistry and deposition but does not establish the
+acidity of rain at a location.
+
+The browser caches successful per-URL responses for 15 minutes, deduplicates
+matching in-flight requests, cancels outdated map-selection requests, bounds
+the cache, and issues no per-pixel requests. A user-triggered refresh bypasses
+the valid cache; HTTP 429 responses receive a temporary retry cooldown. No API
+key or backend is used. The Open-Meteo Air Quality API is documented as
+non-commercial with fewer than 10,000 daily API calls; review the provider's
+current terms before deployment or commercial use. Attribution links to
+Open-Meteo and its Air Quality API documentation are shown in the interface.
+
+Rainfall context is separately read from the existing Open-Meteo weather
+forecast. `current.precipitation` is labelled a model current estimate;
+`daily.precipitation_sum` and `daily.precipitation_probability_max` are labelled
+forecast values. Rain probability is not observed rainfall and none of these
+weather values is rainwater chemistry. No separate Copernicus CAMS client was
+added; atmospheric concentrations are obtained only through the documented
+Open-Meteo API integration.
+
+The app retains the independent user-recorded pH system. Its points remain
+marked `MEASURED · USER-RECORDED`; old records without coordinates remain in
+history and are not assigned invented map coordinates. Demo pH remains
+`SIMULATED` and is never written to the pH cache or persistence.

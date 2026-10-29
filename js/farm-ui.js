@@ -7,6 +7,7 @@ import { makeDemoState } from './demo.js';
 import { icon, escapeHTML } from './icons.js';
 import { parseCoordinates } from './geocode.js';
 import { temp, wind } from './weather.js';
+import { POLLUTANTS, selectAirQualityFrame, validAirCoordinates } from './air-quality.js';
 
 export function createFarmUI({ getState, selectLocation, toast, onFarmChange = () => {}, onDemoChange = () => {} }) {
   const $ = id => document.getElementById(id);
@@ -144,6 +145,38 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     root.innerHTML = `<span class="card-kicker">${hi ? 'वर्षा-जल pH निगरानी' : 'Rainwater pH monitoring'}${demo ? ' · DEMO / SIMULATED DATA' : ''}</span><div class="ph-latest" style="--ph-color:${c.color}"><strong>${Number(latest.value).toFixed(1)}</strong><span>pH</span></div><b>${esc(c.label)}</b><p>${esc(latest.location || latest.source || 'User-recorded')} · ${esc(latest.date)} · ${esc(latest.source || latest.method || 'User-recorded')}</p><small>${esc(c.note)} A rainwater value is not a soil test or crop-damage threshold.</small><button class="text-button" data-open-ph-map>${hi ? 'मानचित्र पर माप देखें' : 'View measurement on map'}</button>`;
   }
 
+  function renderEnvironmentalSummary() {
+    const root=$('farm-environment-summary');if(!root)return;
+    const live=getState(),farm=farms.getActiveFarm(doc),hi=live.prefs?.language==='hi';
+    if(!farm||!validAirCoordinates(farm.latitude,farm.longitude)){root.hidden=true;return;}
+    root.hidden=false;
+    const env=live.environment,request=env?.requested;
+    const matches=validAirCoordinates(request?.latitude,request?.longitude)&&Math.abs(Number(request.latitude)-Number(farm.latitude))<0.003&&Math.abs(Number(request.longitude)-Number(farm.longitude))<0.003;
+    const openButton=`<button type="button" class="text-button" data-open-farm-atmosphere>${hi?'इस खेत की वायुमंडलीय निगरानी खोलें':'Open atmosphere for this farm'}</button>`;
+    if(!matches||!env||env.status==='idle'){
+      root.innerHTML=`<div class="farm-environment-heading"><span class="card-kicker">${hi?'पर्यावरणीय जानकारी':'Environmental information'}</span><span>${hi?'इस खेत के लिए अभी लोड नहीं हुई':'Not loaded for this farm yet'}</span></div><p>${hi?'वायुमंडलीय परत खोलने पर चयनित खेत के लिए मॉडल SO₂, NO₂ और कण-सांद्रता उपलब्धता जाँची जाएगी।':'Open the atmospheric layer to check model SO₂, NO₂ and particulate data for the selected farm.'}</p>${openButton}`;
+      return;
+    }
+    if(env.status==='loading'){
+      root.innerHTML=`<div class="farm-environment-heading"><span class="card-kicker">${hi?'पर्यावरणीय जानकारी':'Environmental information'}</span><span>${hi?'मॉडल डेटा लोड हो रहा है…':'Loading model data…'}</span></div><p>${hi?'खेत के निर्देशांकों के लिए वायुमंडलीय मॉडल जाँचा जा रहा है।':'Checking atmospheric model data for this farm location.'}</p>`;
+      return;
+    }
+    if(env.status!=='ready'||!env.data){
+      root.innerHTML=`<div class="farm-environment-heading"><span class="card-kicker">${hi?'पर्यावरणीय जानकारी':'Environmental information'}</span><span>${hi?'डेटा अनुपलब्ध':'Data unavailable'}</span></div><p>${esc(env.error|| (hi?'इस खेत के लिए वायुमंडलीय डेटा उपलब्ध नहीं है।':'Atmospheric data is unavailable for this farm.'))}</p>${openButton}`;
+      return;
+    }
+    const data=env.data,target=live.weather?.current?.time||'',frame=selectAirQualityFrame(data,target);
+    if(!frame){root.innerHTML=`<p>${hi?'वायुमंडलीय पूर्वानुमान समय उपलब्ध नहीं है।':'No atmospheric forecast timestamps are available.'}</p>${openButton}`;return;}
+    const cells=Object.entries(POLLUTANTS).map(([key,p])=>{
+      const value=frame.values[key],unit=data.units[key]||'';
+      return `<div><span>${esc(p[hi?'hi':'en'])}</span><b>${present(value)?`${Number(value).toFixed(1)} ${esc(unit)}`:(hi?'उपलब्ध नहीं':'Unavailable')}</b></div>`;
+    }).join('');
+    const weatherMatches=Math.abs(Number(live.location?.latitude)-Number(farm.latitude))<0.003&&Math.abs(Number(live.location?.longitude)-Number(farm.longitude))<0.003;
+    const daily=weatherMatches?live.weather?.daily:null;
+    const rain=daily&&present(daily.precipitation_sum?.[0])?`${Number(daily.precipitation_sum[0]).toFixed(1)} mm${present(daily.precipitation_probability_max?.[0])?` · ${Number(daily.precipitation_probability_max[0])}% probability`:''}`:(hi?'उपलब्ध नहीं':'Unavailable');
+    root.innerHTML=`<header class="farm-environment-heading"><span class="card-kicker">${hi?'पर्यावरणीय जानकारी':'Environmental information'}</span><span class="env-model-tag">${hi?'मॉडल पूर्वानुमान':'MODELED FORECAST'}</span></header><div class="farm-environment-grid">${cells}</div><p>${hi?'वर्षा पूर्वानुमान':'Rainfall forecast'}: ${esc(rain)} · ${esc(frame.time)}</p><small>${hi?'यह वायुमंडलीय मॉडल संदर्भ है, सेंसर माप या वर्षा-जल pH नहीं। इससे फसल को नुकसान या असुरक्षित होने का निष्कर्ष नहीं निकलता।':'Modeled atmospheric context, not sensor measurements or rainwater pH. It does not establish crop damage or safety.'}${live.demo?` ${hi?'डेमो के दौरान लाइव डेटा अलग रहता है।':'Live model data remains separate during the demo.'}`:''}</small>${openButton}`;
+  }
+
   function renderWeek(root, days, weather, language, demo) {
     if (!root) return;
     const hi = language === 'hi';
@@ -185,6 +218,7 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     renderSuitability($('suitability-card'), assessment.suitability, crop, language, demo);
     renderAciditySummary($('acidity-summary-card'), contextPHRecords(live, demo), language, demo);
     renderWeek($('week-risk-card'), assessment.days, state.weather, language, demo);
+    renderEnvironmentalSummary();
     const controls = $('demo-controls');
     if (controls) {
       const select = $('demo-scenario'); if (select && live.demo) select.value = live.demo;
@@ -202,6 +236,19 @@ export function createFarmUI({ getState, selectLocation, toast, onFarmChange = (
     document.querySelectorAll('[data-open-ph-map]').forEach(button => button.addEventListener('click', () => {
       window.location.hash = 'map';
       document.dispatchEvent(new CustomEvent('weathergpt:show-acidity'));
+    }));
+    document.querySelectorAll('[data-open-atmosphere]').forEach(button => button.addEventListener('click', () => {
+      window.location.hash='map';
+      document.dispatchEvent(new CustomEvent('weathergpt:show-atmosphere'));
+    }));
+    document.querySelectorAll('[data-open-farm-atmosphere]').forEach(button => button.addEventListener('click', () => {
+      const farm=farms.getActiveFarm(doc);if(!farm)return;
+      window.location.hash='map';
+      const current=getState().location||{};
+      if(Math.abs(Number(current.latitude)-Number(farm.latitude))>=0.003||Math.abs(Number(current.longitude)-Number(farm.longitude))>=0.003){
+        selectLocation({...current,...farm,name:farm.name,country:farm.country||'Farm location'});
+      }
+      document.dispatchEvent(new CustomEvent('weathergpt:show-atmosphere'));
     }));
   }
 
