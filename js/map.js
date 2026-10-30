@@ -47,7 +47,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
       country: 'Selected map point', latitude, longitude
     };
     pinMarker?.remove();
-    pinMarker = L.marker([latitude,longitude],{draggable:true,autoPan:true,keyboard:true,
+    pinMarker = L.marker([latitude,longitude],{title:t('map.usePoint'),draggable:true,autoPan:true,keyboard:true,
       icon:L.divIcon({className:'selected-location-marker',html:'<div class="selected-map-pin"></div>',iconSize:[15,15],iconAnchor:[7.5,7.5]}),zIndexOffset:1500}).addTo(map);
     pinMarker.on('dragend',()=>{
       const p=pinMarker.getLatLng();
@@ -114,7 +114,7 @@ export function createWeatherMap({ getState, onSelect, toast, onSaveFarm = () =>
   function locationHashAssistant(){window.location.hash='assistant';setTimeout(()=>$('assistant-query').focus(),100);}
   function setLocation(p, fly = true, openPanel = false) {
     selectedMarker?.remove();
-    selectedMarker=L.marker([p.latitude,p.longitude],{icon:L.divIcon({className:'selected-location-marker',html:'<div class="selected-map-pin"></div>',iconSize:[15,15],iconAnchor:[7.5,7.5]}),zIndexOffset:1000}).addTo(map);
+    selectedMarker=L.marker([p.latitude,p.longitude],{title:p.name||t('map.selected'),icon:L.divIcon({className:'selected-location-marker',html:'<div class="selected-map-pin"></div>',iconSize:[15,15],iconAnchor:[7.5,7.5]}),zIndexOffset:1000}).addTo(map);
     if(activeLayer==='acidity'||activeLayer==='atmosphere')selectedMarker.remove();
     selectedMarker.bindTooltip(escapeHTML(p.name),{permanent:true,direction:'right',offset:[10,0],className:'selected-map-tooltip'});
     selectedMarker.on('click',()=>{renderPanel();$('map-location-panel').hidden=false;});

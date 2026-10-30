@@ -9,6 +9,17 @@ const EN = {};
 const HI = { lang: 'hi' };
 
 export const cases = [
+  { q: "Tomorrow, I need to go to college, so should I keep an umbrella with me?", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "I need to go to college tomorrow should I keep an umbrella with me", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "Should I keep an umbrella with me tomorrow?", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "I'm heading to school tomorrow. Should I pack an umbrella?", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "I am going to work tomorrow, do I need an umbrella?", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "Tomorrow I have class, should I bring an umbrella?", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "Should I take an umbrella to my office tomorrow?", e: { place: null, topic: "rain", dayOffset: 1 } },
+  { q: "Tomorrow, I need to go to college in Mumbai, so should I keep an umbrella with me?", e: { place: "Mumbai", topic: "rain", dayOffset: 1 } },
+  { q: "Should I keep an umbrella in College Station tomorrow?", e: { place: "College Station", topic: "rain", dayOffset: 1 } },
+  { q: "Do I need an umbrella in State College tomorrow?", e: { place: "State College", topic: "rain", dayOffset: 1 } },
+  { q: "Weather in College Keep tomorrow", e: { place: "College Keep", topic: "weather", dayOffset: 1 } },
   // ── Place extraction: temporal phrases and activity words must not leak ──
   { q: 'Will it rain in Jaipur tomorrow evening?', e: { place: 'Jaipur', topic: 'rain', dayOffset: 1, window: 'evening', start: 17, end: 20 } },
   { q: 'Rain in London in four days?', e: { place: 'London', topic: 'rain', dayOffset: 4 } },

@@ -56,7 +56,7 @@ const STOP_WORDS = new Set([
   'do', 'does', 'did', 'have', 'has', 'had', 'get', 'got', 'go', 'going', 'gonna', 'take', 'carry', 'bring',
   'need', 'know', 'wear', 'expect', 'check', 'tell', 'show', 'open', 'please', 'ask', 'say', 'give',
   'what', 'when', 'where', 'which', 'who', 'why', 'how', 'much', 'many', 'about', 'for', 'from', 'with',
-  'and', 'or', 'vs', 'versus', 'to', 'of', 'in', 'on', 'at', 'by', 'near', 'around', 'between', 'during',
+  'so', 'am', "i'm", "we're", 'and', 'or', 'vs', 'versus', 'to', 'of', 'in', 'on', 'at', 'by', 'near', 'around', 'between', 'during',
   'best', 'good', 'better', 'time', 'times', 'day', 'days', 'hour', 'hours', 'week', 'weekend', 'now',
   'today', 'tomorrow', 'tonight', 'yesterday', 'morning', 'afternoon', 'evening', 'night', 'noon', 'midnight',
   'weather', 'forecast', 'outlook', 'condition', 'conditions', 'rain', 'rains', 'rainy', 'shower', 'showers',
@@ -264,14 +264,19 @@ export function extractPlace({ original, q, temporalFree }) {
   const possessive = original.match(/^([\p{L} .'-]+?)['’]s\s+(?:weather|forecast|temperature|rain|wind|humidity|mausam)/iu);
   let raw = possessive ? cleanPlace(possessive[1]) : '';
   if (!raw) {
-    // Comma/context queries are read from the ORIGINAL (capitalisation matters),
-    // restricted to the part that is not a temporal phrase.
-    let source = temporalFree;
-    const originalContext = original.match(/([\p{L}][\p{L}\s,.'-]{2,80}?)(?=\s+(?:today|tomorrow|tonight|kal|aaj|शाम|सुबह|कल|आज|बारिश|rain|weather|mausam|temperature|in \d|\?|$))/iu);
-    if (originalContext && originalContext[1].includes(',')) source = originalContext[1];
+    // Keep comma-separated geographic context, but never restore the raw
+    // question: doing so reintroduces dates and conversational clauses.
+    let source = temporalFree
+      // Carrying verbs before an article/object are actions, not town names.
+      // Do not blacklist "keep": College Keep is a legitimate explicit name.
+      .replace(/\b(?:keep|pack|bring|carry|take)\s+(?=(?:an?|the|my|our|your|umbrella)\b)/gi, ' ')
+      .replace(/\b(?:heading|headed|commuting)\s+to\b/gi, ' to ')
+      // Generic destinations are activities. Preserve compounds such as
+      // College Station / State College, and a city following "college in".
+      .replace(/\b(?:to|at|my|our|have)\s+(?:the\s+)?(?:college|school|work|office|class|university)(?=\s*(?:[,.;?!]|$)|\s+(?:in|near|so|should|do|and|with)\b)/gi, ' ');
     const pieces = source.split(/\band\b|\bvs\b|\bversus\b|[?;]/i)
       .map(p => p.replace(/[^A-Za-z\u0900-\u097f\s,'.-]/g, ' '))
-      .map(p => p.split(/\s+/).filter(w => !STOP_WORDS.has(w.toLowerCase())).join(' '))
+      .map(p => p.split(/\s+/).filter(w => !STOP_WORDS.has(w.toLowerCase().replace(/^[,.;]+|[,.;]+$/g, ''))).join(' '))
       .map(cleanPlace).filter(validPlace);
     raw = pieces[0] || '';
   }

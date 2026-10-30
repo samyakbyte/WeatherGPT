@@ -5,4 +5,4 @@
 - Commit: 01b81be1df6843ccfe0a71c0699a746bf740dd77
 - License: MIT (see LICENSE.md)
 
-This library is downloaded for local browser use. Import the module from application code with a relative URL; it has not been wired into WeatherGPT's UI yet.
+This library is downloaded for local browser use. Import the module from application code with a relative URL; it is used by js/experience.js for bounded entrance and route transitions.

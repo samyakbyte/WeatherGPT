@@ -12,6 +12,15 @@ const answer = (q, state, previous = null) => {
 };
 
 export function bugSuite(check) {
+  const umbrellaState = makeState({hourlyFn:{precipitation_probability:i=>i>=24&&i<48?85:5}});
+  const umbrellaQuestion='Tomorrow, I need to go to college, so should I keep an umbrella with me?';
+  const umbrellaAnswer=answer(umbrellaQuestion,umbrellaState);
+  check(umbrellaAnswer.intent.place.kind==='none'&&umbrellaAnswer.intent.dayOffset===1,
+    'umbrella commute uses selected location and tomorrow');
+  check(/85/.test(umbrellaAnswer.response.text)&&/umbrella/i.test(umbrellaAnswer.response.text),
+    'umbrella commute recommendation uses tomorrow rain probability, not today');
+  check(umbrellaAnswer.response.text.includes(umbrellaState.location.name),
+    'umbrella commute answer names the selected location');
   // Distinct forecast value at tomorrow 19:00 so "current conditions" cannot pass.
   const idxTomorrow19 = 24 + 19;
   const feelsState = makeState({

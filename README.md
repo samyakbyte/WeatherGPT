@@ -1,6 +1,6 @@
 # WeatherGPT
 
-A static, map-first weather intelligence workspace with a deterministic
+A static, forecast-first weather intelligence workspace with a deterministic
 English/Hindi assistant and farm-focused, forecast-derived guidance.
 
 **WeatherGPT is a browser application, not a deployed service.** It has no
@@ -289,3 +289,21 @@ npm run test:browser # 47 checks, 0 failures (real headless Chromium 153, mocked
 WeatherGPT is a demonstration workspace. Verify official IMD/SACHET warnings
 before safety-critical decisions, and consult your nearest KVK or state
 agriculture department before crop-treatment decisions.
+
+
+## Open Sky redesign (30 October 2026)
+
+The redesigned frontend preserves the original static application and all ten project-local skills. See `DESIGN.md` for the visual system and feature map, and `REDESIGN-REPORT.md` for verification, sizes and limitations.
+
+On Windows, serve the project with `python -m http.server 8000 --bind 127.0.0.1`, then open http://localhost:8000. Do not open index.html directly. Internet access is needed for public weather providers, maps, fonts and the existing CDN libraries.
+
+The weather panel has a Pause atmosphere control. It remembers the choice on this device and honors system reduced motion. The forecast includes an expandable table of all plotted values. No new npm dependency was added.
+
+The browser suite can use an installed Chrome or Edge on Windows. After installing the existing development dependencies, set `WEATHERGPT_BROWSER_PATH` to the browser executable and run `npm run test:browser`. In PowerShell, for example:
+
+```powershell
+$env:WEATHERGPT_BROWSER_PATH = 'C:/Program Files/Google/Chrome/Application/chrome.exe'
+npm run test:browser
+```
+
+The default bundled Chromium path remains available for the original Linux test environment. Browser tests use deterministic fixtures; their screenshots are examples of the interface, not live weather observations.

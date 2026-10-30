@@ -75,6 +75,8 @@ function renderCurrent(){
   const data=state.weather,prefs=state.prefs;
   $('location-name').textContent=labelLocation();updateSavedButton();setClock();
   if(!data){
+    document.body.dataset.weather='unknown';
+    document.body.dataset.day='unknown';
     $('current-temperature').innerHTML='—<sup>°</sup>';
     $('current-weather-icon').innerHTML=icon('sun-cloud');
     $('current-condition').textContent=state.loading?t('current.loading'):t('current.unavailable');
@@ -87,8 +89,8 @@ function renderCurrent(){
   const c=data.current,h=data.hourly,d=data.daily,i=currentHourIndex(data),weather=condition(c.weather_code,!!c.is_day);
   const temperature=temp(c.temperature_2m,prefs).replace('°','');
   $('current-temperature').innerHTML=`${temperature}<sup>°</sup>`;
-  $('current-weather-icon').innerHTML=`${icon(weather.icon)}<span class="hero-emoji" aria-hidden="true">${weather.emoji}</span>`;
-  $('current-condition').innerHTML=`<span class="condition-pill"><span class="condition-emoji" aria-hidden="true">${weather.emoji}</span><span>${weather.label}</span></span>`;
+  $('current-weather-icon').innerHTML=icon(weather.icon);
+  $('current-condition').innerHTML=`<span class="condition-pill"><span>${weather.label}</span></span>`;
   $('feels-like').textContent=temp(c.apparent_temperature,prefs);
   $('today-high').textContent=temp(d.temperature_2m_max[0],prefs);
   $('today-low').textContent=temp(d.temperature_2m_min[0],prefs);
@@ -98,12 +100,13 @@ function renderCurrent(){
   $('current-humidity').innerHTML=`${number(c.relative_humidity_2m)}<small> %</small>`;
   $('current-pressure').innerHTML=`${number(c.pressure_msl)} <small>hPa</small>`;
   $('current-visibility').innerHTML=`${h.visibility[i] == null?'—':number(h.visibility[i]/1000,1)} <small>km</small>`;
-  $('current-rain').innerHTML=`💧 <b>${number(c.precipitation,1)} mm</b>`;
-  $('current-uv').innerHTML=`☀️ <b>${number(h.uv_index[i],1)}</b>`;
-  $('current-sunset').innerHTML=`🌇 <b>${localHour(d.sunset[0])}</b>`;
+  $('current-rain').innerHTML=`<b>${number(c.precipitation,1)} mm</b>`;
+  $('current-uv').innerHTML=`<b>${number(h.uv_index[i],1)}</b>`;
+  $('current-sunset').innerHTML=`<b>${localHour(d.sunset[0])}</b>`;
   $('connection-status').textContent='Weather data connected';
   $('connection-status').previousElementSibling.style.background='#4e9d7c';
   document.body.dataset.weather=weather.icon;
+  document.body.dataset.day=c.is_day?'day':'night';
 }
 function renderAdvisories(){
   const list=$('advisories-list');
