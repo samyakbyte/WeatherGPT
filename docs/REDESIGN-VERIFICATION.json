@@ -1,0 +1,98 @@
+{
+  "logic": {
+    "passed": 530,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 135,
+    "failed": 0,
+    "failures": [],
+    "pageErrors": [],
+    "at": "2026-10-30T12:40:22.068Z"
+  },
+  "desktop_accessibility": [
+    {
+      "view": "overview",
+      "violations": []
+    },
+    {
+      "view": "forecast",
+      "violations": []
+    },
+    {
+      "view": "map",
+      "violations": []
+    },
+    {
+      "view": "assistant",
+      "violations": []
+    },
+    {
+      "view": "alerts",
+      "violations": []
+    },
+    {
+      "view": "locations",
+      "violations": []
+    }
+  ],
+  "mobile_accessibility": [
+    {
+      "view": "overview",
+      "violations": []
+    },
+    {
+      "view": "forecast",
+      "violations": []
+    },
+    {
+      "view": "map",
+      "violations": []
+    },
+    {
+      "view": "assistant",
+      "violations": []
+    },
+    {
+      "view": "alerts",
+      "violations": []
+    },
+    {
+      "view": "locations",
+      "violations": []
+    }
+  ],
+  "performance": {
+    "navigation": [
+      {
+        "domContentLoadedMs": 119.40000009536743,
+        "loadMs": 239.40000009536743
+      }
+    ],
+    "resources": 58,
+    "environment": "local unthrottled Chrome, mocked providers, external fonts blocked"
+  },
+  "runtime_size": {
+    "before": 1133026,
+    "after": 1245985
+  },
+  "changed_files": [
+    "DESIGN.md",
+    "index.html",
+    "README.md",
+    "REDESIGN-REPORT.md",
+    "assets/weather-atmosphere.webp",
+    "css/experience.css",
+    "css/immersive.css",
+    "css/interactions.css",
+    "docs/REDESIGN-VERIFICATION.json",
+    "js/app.js",
+    "js/experience.js",
+    "js/forecast.js",
+    "js/i18n.js",
+    "js/immersive.js",
+    "js/map.js",
+    "tests/run-browser-tests.js",
+    "js/vendor/animejs/README.md"
+  ]
+}

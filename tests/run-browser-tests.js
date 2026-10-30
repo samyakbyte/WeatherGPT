@@ -32,6 +32,7 @@ async function shot(page, name) {
 }
 
 async function chromiumSetup() {
+  if (process.env.WEATHERGPT_BROWSER_PATH) return {chromium:{args:[]},exe:process.env.WEATHERGPT_BROWSER_PATH,libDir:''};
   const chromium = require('@sparticuz/chromium').default;
   const { inflate } = require('@sparticuz/chromium');
   // Extract the bundled AL2023 shared libraries (libnss3, libnspr4, ...) and
@@ -267,6 +268,16 @@ async function main() {
     await page.waitForFunction(count => document.querySelectorAll('.response-entry').length > count, n, { timeout: 15000 });
     return page.locator('.response-entry').last();
   };
+  const contextBeforeUmbrella=await page.locator('#assistant-context').textContent();
+  const geocodeRequests=[];
+  const watchGeocode=request=>{if(/geocoding-api|photon|nominatim/.test(request.url()))geocodeRequests.push(request.url());};
+  page.on('request',watchGeocode);
+  const umbrella=await ask('Tomorrow, I need to go to college, so should I keep an umbrella with me?');
+  const umbrellaText=await umbrella.textContent();
+  check(/umbrella|rain/i.test(umbrellaText)&&/tomorrow/i.test(umbrellaText)&&!/could not find|College Keep/i.test(umbrellaText),'college umbrella question receives tomorrow rain advice');
+  check((await page.locator('#assistant-context').textContent())===contextBeforeUmbrella,'college umbrella question preserves selected weather location');
+  check(geocodeRequests.length===0,'ordinary umbrella question does not send invented locations to geocoder');
+  page.off('request',watchGeocode);
   const feels = await ask('Feels like tomorrow at 7 PM?');
   check((await feels.textContent() || '').includes('7 PM'), 'feels-like answer resolves tomorrow 7 PM');
   const walk = await ask('Best time to walk tomorrow evening?');
@@ -330,7 +341,7 @@ async function main() {
   check(focusRing !== 'none', 'visible focus style on keyboard focus');
 
   // ── Responsive layouts + screenshots ──
-  for (const width of [360, 390, 768, 1280]) {
+  for (const width of [360, 390, 768, 1024, 1280, 1440]) {
     await page.setViewportSize({ width, height: width < 500 ? 780 : 900 });
     await page.waitForTimeout(250);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
@@ -350,6 +361,109 @@ async function main() {
   await page.waitForTimeout(200);
   check(await shot(page, 'farms-390.png'), 'farms screenshot captured at 390px');
 
+
+  // Focused checks for the redesigned experience; begin with clean user state.
+  await page.evaluate(() => localStorage.clear());
+  await page.goto(base + '/index.html');
+  await page.waitForSelector('.hour-item');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.waitForTimeout(650);
+  check(await page.locator('.forecast-values tbody tr').count() === 24, 'accessible table includes all 24 hourly values');
+  await page.locator('[data-period="daily"]').click();
+  check(await page.locator('.forecast-values tbody tr').count() === 7, 'accessible table includes all seven daily values');
+  await page.locator('[data-period="hourly"]').click();
+  await page.locator('#current-section').scrollIntoViewIfNeeded();
+  await page.locator('#motion-toggle').click();
+  check(await page.evaluate(()=>document.body.dataset.ambient==='paused'), 'atmosphere pause stops ambient animation');
+  await page.reload(); await page.waitForSelector('.hour-item');
+  check(await page.locator('#motion-toggle').getAttribute('aria-pressed')==='true', 'atmosphere pause preference persists');
+  await page.locator('#motion-toggle').click();
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.waitForTimeout(120);
+  check(await page.locator('#motion-toggle').isDisabled() && await page.evaluate(()=>document.body.dataset.ambient==='paused'), 'system reduced motion disables ambient animation');
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.locator('#farm-dashboard').scrollIntoViewIfNeeded(); await page.waitForTimeout(120);
+  check(await page.evaluate(()=>document.body.dataset.ambient==='paused'), 'offscreen atmosphere is paused');
+  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.evaluate(()=>Object.defineProperty(navigator,'geolocation',{configurable:true,value:{getCurrentPosition(success,error){error({code:1})}}}));
+  await page.locator('#locate-button').click();
+  check((await page.locator('#toast').textContent()).toLowerCase().includes('denied') || (await page.locator('#toast').textContent()).toLowerCase().includes('permission'), 'geolocation denial gives visible feedback');
+  await page.evaluate(()=>Object.defineProperty(navigator,'geolocation',{configurable:true,value:{getCurrentPosition(success){success({coords:{latitude:28.61,longitude:77.21}})}}}));
+  await page.locator('#locate-button').click(); await page.waitForTimeout(300);
+  check((await page.locator('#location-name').textContent()).includes('Your location'), 'geolocation success selects returned coordinates');
+  await page.evaluate(()=>Object.defineProperty(navigator,'geolocation',{configurable:true,value:{getCurrentPosition(success,error){error({code:2})}}}));
+  await page.locator('#locate-button').click();
+  check(!(await page.locator('#locate-button').isDisabled()) && await page.locator('#toast').isVisible(), 'geolocation failure restores control and shows feedback');
+  await page.evaluate(()=>localStorage.clear());
+  await page.goto(base+'/index.html');await page.waitForSelector('.hour-item');
+  await page.waitForTimeout(700);
+  for(const width of [360,390,768,1024,1440]) {
+    await page.setViewportSize({width,height:width<500?900:1000});
+    await page.evaluate(()=>window.scrollTo(0,0));await page.waitForTimeout(150);
+    check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1), `clean overview fits ${width}px`);
+    await shot(page, `redesign-${width}.png`);
+  }
+  for(const view of ['forecast','map','assistant','alerts','locations']) {
+    for(const width of [390,1440]) {
+      await page.setViewportSize({width,height:950});
+      await page.evaluate(view=>location.hash=view,view);await page.waitForTimeout(400);
+      check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1), `${view} route fits ${width}px`);
+      await shot(page,`redesign-${view}-${width}.png`);
+    }
+  }
+  await page.setViewportSize({width:390,height:900});
+  await page.evaluate(()=>location.hash='overview');await page.waitForTimeout(300);
+  await page.locator('#menu-button').click();
+  check(await page.locator('.app-shell').evaluate(e=>e.inert), 'mobile navigation makes background inert');
+  await page.keyboard.press('Escape');
+  check(await page.locator('#menu-button').evaluate(e=>e===document.activeElement), 'closing mobile navigation returns keyboard focus');
+  await page.locator('#global-language').selectOption('hi');await page.waitForTimeout(150);
+  check((await page.locator('#motion-toggle').textContent()).includes('दृश्य'),'new motion control localizes in Hindi');
+  await shot(page,'redesign-hindi-390.png');
+  await page.locator('#global-language').selectOption('en');
+  // Check high zoom / large text reflow and long location strings.
+  await page.locator('#location-name').evaluate(e=>e.textContent='A very long location name, Administrative Region, Country');
+  await page.evaluate(()=>document.body.style.fontSize='20px');
+  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1), 'long location and enlarged base text do not overflow');
+  await page.reload();await page.waitForSelector('.hour-item');
+  const perf=await page.evaluate(()=>({navigation:performance.getEntriesByType('navigation').map(n=>({domContentLoadedMs:n.domContentLoadedEventEnd,loadMs:n.loadEventEnd})),resources:performance.getEntriesByType('resource').length,environment:'local unthrottled Chrome, mocked providers, external fonts blocked'}));
+  await writeFile(join(SHOTS,'performance.json'),JSON.stringify(perf,null,2));
+
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('#settings-button').click();
+  await page.locator('#temperature-unit').selectOption('fahrenheit');
+  await page.locator('#wind-unit').selectOption('mph');
+  await page.keyboard.press('Escape');
+  check((await page.locator('#current-temperature').textContent()).includes('84'), 'Fahrenheit conversion survives redesign');
+  check((await page.locator('#current-wind').textContent()).includes('mph'), 'wind units survive redesign');
+  await page.evaluate(()=>window.dispatchEvent(new Event('offline')));
+  check(await page.locator('#toast').isVisible(), 'offline event provides status feedback');
+  await page.route('**/api.open-meteo.com/v1/forecast?**', route=>route.fulfill({status:503,contentType:'application/json',body:'{"reason":"Test provider unavailable"}'}));
+  await page.reload();
+  await page.locator('#weather-error').waitFor({state:'visible'});
+  check((await page.locator('#current-temperature').textContent()).includes('—'), 'provider error clears stale temperature');
+  check(await page.locator('#retry-weather').isVisible(), 'provider error exposes retry action');
+  check(await page.locator('.forecast-values').isHidden(), 'provider error hides stale forecast table');
+  await page.unroute('**/api.open-meteo.com/v1/forecast?**');
+  await page.locator('#retry-weather').click();await page.waitForSelector('.hour-item');
+  check(await page.locator('#weather-error').isHidden(), 'retry recovers from provider error');
+  await page.evaluate(()=>localStorage.clear());await page.reload();await page.waitForSelector('.hour-item');
+  await page.setViewportSize({width:1440,height:1000});
+  await page.evaluate(()=>location.hash='forecast');
+  await page.emulateMedia({reducedMotion:'no-preference'});
+  await page.locator('#forecast-chart').focus();
+  const firstReadout=await page.locator('.forecast-live').textContent();
+  await page.keyboard.press('ArrowRight');
+  check((await page.locator('.forecast-live').textContent())!==firstReadout,'chart ArrowRight changes live readout');
+  await page.keyboard.press('Home');
+  check((await page.locator('.forecast-live').textContent())===firstReadout,'chart Home restores first forecast point');
+  await page.keyboard.press('End');
+  check(await page.evaluate(()=>Chart.getChart(document.getElementById('forecast-chart')).getActiveElements()[0].index===23),'chart End selects final hourly point');
+  await page.mouse.move(1000,300);await page.waitForTimeout(50);
+  check(await page.locator('.weather-cursor').evaluate(e=>e.classList.contains('visible')),'fine pointer reveals decorative cursor');
+  await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(50);
+  check(await page.locator('.weather-cursor').evaluate(e=>getComputedStyle(e).display==='none'||getComputedStyle(e).opacity==='0'),'reduced motion hides decorative cursor');
+  check(await page.evaluate(async()=>{const image=new Image();image.src='assets/weather-atmosphere.webp';await image.decode();return image.naturalWidth>1000;}),'local photographic weather asset loads');
   // ── Reduced motion: radar autoplay must not start ──
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.evaluate(() => { location.hash = 'map'; });
