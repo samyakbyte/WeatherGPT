@@ -1,3 +1,4 @@
+import { temp, wind, number, present, condition } from './weather.js';
 // Crop-specific weather advisories. Two visibly different kinds of content:
 //  (A) FORECAST CALCULATION — numbers computed from the loaded provider arrays;
 //  (B) SOURCED/GENERAL GUIDANCE — short precautions from data/crops.js, each
@@ -142,6 +143,15 @@ export function answerCropQuestion(question, intent, state) {
       ? (hi ? `आपकी बात की पुष्टि: आने वाले 24–72 घंटों में ${heavy.value} mm वर्षा का पूर्वानुमान है।` : `Your heavy-rain concern matches the forecast: ${heavy.value} mm is forecast over the next 24–72 hours.`)
       : (hi ? 'मौसम डेटा में भारी बारिश नहीं दिखती: उपलब्ध 72 घंटों में कोई भारी-वर्षा सीमा पार नहीं हुई। फिर भी सामान्य सावधानी नीचे दी गई है।' : 'The loaded forecast does not show heavy rain: no heavy-rain threshold was crossed in the available 72 hours. General precautions are still below.');
   }
+  const current = state.weather.current || {};
+  const readings = [];
+  if (present(current.weather_code)) readings.push(condition(current.weather_code).label);
+  if (present(current.temperature_2m)) readings.push(temp(current.temperature_2m,state.prefs,true));
+  if (present(current.relative_humidity_2m)) readings.push(`${hi?'नमी':'humidity'} ${number(current.relative_humidity_2m)}%`);
+  if (present(current.wind_speed_10m)) readings.push(`${hi?'हवा':'wind'} ${wind(current.wind_speed_10m,state.prefs)}`);
+  const snapshot = readings.length
+    ? `${hi?'अभी':'Right now'} — ${state.location?.name || (hi?'आपका स्थान':'your location')}: ${readings.join(', ')}. ${current.time ? (hi?'मॉडल समय':'Model time')+': '+current.time+' ('+(state.weather.timezone||'local')+').' : ''}`
+    : (hi?'वर्तमान मौसम के मान उपलब्ध नहीं हैं।':'Current weather readings are unavailable.');
   const range = tz.forecastRange(state);
   const intro = hi
     ? `${farm?.name || state.location?.name || 'आपके स्थान'} के लिए ${range.firstDate} से ${range.lastDate} के स्थानीय पूर्वानुमान पर आधारित सलाह (ग्रिड सेल मान, खेत का माप नहीं):`
@@ -156,7 +166,7 @@ export function answerCropQuestion(question, intent, state) {
     ? advisories.slice(0, 3).map(a => advisoryText(a, language)).join('\n\n')
     : (hi ? 'अगले 72 घंटों में कोई विन्यासित मौसम जोखिम सीमा पार नहीं हुई। नियमित रूप से खेत की जाँच करते रहें और आधिकारिक IMD/KVK सलाह देखें।' : 'No configured forecast hazard threshold was crossed in the next 72 hours. Keep scouting the field and check official IMD/KVK advisories.');
   return {
-    text: `${intro}${verification ? ' ' + verification : ''}${unsupported}${needNote}\n\n${texts}`.trim(),
+    text: `${snapshot}\n\n${intro}${verification ? ' ' + verification : ''}${unsupported}${needNote}\n\n${texts}`.trim(),
     metrics: advisories.slice(0, 3).map(a => ({ label: a.hazard, value: `${a.value} ${a.unit}` })),
     language,
     advisories,

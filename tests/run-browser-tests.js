@@ -5,6 +5,8 @@
 // Uses headless Chromium 153 via @sparticuz/chromium; serves the repository
 // over a local static server; intercepts all external traffic with fixtures.
 // Screenshots are written to screenshots/ (gitignored).
+import { makeState as makeMatrixState } from './harness.js';
+import { statements } from './conversation-20.js';
 import { createRequire } from 'module';
 import { createServer } from 'node:http';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
@@ -278,6 +280,10 @@ async function main() {
   check((await page.locator('#assistant-context').textContent())===contextBeforeUmbrella,'college umbrella question preserves selected weather location');
   check(geocodeRequests.length===0,'ordinary umbrella question does not send invented locations to geocoder');
   page.off('request',watchGeocode);
+  const farmContextBefore=await page.locator('#assistant-context').textContent();
+  const farmCurrent=await ask('I farm wheat. What precautions should I take for the current weather?');
+  check((await farmCurrent.textContent()).includes('Right now')&&!(await farmCurrent.textContent()).includes('Several places match'),'current farm weather gets conditions and precautions instead of place choices');
+  check((await page.locator('#assistant-context').textContent())===farmContextBefore,'current farm question preserves selected city');
   const feels = await ask('Feels like tomorrow at 7 PM?');
   check((await feels.textContent() || '').includes('7 PM'), 'feels-like answer resolves tomorrow 7 PM');
   const walk = await ask('Best time to walk tomorrow evening?');
@@ -447,7 +453,9 @@ async function main() {
   await page.unroute('**/api.open-meteo.com/v1/forecast?**');
   await page.locator('#retry-weather').click();await page.waitForSelector('.hour-item');
   check(await page.locator('#weather-error').isHidden(), 'retry recovers from provider error');
-  await page.evaluate(()=>localStorage.clear());await page.reload();await page.waitForSelector('.hour-item');
+  await page.evaluate(()=>localStorage.clear());
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.hour-item');
   await page.setViewportSize({width:1440,height:1000});
   await page.evaluate(()=>location.hash='forecast');
   await page.emulateMedia({reducedMotion:'no-preference'});
@@ -464,6 +472,28 @@ async function main() {
   await page.emulateMedia({reducedMotion:'reduce'});await page.waitForTimeout(50);
   check(await page.locator('.weather-cursor').evaluate(e=>getComputedStyle(e).display==='none'||getComputedStyle(e).opacity==='0'),'reduced motion hides decorative cursor');
   check(await page.evaluate(async()=>{const image=new Image();image.src='assets/weather-atmosphere.webp';await image.decode();return image.naturalWidth>1000;}),'local photographic weather asset loads');
+  await page.evaluate(()=>location.hash='assistant');
+  await page.locator('#global-language').selectOption('en');
+  const twentyResults=[];
+  for(const [question,topic,place] of statements){
+    const before=await page.locator('#assistant-context').textContent();
+    const requests=[];const watch=r=>{if(/geocoding-api|photon|nominatim/.test(r.url()))requests.push(r.url());};
+    page.on('request',watch);
+    const response=await ask(question);const text=await response.textContent();
+    page.off('request',watch);
+    const context=await page.locator('#assistant-context').textContent();
+    const ok=!!text&&!/Several places match|could not find/i.test(text)&&(place?true:requests.length===0&&context===before);
+    check(ok,`20-question UI: ${question}`);
+    twentyResults.push({question,topic,place:place||'selected location',passed:ok,response:text,geocoderRequests:requests.length});
+  }
+  await writeFile(join(SHOTS,'conversation-20-results.json'),JSON.stringify(twentyResults,null,2));
+  const matrixResults=await page.evaluate(async fixture=>{
+    const {evaluateStatement}=await import('./js/../tests/assistant-matrix.js');
+    const cases=await (await fetch('./tests/assistant-1000-cases.json')).json();
+    return cases.map(test=>{const state=structuredClone(fixture);state.location.name=test.place||'Jaipur';return evaluateStatement(test,state,window.nlp);});
+  }, makeMatrixState());
+  check(matrixResults.length===1000&&matrixResults.every(row=>row.passed),'1000-statement browser interpretation and answer matrix');
+  await writeFile(join(SHOTS,'assistant-1000-browser.json'),JSON.stringify({total:matrixResults.length,passed:matrixResults.filter(x=>x.passed).length,failures:matrixResults.filter(x=>!x.passed)},null,2));
   // ── Reduced motion: radar autoplay must not start ──
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.evaluate(() => { location.hash = 'map'; });

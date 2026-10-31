@@ -1,0 +1,620 @@
+{
+  "initial": {
+    "passed": 933,
+    "failed": 67
+  },
+  "final": {
+    "passed": 1000,
+    "failed": 0
+  },
+  "browserMatrix": {
+    "total": 1000,
+    "passed": 1000,
+    "failures": []
+  },
+  "browserSuite": {
+    "passed": 161,
+    "failed": 0,
+    "failures": [],
+    "pageErrors": [],
+    "at": "2026-10-31T01:26:52.159Z"
+  },
+  "originalFailedCases": [
+    {
+      "q": "Is rain likely today?",
+      "previous": null,
+      "failures": [
+        "place Likely, expected null",
+        "without NLP: place Likely, expected null"
+      ]
+    },
+    {
+      "q": "Is rain likely tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Likely, expected null",
+        "without NLP: place Likely, expected null"
+      ]
+    },
+    {
+      "q": "Is rain likely the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Likely, expected null",
+        "without NLP: place Likely, expected null"
+      ]
+    },
+    {
+      "q": "Is rain likely in three days?",
+      "previous": null,
+      "failures": [
+        "place Likely, expected null",
+        "without NLP: place Likely, expected null"
+      ]
+    },
+    {
+      "q": "Is rain likely in four days?",
+      "previous": null,
+      "failures": [
+        "place Likely, expected null",
+        "without NLP: place Likely, expected null"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in London today?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in New Delhi today?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in London tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in New Delhi tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in London the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in New Delhi the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in London in three days?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in New Delhi in three days?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in London in four days?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "Is there a good time for a picnic in New Delhi in four days?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in London today?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in New Delhi today?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in London tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in New Delhi tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in London the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in New Delhi the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in London in three days?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in New Delhi in three days?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in London in four days?",
+      "previous": null,
+      "failures": [
+        "place null, expected London",
+        "without NLP: place null, expected London"
+      ]
+    },
+    {
+      "q": "What precautions should I take for cotton in New Delhi in four days?",
+      "previous": null,
+      "failures": [
+        "place null, expected New Delhi",
+        "without NLP: place null, expected New Delhi"
+      ]
+    },
+    {
+      "q": "Are measured pH values available today?",
+      "previous": null,
+      "failures": [
+        "place Measured Values Available, expected null",
+        "without NLP: place Measured Values Available, expected null"
+      ]
+    },
+    {
+      "q": "Are measured pH values available tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Measured Values Available, expected null",
+        "without NLP: place Measured Values Available, expected null"
+      ]
+    },
+    {
+      "q": "Are measured pH values available the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Measured Values Available, expected null",
+        "without NLP: place Measured Values Available, expected null"
+      ]
+    },
+    {
+      "q": "Are measured pH values available in three days?",
+      "previous": null,
+      "failures": [
+        "place Measured Values Available, expected null",
+        "without NLP: place Measured Values Available, expected null"
+      ]
+    },
+    {
+      "q": "Are measured pH values available in four days?",
+      "previous": null,
+      "failures": [
+        "place Measured Values Available, expected null",
+        "without NLP: place Measured Values Available, expected null"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for today?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in London today?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected London",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected London",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in New Delhi today?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected New Delhi",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected New Delhi",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for at my location today?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in London tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected London",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected London",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in New Delhi tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected New Delhi",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected New Delhi",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for at my location tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in London the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected London",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected London",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in New Delhi the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected New Delhi",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected New Delhi",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for at my location the day after tomorrow?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in three days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in London in three days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected London",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected London",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in New Delhi in three days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected New Delhi",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected New Delhi",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for at my location in three days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in four days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in London in four days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected London",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected London",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for in New Delhi in four days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "place null, expected New Delhi",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: place null, expected New Delhi",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "What weather risks should I watch for at my location in four days?",
+      "previous": null,
+      "failures": [
+        "topic weather, expected alerts",
+        "answer does not address expected topic",
+        "without NLP: topic weather, expected alerts",
+        "without NLP: answer does not address expected topic"
+      ]
+    },
+    {
+      "q": "plz, will it rain tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Plz,, expected null",
+        "without NLP: place Plz,, expected null"
+      ]
+    },
+    {
+      "q": "quick question: will it rain tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Quick Question:, expected null",
+        "without NLP: place Quick Question:, expected null"
+      ]
+    },
+    {
+      "q": "just wondering, will it rain tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Just Wondering,, expected null",
+        "without NLP: place Just Wondering,, expected null"
+      ]
+    },
+    {
+      "q": "plz, is rain likely tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Plz, expected null",
+        "without NLP: place Plz, expected null"
+      ]
+    },
+    {
+      "q": "hey, is rain likely tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Likely, expected null",
+        "without NLP: place Likely, expected null"
+      ]
+    },
+    {
+      "q": "quick question: is rain likely tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Quick Question: Likely, expected null",
+        "without NLP: place Quick Question: Likely, expected null"
+      ]
+    },
+    {
+      "q": "just wondering, is rain likely tomorrow?",
+      "previous": null,
+      "failures": [
+        "place Just Wondering, expected null",
+        "without NLP: place Just Wondering, expected null"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "Should I take an umbrella today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "Will it rain today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "Is rain likely today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "Do I need a raincoat today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "I am going to college; should I keep an umbrella today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "What is the weather today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "Tell me the forecast today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "How are the weather conditions today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "What is the temperature today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    },
+    {
+      "q": "What about the day after tomorrow?",
+      "previous": "How hot will it be today?",
+      "failures": [
+        "day 1, expected 2",
+        "without NLP: day 1, expected 2"
+      ]
+    }
+  ]
+}

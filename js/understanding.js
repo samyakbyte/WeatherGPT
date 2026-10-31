@@ -59,7 +59,7 @@ const STOP_WORDS = new Set([
   'so', 'am', "i'm", "we're", 'and', 'or', 'vs', 'versus', 'to', 'of', 'in', 'on', 'at', 'by', 'near', 'around', 'between', 'during',
   'best', 'good', 'better', 'time', 'times', 'day', 'days', 'hour', 'hours', 'week', 'weekend', 'now',
   'today', 'tomorrow', 'tonight', 'yesterday', 'morning', 'afternoon', 'evening', 'night', 'noon', 'midnight',
-  'weather', 'forecast', 'outlook', 'condition', 'conditions', 'rain', 'rains', 'rainy', 'shower', 'showers',
+  'acidity', 'acidic', 'ph', 'rainwater', 'weather', 'forecast', 'outlook', 'condition', 'conditions', 'rain', 'rains', 'rainy', 'shower', 'showers',
   'drizzle', 'precipitation', 'umbrella', 'brolly', 'raincoat', 'wet', 'temperature', 'temp', 'hot', 'cold',
   'heat', 'warm', 'cool', 'feels', 'feel', 'apparent', 'wind', 'windy', 'gust', 'gusts', 'breeze', 'humidity',
   'humid', 'cloud', 'clouds', 'cloudy', 'overcast', 'uv', 'visibility', 'fog', 'mist', 'pressure', 'sunrise',
@@ -267,6 +267,8 @@ export function extractPlace({ original, q, temporalFree }) {
     // Keep comma-separated geographic context, but never restore the raw
     // question: doing so reintroduces dates and conversational clauses.
     let source = temporalFree
+      .replace(/\b(?:current|currently|right now|present|local|selected)\s+(?:weather|conditions?|forecast|location|city)\b/gi, " ")
+      .replace(/\bcurrently\b/gi, " ")
       // Carrying verbs before an article/object are actions, not town names.
       // Do not blacklist "keep": College Keep is a legitimate explicit name.
       .replace(/\b(?:keep|pack|bring|carry|take)\s+(?=(?:an?|the|my|our|your|umbrella)\b)/gi, ' ')
@@ -274,11 +276,37 @@ export function extractPlace({ original, q, temporalFree }) {
       // Generic destinations are activities. Preserve compounds such as
       // College Station / State College, and a city following "college in".
       .replace(/\b(?:to|at|my|our|have)\s+(?:the\s+)?(?:college|school|work|office|class|university)(?=\s*(?:[,.;?!]|$)|\s+(?:in|near|so|should|do|and|with)\b)/gi, ' ');
-    const pieces = source.split(/\band\b|\bvs\b|\bversus\b|[?;]/i)
-      .map(p => p.replace(/[^A-Za-z\u0900-\u097f\s,'.-]/g, ' '))
-      .map(p => p.split(/\s+/).filter(w => !STOP_WORDS.has(w.toLowerCase().replace(/^[,.;]+|[,.;]+$/g, ''))).join(' '))
-      .map(cleanPlace).filter(validPlace);
-    raw = pieces[0] || '';
+    // A leftover word is NOT evidence of a named place. Only accept a
+    // location-bearing clause, a postposition, or a compact search-style query.
+    const clean = text => cleanPlace(text.split(/\s+/).filter(w => !STOP_WORDS.has(w.toLowerCase().replace(/^[,.;]+|[,.;]+$/g,''))).join(' '));
+    const candidates = [];
+    for (const match of source.matchAll(/(?=\b(?:in|near|at|for|about)\s+([^?;.!]+))/gi)) {
+      const phrase = match[1].trim();
+      // "for my farm", "at this location" and "about UV" are not names.
+      const words = phrase.split(/\s+/);
+      if (STOP_WORDS.has(words[0].replace(/,$/,''))) continue;
+      const name = [];
+      for (const word of words) {
+        const token=word.toLowerCase().replace(/,$/,'');
+        if (STOP_WORDS.has(token) && !['and','vs','versus'].includes(token)) break;
+        name.push(word);
+      }
+      const candidate=clean(name.join(' '));
+      if(validPlace(candidate)) candidates.push(candidate);
+    }
+    // Hindi commonly names the place before "mein/in".
+    if (!candidates.length && /(?:में|\bmein\b)/i.test(original)) {
+      const before=source.split(/\bin\b/i)[0];
+      const candidate=clean(before);
+      if(validPlace(candidate)) candidates.push(candidate);
+    }
+    const conversational=/\b(?:i|my|we|our|you|your|me|is|are|will|does|do|can|has|have|should|could|would|need|want|tell|please|any|right|what|how|why)\b/i.test(source);
+    if (!candidates.length && !conversational && source.split(/\s+/).length<=6) {
+      const candidate=clean(source);
+      if(validPlace(candidate)) candidates.push(candidate);
+    }
+    raw = candidates[0] || '';
+
   }
   if (!raw) return { query: null, fullQuery: null, context: {}, kind: 'none', status: 'none', candidates: [] };
   const multi = /\band\b|\bvs\b|\bversus\b/i.test(temporalFree) || (raw.includes(',') === false && /\band\b/i.test(original));
@@ -288,7 +316,7 @@ export function extractPlace({ original, q, temporalFree }) {
 
 function detectTopic(q) {
   if (/\bradar\b|\brain map\b/.test(q)) return 'radar';
-  if (/\b(?:alert|warning|storm|flood|safe|danger|cyclone|lightning)\b/.test(q)) return 'alerts';
+  if (/\b(?:alerts?|warnings?|risks?|storm|flood|safe|danger|cyclone|lightning)\b/.test(q)) return 'alerts';
   if (/\b(?:hotter|warmer|cooler|colder|compare|comparison|difference)\b/.test(q) ||
       (/\btomorrow\b/.test(q) && /\btoday\b/.test(q) && /\b(?:hot|cold|more|less)\b/.test(q))) return 'comparison';
   if (/\b(?:crop|wheat|rice|paddy|maize|mustard|cotton|soybean|potato|tomato|sugarcane|fasal|gehu|dhan|harvest|spray|sowing|field|farmer|khet|kisan|advisory|advice|precautions)\b/.test(q)) return 'crop';
@@ -342,7 +370,7 @@ function resolveDate(q, state, intent, previous) {
   const datePhrasePresent = /\b(?:today|tomorrow|tonight|yesterday|day after|next|in \d+|after \d+|\d{4}-\d{2}-\d{2}|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/.test(q);
   const inheritDate = intent.followup && previous && intent.contextKey === previous.contextKey && !datePhrasePresent;
 
-  if (/\b(?:the\s+)?day after\b/.test(q) && previous) {
+  if (/\b(?:the\s+)?day after\b/.test(q) && !/\bday after tomorrow\b/.test(q) && previous) {
     dayOffset = (previous.dayOffset ?? 0) + 1; resolved = true;
   } else if (relative) {
     dayOffset = Number(relative[1]); resolved = true;
@@ -615,6 +643,7 @@ export function interpretWeatherQuestion(raw, state = {}, options = {}) {
       'यह मौसम प्रश्न समझ नहीं आया। WeatherGPT एक नियम-आधारित सहायक है, सामान्य AI नहीं। बारिश, तापमान, हवा, नमी, समय या फसल के बारे में पूछें।');
   }
   // Legacy normalized strings used by the older answer branches.
+  if (intent.topic === 'alerts') intent.normalized += ' warning';
   if (intent.topic === 'radar') intent.normalized = 'show radar';
   else if (intent.topic === 'outdoors') intent.normalized += ' best time outside';
   else if (intent.topic === 'rain' && !/\brain\b/.test(intent.normalized)) intent.normalized += ' rain';

@@ -1,0 +1,172 @@
+{
+  "logicPassed": 640,
+  "browser": {
+    "passed": 160,
+    "failed": 0,
+    "failures": [],
+    "pageErrors": [],
+    "at": "2026-10-31T01:21:24.499Z"
+  },
+  "statements": [
+    {
+      "question": "should i keep umbrella with me",
+      "topic": "rain",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiYes, take an umbrella—rain is possible. Today in New Delhi, the highest remaining hourly precipitation chance is 45%, around 10 AM. The forecast daily total is 5.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Mon 26 Oct, whole day IST (2026-10-26).)Peak hourly chance45%At that time31°Daily precipitation5.0 mmNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "shoul i keep umbrella with me",
+      "topic": "rain",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiYes, take an umbrella—rain is possible. Today in New Delhi, the highest remaining hourly precipitation chance is 45%, around 10 AM. The forecast daily total is 5.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Mon 26 Oct, whole day IST (2026-10-26).)Peak hourly chance45%At that time31°Daily precipitation5.0 mmNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Tomorrow I am off to college; will I need my umbrella?",
+      "topic": "rain",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiYes, take an umbrella—rain is possible. Tomorrow in New Delhi, the highest precipitation chance is 45%, around 12 AM. The forecast daily total is 5.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Tue 27 Oct, whole day IST (2026-10-27).)Peak hourly chance45%At that time28°Daily precipitation5.0 mmNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "I farm wheat. What precautions should I take for the current weather?",
+      "topic": "crop",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTRight now — New Delhi: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: New Delhi: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Wheat may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "My wheat crop is growing; what precautions should I take?",
+      "topic": "crop",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTRight now — New Delhi: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: New Delhi: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Wheat may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "I grow rice and want precautions for tomorrow",
+      "topic": "crop",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTRight now — New Delhi: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: New Delhi: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Can I spray my crops tomorrow morning?",
+      "topic": "crop",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTChoose an active farm first, or tell me the crop (for example “wheat”). Then I can use your location’s forecast.WheatRiceNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "What is the pH of rainwater here?",
+      "topic": "acidity",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTRainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Is the rainwater acidic for my farm?",
+      "topic": "acidity",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTRainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Can you tell me the measured pH at my location?",
+      "topic": "acidity",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTRainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "How hot will it be tomorrow?",
+      "topic": "temperature",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiDaily outlookFor New Delhi, temperature is 26°C–32°C for Tomorrow, Tue 27 Oct, whole day IST (2026-10-27). Forecast for this model grid cell — not a measurement at your field.Temperature26°C–32°CFeels like32°CPercentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Tell me how humid it is right now",
+      "topic": "humidity",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiDaily outlookFor New Delhi, relative humidity is 65 % for Today, Mon 26 Oct, whole day IST (2026-10-26). Forecast for this model grid cell — not a measurement at your field.Relative humidity65 %Percentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "What will the wind be like tomorrow evening?",
+      "topic": "wind",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiTomorrow · 5–8 PMThe maximum forecast wind in this period is 14 km/h. In New Delhi, tomorrow between 5–8 PM, the peak hourly precipitation chance is 45%. Temperatures are forecast between 26°C and 27°C. (Resolved: Tomorrow, Tue 27 Oct, 5–8 PM IST (2026-10-27).)Peak hourly rain chance45%Temperature range26°–27°Max forecast wind14 km/h527°45%626°45%726°45%Percentages apply to individual forecast hours, not the probability for the entire window. Official warning status is unavailable here; check IMD or SACHET.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Should I worry about UV exposure today?",
+      "topic": "uv",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiDaily outlookFor New Delhi, uv index is 5.0 for Today, Mon 26 Oct, whole day IST (2026-10-26). Forecast for this model grid cell — not a measurement at your field.UV index5.0Percentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "I want to walk tomorrow evening; what is the best time?",
+      "topic": "outdoors",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew Delhi5–8 PMTomorrow, Tue 27 Oct, 5–8 PM IST (2026-10-27)For New Delhi, around 7 PM on Tomorrow, Tue 27 Oct, 5–8 PM IST (2026-10-27) is the best hour inside 5–8 PM: 26°C, 45% precipitation chance, wind 14 km/h. Only hours inside the requested window were compared (26°C–27°C across them); this is a simple score, not a safety guarantee.  Forecast for this model grid cell — not a measurement at your field.Suggested time7 PMTemperature26°CRain chance45%Percentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.New Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Any weather warnings for my area today?",
+      "topic": "alerts",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiI can’t determine whether a storm is approaching or certify that conditions are safe. This assistant does not interpret radar motion or official warning feeds. Forecast-derived guidance for New Delhi: elevated heat in the next 3 days. Check your local meteorological authority for official warnings. (Resolved: Today, Mon 26 Oct, whole day IST (2026-10-26).)Today’s conditionsLight rainMax gust today34 km/hNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "When is sunset today?",
+      "topic": "sun",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiToday in New Delhi, sunrise is at 6:12 AM and sunset is at 6:05 PM. Times are local to Asia/Kolkata. (Resolved: Today, Mon 26 Oct, whole day IST (2026-10-26).)Sunrise6:12 AMSunset6:05 PMNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Please show the radar for my area",
+      "topic": "radar",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTI’ve opened the precipitation radar layer. It shows available past observations, not where heavy rain is expected tomorrow. Coverage varies, and a blank map is not proof of dry weather. For future rain at this location, ask about the forecast.New Delhi · Open-Meteo · model 10 AM localExplore radar →",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "What does the weather look like right now?",
+      "topic": "weather",
+      "place": "selected location",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTNew DelhiRight now in New Delhi, the model estimates 29°C with light rain. It feels like 32°C, with wind around 14 km/h. These are model estimates, not station observations. (Resolved: Today, Mon 26 Oct, whole day IST (2026-10-26).)Temperature29°CFeels like32°CWind14 km/hNew Delhi · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 0
+    },
+    {
+      "question": "Should I carry an umbrella in Jaipur tomorrow?",
+      "topic": "rain",
+      "place": "Jaipur",
+      "passed": true,
+      "response": " WEATHERGPT · FORECAST INSIGHTJaipurYes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 45%, around 12 AM. The forecast daily total is 5.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Tue 27 Oct, whole day IST (2026-10-27).)Peak hourly chance45%At that time28°Daily precipitation5.0 mmJaipur · Open-Meteo · model 10 AM local",
+      "geocoderRequests": 1
+    }
+  ]
+}
