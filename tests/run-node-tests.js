@@ -1,4 +1,5 @@
-#!/usr/bin/env node
+import { conversationSuite } from './conversation-20.js';
+
 // WeatherGPT unified Node test runner.
 //   npm test   (or: node tests/run-node-tests.js)
 // Deterministic: frozen clock, synthetic forecast fixtures, no network.
@@ -11,6 +12,7 @@ import { reliabilitySuite } from './reliability-suite.js';
 import { mark3Suite } from './mark3-suite.js';
 
 const SUITES = [
+  ['Twenty everyday assistant statements', conversationSuite],
   ['Legacy baseline (43 checks)', legacySuite],
   ['Phase 1.1 reported-bug regressions', bugSuite],
   ['Phase 1.4 interpretation table', interpretationSuite],

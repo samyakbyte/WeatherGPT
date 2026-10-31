@@ -1,0 +1,7052 @@
+[
+  {
+    "q": "Should I take an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in London today?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in New Delhi today?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella at my location today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in London tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in New Delhi tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella at my location tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in London the day after tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in New Delhi the day after tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella at my location the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in London in three days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in New Delhi in three days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella at my location in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in London in four days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella in New Delhi in four days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I take an umbrella at my location in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in London today?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in New Delhi today?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain at my location today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in London tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in New Delhi tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain at my location tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in London the day after tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in New Delhi the day after tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain at my location the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in London in three days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in New Delhi in three days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain at my location in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in London in four days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain in New Delhi in four days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Will it rain at my location in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in London today?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in New Delhi today?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely at my location today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in London tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in New Delhi tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely at my location tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in London the day after tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in New Delhi the day after tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely at my location the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in London in three days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in New Delhi in three days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely at my location in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in London in four days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely in New Delhi in four days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rain likely at my location in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in London today?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in New Delhi today?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat at my location today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in London tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in New Delhi tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat at my location tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in London the day after tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in New Delhi the day after tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat at my location the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in London in three days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in New Delhi in three days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat at my location in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in London in four days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat in New Delhi in four days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Do I need a raincoat at my location in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in London today?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in New Delhi today?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella at my location today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in London tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in New Delhi tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella at my location tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in London the day after tomorrow?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in New Delhi the day after tomorrow?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella at my location the day after tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in London in three days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in New Delhi in three days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella at my location in three days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in London in four days?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella in New Delhi in four days?",
+    "topic": "rain",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I am going to college; should I keep an umbrella at my location in four days?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in London today?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in New Delhi today?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather at my location today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in London tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in New Delhi tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather at my location tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in London the day after tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in New Delhi the day after tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather at my location the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in London in three days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in New Delhi in three days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather at my location in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in London in four days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather in New Delhi in four days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the weather at my location in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in London today?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in New Delhi today?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast at my location today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in London tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in New Delhi tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast at my location tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in London the day after tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in New Delhi the day after tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast at my location the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in London in three days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in New Delhi in three days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast at my location in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in London in four days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast in New Delhi in four days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Tell me the forecast at my location in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in London today?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in New Delhi today?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions at my location today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in London tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in New Delhi tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions at my location tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in London the day after tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in New Delhi the day after tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions at my location the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in London in three days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in New Delhi in three days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions at my location in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in London in four days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions in New Delhi in four days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How are the weather conditions at my location in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in London today?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in New Delhi today?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature at my location today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in London tomorrow?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in New Delhi tomorrow?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature at my location tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature the day after tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in London the day after tomorrow?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in New Delhi the day after tomorrow?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature at my location the day after tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in three days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in London in three days?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in New Delhi in three days?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature at my location in three days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in four days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in London in four days?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature in New Delhi in four days?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the temperature at my location in four days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in London today?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in New Delhi today?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be at my location today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in London tomorrow?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in New Delhi tomorrow?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be at my location tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be the day after tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in London the day after tomorrow?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in New Delhi the day after tomorrow?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be at my location the day after tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in three days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in London in three days?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in New Delhi in three days?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be at my location in three days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in four days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in London in four days?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be in New Delhi in four days?",
+    "topic": "temperature",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How hot will it be at my location in four days?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like today?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in London today?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in New Delhi today?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like at my location today?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in London tomorrow?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in New Delhi tomorrow?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like at my location tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like the day after tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in London the day after tomorrow?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in New Delhi the day after tomorrow?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like at my location the day after tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in three days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in London in three days?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in New Delhi in three days?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like at my location in three days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in four days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in London in four days?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like in New Delhi in four days?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What will it feel like at my location in four days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature today?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in London today?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in New Delhi today?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature at my location today?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in London tomorrow?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in New Delhi tomorrow?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature at my location tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature the day after tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in London the day after tomorrow?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in New Delhi the day after tomorrow?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature at my location the day after tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in three days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in London in three days?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in New Delhi in three days?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature at my location in three days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in four days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in London in four days?",
+    "topic": "feels",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature in New Delhi in four days?",
+    "topic": "feels",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the apparent temperature at my location in four days?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind today?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in London today?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in New Delhi today?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind at my location today?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in London tomorrow?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in New Delhi tomorrow?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind at my location tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind the day after tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in London the day after tomorrow?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in New Delhi the day after tomorrow?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind at my location the day after tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in three days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in London in three days?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in New Delhi in three days?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind at my location in three days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in four days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in London in four days?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind in New Delhi in four days?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How strong is the wind at my location in four days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected today?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in London today?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in New Delhi today?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected at my location today?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in London tomorrow?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in New Delhi tomorrow?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected at my location tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected the day after tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in London the day after tomorrow?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in New Delhi the day after tomorrow?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected at my location the day after tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in three days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in London in three days?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in New Delhi in three days?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected at my location in three days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in four days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in London in four days?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected in New Delhi in four days?",
+    "topic": "wind",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What wind speed is expected at my location in four days?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be today?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in London today?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in New Delhi today?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be at my location today?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in London tomorrow?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in New Delhi tomorrow?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be at my location tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be the day after tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in London the day after tomorrow?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in New Delhi the day after tomorrow?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be at my location the day after tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in three days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in London in three days?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in New Delhi in three days?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be at my location in three days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in four days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in London in four days?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be in New Delhi in four days?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How humid will it be at my location in four days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity today?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in London today?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in New Delhi today?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity at my location today?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in London tomorrow?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in New Delhi tomorrow?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity at my location tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity the day after tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in London the day after tomorrow?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in New Delhi the day after tomorrow?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity at my location the day after tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in three days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in London in three days?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in New Delhi in three days?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity at my location in three days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in four days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in London in four days?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity in New Delhi in four days?",
+    "topic": "humidity",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the humidity at my location in four days?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be today?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in London today?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in New Delhi today?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be at my location today?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in London tomorrow?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in New Delhi tomorrow?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be at my location tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be the day after tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in London the day after tomorrow?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in New Delhi the day after tomorrow?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be at my location the day after tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in three days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in London in three days?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in New Delhi in three days?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be at my location in three days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in four days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in London in four days?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be in New Delhi in four days?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "How cloudy will it be at my location in four days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover today?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in London today?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in New Delhi today?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover at my location today?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in London tomorrow?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in New Delhi tomorrow?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover at my location tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover the day after tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in London the day after tomorrow?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in New Delhi the day after tomorrow?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover at my location the day after tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in three days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in London in three days?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in New Delhi in three days?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover at my location in three days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in four days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in London in four days?",
+    "topic": "clouds",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover in New Delhi in four days?",
+    "topic": "clouds",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the cloud cover at my location in four days?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index today?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in London today?",
+    "topic": "uv",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in New Delhi today?",
+    "topic": "uv",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index at my location today?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in London tomorrow?",
+    "topic": "uv",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in New Delhi tomorrow?",
+    "topic": "uv",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index at my location tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index the day after tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in London the day after tomorrow?",
+    "topic": "uv",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in New Delhi the day after tomorrow?",
+    "topic": "uv",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index at my location the day after tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in three days?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in London in three days?",
+    "topic": "uv",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in New Delhi in three days?",
+    "topic": "uv",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index at my location in three days?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in four days?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in London in four days?",
+    "topic": "uv",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index in New Delhi in four days?",
+    "topic": "uv",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the UV index at my location in four days?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility today?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in London today?",
+    "topic": "visibility",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in New Delhi today?",
+    "topic": "visibility",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility at my location today?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in London tomorrow?",
+    "topic": "visibility",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in New Delhi tomorrow?",
+    "topic": "visibility",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility at my location tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility the day after tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in London the day after tomorrow?",
+    "topic": "visibility",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in New Delhi the day after tomorrow?",
+    "topic": "visibility",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility at my location the day after tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in three days?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in London in three days?",
+    "topic": "visibility",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in New Delhi in three days?",
+    "topic": "visibility",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility at my location in three days?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in four days?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in London in four days?",
+    "topic": "visibility",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility in New Delhi in four days?",
+    "topic": "visibility",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the visibility at my location in four days?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise today?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in London today?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in New Delhi today?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise at my location today?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in London tomorrow?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in New Delhi tomorrow?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise at my location tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise the day after tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in London the day after tomorrow?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in New Delhi the day after tomorrow?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise at my location the day after tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in three days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in London in three days?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in New Delhi in three days?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise at my location in three days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in four days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in London in four days?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise in New Delhi in four days?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunrise at my location in four days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset today?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in London today?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in New Delhi today?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset at my location today?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in London tomorrow?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in New Delhi tomorrow?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset at my location tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset the day after tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in London the day after tomorrow?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in New Delhi the day after tomorrow?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset at my location the day after tomorrow?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in three days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in London in three days?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in New Delhi in three days?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset at my location in three days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in four days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in London in four days?",
+    "topic": "sun",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset in New Delhi in four days?",
+    "topic": "sun",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "When is sunset at my location in four days?",
+    "topic": "sun",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk today?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in London today?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in New Delhi today?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk at my location today?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in London tomorrow?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in New Delhi tomorrow?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk at my location tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk the day after tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in London the day after tomorrow?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in New Delhi the day after tomorrow?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk at my location the day after tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in three days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in London in three days?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in New Delhi in three days?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk at my location in three days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in four days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in London in four days?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk in New Delhi in four days?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the best time to walk at my location in four days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic today?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in London today?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in New Delhi today?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic at my location today?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in London tomorrow?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in New Delhi tomorrow?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic at my location tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic the day after tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in London the day after tomorrow?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in New Delhi the day after tomorrow?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic at my location the day after tomorrow?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in three days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in London in three days?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in New Delhi in three days?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic at my location in three days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in four days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in London in four days?",
+    "topic": "outdoors",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic in New Delhi in four days?",
+    "topic": "outdoors",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is there a good time for a picnic at my location in four days?",
+    "topic": "outdoors",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in London today?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in New Delhi today?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take at my location today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in London tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in New Delhi tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take at my location tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in London the day after tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in New Delhi the day after tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take at my location the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in London in three days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in New Delhi in three days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take at my location in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in London in four days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take in New Delhi in four days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I farm wheat; what precautions should I take at my location in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in London today?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in New Delhi today?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do at my location today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in London tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in New Delhi tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do at my location tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in London the day after tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in New Delhi the day after tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do at my location the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in London in three days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in New Delhi in three days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do at my location in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in London in four days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do in New Delhi in four days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow rice; what should I do at my location in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in London today?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in New Delhi today?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice at my location today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in London tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in New Delhi tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice at my location tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in London the day after tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in New Delhi the day after tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice at my location the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in London in three days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in New Delhi in three days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice at my location in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in London in four days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice in New Delhi in four days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "I grow maize; give me crop advice at my location in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in London today?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in New Delhi today?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton at my location today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in London tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in New Delhi tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton at my location tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in London the day after tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in New Delhi the day after tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton at my location the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in London in three days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in New Delhi in three days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton at my location in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in London in four days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton in New Delhi in four days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What precautions should I take for cotton at my location in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in London today?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in New Delhi today?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop at my location today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in London tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in New Delhi tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop at my location tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in London the day after tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in New Delhi the day after tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop at my location the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in London in three days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in New Delhi in three days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop at my location in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in London in four days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop in New Delhi in four days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I spray my wheat crop at my location in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in London today?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in New Delhi today?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice at my location today?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in London tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in New Delhi tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice at my location tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in London the day after tomorrow?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in New Delhi the day after tomorrow?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice at my location the day after tomorrow?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in London in three days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in New Delhi in three days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice at my location in three days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in London in four days?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice in New Delhi in four days?",
+    "topic": "crop",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Should I harvest rice at my location in four days?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in London today?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in New Delhi today?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH at my location today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in London tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in New Delhi tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH at my location tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in London the day after tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in New Delhi the day after tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH at my location the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in London in three days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in New Delhi in three days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH at my location in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in London in four days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH in New Delhi in four days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the rainwater pH at my location in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in London today?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in New Delhi today?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic at my location today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in London tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in New Delhi tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic at my location tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in London the day after tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in New Delhi the day after tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic at my location the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in London in three days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in New Delhi in three days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic at my location in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in London in four days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic in New Delhi in four days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Is rainwater acidic at my location in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in London today?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in New Delhi today?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available at my location today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in London tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in New Delhi tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available at my location tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in London the day after tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in New Delhi the day after tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available at my location the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in London in three days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in New Delhi in three days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available at my location in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in London in four days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available in New Delhi in four days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are measured pH values available at my location in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in London today?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in New Delhi today?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity at my location today?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in London tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in New Delhi tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity at my location tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in London the day after tomorrow?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in New Delhi the day after tomorrow?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity at my location the day after tomorrow?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in London in three days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in New Delhi in three days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity at my location in three days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in London in four days?",
+    "topic": "acidity",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity in New Delhi in four days?",
+    "topic": "acidity",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Can you explain rainwater acidity at my location in four days?",
+    "topic": "acidity",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings today?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in London today?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in New Delhi today?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings at my location today?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in London tomorrow?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in New Delhi tomorrow?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings at my location tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings the day after tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in London the day after tomorrow?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in New Delhi the day after tomorrow?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings at my location the day after tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in three days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in London in three days?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in New Delhi in three days?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings at my location in three days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in four days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in London in four days?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings in New Delhi in four days?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Are there any weather warnings at my location in four days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for today?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in London today?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in New Delhi today?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for at my location today?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in London tomorrow?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in New Delhi tomorrow?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for at my location tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for the day after tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in London the day after tomorrow?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in New Delhi the day after tomorrow?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for at my location the day after tomorrow?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in three days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in London in three days?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in New Delhi in three days?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for at my location in three days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in four days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in London in four days?",
+    "topic": "alerts",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for in New Delhi in four days?",
+    "topic": "alerts",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What weather risks should I watch for at my location in four days?",
+    "topic": "alerts",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar today?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in London today?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in New Delhi today?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar at my location today?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in London tomorrow?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in New Delhi tomorrow?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar at my location tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar the day after tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in London the day after tomorrow?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in New Delhi the day after tomorrow?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar at my location the day after tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in three days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in London in three days?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in New Delhi in three days?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar at my location in three days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in four days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in London in four days?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar in New Delhi in four days?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Show me radar at my location in four days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map today?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in London today?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in New Delhi today?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map at my location today?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in London tomorrow?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in New Delhi tomorrow?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map at my location tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map the day after tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in London the day after tomorrow?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in New Delhi the day after tomorrow?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map at my location the day after tomorrow?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in three days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in London in three days?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in New Delhi in three days?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map at my location in three days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in four days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in London in four days?",
+    "topic": "radar",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map in New Delhi in four days?",
+    "topic": "radar",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "Open the rain map at my location in four days?",
+    "topic": "radar",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure today?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in London today?",
+    "topic": "pressure",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in New Delhi today?",
+    "topic": "pressure",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure at my location today?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure tomorrow?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in London tomorrow?",
+    "topic": "pressure",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in New Delhi tomorrow?",
+    "topic": "pressure",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure at my location tomorrow?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure the day after tomorrow?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in London the day after tomorrow?",
+    "topic": "pressure",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in New Delhi the day after tomorrow?",
+    "topic": "pressure",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure at my location the day after tomorrow?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in three days?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in London in three days?",
+    "topic": "pressure",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in New Delhi in three days?",
+    "topic": "pressure",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure at my location in three days?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in four days?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in London in four days?",
+    "topic": "pressure",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure in New Delhi in four days?",
+    "topic": "pressure",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What is the air pressure at my location in four days?",
+    "topic": "pressure",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in London today?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in New Delhi today?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions at my location today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in London tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in New Delhi tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions at my location tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in London the day after tomorrow?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in New Delhi the day after tomorrow?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions at my location the day after tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in London in three days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in New Delhi in three days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions at my location in three days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in London in four days?",
+    "topic": "weather",
+    "place": "London",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions in New Delhi in four days?",
+    "topic": "weather",
+    "place": "New Delhi",
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "What are the current conditions at my location in four days?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "topic-time-location"
+  },
+  {
+    "q": "plz, should i take an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, should i take an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, should i take an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: should i take an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, should i take an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, will it rain tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, will it rain tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, will it rain tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: will it rain tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, will it rain tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, is rain likely tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, is rain likely tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, is rain likely tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: is rain likely tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, is rain likely tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, do i need a raincoat tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, do i need a raincoat tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, do i need a raincoat tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: do i need a raincoat tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, do i need a raincoat tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, i am going to college; should i keep an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, i am going to college; should i keep an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, i am going to college; should i keep an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: i am going to college; should i keep an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, i am going to college; should i keep an umbrella tomorrow?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the weather tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the weather tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the weather tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the weather tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the weather tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, tell me the forecast tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, tell me the forecast tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, tell me the forecast tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: tell me the forecast tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, tell me the forecast tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, how are the weather conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, how are the weather conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, how are the weather conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: how are the weather conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, how are the weather conditions tomorrow?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the temperature tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the temperature tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the temperature tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the temperature tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the temperature tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, how hot will it be tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, how hot will it be tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, how hot will it be tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: how hot will it be tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, how hot will it be tomorrow?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what will it feel like tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what will it feel like tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what will it feel like tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what will it feel like tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what will it feel like tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the apparent temperature tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the apparent temperature tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the apparent temperature tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the apparent temperature tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the apparent temperature tomorrow?",
+    "topic": "feels",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, how strong is the wind tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, how strong is the wind tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, how strong is the wind tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: how strong is the wind tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, how strong is the wind tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what wind speed is expected tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what wind speed is expected tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what wind speed is expected tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what wind speed is expected tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what wind speed is expected tomorrow?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, how humid will it be tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, how humid will it be tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, how humid will it be tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: how humid will it be tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, how humid will it be tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the humidity tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the humidity tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the humidity tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the humidity tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the humidity tomorrow?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, how cloudy will it be tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, how cloudy will it be tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, how cloudy will it be tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: how cloudy will it be tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, how cloudy will it be tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the cloud cover tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the cloud cover tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the cloud cover tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the cloud cover tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the cloud cover tomorrow?",
+    "topic": "clouds",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the uv index tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the uv index tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the uv index tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the uv index tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the uv index tomorrow?",
+    "topic": "uv",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "plz, what is the visibility tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "hey, what is the visibility tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "could u tell me, what is the visibility tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "quick question: what is the visibility tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "just wondering, what is the visibility tomorrow?",
+    "topic": "visibility",
+    "place": null,
+    "dayOffset": 1,
+    "group": "conversational-and-typos"
+  },
+  {
+    "q": "आज बारिश होगी?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज जयपुर में बारिश होगी?",
+    "topic": "rain",
+    "place": "Jaipur",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज दिल्ली में बारिश होगी?",
+    "topic": "rain",
+    "place": "Delhi",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज मुंबई में बारिश होगी?",
+    "topic": "rain",
+    "place": "Mumbai",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज लंदन में बारिश होगी?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल बारिश होगी?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल जयपुर में बारिश होगी?",
+    "topic": "rain",
+    "place": "Jaipur",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल दिल्ली में बारिश होगी?",
+    "topic": "rain",
+    "place": "Delhi",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल मुंबई में बारिश होगी?",
+    "topic": "rain",
+    "place": "Mumbai",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल लंदन में बारिश होगी?",
+    "topic": "rain",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज जयपुर में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "Jaipur",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज दिल्ली में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "Delhi",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज मुंबई में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "Mumbai",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज लंदन में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल जयपुर में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "Jaipur",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल दिल्ली में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "Delhi",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल मुंबई में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "Mumbai",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल लंदन में तापमान क्या होगा?",
+    "topic": "temperature",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज हवा कैसी होगी?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज जयपुर में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "Jaipur",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज दिल्ली में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "Delhi",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज मुंबई में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "Mumbai",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज लंदन में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल हवा कैसी होगी?",
+    "topic": "wind",
+    "place": null,
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल जयपुर में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "Jaipur",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल दिल्ली में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "Delhi",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल मुंबई में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "Mumbai",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल लंदन में हवा कैसी होगी?",
+    "topic": "wind",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज जयपुर में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "Jaipur",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज दिल्ली में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "Delhi",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज मुंबई में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "Mumbai",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज लंदन में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": null,
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल जयपुर में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "Jaipur",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल दिल्ली में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "Delhi",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल मुंबई में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "Mumbai",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल लंदन में नमी कितनी होगी?",
+    "topic": "humidity",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज जयपुर में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "Jaipur",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज दिल्ली में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "Delhi",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज मुंबई में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "Mumbai",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "आज लंदन में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 0,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": null,
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल जयपुर में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "Jaipur",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल दिल्ली में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "Delhi",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल मुंबई में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "Mumbai",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "कल लंदन में गेहूँ की फसल के लिए सलाह?",
+    "topic": "crop",
+    "place": "London",
+    "dayOffset": 1,
+    "group": "Hindi"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "Should I take an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "Should I take an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "Should I take an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "Should I take an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "Should I take an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "Will it rain today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "Will it rain today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "Will it rain today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "Will it rain today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "Will it rain today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "Is rain likely today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "Is rain likely today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "Is rain likely today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "Is rain likely today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "Is rain likely today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "Do I need a raincoat today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "Do I need a raincoat today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "Do I need a raincoat today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "Do I need a raincoat today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "Do I need a raincoat today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "I am going to college; should I keep an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "I am going to college; should I keep an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "I am going to college; should I keep an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "I am going to college; should I keep an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "I am going to college; should I keep an umbrella today?",
+    "topic": "rain",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "What is the weather today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "What is the weather today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "What is the weather today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "What is the weather today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "What is the weather today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "Tell me the forecast today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "Tell me the forecast today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "Tell me the forecast today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "Tell me the forecast today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "Tell me the forecast today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "How are the weather conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "How are the weather conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "How are the weather conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "How are the weather conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "How are the weather conditions today?",
+    "topic": "weather",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "What is the temperature today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "What is the temperature today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "What is the temperature today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "What is the temperature today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "What is the temperature today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  },
+  {
+    "q": "And tomorrow?",
+    "previous": "How hot will it be today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 1,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about the day after tomorrow?",
+    "previous": "How hot will it be today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 2,
+    "group": "follow-up"
+  },
+  {
+    "q": "And in three days?",
+    "previous": "How hot will it be today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 3,
+    "group": "follow-up"
+  },
+  {
+    "q": "What about in four days?",
+    "previous": "How hot will it be today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 4,
+    "group": "follow-up"
+  },
+  {
+    "q": "And today?",
+    "previous": "How hot will it be today?",
+    "topic": "temperature",
+    "place": null,
+    "dayOffset": 0,
+    "group": "follow-up"
+  }
+]

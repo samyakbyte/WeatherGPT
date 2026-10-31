@@ -1,0 +1,13 @@
+{
+  "logic": {
+    "passed": 577,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 140,
+    "failed": 0,
+    "failures": [],
+    "pageErrors": [],
+    "at": "2026-10-31T01:14:11.608Z"
+  }
+}

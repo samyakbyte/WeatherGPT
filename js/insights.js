@@ -1,3 +1,4 @@
+import { umbrellaAdvice } from './rain-advice.js';
 import { temp, wind, number, present, currentHourIndex, localHour, condition } from './weather.js';
 
 // Evidence selection and bounded arithmetic are separate from question parsing and UI.
@@ -19,10 +20,11 @@ export function periodInsight(intent,state) {
   if(!evidence)return {text:hi?'इस समय अवधि का पर्याप्त पूर्वानुमान उपलब्ध नहीं है। आज की अवधि बीत चुकी हो सकती है। कृपया कल का समय पूछें या दोबारा प्रयास करें।':'There isn’t enough forecast data for that time window. Today’s window may already have passed. Try tomorrow or another time.',metrics:[],language:intent.language};
   const{weather:data,location,prefs}=state,{peak,min,max,maxWind,indexes}=evidence;
   const day=(intent.dayOffset<=2?dayWord(intent.dayOffset,hi):intent.date)||state.weather.daily.time[intent.dayOffset],period=intent.period;
-  const rainAdvice=peak>=60?(hi?'छाता साथ रखना बेहतर होगा।':'Taking an umbrella is a good idea.'):peak>=30?(hi?'बारिश की संभावना है; निकलने से पहले फिर जाँच लें।':'Some rain is possible; check again before heading out.'):(hi?'बारिश की संभावना कम दिखती है, लेकिन शून्य नहीं।':'Rain looks less likely, but not impossible.');
+  const rainAdvice=umbrellaAdvice(peak,intent.language,evidence.complete);
   const windowLabel=`${day} · ${period.label}`;
   const body=hi?`${location.name} में ${day} ${period.label} के दौरान, उपलब्ध घंटों में बारिश की सबसे अधिक संभावना ${number(peak)}% है। तापमान लगभग ${temp(min,prefs,true)} से ${temp(max,prefs,true)} के बीच रहने का पूर्वानुमान है। ${rainAdvice}`:`In ${location.name}, ${day.toLowerCase()} between ${period.label}, the peak hourly precipitation chance is ${number(peak)}%. Temperatures are forecast between ${temp(min,prefs,true)} and ${temp(max,prefs,true)}.${intent.topic==='rain'?' '+rainAdvice:''}`;
-  const text=body+(evidence.complete?'':hi?' कुछ घंटों के आँकड़े अधूरे हैं।':' Some hourly values are missing.');
+  const windLead=intent.topic==='wind'?(hi?`इस अवधि में अधिकतम हवा ${present(maxWind)?wind(maxWind,prefs):'अनुपलब्ध'} है। `:`The maximum forecast wind in this period is ${present(maxWind)?wind(maxWind,prefs):'unavailable'}. `):'';
+  const text=windLead+(intent.topic==='rain'?rainAdvice+' ':'')+body.replace(' '+rainAdvice,'')+(evidence.complete?'':hi?' कुछ घंटों के आँकड़े अधूरे हैं।':' Some hourly values are missing.');
   return {
     text,language:intent.language,scope:[location.name,windowLabel],
     metrics:[{label:hi?'अधिकतम प्रति-घंटा संभावना':'Peak hourly rain chance',value:`${number(peak)}%`},{label:hi?'तापमान की सीमा':'Temperature range',value:`${temp(min,prefs)}–${temp(max,prefs)}`},{label:hi?'अधिकतम हवा':'Max forecast wind',value:wind(maxWind,prefs)}],
@@ -55,7 +57,7 @@ export function hindiInsight(intent,state) {
     const hours=h.time.map((t,i)=>({t,i})).filter(v=>v.t.startsWith(d.time[day])&&(day>0||v.i>=currentHourIndex(data))&&present(h.precipitation_probability[v.i]));
     if(!hours.length)return output('चुनी हुई अवधि के लिए बारिश की संभावना उपलब्ध नहीं है। कृपया कल के बारे में पूछें या मौसम सेवा दोबारा लोड करें।');
     const best=hours.reduce((a,b)=>h.precipitation_probability[a.i]>=h.precipitation_probability[b.i]?a:b),peak=h.precipitation_probability[best.i];
-    return output(`${location.name} में ${dayName}, उपलब्ध घंटों में बारिश की सबसे अधिक संभावना ${number(peak)}% है, लगभग ${localHour(best.t)} पर। ${peak>=40?'छाता साथ रखना उपयोगी हो सकता है।':'बारिश कम संभावित दिखती है, लेकिन संभावना शून्य नहीं है।'} पूरे दिन के कुल वर्षण का पूर्वानुमान ${number(d.precipitation_sum[day],1)} mm है। निकलने से पहले फिर जाँच लें।`,[{label:'प्रति-घंटा अधिकतम संभावना',value:`${number(peak)}%`},{label:'उस समय तापमान',value:temp(h.temperature_2m[best.i],prefs)},{label:'दैनिक कुल वर्षण',value:`${number(d.precipitation_sum[day],1)} mm`}]);
+    return output(`${umbrellaAdvice(peak,'hi',hours.length===h.time.filter((t,i)=>t.startsWith(d.time[day])&&(day>0||i>=currentHourIndex(data))).length)} ${location.name} में ${dayName}, उपलब्ध घंटों में बारिश की सबसे अधिक संभावना ${number(peak)}% है, लगभग ${localHour(best.t)} पर। पूरे दिन के कुल वर्षण का पूर्वानुमान ${number(d.precipitation_sum[day],1)} mm है। निकलने से पहले फिर जाँच लें।`,[{label:'प्रति-घंटा अधिकतम संभावना',value:`${number(peak)}%`},{label:'उस समय तापमान',value:temp(h.temperature_2m[best.i],prefs)},{label:'दैनिक कुल वर्षण',value:`${number(d.precipitation_sum[day],1)} mm`}]);
   }
   if(intent.topic==='wind')return output(`${location.name} में ${dayName} हवा की अधिकतम गति लगभग ${wind(d.wind_speed_10m_max[day],prefs)} और झोंके ${wind(d.wind_gusts_10m_max[day],prefs)} तक रहने का पूर्वानुमान है। झोंके थोड़ी देर की तेज़ हवा होते हैं, लगातार गति नहीं।`,[{label:'अधिकतम हवा',value:wind(d.wind_speed_10m_max[day],prefs)},{label:'अधिकतम झोंके',value:wind(d.wind_gusts_10m_max[day],prefs)}]);
   if(intent.topic==='sun')return output(`${location.name} में ${dayName} सूर्योदय ${localHour(d.sunrise[day])} और सूर्यास्त ${localHour(d.sunset[day])} पर है। ये उस स्थान के स्थानीय समय हैं।`);

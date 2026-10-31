@@ -12,6 +12,22 @@ const answer = (q, state, previous = null) => {
 };
 
 export function bugSuite(check) {
+  const farmQuestion='I farm wheat. What precautions should I take for the current weather?';
+  const farmAnswer=answer(farmQuestion,makeState());
+  check(farmAnswer.intent.place.kind==='none'&&!farmAnswer.intent.clarification,'current weather is not a location');
+  check(farmAnswer.response.text.startsWith('Right now')&&farmAnswer.response.text.includes('29'),'farm answer starts with loaded current temperature');
+  check(farmAnswer.response.text.indexOf('Right now')<farmAnswer.response.text.indexOf('Advice for'),'current weather precedes farm precautions');
+  check(parse('Weather in Current River tomorrow',makeState()).place.query==='Current River','real Current River place name remains searchable');
+  check(parse('Rain for the current location tomorrow',makeState()).place.kind==='none','current location uses selected city');
+  for(const probability of [0,8,45,85]) {
+    const state=makeState({hourlyValues:{precipitation_probability:probability}});
+    const response=answer('Should I keep an umbrella tomorrow?',state).response;
+    check(probability===0?response.text.startsWith('You probably do not need an umbrella'):probability<20?response.text.startsWith('There is a small chance of rain; take a compact umbrella'):response.text.startsWith('Yes, take an umbrella'),`direct umbrella recommendation for ${probability}%`);
+  }
+  const partial=makeState({hourlyFn:{precipitation_probability:i=>i===25?null:0}});
+  check(answer('Umbrella tomorrow?',partial).response.text.startsWith('The rain forecast is incomplete'),'missing rain data does not advise leaving umbrella behind');
+  const noCurrent=makeState();noCurrent.weather.current={time:'2026-09-15T10:00'};
+  check(answer(farmQuestion,noCurrent).response.text.startsWith('Current weather readings are unavailable'),'missing current readings are explicit');
   const umbrellaState = makeState({hourlyFn:{precipitation_probability:i=>i>=24&&i<48?85:5}});
   const umbrellaQuestion='Tomorrow, I need to go to college, so should I keep an umbrella with me?';
   const umbrellaAnswer=answer(umbrellaQuestion,umbrellaState);

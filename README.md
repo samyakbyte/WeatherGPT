@@ -307,3 +307,8 @@ npm run test:browser
 ```
 
 The default bundled Chromium path remains available for the original Linux test environment. Browser tests use deterministic fixtures; their screenshots are examples of the interface, not live weather observations.
+
+
+### Assistant 1,000-statement regression set
+
+Run `npm run test:assistant` for the reproducible statement matrix, with and without the optional NLP library. Results are written to `docs/ASSISTANT-1000-RESULTS.json`. The browser suite also evaluates the matrix in Chrome and retains its form-interaction checks. See `ASSISTANT-1000-REPORT.md` for test scope and limitations.

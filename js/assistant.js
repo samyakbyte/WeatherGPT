@@ -1,3 +1,4 @@
+import { umbrellaAdvice } from './rain-advice.js';
 import { icon, escapeHTML } from './icons.js';
 import { searchPlaces } from './geocode.js';
 import { parseWeatherQuestion } from './intent.js';
@@ -80,7 +81,7 @@ function legacyAnswer(question, state, parsedIntent = null) {
     if(!valid.length)return result('Precipitation probabilities are not available for that period. I can’t make a reliable umbrella recommendation.');
     const peak=valid.reduce((a,b)=>h.precipitation_probability[a.index]>=h.precipitation_probability[b.index]?a:b);
     const p=h.precipitation_probability[peak.index],i=peak.index;
-    return result(`${p>=40?'Keep an umbrella handy.':p>=20?'An umbrella is worth considering.':'Rain looks less likely, but not impossible.'} ${label} in ${location.name}, the highest ${day===0?'remaining hourly ':''}precipitation chance is ${number(p)}%, around ${localHour(h.time[i])}. The forecast daily total is ${number(d.precipitation_sum[day],1)} mm. Probability isn’t a promise—check again before you head out.`,[metric('Peak hourly chance',`${number(p)}%`),metric('At that time',temp(h.temperature_2m[i],prefs)),metric('Daily precipitation',`${number(d.precipitation_sum[day],1)} mm`)]);
+    return result(`${umbrellaAdvice(p, 'en', valid.length===hours.length)} ${label} in ${location.name}, the highest ${day===0?'remaining hourly ':''}precipitation chance is ${number(p)}%, around ${localHour(h.time[i])}. The forecast daily total is ${number(d.precipitation_sum[day],1)} mm. Probability isn’t a promise—check again before you head out.`,[metric('Peak hourly chance',`${number(p)}%`),metric('At that time',temp(h.temperature_2m[i],prefs)),metric('Daily precipitation',`${number(d.precipitation_sum[day],1)} mm`)]);
   }
   if(/wind|breez|gust/.test(q))return result(`${label}'s maximum sustained wind in ${location.name} is forecast at ${wind(d.wind_speed_10m_max[day],prefs)}, with gusts up to ${wind(d.wind_gusts_10m_max[day],prefs)}. Right now, wind is ${wind(c.wind_speed_10m,prefs)} from the ${direction(c.wind_direction_10m)}. Gusts are brief peaks, not a constant wind speed.`,[metric('Wind now',wind(c.wind_speed_10m,prefs)),metric(`${label}'s max gust`,wind(d.wind_gusts_10m_max[day],prefs))]);
   if(/sunrise|sunset/.test(q))return result(`${label} in ${location.name}, sunrise is at ${localHour(d.sunrise[day])} and sunset is at ${localHour(d.sunset[day])}. Times are local to ${data.timezone.replaceAll('_',' ')}.`,[metric('Sunrise',localHour(d.sunrise[day])),metric('Sunset',localHour(d.sunset[day]))]);
