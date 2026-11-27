@@ -34,25 +34,47 @@ export function createForecast(getState) {
   const container = document.querySelector('.chart-container');
   const live = document.createElement('div');
   live.className = 'forecast-live';
-  live.setAttribute('aria-live','polite');
+  // Keep controls mounted while the point changes, preserving keyboard focus.
+  live.innerHTML = `<span class="forecast-point-time"><span></span><small></small></span><strong></strong><span class="forecast-point-hint"></span><span class="forecast-point-controls"><button type="button" data-step="-1">${icon('arrow-left')}</button><button type="button" data-step="1">${icon('arrow-right')}</button></span><span class="sr-only forecast-point-status" role="status"></span>`;
   container.before(live);
   let selectedPoint = 0;
-  let currentLabels = [], currentValues = [], currentUnit = '';
-  function describePoint(index) {
+  let currentLabels = [], currentValues = [], currentUnit = '', currentMetric = '';
+  function describePoint(index, announce=false) {
     selectedPoint = Math.max(0,Math.min(currentValues.length-1,index));
     const value = currentValues[selectedPoint];
-    live.innerHTML = `<span>${escapeHTML(currentLabels[selectedPoint] || '')}<small>${getState().prefs.language==='hi'?'बिंदु चुनने के लिए ग्राफ पर जाएँ':'Move across the chart to explore'}</small></span><strong>${value==null?'—':number(value,1)+' '+currentUnit}</strong>`;
+    const hi=getState().prefs.language==='hi';
+    const reading=value==null?'—':number(value,metric==='rain'?0:1)+' '+currentUnit;
+    live.querySelector('.forecast-point-time>span').textContent=currentLabels[selectedPoint] || '';
+    live.querySelector('.forecast-point-time small').textContent=currentMetric;
+    live.querySelector('strong').textContent=reading;
+    live.querySelector('.forecast-point-hint').textContent=hi?'ग्राफ छुएँ या तीरों से चुनें':'Touch the chart or use the arrows';
+    live.querySelectorAll('[data-step]').forEach(button=>{
+      const prev=Number(button.dataset.step)<0;
+      button.disabled=!currentValues.length||(prev?selectedPoint===0:selectedPoint===currentValues.length-1);
+      button.setAttribute('aria-label',hi?(prev?'पिछला समय':'अगला समय'):(prev?'Previous forecast point':'Next forecast point'));
+    });
+    document.querySelectorAll('#hourly-strip .hour-item').forEach(button=>{
+      const active=period==='hourly'&&Number(button.dataset.index)===selectedPoint;
+      button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));
+    });
+    if(announce)live.querySelector('.forecast-point-status').textContent=`${currentLabels[selectedPoint] || ''}: ${currentMetric}, ${value==null?(hi?'डेटा उपलब्ध नहीं':'Data unavailable'):reading}`;
   }
+  function selectPoint(index) {
+    describePoint(index,true);
+    if(!chart)return;
+    const item=chart.getDatasetMeta(0).data[selectedPoint];
+    const active=currentValues[selectedPoint]==null?[]:[{datasetIndex:0,index:selectedPoint}];
+    chart.setActiveElements(active);
+    chart.tooltip?.setActiveElements(active,{x:item?.x || 0,y:item?.y || 0});
+    chart.update('none');
+  }
+  live.querySelectorAll('[data-step]').forEach(button=>button.addEventListener('click',()=>selectPoint(selectedPoint+Number(button.dataset.step))));
   const canvasEl=document.getElementById('forecast-chart');
   canvasEl.tabIndex=0;
   canvasEl.addEventListener('keydown', event=>{
-    if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)||!chart)return;
+    if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key)||!currentValues.length)return;
     event.preventDefault();
-    describePoint(event.key==='Home'?0:event.key==='End'?currentValues.length-1:selectedPoint+(event.key==='ArrowRight'?1:-1));
-    const item=chart.getDatasetMeta(0).data[selectedPoint];
-    chart.setActiveElements([{datasetIndex:0,index:selectedPoint}]);
-    if(item)chart.tooltip.setActiveElements([{datasetIndex:0,index:selectedPoint}],{x:item.x,y:item.y});
-    chart.update('none');
+    selectPoint(event.key==='Home'?0:event.key==='End'?currentValues.length-1:selectedPoint+(event.key==='ArrowRight'?1:-1));
   });
   const valuesDetails = document.createElement('details');
   valuesDetails.className = 'forecast-values';
@@ -91,10 +113,12 @@ export function createForecast(getState) {
     });
     const unit = metric === 'temperature' ? (prefs.temperature === 'fahrenheit' ? '°F' : '°C') : metric === 'rain' ? '%' : prefs.wind === 'mph' ? 'mph' : 'km/h';
     valuesDetails.hidden = false; live.hidden = false;
-    currentLabels=labels;currentValues=values;currentUnit=unit;describePoint(0);
     const hi = prefs.language === 'hi';
     const tableTitle = hi ? 'पूर्वानुमान के सभी मान देखें' : 'View all forecast values';
     const metricTitle = metric === 'rain' ? t('forecast.precipitationProbability') : metric === 'wind' ? t('forecast.windSpeed') : period === 'daily' ? t('forecast.dailyHigh') : t('forecast.temperatureLabel');
+    currentLabels=indexes.map((i,j)=>period==='daily'?labels[j]:`${dayLabel(h.time[i].slice(0,10),d.time.indexOf(h.time[i].slice(0,10)))} · ${labels[j]}`);
+    currentValues=values;currentUnit=unit;currentMetric=metricTitle;describePoint(0);
+    live.style.setProperty('--metric-color',metric==='rain'?'#95d6ff':metric==='wind'?'#99e4d2':'#f2d09a');
     valuesDetails.innerHTML = `<summary>${tableTitle}</summary><div class="forecast-table-scroll"><table><caption>${escapeHTML(metricTitle)} (${unit})</caption><thead><tr><th scope="col">${hi ? 'स्थानीय समय' : 'Local time'}</th><th scope="col">${escapeHTML(metricTitle)} (${unit})</th></tr></thead><tbody>${values.map((value, index) => `<tr><th scope="row">${escapeHTML(labels[index])}</th><td>${value === null ? '—' : number(value, metric === 'rain' ? 0 : 1)} ${value === null ? '' : unit}</td></tr>`).join('')}</tbody></table></div>`;
     document.getElementById('chart-unit').textContent = unit;
     document.getElementById('forecast-description').textContent = period === 'daily' ? t('forecast.dailyDescription') : t('forecast.subtitle');
@@ -230,16 +254,10 @@ export function createForecast(getState) {
     strip.innerHTML = indexes.filter((_,i) => i%3 === 0).map((i,j) => {
       const cond = condition(h.weather_code[i]);
       const timeLabel=localHour(h.time[i]),probability=number(h.precipitation_probability[i]);
-      return `<button class="hour-item ${j===0?'active':''}" data-index="${i-start}" aria-pressed="${j===0}" aria-label="${escapeHTML(t('forecast.hourAria',{time:timeLabel,condition:cond.label,temperature:temp(h.temperature_2m[i],prefs,true),probability}))}"><span>${j===0?t('forecast.now'):localHour(h.time[i],true)}</span><span class="hour-visual">${icon(cond.icon)}</span><strong>${temp(h.temperature_2m[i],prefs)}</strong><small>${icon('droplet')}${number(h.precipitation_probability[i])}%</small></button>`;
+      return `<button class="hour-item ${j===0?'active':''}" data-index="${i-start}" aria-pressed="${j===0}" aria-label="${escapeHTML(t('forecast.hourAria',{time:timeLabel,condition:cond.label,temperature:temp(h.temperature_2m[i],prefs,true),probability}))}"><span>${j===0?t('forecast.now'):timeLabel}</span><span class="hour-visual">${icon(cond.icon)}</span><strong>${temp(h.temperature_2m[i],prefs)}</strong><small>${icon('droplet')}${number(h.precipitation_probability[i])}%</small></button>`;
     }).join('');
     strip.querySelectorAll('.hour-item').forEach(btn => btn.addEventListener('click', () => {
-      strip.querySelectorAll('.hour-item').forEach(b => { b.classList.toggle('active',b===btn); b.setAttribute('aria-pressed',String(b===btn)); });
-      if (!chart) return;
-      describePoint(Number(btn.dataset.index));
-      const i = Number(btn.dataset.index), meta = chart.getDatasetMeta(0).data[i];
-      chart.setActiveElements([{datasetIndex:0,index:i}]);
-      if (meta) chart.tooltip.setActiveElements([{datasetIndex:0,index:i}],{x:meta.x,y:meta.y});
-      chart.update('none');
+      selectPoint(Number(btn.dataset.index));
     }));
     // Temperature bars are computed from the week's real min/max range, so
     // each row encodes both its position and its span — never a decorative

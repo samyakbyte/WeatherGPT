@@ -20,6 +20,8 @@ const paths = {
   globe:'<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/>',
   'arrow-up-right':'<path d="M7 17 17 7M7 7h10v10"/>',
   'arrow-right':'<path d="M4 12h16m-6-6 6 6-6 6"/>',
+  'arrow-left':'<path d="M20 12H4m6-6-6 6 6 6"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   'arrow-up':'<path d="M12 20V4m-6 6 6-6 6 6"/>',
   'arrow-down':'<path d="M12 4v16m-6-6 6 6 6-6"/>',
   settings:'<path d="m9 3-1 3-3 1-2 4 2 2v3l3 3 3-1 3 1 3-3v-3l2-2-2-4-3-1-1-3Z"/><circle cx="11" cy="11" r="3"/>',

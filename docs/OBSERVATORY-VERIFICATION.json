@@ -1,0 +1,45 @@
+{
+  "logic": {
+    "passed": 681,
+    "failed": 0
+  },
+  "browser": {
+    "passed": 267,
+    "failed": 0,
+    "failures": [],
+    "pageErrors": [],
+    "at": "2026-11-15T14:40:15.367Z"
+  },
+  "final_layout": {
+    "passed": 15,
+    "failed": 0,
+    "failures": [],
+    "pageErrors": []
+  },
+  "runtime_bytes": {
+    "before": 1428695,
+    "after": 1446100
+  },
+  "gzip_bytes": {
+    "before": 612577,
+    "after": 618418
+  },
+  "dependencies_changed": false,
+  "skills_changed": false,
+  "changed_files_before_report": [
+    "DESIGN.md",
+    "index.html",
+    "README.md",
+    "css/observatory.css",
+    "css/weather-scene.css",
+    "js/app.js",
+    "js/day-ahead.js",
+    "js/forecast.js",
+    "js/icons.js",
+    "js/immersive.js",
+    "js/weather-scene.js",
+    "tests/day-ahead-suite.js",
+    "tests/run-browser-tests.js",
+    "tests/run-node-tests.js"
+  ]
+}

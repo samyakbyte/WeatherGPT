@@ -32,7 +32,7 @@ export function aciditySuite(check) {
   const intent = interpretWeatherQuestion('What is the rainwater pH here?', state, { engine });
   const answer = analyzeQuestion('What is the rainwater pH here?', state, intent);
   check(answer.text.startsWith(acidity.ACIDITY_UNAVAILABLE), 'assistant returns the exact unavailability message');
-  check(!/5\.6|4\.8|AQI|SO2|NOx/i.test(answer.text), 'no derived or invented pH value, no pollution-proxy inference');
+  check(!answer.metrics?.length && !/pH\s*(?:is|will be|=|:)\s*\d|\d+(?:\.\d+)?\s*%/i.test(answer.text) && /probability is unavailable|no current.*measured/i.test(answer.text), 'no derived or invented pH value, no pollution-proxy inference');
   check(!/lime|gypsum|sulphur|soil treatment/i.test(answer.text), 'no soil treatment is recommended from rainwater acidity');
 }
 

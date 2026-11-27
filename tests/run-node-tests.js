@@ -1,4 +1,7 @@
+import { requestBehaviorSuite } from './request-behavior-suite.js';
+import { newRoutingRegressions } from './new-routing-regressions.js';
 import { conversationSuite } from './conversation-20.js';
+import { dayAheadSuite } from './day-ahead-suite.js';
 
 // WeatherGPT unified Node test runner.
 //   npm test   (or: node tests/run-node-tests.js)
@@ -12,6 +15,9 @@ import { reliabilitySuite } from './reliability-suite.js';
 import { mark3Suite } from './mark3-suite.js';
 
 const SUITES = [
+  ['Next twelve hours', dayAheadSuite],
+  ['Additional routing regressions', newRoutingRegressions],
+  ['Request routing and evidence checks', requestBehaviorSuite],
   ['Twenty everyday assistant statements', conversationSuite],
   ['Legacy baseline (43 checks)', legacySuite],
   ['Phase 1.1 reported-bug regressions', bugSuite],

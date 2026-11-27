@@ -7619,7 +7619,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7638,7 +7638,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For London on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7657,7 +7657,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For New Delhi on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7676,7 +7676,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7695,7 +7695,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7714,7 +7714,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For London on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7733,7 +7733,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For New Delhi on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7752,7 +7752,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7771,7 +7771,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For Jaipur on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7790,7 +7790,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For London on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7809,7 +7809,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For New Delhi on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7828,7 +7828,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For Jaipur on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7847,7 +7847,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For Jaipur on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7866,7 +7866,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For London on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7885,7 +7885,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For New Delhi on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7904,7 +7904,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For Jaipur on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7923,7 +7923,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For Jaipur on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7942,7 +7942,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For London on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7961,7 +7961,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For New Delhi on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7980,7 +7980,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For Jaipur on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -7999,7 +7999,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8018,7 +8018,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For London on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8037,7 +8037,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For New Delhi on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8056,7 +8056,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Today in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8075,7 +8075,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8094,7 +8094,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For London on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8113,7 +8113,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For New Delhi on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8132,7 +8132,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "response": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8151,7 +8151,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For Jaipur on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8170,7 +8170,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For London on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8189,7 +8189,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For New Delhi on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8208,7 +8208,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "The day after tomorrow in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "response": "For Jaipur on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8227,7 +8227,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For Jaipur on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8246,7 +8246,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For London on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8265,7 +8265,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For New Delhi on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8284,7 +8284,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-18 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "response": "For Jaipur on 2026-09-18, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8303,7 +8303,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For Jaipur on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8322,7 +8322,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in London, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For London on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8341,7 +8341,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in New Delhi, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For New Delhi on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -8360,7 +8360,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "2026-09-19 in Jaipur, sunrise is at 6 AM and sunset is at 6 PM. Times are local to Asia/Kolkata. (Resolved: Sat 19 Sept 2026, whole day IST (2026-09-19).)",
+      "response": "For Jaipur on 2026-09-19, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
       "withoutNlpPassed": true
     },
     {
@@ -11039,7 +11039,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11058,7 +11058,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11077,7 +11077,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11096,7 +11096,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11115,7 +11115,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11134,7 +11134,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11153,7 +11153,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11172,7 +11172,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11191,7 +11191,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11210,7 +11210,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11229,7 +11229,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11248,7 +11248,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11267,7 +11267,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11286,7 +11286,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11305,7 +11305,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11324,7 +11324,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11343,7 +11343,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11362,7 +11362,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — London: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for London from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: London: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11381,7 +11381,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — New Delhi: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for New Delhi from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: New Delhi: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11400,7 +11400,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "response": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy at the harvest stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
       "withoutNlpPassed": true
     },
     {
@@ -11419,7 +11419,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11438,7 +11438,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11457,7 +11457,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11476,7 +11476,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11495,7 +11495,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11514,7 +11514,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11533,7 +11533,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11552,7 +11552,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11571,7 +11571,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11590,7 +11590,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11609,7 +11609,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11628,7 +11628,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11647,7 +11647,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11666,7 +11666,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11685,7 +11685,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11704,7 +11704,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11723,7 +11723,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11742,7 +11742,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11761,7 +11761,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11780,7 +11780,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11799,7 +11799,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11818,7 +11818,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11837,7 +11837,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11856,7 +11856,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11875,7 +11875,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11894,7 +11894,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11913,7 +11913,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11932,7 +11932,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11951,7 +11951,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11970,7 +11970,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -11989,7 +11989,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12008,7 +12008,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12027,7 +12027,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12046,7 +12046,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12065,7 +12065,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12084,7 +12084,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12103,7 +12103,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12122,7 +12122,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12141,7 +12141,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12160,7 +12160,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12179,7 +12179,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12198,7 +12198,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12217,7 +12217,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12236,7 +12236,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12255,7 +12255,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12274,7 +12274,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12293,7 +12293,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12312,7 +12312,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12331,7 +12331,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12350,7 +12350,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12369,7 +12369,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12388,7 +12388,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12407,7 +12407,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12426,7 +12426,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12445,7 +12445,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12464,7 +12464,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12483,7 +12483,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12502,7 +12502,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12521,7 +12521,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12540,7 +12540,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
       "withoutNlpPassed": true
     },
     {
@@ -12559,7 +12559,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12578,7 +12578,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12597,7 +12597,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12616,7 +12616,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12635,7 +12635,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12654,7 +12654,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12673,7 +12673,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12692,7 +12692,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12711,7 +12711,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12730,7 +12730,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12749,7 +12749,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12768,7 +12768,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12787,7 +12787,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12806,7 +12806,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12825,7 +12825,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12844,7 +12844,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12863,7 +12863,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12882,7 +12882,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12901,7 +12901,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -12920,7 +12920,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.",
+      "response": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
       "withoutNlpPassed": true
     },
     {
@@ -14459,7 +14459,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "For Jaipur, sea-level pressure is 1,009 hPa for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "response": "For Jaipur, sea-level pressure is 1,009 hPa for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
       "withoutNlpPassed": true
     },
     {
@@ -14478,7 +14478,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "For London, sea-level pressure is 1,009 hPa for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "response": "For London, sea-level pressure is 1,009 hPa for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
       "withoutNlpPassed": true
     },
     {
@@ -14497,7 +14497,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "For New Delhi, sea-level pressure is 1,009 hPa for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "response": "For New Delhi, sea-level pressure is 1,009 hPa for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
       "withoutNlpPassed": true
     },
     {
@@ -14516,7 +14516,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "For Jaipur, sea-level pressure is 1,009 hPa for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "response": "For Jaipur, sea-level pressure is 1,009 hPa for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
       "withoutNlpPassed": true
     },
     {
@@ -14839,7 +14839,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now in Jaipur, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "Right now in Jaipur, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations.",
       "withoutNlpPassed": true
     },
     {
@@ -14858,7 +14858,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now in London, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "Right now in London, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations.",
       "withoutNlpPassed": true
     },
     {
@@ -14877,7 +14877,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now in New Delhi, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "Right now in New Delhi, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations.",
       "withoutNlpPassed": true
     },
     {
@@ -14896,7 +14896,7 @@
       },
       "passed": true,
       "failures": [],
-      "response": "Right now in Jaipur, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "response": "Right now in Jaipur, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations.",
       "withoutNlpPassed": true
     },
     {

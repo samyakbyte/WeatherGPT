@@ -1,5 +1,7 @@
 # WeatherGPT
 
+Latest UI package: **Observatory refinement**. See `OBSERVATORY-REPORT.md` for current changes, measurements and verification. Earlier reports describe their respective historical stages.
+
 A static, forecast-first weather intelligence workspace with a deterministic
 English/Hindi assistant and farm-focused, forecast-derived guidance.
 
@@ -19,6 +21,8 @@ No build step and no credentials are required for normal use.
 python3 -m http.server 8000 --bind 0.0.0.0
 # open http://localhost:8000/
 ```
+
+On Windows, use `python -m http.server 8000 --bind 127.0.0.1` if `python3` is unavailable. Extract this complete package into its own folder and serve that folder. Refresh the browser to load the updated CSS and modules.
 
 Optional developer tooling (tests only):
 

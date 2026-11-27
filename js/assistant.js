@@ -1,3 +1,5 @@
+import { selectHourIndices } from './timezone.js';
+import { helpAnswer } from './request-help.js';
 import { umbrellaAdvice } from './rain-advice.js';
 import { icon, escapeHTML } from './icons.js';
 import { searchPlaces } from './geocode.js';
@@ -50,7 +52,7 @@ function legacyAnswer(question, state, parsedIntent = null) {
     const advisories=deriveAdvisories(data);
     return result(`I can’t determine whether a storm is approaching or certify that conditions are safe. This assistant does not interpret radar motion or official warning feeds. ${advisories.length?`Forecast-derived guidance for ${location.name}: ${advisories.map(a=>a.title.toLowerCase()).join('; ')}.`:'No configured advisory thresholds are currently triggered by the loaded forecast.'} Check your local meteorological authority for official warnings.`,[metric('Today’s conditions',condition(d.weather_code[0]).label),metric('Max gust today',wind(d.wind_gusts_10m_max[0],prefs))]);
   }
-  if(/best time|good time|outside|outdoor|walk|run|jog/.test(q)){
+  if(intent.topic==='outdoors'){
     const candidates=forecastHours(data,day).filter(v=>Number(v.time.slice(11,13))>=6&&Number(v.time.slice(11,13))<=19&&(day>0||v.index>=currentHourIndex(data))).filter(v=>[h.temperature_2m[v.index],h.precipitation_probability[v.index],h.wind_speed_10m[v.index]].every(present));
     if(!candidates.length)return result('There are no remaining hours in today’s 6 AM–7 PM suggestion window. Ask about tomorrow for an outdoor time suggestion.');
     const score=i=>h.precipitation_probability[i]*.6+Math.abs(h.temperature_2m[i]-22)*2+h.wind_speed_10m[i]*.4+(h.uv_index[i]||0)*2;
@@ -101,9 +103,34 @@ function legacyAnswer(question, state, parsedIntent = null) {
  *  3. legacy narrative branches for composite topics, with an explicit
  *     resolved date/time/zone appended so misreads are visible.
  */
+function rainAndWindAnswer(intent, state) {
+  const query = intent.canonical || '';
+  if (!state.weather || intent.language !== 'en' || intent.clarification || intent.unsupportedDate || intent.historical) return null;
+  if (intent.helpKind && intent.helpKind !== 'multiple') return null;
+  if (!/\brain\b/.test(query) || !/\bwind\b/.test(query) || !/\band\b/.test(query)) return null;
+  if (/\b(?:in(?! gusts\b)|near|crop|farm|harvest|umbrella|risk|storm|radar|uv|humidity|compare|why|explain)\b/.test(query)) return null;
+  const times = query.match(/\b(?:today|tomorrow|morning|evening|afternoon|night|tonight)\b/g) || [];
+  if (new Set(times).size > 1) return null;
+  const {indexes} = selectHourIndices(state, intent.time || {});
+  if (!indexes.length) return null;
+  const hourly = state.weather.hourly;
+  const values = field => indexes.map(i => hourly[field]?.[i]).filter(present);
+  const rain = values('precipitation_probability');
+  const speeds = values('wind_speed_10m');
+  const gusts = values('wind_gusts_10m');
+  const rainText = rain.length ? `The highest hourly chance of rain is ${number(Math.max(...rain))}%.` : 'Hourly rain probabilities are unavailable.';
+  const windText = speeds.length ? `Sustained wind is forecast to reach ${wind(Math.max(...speeds),state.prefs)}.` : 'Forecast wind speeds are unavailable.';
+  const gustText = gusts.length ? ` Gusts could reach ${wind(Math.max(...gusts),state.prefs)}.` : '';
+  const partial = rain.length < indexes.length || speeds.length < indexes.length;
+  return {text:`${state.location.name}, ${intent.time.resolvedLabel}. ${rainText} ${windText}${gustText}${partial?' Some hourly values are missing.':''}`,metrics:[],language:'en'};
+}
+
 export function analyzeQuestion(question, state, parsedIntent = null) {
   const { weather: data, prefs } = state;
   const intent = parsedIntent || parseWeatherQuestion(question, prefs?.language || 'en');
+  const combined = rainAndWindAnswer(intent, state);
+  if (combined) return combined;
+  if (intent.helpKind) return helpAnswer(intent.helpKind,state,intent.language,intent.original);
   if (intent.clarification) {
     return { text: intent.clarification.text, choices: intent.clarification.choices || [], metrics: [], language: intent.language };
   }
@@ -114,15 +141,20 @@ export function analyzeQuestion(question, state, parsedIntent = null) {
       : ` Available local dates: ${daily[0]} to ${daily.at(-1)}.`) : '';
     return {
       text: intent.language === 'hi'
-        ? `ऐतिहासिक मौसम और जलवायु डेटा इस ऐप से नहीं जुड़े हैं। चुनी हुई तारीख उपलब्ध 7-दिन के पूर्वानुमान के बाहर है।${range} मैं आज का मौसम दूसरी तारीख के रूप में प्रस्तुत नहीं करूँगा।`
-        : `Historical weather and climate datasets are not connected in WeatherGPT. That date is outside the available 7-day forecast.${range} I can explain the loaded forecast, but I will not substitute today’s weather for a different date.`,
+        ? `${topicNames[intent.topic]||'Weather'}: ऐतिहासिक मौसम और जलवायु डेटा इस ऐप से नहीं जुड़े हैं। चुनी हुई तारीख उपलब्ध 7-दिन के पूर्वानुमान के बाहर है।${range} मैं आज का मौसम दूसरी तारीख के रूप में प्रस्तुत नहीं करूँगा।`
+        : `${topicNames[intent.topic]||'Weather'}: historical weather and climate datasets are not connected in WeatherGPT. That date is outside the available 7-day forecast.${range} I can explain the loaded forecast, but I will not substitute today’s weather for a different date.`,
       metrics: [], language: intent.language
     };
   }
+  if(intent.topic==='sun'&&data){
+    const d=data.daily,day=intent.dayOffset||0;const a=d?.sunrise?.[day],b=d?.sunset?.[day];
+    return {text:intent.language==='hi'?`${state.location.name}: सूर्योदय ${a?localHour(a):'अनुपलब्ध'}, सूर्यास्त ${b?localHour(b):'अनुपलब्ध'}।`:`For ${state.location.name} on ${intent.date}, sunrise is ${a?localHour(a):'unavailable'} and sunset is ${b?localHour(b):'unavailable'} (${data.timezone}).`,metrics:[],language:intent.language};
+  }
+  if(intent.topic==='weather'&&!intent.dayOffset&&!intent.period&&!intent.clock&&/\b(?:now|current|snapshot|latest)\b/.test(intent.canonical)&&data)return currentInsight(intent,state);
   const structured = structuredAnswer(intent, state);
   if (structured) return structured;
   if (!data) {
-    return { text: 'I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.', metrics: [], language: intent.language };
+    return { text: intent.language==='hi'?'इस स्थान का मौसम अभी लोड नहीं हुआ है। दोबारा कोशिश करें या शहर खोजें। बिना डेटा के सही सलाह नहीं दे सकता।':'I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.', metrics: [], language: intent.language };
   }
   return withScope(legacyAnswer(question, state, intent), intent, state);
 }
@@ -239,6 +271,7 @@ export function createAssistant({getState,selectLocation,switchLayer,setLanguage
         intent.locationQuery=forcedLocation.name;
       }
       latestIntent=intent;updateInterpretation(intent,Boolean(intent.place?.query&&intent.place.status!=='resolved'));
+      if(intent.helpKind){addResponse(analyzeQuestion(question,getState(),intent));return;}
       if(intent.clarification){addResponse(analyzeQuestion(question,getState(),intent));return;}
       const place=intent.place;
       const needsLocation=place?.query&&place.status!=='resolved'&&!intent.unsupportedDate;

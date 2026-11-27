@@ -1,0 +1,9 @@
+# Additional 200 WeatherGPT questions
+
+The first run passed 169 of 200. After repairs all 200 passed the original location and answer checks. The set contains 20 groups of ten individually written questions. The question text was checked for exact duplicates against both prior 1,000-case suites. Several questions deliberately share a numeric expectation to test whether a change in phrasing changes the hour or city selected.
+
+The fixtures give tomorrow a 73% hourly rain probability and a maximum wind of 37 km/h. Temperature, visibility, UV and cloud cover have distinct values at specific hours. Other cases use a complete zero-rain forecast, a missing forecast, a previous question, or named locations. Each row records the expected location and answer evidence. Several cases require explanations of unsupported actions or unavailable measurements. These checks evaluate routing and selected answer content and do not grade every sentence or measure real-world forecast accuracy.
+
+Fixes cover activity phrases misread as places, ordinary mentions of cricket or laptops misread as unrelated requests, solar event questions losing priority to background details, crop plurals, explicit topic corrections, mixed-language place selection, and rain-and-wind questions with incidental gust wording. Existing tests also passed, including both earlier 1,000-case suites, 656 logic checks and 209 Chrome checks. Six of the new questions went through the actual chat form with checks for accidental location lookups. The full new set ran through the application interpreter and response functions using controlled data.
+
+Run `node tests/run-extra-200.js` to reproduce the new set. Extract the full ZIP to use the site, or overlay the cumulative patch on the reworked Mark 7 project and refresh. No new runtime dependency was added.

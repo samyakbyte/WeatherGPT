@@ -1,3 +1,4 @@
+import { requestHelp } from './request-help.js';
 // Structured, validated intent interpretation for WeatherGPT.
 //
 // Design: normalize ALL input (English, Devanagari, Romanized Hindi) to one
@@ -12,7 +13,7 @@ import * as tz from './timezone.js';
 import { PART_WINDOWS, DEFAULT_OUTDOOR_WINDOW, windowLabel as partWindowLabel } from '../data/time-windows.js';
 
 export const topicNames = {
-  rain: 'Rain / umbrella', weather: 'Weather outlook', temperature: 'Temperature',
+  help: 'App help / limitations', rain: 'Rain / umbrella', weather: 'Weather outlook', temperature: 'Temperature',
   wind: 'Wind', clouds: 'Cloud cover', humidity: 'Humidity', pressure: 'Pressure',
   uv: 'UV exposure', visibility: 'Visibility', comparison: 'Temperature comparison',
   feels: 'Feels-like temperature', sun: 'Sunrise / sunset', alerts: 'Warnings / safety',
@@ -51,7 +52,8 @@ const STATES = ['rajasthan', 'punjab', 'haryana', 'gujarat', 'maharashtra', 'mad
 // recoverable (the user can use search), but a false acceptance sends a bogus
 // string to the geocoder and produces an answer about the wrong place.
 const STOP_WORDS = new Set([
-  'a', 'an', 'the', 'this', 'that', 'these', 'those', 'i', 'me', 'my', 'we', 'our', 'you', 'your', 'it', 'its',
+  'commute', 'trip', 'percent', 'percentage', 'hectopascals', 'km',
+  'home', 'instead', 'if', 'explain', 'suggest', 'window', 'card', 'dawn', 'hindi', 'english', 'bringing', 'grain', 'indoors', 'celsius', 'fahrenheit', 'hpa', 'kilometres', 'kilometers', 'mph', 'plain', 'language', 'early', 'planning', 'latest', 'snapshot', 'index', 'speed', 'value', 'values', 'selected', 'location', 'area', 'readings', 'a', 'an', 'the', 'this', 'that', 'these', 'those', 'i', 'me', 'my', 'we', 'our', 'you', 'your', 'it', 'its',
   'is', 'are', 'was', 'were', 'be', 'been', 'being', 'will', 'would', 'can', 'could', 'should', 'shall', 'may',
   'do', 'does', 'did', 'have', 'has', 'had', 'get', 'got', 'go', 'going', 'gonna', 'take', 'carry', 'bring',
   'need', 'know', 'wear', 'expect', 'check', 'tell', 'show', 'open', 'please', 'ask', 'say', 'give',
@@ -99,6 +101,23 @@ export function canonicalize(raw) {
   const pastTense = /(था|थी|हुआ|हुई|बीता|पिछल|जलवायु|yesterday|\bthi\b|\btha\b|\bhua\b|\bhui\b|historical|climate|last (?:year|month|week))/i.test(original);
   let q = original.normalize('NFKC').replace(/[’‘]/g, "'").replace(/[०-९]/g, c => String(c.charCodeAt(0) - 0x0966));
   q = applyList(q, [
+    [/भीग(?:ना|ेंगे)?|रेनकोट|\b(?:bheeg|chata|soaked|rained)\b/giu, ' umbrella '],
+    [/\bget wet\b/giu, ' rain '],
+    [/\bparson\b/giu, ' day after tomorrow '],
+    [/टमाटर|\btamatar\b/giu, ' tomato '],
+    [/आलू|\baloo\b/giu, ' potato '],
+    [/सिंचाई|\bsinchai\b/giu, ' irrigation '],
+    [/सावधानी|\bsaavdhani\b/giu, ' precautions '],
+    [/अम्लीय/gu, ' acidity '],
+    [/हवा का दबाव/gu, ' pressure '],
+    [/सूरज (?:कितने बजे |कब )?निकलेगा|\bsuraj (?:kab |kitne baje )?niklega\b/giu, ' sunrise '],
+    [/सूरज (?:कितने बजे |कब )?डूबेगा|\bsuraj (?:kab |kitne baje )?dubega\b/giu, ' sunset '],
+    [/\bpaddy\b/giu, ' rice '],
+    [/\bultraviolet(?: index)?\b/giu, ' UV '],
+    [/\b(?:the )?sun (?:goes down|go down|going down|sets)\b/giu, ' sunset '],
+    [/\b(?:the )?sun (?:comes up|come up|rises)\b/giu, ' sunrise '],
+    [/\b(?:at the moment|at present|presently|present|currently)\b/giu, ' now '],
+    [/\brather than (?:today|tomorrow)(?:'s (?:outlook|forecast))?\b/giu, ' '],
     // Ambiguous Hindi "kal": past-tense markers make it yesterday. Devanagari
     // has no JS \b word boundary, so those patterns are deliberately unanchored.
     [/कल/gu, pastTense ? ' yesterday ' : ' tomorrow '], [/\bkal\b/giu, pastTense ? ' yesterday ' : ' tomorrow '],
@@ -157,6 +176,27 @@ export function canonicalize(raw) {
     [/\bacidity\b|\brainwater\b|\bph\b/giu, ' acidity '],
     // English synonyms (also covers typos from voice input).
     [/\b(?:tmrw|tmr|tommorow|tommorrow)\b/gi, ' tomorrow '],
+    [/\b(?:rn|atm|at this moment)\b/gi, ' now '],
+    [/\b(?:wats|whats)\b/gi, ' what is '],
+    [/\b(?:drizle|rainfall)\b/gi, ' rain '],
+    [/\b(?:wether|wheather)\b/gi, ' weather '],
+    [/\bponcho\b/gi, ' umbrella '],
+    [/\bnext morning\b/gi, ' tomorrow morning '],
+    [/\blunchtime\b/gi, ' 12 PM '],
+    [/\bsun set\b/gi, ' sunset '],
+    [/\b(?:tomatoes|potatoes)\b/gi, m=>m.toLowerCase().slice(0,-2)],
+    [/\b(?:rain gear|rain protection)\b/gi, ' umbrella '],
+    [/\b(?:sun rise)\b/gi, ' sunrise '],
+    [/\b(?:sun go down|daylight end)\b/gi, ' sunset '],
+    [/\b(?:foggy)\b/gi, ' fog '],
+    [/\bhow (?:far can i see|clear will the air be)\b/gi, ' visibility '],
+    [/\bcloud-cover\b/gi, ' cloud cover '],
+    [/\bfeels-like\b/gi, ' feels like '],
+    [/\bwalking\b/gi, ' walk '],
+    [/\b(?:dry stretch|waterproof shoes)\b/gi, ' rain '],
+    [/\bsky is doing\b/gi, ' weather '],
+    [/\bdamp\b/gi, ' humidity '],
+    [/\b(?:football practice|park visit)\b/gi, ' outdoor walk '],
     [/\b(?:wether|wheather)\b/gi, ' weather '],
     [/\b(?:precip|precipitation|drizzle|downpour|showers?|raining|rainy|monsoon)\b/gi, ' rain '],
     [/\b(?:brolly|raincoat)\b/gi, ' umbrella '],
@@ -232,7 +272,7 @@ function cleanPlace(value) {
   // "What's the weather in New Delhi" cannot become "What New Delhi".
   let previous;
   do { previous = v; v = v.replace(LEADING_NOISE, '').trim(); } while (v !== previous);
-  return v;
+  return v.replace(/[\s,;?.!]+$/g, '').trim();
 }
 
 function parsePlaceContext(text) {
@@ -262,12 +302,13 @@ export function extractPlace({ original, q, temporalFree }) {
       context: {}, kind: 'coordinates', status: 'pending', candidates: [], coordinates: { lat, lon, swapped } };
   }
   const possessive = original.match(/^([\p{L} .'-]+?)['’]s\s+(?:weather|forecast|temperature|rain|wind|humidity|mausam)/iu);
-  let raw = possessive ? cleanPlace(possessive[1]) : '';
+  let raw = possessive && !/\b(?:today|tomorrow|tonight|yesterday|i|you|my|we|our|can|will|does|do|what|how|use|this|selected|current|same|for)\b/i.test(possessive[1]) ? cleanPlace(possessive[1]) : '';
   if (!raw) {
     // Keep comma-separated geographic context, but never restore the raw
     // question: doing so reintroduces dates and conversational clauses.
-    let source = temporalFree
-      .replace(/\b(?:current|currently|right now|present|local|selected)\s+(?:weather|conditions?|forecast|location|city)\b/gi, " ")
+    let source = temporalFree.replace(/(?:^|\s)'s\b/g, " ")
+      .replace(/\bsame (?:question|thing|topic)\b/gi, ' ')
+      .replace(/\b(?:current|currently|right now|present|local|selected|same)\s+(?:weather|conditions?|forecast|location|city)\b/gi, " ")
       .replace(/\bcurrently\b/gi, " ")
       // Carrying verbs before an article/object are actions, not town names.
       // Do not blacklist "keep": College Keep is a legitimate explicit name.
@@ -280,10 +321,12 @@ export function extractPlace({ original, q, temporalFree }) {
     // location-bearing clause, a postposition, or a compact search-style query.
     const clean = text => cleanPlace(text.split(/\s+/).filter(w => !STOP_WORDS.has(w.toLowerCase().replace(/^[,.;]+|[,.;]+$/g,''))).join(' '));
     const candidates = [];
-    for (const match of source.matchAll(/(?=\b(?:in|near|at|for|about)\s+([^?;.!]+))/gi)) {
-      const phrase = match[1].trim();
+    for (const match of source.matchAll(/(?=\b(in|near|at|for|about)\s+([^?;.!]+))/gi)) {
+      const cue = match[1].toLowerCase();
+      const phrase = match[2].trim();
       // "for my farm", "at this location" and "about UV" are not names.
       const words = phrase.split(/\s+/);
+      if (/^(?:percent|percentage|km|kilometres|kilometers|hectopascals|hpa|celsius|fahrenheit|commute|trip)\b/i.test(phrase) || /^(?:school|college|class)(?=\s*$|\s+(?:visit|trip|route|commute)\b)/i.test(phrase)) continue;
       if (STOP_WORDS.has(words[0].replace(/,$/,''))) continue;
       const name = [];
       for (const word of words) {
@@ -292,18 +335,30 @@ export function extractPlace({ original, q, temporalFree }) {
         name.push(word);
       }
       const candidate=clean(name.join(' '));
-      if(validPlace(candidate)) candidates.push(candidate);
+      if (!validPlace(candidate)) continue;
+      // A purpose (for carrying equipment) needs stronger name evidence than a geographic cue.
+      const namedWords = original.match(/[A-Z][a-z]+(?:[-'][A-Za-z]+)?/g) || [];
+      const looksNamed = namedWords.some(word => word.toLowerCase() === name[0]?.toLowerCase().replace(/,$/, ''));
+      const knownPlace = CITY_NAMES.some(([,en]) => en.toLowerCase() === candidate.toLowerCase());
+      if (['for','at','about'].includes(cue) && !looksNamed && !knownPlace && !/^(?:what|how) about /i.test(original)) continue;
+      candidates.push(candidate);
     }
     // Hindi commonly names the place before "mein/in".
-    if (!candidates.length && /(?:में|\bmein\b)/i.test(original)) {
+    if (/(?:में|\bmein\b)/i.test(original)) {
       const before=source.split(/\bin\b/i)[0];
       const candidate=clean(before);
-      if(validPlace(candidate)) candidates.push(candidate);
+      if(validPlace(candidate)) candidates.unshift(candidate);
     }
-    const conversational=/\b(?:i|my|we|our|you|your|me|is|are|will|does|do|can|has|have|should|could|would|need|want|tell|please|any|right|what|how|why)\b/i.test(source);
-    if (!candidates.length && !conversational && source.split(/\s+/).length<=6) {
+    if(/[\u0900-\u097f]/.test(original)){
+      const known=CITY_NAMES.find(([hi])=>original.includes(hi));
+      if(known){candidates.length=0;candidates.push(known[1].toLowerCase());}
+      else candidates.length=0;
+    }
+    const conversational=/\b(?:i|my|we|our|you|your|me|is|are|will|does|do|can|has|have|should|could|would|need|want|tell|please|any|right|what|how|why)\b/i.test(source) || /^(?:read|use|find|check|give|show|look|and|then|tomorrow|today)\b/i.test(original);
+    if (!/[\u0900-\u097f]/.test(original) && !candidates.length && !conversational && source.split(/\s+/).length<=6) {
       const candidate=clean(source);
-      if(validPlace(candidate)) candidates.push(candidate);
+      const named=original.split(/\s+/).some(word=>/^[A-Z]/.test(word)&&candidate.toLowerCase().includes(word.toLowerCase())&&!STOP_WORDS.has(word.toLowerCase()));
+      if(validPlace(candidate)&&(detectTopic(q)==='other'||named)) candidates.push(candidate);
     }
     raw = candidates[0] || '';
 
@@ -315,8 +370,24 @@ export function extractPlace({ original, q, temporalFree }) {
 }
 
 function detectTopic(q) {
+  if (/\b(?:pressure|barometer)\b/.test(q) && !/\b(?:crop|spray|irrigat|harvest|advice|precautions)\b/.test(q)) return 'pressure';
+  if (/\b(?:sunrise|sunset)\b/.test(q)&&!/\b(?:at|before|around|after|during)\s+(?:sunrise|sunset)\b/.test(q)&&!/\b(?:rain|shower|cloud|wind|uv)\b/.test(q)) return 'sun';
+  if(/\b(?:acidity|acidic|ph|rainwater)\b/.test(q))return 'acidity';
+  if(/\b(?:spray|spraying|sprayer|irrigation|irrigating|harvest|harvested|harvesting|sowing|planting|seedbed|farming)\b/.test(q))return 'crop';
+  if(/\b(?:wheat|rice|maize|cotton|soybean|sugarcane|mustard|potato|tomato)\b/.test(q)&&!/\b(?:temperature|humidity|uv|pressure|visibility)\b/.test(q))return 'crop';
   if (/\bradar\b|\brain map\b/.test(q)) return 'radar';
+  if (/\b(?:rain|umbrella)\b/.test(q) && /\b(?:advice|risk)\b/.test(q) && !/\b(?:storm|flood|lightning|cyclone|warning|alert|danger|safe|crop|farm|field|humidity|temperature|wind|uv|cloud|visibility)\b/.test(q)) return 'rain';
   if (/\b(?:alerts?|warnings?|risks?|storm|flood|safe|danger|cyclone|lightning)\b/.test(q)) return 'alerts';
+  if(/\b(?:acidity|ph|rainwater)\b/.test(q))return 'acidity';
+  if(/\b(?:precautions|advice|advisory)\b/.test(q)&&/\b(?:crop|wheat|rice|cotton|maize|farm|field)\b/.test(q))return 'crop';
+  if(/\b(?:apparent|feels like|feels-like)\b/.test(q)&&!/\bhumidity\b/.test(q))return 'feels';
+  if(/(?:best|good|less rain|comfortable).*?(?:time|hour|window)|(?:time|hour|window).*?(?:walk|picnic|cycling)/.test(q)&&/\b(?:walk|picnic|cycling|outdoor)\b/.test(q))return 'outdoors';
+  if (/\b(?:now|currently|current|snapshot|latest)\b/.test(q) && /\b(?:weather|conditions|rain|outside|snapshot)\b/.test(q) && !/\b(?:pressure|humidity|wind|temperature|uv|visibility|cloud|crop|wheat|rice)\b/.test(q)) return 'weather';
+  if (!/\b(?:advice|precautions|crop|spray|harvest|sow|irrigat)\b/.test(q)) {
+    for(const [topic,pattern] of [['humidity',/\bhumidity\b/],['clouds',/\b(?:cloud|clouds|cloudy|overcast)\b/],['uv',/\buv\b/],['visibility',/\b(?:visibility|fog|mist)\b/],['wind',/\b(?:wind|gust|gusts)\b/],['feels',/\b(?:apparent|feels like)\b/]]) if(pattern.test(q))return topic;
+    if(/\btemperature\b/.test(q)&&!/(?:today.*tomorrow|tomorrow.*today|compare|comparison)/.test(q))return 'temperature';
+    if(/\b(?:rain|umbrella)\b/.test(q))return 'rain';
+  }
   if (/\b(?:hotter|warmer|cooler|colder|compare|comparison|difference)\b/.test(q) ||
       (/\btomorrow\b/.test(q) && /\btoday\b/.test(q) && /\b(?:hot|cold|more|less)\b/.test(q))) return 'comparison';
   if (/\b(?:crop|wheat|rice|paddy|maize|mustard|cotton|soybean|potato|tomato|sugarcane|fasal|gehu|dhan|harvest|spray|sowing|field|farmer|khet|kisan|advisory|advice|precautions)\b/.test(q)) return 'crop';
@@ -353,7 +424,7 @@ function clarification(intent, en, hi, choices = []) {
 }
 
 function detectFollowup(q) {
-  return /^(?:and\b|what about\b|how about\b|also\b|और|वहाँ|wahaan\b|aur\b)/i.test(q);
+  return /^(?:same question\b|and\b|what about\b|how about\b|also\b|और|वहाँ|wahaan\b|aur\b)/i.test(q);
 }
 
 /** Resolve the date from canonical q. Returns legacy + structured fields. */
@@ -413,6 +484,18 @@ function resolveDate(q, state, intent, previous) {
 const PART_KEYS = Object.keys(PART_WINDOWS);
 
 function resolveTime(q, state, intent, dateInfo, previous) {
+  if(intent.topic!=='sun'){
+    const solar=q.match(/\b(at|around|before|after)\s+(sunrise|sunset|dawn)\b/);
+    if(solar){
+      const key=solar[2]==='sunset'?'sunset':'sunrise';
+      const stamp=state.weather?.daily?.[key]?.[intent.dayOffset];
+      if(stamp){const h=Number(stamp.slice(11,13));const m=Number(stamp.slice(14,16));
+        if(solar[1]==='at'||solar[1]==='around')q=q.replace(solar[0],`at ${h}:${String(m).padStart(2,'0')}`);
+        else {clarification(intent,`${topicNames[intent.topic]||'Weather'}: please give a specific local hour or time window for the forecast before or after sunrise/sunset.`,'सूर्योदय/सूर्यास्त से पहले या बाद के पूर्वानुमान के लिए स्थानीय समय बताएँ।');}
+      }
+    }
+  }
+
   const language = intent.language;
   let period = null, clock = null, range = null;
   // Vernacular ranges: "5 se 8 baje" / "5 से 8 बजे" resolve inside the
@@ -590,16 +673,19 @@ export function interpretWeatherQuestion(raw, state = {}, options = {}) {
     } catch { engineLabel = 'Structured weather rules (NLP analysis unavailable)'; }
   }
   const temporalFree = removeTemporal(q);
-  const place = extractPlace({ original, q, temporalFree });
-  const topic = detectTopic(q);
+  const helpKind=requestHelp(original);
+  const preserveNamedPlace=["phRecords","ph"].includes(helpKind) && /\b(?:in|near)\s+(?:London|New Delhi|Jaipur|Mumbai|Delhi|Paris|Berlin)\b/i.test(original);
+  const place = helpKind && !preserveNamedPlace ? {query:null,fullQuery:null,context:{},kind:"none",status:"none",candidates:[]} : extractPlace({ original, q, temporalFree });
+  let topic = detectTopic(q.split(/\binstead of\b/)[0]);
+  if(previous && /^and\s+(?:today|tomorrow)\s*,/.test(q) && !/\b(?:rain|temperature|humidity|wind|uv)\b/.test(q))topic='other';
   const contextKey = `${state.location?.latitude},${state.location?.longitude}`;
   const intent = {
     schemaVersion: 2, original, normalized: q, canonical: q, script, language,
-    tokens, engine: engineLabel, contextKey,
+    tokens, engine: engineLabel, contextKey, helpKind,
     topic, metric: METRIC_FOR_TOPIC[topic] ?? null,
     place, time: null, confidence: 0, unresolved: [], inherited: [],
     clarification: null, dateInterpretation: null, action: null,
-    followup: detectFollowup(q) || (Boolean(previous) && /\bthen\b/.test(q)), previous: previous || null,
+    followup: detectFollowup(q) || (Boolean(previous) && (/\bthen\b/.test(q) || /\b(?:today|tomorrow)\b/.test(q) && ['other','weather'].includes(topic))), previous: previous || null,
     // legacy aliases (filled below)
     locationQuery: place.query, dayOffset: 0, date: null, dateLabel: null, timeLabel: null,
     period: null, clock: null, unsupportedDate: false, historical: false
@@ -614,6 +700,7 @@ export function interpretWeatherQuestion(raw, state = {}, options = {}) {
   }
   // Follow-up inheritance: carry forward only what the user did not change.
   if (intent.followup && previous && contextKey === previous.contextKey) {
+    if (topic === 'weather' && !/\b(?:weather|conditions|outlook)\b/.test(q)) topic = 'other';
     if (topic === 'other') { intent.topic = previous.topic; intent.metric = previous.metric; intent.inherited.push('topic'); }
     if (place.kind === 'none' && previous.place?.status === 'resolved') {
       intent.place = { ...previous.place };
@@ -649,6 +736,7 @@ export function interpretWeatherQuestion(raw, state = {}, options = {}) {
   else if (intent.topic === 'rain' && !/\brain\b/.test(intent.normalized)) intent.normalized += ' rain';
   else if (intent.topic === 'temperature' && !/\btemperature\b/.test(intent.normalized)) intent.normalized += ' temperature';
 
+  if(helpKind){if(helpKind!=='unrelated')intent.clarification=null;intent.unresolved=intent.unresolved.filter(x=>x!=='clarification');if(intent.topic==='other')intent.topic='help';}
   const slotCount = ['topic', 'time', 'place', 'metric'].length;
   const filled = (intent.topic !== 'other' ? 1 : 0) + 1 + (place.kind === 'none' ? 1 : (place.status === 'resolved' ? 1 : 0.5)) + (intent.metric ? 1 : 0);
   intent.confidence = Math.min(1, filled / slotCount);

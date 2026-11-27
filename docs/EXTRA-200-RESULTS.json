@@ -1,0 +1,2538 @@
+{
+  "total": 200,
+  "passed": 200,
+  "failed": 0,
+  "rows": [
+    {
+      "id": 1,
+      "group": "commute",
+      "question": "My sketchbook can't get wet on the way to class tomorrow. Pack an umbrella?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 2,
+      "group": "commute",
+      "question": "No room in my schoolbag tomorrow. Is a brolly worth carrying?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 3,
+      "group": "commute",
+      "question": "The bus shelter has no roof. Do I need rain protection tomorrow?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 4,
+      "group": "commute",
+      "question": "Do I need to cover my camera against tomorrow's showers?",
+      "place": null,
+      "requires": [
+        "rain",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 5,
+      "group": "commute",
+      "question": "My only trip tomorrow is an evening lecture; any chance of rain then?",
+      "place": null,
+      "requires": [
+        "rain",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. In Jaipur, tomorrow between 5–8 PM, the peak hourly precipitation chance is 73%. Temperatures are forecast between 22°C and 41°C. (Resolved: Tomorrow, Wed 16 Sept, 5–8 PM IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 6,
+      "group": "commute",
+      "question": "Tomorrow's market stall has a leak. What's the peak hourly rain chance?",
+      "place": null,
+      "requires": [
+        "rain",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 7,
+      "group": "commute",
+      "question": "Should the wedding photographer bring a raincoat tomorrow?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 8,
+      "group": "commute",
+      "question": "I'd rather leave the umbrella in my locker tomorrow. Sensible?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 9,
+      "group": "commute",
+      "question": "Tomorrow I've got cricket nets, should the kit bag have a rain cover?",
+      "place": null,
+      "requires": [
+        "rain",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 10,
+      "group": "commute",
+      "question": "Heading back from tuition tomorrow evening, brolly or no brolly?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. In Jaipur, tomorrow between 5–8 PM, the peak hourly precipitation chance is 73%. Temperatures are forecast between 22°C and 41°C. (Resolved: Tomorrow, Wed 16 Sept, 5–8 PM IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 11,
+      "group": "clock-temperature",
+      "question": "I finish my shift tomorrow at 7 PM. What temperature will I step into?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 12,
+      "group": "clock-temperature",
+      "question": "My rehearsal starts at 19:00 tomorrow; I need the air temperature.",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 13,
+      "group": "clock-temperature",
+      "question": "For arranging chairs at 7 PM tomorrow, how hot is it forecast to be?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 14,
+      "group": "clock-temperature",
+      "question": "How warm when the gates open at 7 PM tomorrow?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 15,
+      "group": "clock-temperature",
+      "question": "What temperature goes on the schedule for tomorrow at seven PM?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 16,
+      "group": "clock-temperature",
+      "question": "Use tomorrow at 7 PM for the temperature on my poster.",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 17,
+      "group": "clock-temperature",
+      "question": "The courier arrives tomorrow at 19:00. What's the forecast temperature?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 18,
+      "group": "clock-temperature",
+      "question": "At 7 PM tomorrow, give me the temperature for the selected pin.",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 19,
+      "group": "clock-temperature",
+      "question": "What will the thermometer forecast say for the start of my 7 PM class tomorrow?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "Tomorrow at 7 PM in Jaipur: light rain, around 41°C with a 73% chance of precipitation. Winds are forecast around 37 km/h. (Resolved: Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16).)",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 20,
+      "group": "clock-temperature",
+      "question": "Tomorrow 7 PM temperature please, the hall has no AC.",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 21,
+      "group": "humidity",
+      "question": "The greenhouse door is open. What is the outside humidity right now?",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 22,
+      "group": "humidity",
+      "question": "Is the current outdoor relative humidity above 60 percent?",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 23,
+      "group": "humidity",
+      "question": "Before I hang a banner, tell me the humidity at the map pin.",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 24,
+      "group": "humidity",
+      "question": "The instrument case feels damp. What's the modelled humidity outside?",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 25,
+      "group": "humidity",
+      "question": "Will the air be humid while the paint dries tomorrow?",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 26,
+      "group": "humidity",
+      "question": "For my science notebook I need the relative humidity percentage.",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 27,
+      "group": "humidity",
+      "question": "What humidity reading should I write beside today's weather entry?",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 28,
+      "group": "humidity",
+      "question": "Tell me the evening humidity for the seed-packing area.",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, 5–8 PM IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 29,
+      "group": "humidity",
+      "question": "Does the selected city's forecast show a humidity number at noon tomorrow?",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Tomorrow, Wed 16 Sept, 12 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 30,
+      "group": "humidity",
+      "question": "Humid air on the hostel terrace tonight? Give the percentage.",
+      "place": null,
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, 8 PM–midnight IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 31,
+      "group": "sun",
+      "question": "When does the sun set for tomorrow's photography session?",
+      "place": null,
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 32,
+      "group": "sun",
+      "question": "What time is first sunrise for tomorrow's bird count?",
+      "place": null,
+      "requires": [
+        "6\\s*AM"
+      ],
+      "actual": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 33,
+      "group": "sun",
+      "question": "What sunset time should go on the evening event notice?",
+      "place": null,
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 34,
+      "group": "sun",
+      "question": "I'm timing a telescope setup. Give the local sunset.",
+      "place": null,
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 35,
+      "group": "sun",
+      "question": "I want sunrise for tomorrow's jogging group, not the temperature.",
+      "place": null,
+      "requires": [
+        "6\\s*AM"
+      ],
+      "actual": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 36,
+      "group": "sun",
+      "question": "When does the sun go down on the day after tomorrow's match?",
+      "place": null,
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Jaipur on 2026-09-17, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 37,
+      "group": "sun",
+      "question": "Read out the sunrise time for the dawn field survey.",
+      "place": null,
+      "requires": [
+        "6\\s*AM"
+      ],
+      "actual": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 38,
+      "group": "sun",
+      "question": "What local sunset time is listed for our rooftop dinner?",
+      "place": null,
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 39,
+      "group": "sun",
+      "question": "The boat operator asked for sunrise tomorrow; what does the app list?",
+      "place": null,
+      "requires": [
+        "6\\s*AM"
+      ],
+      "actual": "For Jaipur on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 40,
+      "group": "sun",
+      "question": "When is sunset for the location I picked on the map?",
+      "place": null,
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 41,
+      "group": "wind-and-rain",
+      "question": "Tomorrow's tent: how much chance of rain and how strong a wind?",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 42,
+      "group": "wind-and-rain",
+      "question": "I need tomorrow's rain chance and sustained wind for the flags.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 43,
+      "group": "wind-and-rain",
+      "question": "For the parade tomorrow, give rain probability and wind speed together.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 44,
+      "group": "wind-and-rain",
+      "question": "My awning flaps in gusts. What's tomorrow's rain chance and wind?",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 45,
+      "group": "wind-and-rain",
+      "question": "We'll film tomorrow; summarize both rain and wind.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 46,
+      "group": "wind-and-rain",
+      "question": "For scaffolding plans, give tomorrow's rain and wind numbers.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 47,
+      "group": "wind-and-rain",
+      "question": "I want wind and rain for tomorrow's procession.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 48,
+      "group": "wind-and-rain",
+      "question": "Tomorrow, is rain possible and how windy will the venue be?",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 49,
+      "group": "wind-and-rain",
+      "question": "For a banner outside tomorrow I need rain and wind estimates.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 50,
+      "group": "wind-and-rain",
+      "question": "Tomorrow's forecast sheet needs rain probability and peak sustained wind.",
+      "place": null,
+      "requires": [
+        "73\\s*%",
+        "37\\s*km/h"
+      ],
+      "actual": "Jaipur, Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). The highest hourly chance of rain is 73%. Sustained wind is forecast to reach 37 km/h.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 51,
+      "group": "crop",
+      "question": "My wheat is flowering; what weather precautions matter before the next shower?",
+      "place": null,
+      "requires": [
+        "wheat",
+        "rain"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Wheat at the flowering stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 52,
+      "group": "crop",
+      "question": "I've planted rice and worry about drainage. What does the farm forecast indicate?",
+      "place": null,
+      "requires": [
+        "rice",
+        "rain"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 53,
+      "group": "crop",
+      "question": "A maize grower needs a short briefing before going into the field.",
+      "place": null,
+      "requires": [
+        "maize",
+        "forecast"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Maize may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 54,
+      "group": "crop",
+      "question": "Cotton is at the flowering stage. Any precautions after the modelled rainfall?",
+      "place": null,
+      "requires": [
+        "cotton",
+        "rain"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Cotton at the flowering stage can be sensitive to heavy rain / waterlogging; the effect depends on local soil, drainage and variety. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 55,
+      "group": "crop",
+      "question": "My mustard is still young; which forecast hazards should I inspect?",
+      "place": null,
+      "requires": [
+        "mustard",
+        "forecast"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Mustard may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 56,
+      "group": "crop",
+      "question": "For soybean after transplanting, give weather-based precautions.",
+      "place": null,
+      "requires": [
+        "soybean",
+        "forecast"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Soybean may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 57,
+      "group": "crop",
+      "question": "I'm growing tomatoes beside the canal; give precautions from the local forecast.",
+      "place": null,
+      "requires": [
+        "tomato",
+        "forecast"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Tomato may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 58,
+      "group": "crop",
+      "question": "My potato plot has rain forecast. What should I monitor?",
+      "place": null,
+      "requires": [
+        "potato",
+        "rain"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Potato may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 59,
+      "group": "crop",
+      "question": "The sugarcane field is my priority today. Explain the weather precautions.",
+      "place": null,
+      "requires": [
+        "sugarcane",
+        "forecast"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Sugarcane may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 60,
+      "group": "crop",
+      "question": "As a wheat grower I need a field briefing before the labourers arrive.",
+      "place": null,
+      "requires": [
+        "wheat",
+        "forecast"
+      ],
+      "actual": "Right now — Jaipur: Light rain, 29°C, humidity 65%, wind 12 km/h. Model time: 2026-09-15T12:15 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-09-15 to 2026-09-21 (grid-cell values, not field measurements):\n\n1. What weather is expected: Jaipur: Forecast precipitation totals 24.0 mm in 24 h, 48.0 mm in 48 h, 72.0 mm in 72 h. Peak hourly 1.0 mm at 2026-09-15T12:00. Window: 2026-09-15 12:00 → 2026-09-18 11:00 local. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Wheat may be affected by heavy rain / waterlogging; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Before the rain, check that field drains are open. After it, remove standing water where possible and watch for yellowing or wilting. Ask a local KVK or agriculture officer before any spray or fertiliser.\n2. [Sourced] Keep field drainage channels clear so excess rain water can leave quickly. Provide support to tall crops and vegetables before gusty wind. Do not spray during rainfall or when rain is expected immediately afterwards. [West Bengal, Andaman & Nicobar Islands]\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: India Meteorological Department (IMD), Agromet Advisory Service — Agromet Advisory Service Bulletin for the State of West Bengal & Andaman & Nicobar Islands, Bulletin No. 85/2026 (23.10.2026) (https://mausam.imd.gov.in/kolkata/mcdata/aas.pdf). Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 61,
+      "group": "soil-and-water",
+      "question": "How many litres per plant does my orchard need without a soil moisture reading?",
+      "place": null,
+      "requires": [
+        "soil",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 62,
+      "group": "soil-and-water",
+      "question": "Can the forecast measure soil temperature under my plastic mulch?",
+      "place": null,
+      "requires": [
+        "soil",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "Temperature: I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 63,
+      "group": "soil-and-water",
+      "question": "Do you have a field sensor for the root zone in my nursery?",
+      "place": null,
+      "requires": [
+        "field",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 64,
+      "group": "soil-and-water",
+      "question": "Tell whether my low-lying plot has waterlogging just from these clouds.",
+      "place": null,
+      "requires": [
+        "field",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "clouds",
+      "failures": []
+    },
+    {
+      "id": 65,
+      "group": "soil-and-water",
+      "question": "Can you know grain moisture inside the sack from air humidity?",
+      "place": null,
+      "requires": [
+        "grain",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "Humidity: I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 66,
+      "group": "soil-and-water",
+      "question": "How would you determine soil texture without inspecting my plot?",
+      "place": null,
+      "requires": [
+        "soil",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 67,
+      "group": "soil-and-water",
+      "question": "Does the app know my drip emitter flow rate?",
+      "place": null,
+      "requires": [
+        "field",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 68,
+      "group": "soil-and-water",
+      "question": "I want the exact irrigation demand of a newly planted orchard.",
+      "place": null,
+      "requires": [
+        "irrigation",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 69,
+      "group": "soil-and-water",
+      "question": "Can the weather feed detect groundwater below a borewell?",
+      "place": null,
+      "requires": [
+        "field",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 70,
+      "group": "soil-and-water",
+      "question": "Is germination percentage actually measured by a weather model?",
+      "place": null,
+      "requires": [
+        "field",
+        "(?:cannot|no |do not|missing|need)"
+      ],
+      "actual": "I do not have a field sensor or inspection result for soil moisture, soil temperature, crop maturity, grain moisture, plant health, soil pH or water quality. Rain forecasts do not supply those measurements. I can show weather conditions and general crop precautions; an exact irrigation, sowing or harvest prescription needs field information.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 71,
+      "group": "chemistry",
+      "question": "Does a rainwater pH report verify the water is fit for drinking?",
+      "place": null,
+      "requires": [
+        "pH",
+        "(?:cannot|unavailable|not)"
+      ],
+      "actual": "Rainwater acidity data unavailable for this location: no current measured local rainwater pH feed is connected. Missing pH is not zero or neutral water. Rainwater pH, soil pH, pollutant concentration and water quality are different quantities; this weather forecast cannot establish a treatment, drinking-water safety or an exact future pH. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 72,
+      "group": "chemistry",
+      "question": "Can you certify water quality after I cleaned the collection barrel?",
+      "place": null,
+      "requires": [
+        "water",
+        "(?:cannot|unavailable|not)"
+      ],
+      "actual": "Rainwater acidity data unavailable for this location: no current measured local rainwater pH feed is connected. Missing pH is not zero or neutral water. Rainwater pH, soil pH, pollutant concentration and water quality are different quantities; this weather forecast cannot establish a treatment, drinking-water safety or an exact future pH. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 73,
+      "group": "chemistry",
+      "question": "I've measured pH on the roof; where do I record the collection date?",
+      "place": null,
+      "requires": [
+        "(?:sample|record)",
+        "(?:date|timestamp)"
+      ],
+      "actual": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 74,
+      "group": "chemistry",
+      "question": "If I upload my pH reading, does chat save the sample automatically?",
+      "place": null,
+      "requires": [
+        "(?:pH|sample)",
+        "(?:cannot|not|device)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 75,
+      "group": "chemistry",
+      "question": "Who verified the pH number I typed manually?",
+      "place": null,
+      "requires": [
+        "(?:sample|pH)",
+        "(?:verified|provided|verif)"
+      ],
+      "actual": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 76,
+      "group": "chemistry",
+      "question": "I'm missing a rainwater pH sample at the new plot. Is the value known?",
+      "place": null,
+      "requires": [
+        "pH",
+        "(?:missing|unavailable|no )"
+      ],
+      "actual": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 77,
+      "group": "chemistry",
+      "question": "Would a neutral pH alone rule out contamination in the tank?",
+      "place": null,
+      "requires": [
+        "pH",
+        "(?:cannot|unavailable|not)"
+      ],
+      "actual": "Rainwater acidity data unavailable for this location: no current measured local rainwater pH feed is connected. Missing pH is not zero or neutral water. Rainwater pH, soil pH, pollutant concentration and water quality are different quantities; this weather forecast cannot establish a treatment, drinking-water safety or an exact future pH. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 78,
+      "group": "chemistry",
+      "question": "Can you translate air pollution readings into a precise rainwater pH?",
+      "place": null,
+      "requires": [
+        "pH",
+        "(?:unavailable|cannot|not)"
+      ],
+      "actual": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 79,
+      "group": "chemistry",
+      "question": "Can my old acidity sample prove what tomorrow's rain will measure?",
+      "place": null,
+      "requires": [
+        "(?:pH|sample)",
+        "(?:future|forecast)"
+      ],
+      "actual": "Rain: No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 80,
+      "group": "chemistry",
+      "question": "The water looks clear. Does that confirm its pH?",
+      "place": null,
+      "requires": [
+        "pH",
+        "(?:unavailable|cannot|no )"
+      ],
+      "actual": "Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 81,
+      "group": "radar-help",
+      "question": "Is the gap on the radar map proof there is no rain?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:gap|coverage|missing)"
+      ],
+      "actual": "Rain: The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 82,
+      "group": "radar-help",
+      "question": "Why won't the radar tiles appear for my village?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:coverage|network|tiles)"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 83,
+      "group": "radar-help",
+      "question": "How can I step backwards through the radar sequence?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:frame|timeline)"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 84,
+      "group": "radar-help",
+      "question": "Does that radar image show projected rainfall for the next hour?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:past|recent|future)"
+      ],
+      "actual": "Rainfall: The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 85,
+      "group": "radar-help",
+      "question": "Can I read the timestamps before I animate the radar?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:time|frame)"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 86,
+      "group": "radar-help",
+      "question": "Is the radar view enough to tell when hail will hit one street?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:cannot|path|exact)"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 87,
+      "group": "radar-help",
+      "question": "Who provides the radar pictures shown over the map?",
+      "place": null,
+      "requires": [
+        "RainViewer"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 88,
+      "group": "radar-help",
+      "question": "Do the radar controls let me pause on a particular frame?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:pause|frame)"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 89,
+      "group": "radar-help",
+      "question": "What if the radar source is reachable but a tile has no coverage?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:gap|coverage)"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 90,
+      "group": "radar-help",
+      "question": "Can you explain radar without switching my layer?",
+      "place": null,
+      "requires": [
+        "radar",
+        "(?:not|no )"
+      ],
+      "actual": "The radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.",
+      "topic": "radar",
+      "failures": []
+    },
+    {
+      "id": 91,
+      "group": "named",
+      "question": "Tomorrow I have an exam in Jaipur; will I need rain gear?",
+      "place": "Jaipur",
+      "requires": [
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 92,
+      "group": "named",
+      "question": "What temperature will I get in London tomorrow at 7 PM?",
+      "place": "London",
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For London, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 93,
+      "group": "named",
+      "question": "Please give sunrise in New Delhi for a school assembly.",
+      "place": "New Delhi",
+      "requires": [
+        "6\\s*AM"
+      ],
+      "actual": "For New Delhi on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 94,
+      "group": "named",
+      "question": "Will it be humid in Mumbai for tomorrow's trip?",
+      "place": "Mumbai",
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Mumbai, relative humidity is 65 % for Tomorrow, Wed 16 Sept, whole day IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 95,
+      "group": "named",
+      "question": "What time is sunset in College Station for a barbecue?",
+      "place": "College Station",
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For College Station on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 96,
+      "group": "named",
+      "question": "I need relative humidity in State College for a campus visit.",
+      "place": "State College",
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For State College, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 97,
+      "group": "named",
+      "question": "For my stop in Current River, what time is sunrise?",
+      "place": "Current River",
+      "requires": [
+        "6\\s*AM"
+      ],
+      "actual": "For Current River on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 98,
+      "group": "named",
+      "question": "What's the cloud cover in Berlin for the afternoon?",
+      "place": "Berlin",
+      "requires": [
+        "%"
+      ],
+      "actual": "For Berlin, cloud cover is 31 % for Today, Tue 15 Sept, 12–5 PM IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "clouds",
+      "failures": []
+    },
+    {
+      "id": 99,
+      "group": "named",
+      "question": "Give me tomorrow's sunset in Pune before I leave.",
+      "place": "Pune",
+      "requires": [
+        "6\\s*PM"
+      ],
+      "actual": "For Pune on 2026-09-16, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 100,
+      "group": "named",
+      "question": "How humid is it in Chennai for a family visit?",
+      "place": "Chennai",
+      "requires": [
+        "65\\s*%"
+      ],
+      "actual": "For Chennai, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 101,
+      "group": "dry-forecast",
+      "question": "The full daily rain forecast says zero. Should I take a brolly to the library?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 102,
+      "group": "dry-forecast",
+      "question": "Is it sensible to pack my umbrella for today's dry-looking trip?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 103,
+      "group": "dry-forecast",
+      "question": "I'd prefer to cycle light. Should the umbrella stay at home today?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 104,
+      "group": "dry-forecast",
+      "question": "Would a raincoat be necessary for today's campus tour?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 105,
+      "group": "dry-forecast",
+      "question": "Any need for rain protection going to the bakery today?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 106,
+      "group": "dry-forecast",
+      "question": "Taking my laptop to lectures today; should I pack an umbrella as well?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 107,
+      "group": "dry-forecast",
+      "question": "Today I just need a yes or no about carrying a brolly.",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 108,
+      "group": "dry-forecast",
+      "question": "Do the available rain probabilities justify an umbrella on today's outing?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 109,
+      "group": "dry-forecast",
+      "question": "Would you advise rain gear for the queue outside the cinema today?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 110,
+      "group": "dry-forecast",
+      "question": "Should I make space for an umbrella when I leave for the station today?",
+      "place": null,
+      "requires": [
+        "(?:probably do not need|probably don't need)",
+        "umbrella"
+      ],
+      "actual": "You probably do not need an umbrella based on this forecast. Check again before leaving; 0% is not a guarantee. Today in Jaipur, the highest remaining hourly precipitation chance is 0%, around 12 PM. The forecast daily total is 0.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 111,
+      "group": "missing-weather",
+      "question": "The thermometer card disappeared. Give tomorrow's temperature if you have it.",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 112,
+      "group": "missing-weather",
+      "question": "I'm ready to leave. Is a humidity value loaded right now?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 113,
+      "group": "missing-weather",
+      "question": "With this blank dashboard, what is the current wind reading?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)"
+      ],
+      "actual": "Wind: Unavailable values must remain missing, not be treated as zero. A partial forecast cannot support a complete-period guarantee. Check the displayed source/timestamp and retry a failed provider request; search manually if geolocation is denied. Weather, map tiles, radar, air quality and measured pH have separate availability. I cannot recover an unsaved observation or promise offline updates.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 114,
+      "group": "missing-weather",
+      "question": "I tapped my farm but nothing loaded. Can you tell the wheat forecast?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "No forecast is loaded. Retry the weather service; I will not give crop advice without data.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 115,
+      "group": "missing-weather",
+      "question": "Before I plan a walk tomorrow, is a forecast available?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "outdoors",
+      "failures": []
+    },
+    {
+      "id": 116,
+      "group": "missing-weather",
+      "question": "Can you get me an apparent temperature with no weather loaded?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "feels",
+      "failures": []
+    },
+    {
+      "id": 117,
+      "group": "missing-weather",
+      "question": "Is there any cloud cover value for tonight if the feed hasn't loaded?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "clouds",
+      "failures": []
+    },
+    {
+      "id": 118,
+      "group": "missing-weather",
+      "question": "What is the UV reading for the race if there is no forecast?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "uv",
+      "failures": []
+    },
+    {
+      "id": 119,
+      "group": "missing-weather",
+      "question": "The rain graph never appeared. Do we have a rain forecast to rely on?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)",
+        "forecast"
+      ],
+      "actual": "I don’t have a loaded forecast for this location yet. Retry the weather service, or search for another place, then ask again.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 120,
+      "group": "missing-weather",
+      "question": "Can you give me the outdoor visibility if the weather request failed?",
+      "place": null,
+      "requires": [
+        "(?:not|need|no |unavailable|retry)"
+      ],
+      "actual": "Outdoor: Unavailable values must remain missing, not be treated as zero. A partial forecast cannot support a complete-period guarantee. Check the displayed source/timestamp and retry a failed provider request; search manually if geolocation is denied. Weather, map tiles, radar, air quality and measured pH have separate availability. I cannot recover an unsaved observation or promise offline updates.",
+      "topic": "visibility",
+      "failures": []
+    },
+    {
+      "id": 121,
+      "group": "future-boundaries",
+      "question": "Can I use this app for weather on our anniversary next year?",
+      "place": null,
+      "requires": [
+        "(?:limited|outside|cannot|not connected)"
+      ],
+      "actual": "I cannot guarantee an exact outcome or provide building-level, second-by-second forecasts. I cannot guarantee crop yield or rainwater pH safety either. This app has a limited model forecast, not live operational information about roads, flights, schools or individual property. Ask for a supported forecast period, and I will identify available values and limits.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 122,
+      "group": "future-boundaries",
+      "question": "What temperature did my childhood village have in 1998?",
+      "place": null,
+      "requires": [
+        "(?:historical|past)",
+        "(?:cannot|not connected)"
+      ],
+      "actual": "Temperature: Historical observations, past radar archives and climate-normal datasets are not connected to this app. I cannot reconstruct a past measurement or infer a climate trend from the current seven-day forecast.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 123,
+      "group": "future-boundaries",
+      "question": "We held a race last summer. Can I recover the heat readings?",
+      "place": null,
+      "requires": [
+        "(?:historical|past)",
+        "(?:cannot|not connected)"
+      ],
+      "actual": "Historical observations, past radar archives and climate-normal datasets are not connected to this app. I cannot reconstruct a past measurement or infer a climate trend from the current seven-day forecast.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 124,
+      "group": "future-boundaries",
+      "question": "I want a rainfall total for this district from forty years ago.",
+      "place": null,
+      "requires": [
+        "(?:historical|past)",
+        "(?:cannot|not connected)"
+      ],
+      "actual": "Rainfall: Historical observations, past radar archives and climate-normal datasets are not connected to this app. I cannot reconstruct a past measurement or infer a climate trend from the current seven-day forecast.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 125,
+      "group": "future-boundaries",
+      "question": "Can this week's chart tell me a thirty-year climate trend?",
+      "place": null,
+      "requires": [
+        "(?:historical|climate)",
+        "(?:cannot|not connected)"
+      ],
+      "actual": "Historical observations, past radar archives and climate-normal datasets are not connected to this app. I cannot reconstruct a past measurement or infer a climate trend from the current seven-day forecast.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 126,
+      "group": "future-boundaries",
+      "question": "Can you guarantee the wind at my roof won't damage the antenna?",
+      "place": null,
+      "requires": [
+        "(?:cannot|guarantee)"
+      ],
+      "actual": "Wind: I cannot guarantee an exact outcome or provide building-level, second-by-second forecasts. I cannot guarantee crop yield or rainwater pH safety either. This app has a limited model forecast, not live operational information about roads, flights, schools or individual property. Ask for a supported forecast period, and I will identify available values and limits.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 127,
+      "group": "future-boundaries",
+      "question": "Can you tell the exact second that the first raindrop lands at the reception?",
+      "place": null,
+      "requires": [
+        "(?:cannot|limited|guarantee)"
+      ],
+      "actual": "I cannot guarantee an exact outcome or provide building-level, second-by-second forecasts. I cannot guarantee crop yield or rainwater pH safety either. This app has a limited model forecast, not live operational information about roads, flights, schools or individual property. Ask for a supported forecast period, and I will identify available values and limits.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 128,
+      "group": "future-boundaries",
+      "question": "Can I see the exact weather inside my house next Christmas?",
+      "place": null,
+      "requires": [
+        "(?:cannot|limited|guarantee)"
+      ],
+      "actual": "I cannot guarantee an exact outcome or provide building-level, second-by-second forecasts. I cannot guarantee crop yield or rainwater pH safety either. This app has a limited model forecast, not live operational information about roads, flights, schools or individual property. Ask for a supported forecast period, and I will identify available values and limits.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 129,
+      "group": "future-boundaries",
+      "question": "Will the weather here make my train late, and by how many minutes?",
+      "place": null,
+      "requires": [
+        "(?:cannot|operational|not connected|limited)"
+      ],
+      "actual": "I cannot guarantee an exact outcome or provide building-level, second-by-second forecasts. I cannot guarantee crop yield or rainwater pH safety either. This app has a limited model forecast, not live operational information about roads, flights, schools or individual property. Ask for a supported forecast period, and I will identify available values and limits.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 130,
+      "group": "future-boundaries",
+      "question": "Did my school field flood five years ago during the fair?",
+      "place": null,
+      "requires": [
+        "(?:historical|past)",
+        "(?:cannot|not connected)"
+      ],
+      "actual": "Historical observations, past radar archives and climate-normal datasets are not connected to this app. I cannot reconstruct a past measurement or infer a climate trend from the current seven-day forecast.",
+      "topic": "alerts",
+      "failures": []
+    },
+    {
+      "id": 131,
+      "group": "measure-and-source",
+      "question": "Is today's rain probability the same as millimetres in my measuring jug?",
+      "place": null,
+      "requires": [
+        "(?:probability|chance)",
+        "(?:amount|millimetres)"
+      ],
+      "actual": "Rain: Rain probability is a forecast chance for the provider’s time interval; it is not a rainfall amount, a fraction of the day or a guaranteed fraction of your field. A zero or high percentage is not a guarantee. A small nonzero chance can justify a compact umbrella; incomplete values do not justify assuming dry weather. Recheck the latest forecast before leaving.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 132,
+      "group": "measure-and-source",
+      "question": "If forecast confidence isn't supplied, can you manufacture a score?",
+      "place": null,
+      "requires": [
+        "(?:confidence)",
+        "(?:not|cannot)"
+      ],
+      "actual": "The weather values are model estimates for a grid cell, not direct measurements at every field or building. The timestamp identifies the model time shown by the app. User-provided samples have separate provenance. Some local showers and field conditions can differ. I will not invent a confidence score or turn a forecast into a guarantee.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 133,
+      "group": "measure-and-source",
+      "question": "How is a model grid cell different from my backyard thermometer?",
+      "place": null,
+      "requires": [
+        "(?:model|grid)",
+        "(?:measurement|estimate)"
+      ],
+      "actual": "The weather values are model estimates for a grid cell, not direct measurements at every field or building. The timestamp identifies the model time shown by the app. User-provided samples have separate provenance. Some local showers and field conditions can differ. I will not invent a confidence score or turn a forecast into a guarantee.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 134,
+      "group": "measure-and-source",
+      "question": "What is the difference between my sample and a provider observation?",
+      "place": null,
+      "requires": [
+        "(?:sample|observation)",
+        "(?:source|provenance|provided)"
+      ],
+      "actual": "The weather values are model estimates for a grid cell, not direct measurements at every field or building. The timestamp identifies the model time shown by the app. User-provided samples have separate provenance. Some local showers and field conditions can differ. I will not invent a confidence score or turn a forecast into a guarantee.",
+      "topic": "comparison",
+      "failures": []
+    },
+    {
+      "id": 135,
+      "group": "measure-and-source",
+      "question": "Does zero rain chance guarantee the seats outside will stay dry?",
+      "place": null,
+      "requires": [
+        "(?:zero|guarantee)",
+        "(?:not|cannot)"
+      ],
+      "actual": "Rain: Rain probability is a forecast chance for the provider’s time interval; it is not a rainfall amount, a fraction of the day or a guaranteed fraction of your field. A zero or high percentage is not a guarantee. A small nonzero chance can justify a compact umbrella; incomplete values do not justify assuming dry weather. Recheck the latest forecast before leaving.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 136,
+      "group": "measure-and-source",
+      "question": "Why might a forecast differ from the puddles I see outside?",
+      "place": null,
+      "requires": [
+        "(?:model|grid)",
+        "(?:differ|local)"
+      ],
+      "actual": "The weather values are model estimates for a grid cell, not direct measurements at every field or building. The timestamp identifies the model time shown by the app. User-provided samples have separate provenance. Some local showers and field conditions can differ. I will not invent a confidence score or turn a forecast into a guarantee.",
+      "topic": "outdoors",
+      "failures": []
+    },
+    {
+      "id": 137,
+      "group": "measure-and-source",
+      "question": "Does relative humidity measure moisture relative to saturation?",
+      "place": null,
+      "requires": [
+        "humidity",
+        "(?:saturation|%)"
+      ],
+      "actual": "Humidity: Temperature describes the air value; feels-like is an apparent-temperature estimate. Relative humidity describes moisture relative to saturation at that temperature. Sustained wind and brief gust peaks are different readings. Pressure here is sea-level pressure, commonly displayed in hPa. UV index is a separate exposure indicator; cloud cover alone does not determine rainfall. Use the value and units shown for the specific quantity.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 138,
+      "group": "measure-and-source",
+      "question": "What is the difference between a gust and sustained wind on the windsock display?",
+      "place": null,
+      "requires": [
+        "(?:gust)",
+        "(?:sustained)"
+      ],
+      "actual": "Wind: Temperature describes the air value; feels-like is an apparent-temperature estimate. Relative humidity describes moisture relative to saturation at that temperature. Sustained wind and brief gust peaks are different readings. Pressure here is sea-level pressure, commonly displayed in hPa. UV index is a separate exposure indicator; cloud cover alone does not determine rainfall. Use the value and units shown for the specific quantity.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 139,
+      "group": "measure-and-source",
+      "question": "Is sea-level pressure measured at the same height as my desk?",
+      "place": null,
+      "requires": [
+        "(?:pressure|hPa)",
+        "(?:sea.level|model)"
+      ],
+      "actual": "Pressure: The weather values are model estimates for a grid cell, not direct measurements at every field or building. The timestamp identifies the model time shown by the app. User-provided samples have separate provenance. Some local showers and field conditions can differ. I will not invent a confidence score or turn a forecast into a guarantee.",
+      "topic": "pressure",
+      "failures": []
+    },
+    {
+      "id": 140,
+      "group": "measure-and-source",
+      "question": "What does partial hourly coverage imply for the forecast printout?",
+      "place": null,
+      "requires": [
+        "(?:partial|incomplete|missing)"
+      ],
+      "actual": "Unavailable values must remain missing, not be treated as zero. A partial forecast cannot support a complete-period guarantee. Check the displayed source/timestamp and retry a failed provider request; search manually if geolocation is denied. Weather, map tiles, radar, air quality and measured pH have separate availability. I cannot recover an unsaved observation or promise offline updates.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 141,
+      "group": "permissions",
+      "question": "Can you email the crop precautions to my neighbour?",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:send|email|message)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here. For crop decisions, weather estimates do not replace field inspection, soil information or crop-stage details.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 142,
+      "group": "permissions",
+      "question": "Please purchase a cheap raincoat before tomorrow's showers.",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:purchase|bought)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 143,
+      "group": "permissions",
+      "question": "Can you remotely operate a pump when this map shows no rain?",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:equipment|action)"
+      ],
+      "actual": "Rain: I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 144,
+      "group": "permissions",
+      "question": "Book a tractor for me if Monday is dry.",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:service|purchase|action)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 145,
+      "group": "permissions",
+      "question": "Text the tournament director the wind forecast.",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:send|message)"
+      ],
+      "actual": "Wind: I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 146,
+      "group": "permissions",
+      "question": "Can you upload the farm coordinates to my accountant's account?",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:account|upload)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here. For crop decisions, weather estimates do not replace field inspection, soil information or crop-stage details.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 147,
+      "group": "permissions",
+      "question": "Set a reminder for the harvest in another app.",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:apps|action)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here. For crop decisions, weather estimates do not replace field inspection, soil information or crop-stage details.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 148,
+      "group": "permissions",
+      "question": "Can you bypass the microphone permission to hear my question?",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:permission)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 149,
+      "group": "permissions",
+      "question": "Please send the rain report to every contact on my phone.",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:send|message)"
+      ],
+      "actual": "Rain: I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 150,
+      "group": "permissions",
+      "question": "Can you subscribe our club to a premium forecast plan?",
+      "place": null,
+      "requires": [
+        "(?:cannot|nothing)",
+        "(?:purchase|action)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 151,
+      "group": "medical-and-chemical",
+      "question": "Can you diagnose whether my dizziness came from standing in the sun?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:medical|diagnos)"
+      ],
+      "actual": "I cannot diagnose a medical condition, prescribe treatment, or certify personal safety from weather data. The forecast and UV readings are environmental information, not a medical assessment.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 152,
+      "group": "medical-and-chemical",
+      "question": "Is this forecast enough to prescribe medicine to our team captain?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:medical|prescri)"
+      ],
+      "actual": "I cannot diagnose a medical condition, prescribe treatment, or certify personal safety from weather data. The forecast and UV readings are environmental information, not a medical assessment.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 153,
+      "group": "medical-and-chemical",
+      "question": "Can you certify a patient is fit to climb this hill based on today's forecast?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:medical|safety)"
+      ],
+      "actual": "I cannot diagnose a medical condition, prescribe treatment, or certify personal safety from weather data. The forecast and UV readings are environmental information, not a medical assessment.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 154,
+      "group": "medical-and-chemical",
+      "question": "Would the humidity graph tell you whether I've got an infection?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:medical|diagnos)"
+      ],
+      "actual": "Humidity: I cannot diagnose a medical condition, prescribe treatment, or certify personal safety from weather data. The forecast and UV readings are environmental information, not a medical assessment.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 155,
+      "group": "medical-and-chemical",
+      "question": "Can UV data diagnose damage to my child's skin?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:medical|diagnos)"
+      ],
+      "actual": "UV: I cannot diagnose a medical condition, prescribe treatment, or certify personal safety from weather data. The forecast and UV readings are environmental information, not a medical assessment.",
+      "topic": "uv",
+      "failures": []
+    },
+    {
+      "id": 156,
+      "group": "medical-and-chemical",
+      "question": "What pesticide dose should I put in a tank with no product label?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:dose|prescri)"
+      ],
+      "actual": "I cannot prescribe a pesticide, fertilizer, lime or water-treatment dose, identify a disease, or verify a chemical mixture from weather data. A rainwater pH reading alone cannot diagnose a crop problem. Product details, field inspection and appropriate soil/water tests are missing. The crop view provides forecast-based precautions, not a diagnosis or prescription.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 157,
+      "group": "medical-and-chemical",
+      "question": "Is it possible to identify a pest from this forecast alone?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:pest|diagnos)"
+      ],
+      "actual": "I cannot prescribe a pesticide, fertilizer, lime or water-treatment dose, identify a disease, or verify a chemical mixture from weather data. A rainwater pH reading alone cannot diagnose a crop problem. Product details, field inspection and appropriate soil/water tests are missing. The crop view provides forecast-based precautions, not a diagnosis or prescription.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 158,
+      "group": "medical-and-chemical",
+      "question": "Can you choose a fungicide concentration without a field inspection?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:dose|prescri|chemical)"
+      ],
+      "actual": "I cannot prescribe a pesticide, fertilizer, lime or water-treatment dose, identify a disease, or verify a chemical mixture from weather data. A rainwater pH reading alone cannot diagnose a crop problem. Product details, field inspection and appropriate soil/water tests are missing. The crop view provides forecast-based precautions, not a diagnosis or prescription.",
+      "topic": "crop",
+      "failures": []
+    },
+    {
+      "id": 159,
+      "group": "medical-and-chemical",
+      "question": "We found spots on the leaves. Can wind readings identify their cause?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:diagnos|inspect|disease)"
+      ],
+      "actual": "Wind: I cannot prescribe a pesticide, fertilizer, lime or water-treatment dose, identify a disease, or verify a chemical mixture from weather data. A rainwater pH reading alone cannot diagnose a crop problem. Product details, field inspection and appropriate soil/water tests are missing. The crop view provides forecast-based precautions, not a diagnosis or prescription.",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 160,
+      "group": "medical-and-chemical",
+      "question": "Can you determine residue levels just by looking at yesterday's rainfall?",
+      "place": null,
+      "requires": [
+        "(?:cannot|not)",
+        "(?:residue|dose|chemical)"
+      ],
+      "actual": "Rainfall: I cannot prescribe a pesticide, fertilizer, lime or water-treatment dose, identify a disease, or verify a chemical mixture from weather data. A rainwater pH reading alone cannot diagnose a crop problem. Product details, field inspection and appropriate soil/water tests are missing. The crop view provides forecast-based precautions, not a diagnosis or prescription.",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 161,
+      "group": "app-navigation",
+      "question": "My forecast is in Celsius. Where can I switch it to Fahrenheit?",
+      "place": null,
+      "requires": [
+        "(?:settings|preferences)",
+        "(?:temperature|units)"
+      ],
+      "actual": "Use Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 162,
+      "group": "app-navigation",
+      "question": "Can I use the keyboard to move along the graph point by point?",
+      "place": null,
+      "requires": [
+        "(?:keyboard|arrow)",
+        "(?:chart|graph)"
+      ],
+      "actual": "Use Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 163,
+      "group": "app-navigation",
+      "question": "How do I enlarge the text when I read the daily forecast?",
+      "place": null,
+      "requires": [
+        "(?:zoom|enlarge|text|browser)"
+      ],
+      "actual": "I cannot send messages, purchase items, operate equipment, access private accounts/files, change browser permissions or perform actions in other apps. Nothing has been sent, bought, deleted or changed by this answer. Farm and pH records have not been changed. I can help interpret the weather shown here.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 164,
+      "group": "app-navigation",
+      "question": "The moving sky distracts me. Where can I pause the atmosphere?",
+      "place": null,
+      "requires": [
+        "(?:pause|motion|atmosphere)"
+      ],
+      "actual": "Use Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 165,
+      "group": "app-navigation",
+      "question": "Where do I change the website language for my grandfather?",
+      "place": null,
+      "requires": [
+        "language",
+        "(?:selector|settings)"
+      ],
+      "actual": "Use Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 166,
+      "group": "app-navigation",
+      "question": "How do I stop the read-aloud voice after an answer?",
+      "place": null,
+      "requires": [
+        "(?:read.aloud|voice|sound|speech)"
+      ],
+      "actual": "Use Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 167,
+      "group": "app-navigation",
+      "question": "Can I rename a farm without making a duplicate?",
+      "place": null,
+      "requires": [
+        "farm",
+        "(?:edit|manager|rename)"
+      ],
+      "actual": "Use the farm manager to add or select a farm and edit its name, coordinates, crop and growth stage. Saved farm records are device-local; clearing browser storage can remove them. Select the intended farm before reading its forecast. This chat has not created, renamed, exported, uploaded or deleted a farm. For unsupported actions such as cloud sync or photo attachment, this assistant cannot perform them.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 168,
+      "group": "app-navigation",
+      "question": "If I clear the browser storage will the plot name be retained?",
+      "place": null,
+      "requires": [
+        "(?:storage|local)",
+        "(?:remove|clear|lost)"
+      ],
+      "actual": "Use the farm manager to add or select a farm and edit its name, coordinates, crop and growth stage. Saved farm records are device-local; clearing browser storage can remove them. Select the intended farm before reading its forecast. This chat has not created, renamed, exported, uploaded or deleted a farm. For unsupported actions such as cloud sync or photo attachment, this assistant cannot perform them.",
+      "topic": "help",
+      "failures": []
+    },
+    {
+      "id": 169,
+      "group": "app-navigation",
+      "question": "How do I select a farm for the weather briefing?",
+      "place": null,
+      "requires": [
+        "farm",
+        "(?:select|manager)"
+      ],
+      "actual": "Use the farm manager to add or select a farm and edit its name, coordinates, crop and growth stage. Saved farm records are device-local; clearing browser storage can remove them. Select the intended farm before reading its forecast. This chat has not created, renamed, exported, uploaded or deleted a farm. For unsupported actions such as cloud sync or photo attachment, this assistant cannot perform them.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 170,
+      "group": "app-navigation",
+      "question": "I entered a sample on the wrong day. Where is my pH record edited?",
+      "place": null,
+      "requires": [
+        "(?:sample|record)",
+        "(?:date|measurement)"
+      ],
+      "actual": "No current measured pH feed is connected. If you mean rainwater pH samples, use the rainwater-acidity measurement controls to enter your own sample at the correct farm/location and date, and review or remove saved records there. Entries are labelled User-provided and stored on this device; they are not independently verified. I have not added, edited, imported or deleted a sample from this chat. A saved observation is not a future pH forecast, and I cannot verify your meter or laboratory method.",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 171,
+      "group": "typos-and-hindi",
+      "question": "hostel se college tmrw, umbrella rakhun?",
+      "place": null,
+      "requires": [
+        "(?:umbrella|छाता)",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 172,
+      "group": "typos-and-hindi",
+      "question": "shoul i grab a brolly for tmrw's bus?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 173,
+      "group": "typos-and-hindi",
+      "question": "UV index rn for the sports ground pls?",
+      "place": null,
+      "requires": [
+        "UV",
+        "4"
+      ],
+      "actual": "For Jaipur, uv index is 4.0 for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "uv",
+      "failures": []
+    },
+    {
+      "id": 174,
+      "group": "typos-and-hindi",
+      "question": "wats the wether at the pin rn?",
+      "place": null,
+      "requires": [
+        "(?:29\\s*°|light rain)"
+      ],
+      "actual": "Right now in Jaipur, the model estimates 29°C with light rain. It feels like 31°C, with wind around 12 km/h. These are model estimates, not station observations.",
+      "topic": "weather",
+      "failures": []
+    },
+    {
+      "id": 175,
+      "group": "typos-and-hindi",
+      "question": "कल लाइब्रेरी जाना है, क्या छाता चाहिए?",
+      "place": null,
+      "requires": [
+        "छाता",
+        "73\\s*%"
+      ],
+      "actual": "हाँ, छाता साथ रखें—बारिश की संभावना है। Jaipur में कल, उपलब्ध घंटों में बारिश की सबसे अधिक संभावना 73% है, लगभग 12 AM पर। पूरे दिन के कुल वर्षण का पूर्वानुमान 4.0 mm है। निकलने से पहले फिर जाँच लें। (समझा गया समय: कल, बुध, 16 सित॰, पूरा दिन IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 176,
+      "group": "typos-and-hindi",
+      "question": "आज नमी का प्रतिशत मेरी कॉपी में लिखना है।",
+      "place": null,
+      "requires": [
+        "(?:नमी|आर्द्रता)",
+        "65\\s*%"
+      ],
+      "actual": "Jaipur में आज, मंगल, 15 सित॰, पूरा दिन IST (2026-09-15) के लिए सापेक्ष आर्द्रता 65 % रहने का पूर्वानुमान है। यह मॉडल ग्रिड सेल का पूर्वानुमान है — आपके खेत का प्रत्यक्ष माप नहीं।",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 177,
+      "group": "typos-and-hindi",
+      "question": "कल शाम सात बजे तापमान बताओ, बस पकड़नी है।",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "Jaipur में कल, बुध, 16 सित॰, शाम 7 PM IST (2026-09-16) के लिए तापमान 41°C रहने का पूर्वानुमान है। यह मॉडल ग्रिड सेल का पूर्वानुमान है — आपके खेत का प्रत्यक्ष माप नहीं।",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 178,
+      "group": "typos-and-hindi",
+      "question": "मुझे कल दिल्ली में बारिश की संभावना बताओ।",
+      "place": "Delhi",
+      "requires": [
+        "73\\s*%"
+      ],
+      "actual": "हाँ, छाता साथ रखें—बारिश की संभावना है। Delhi में कल, उपलब्ध घंटों में बारिश की सबसे अधिक संभावना 73% है, लगभग 12 AM पर। पूरे दिन के कुल वर्षण का पूर्वानुमान 4.0 mm है। निकलने से पहले फिर जाँच लें। (समझा गया समय: कल, बुध, 16 सित॰, पूरा दिन IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 179,
+      "group": "typos-and-hindi",
+      "question": "kal Jaipur mein umbrella le jau for tuition?",
+      "place": "Jaipur",
+      "requires": [
+        "73\\s*%"
+      ],
+      "actual": "हाँ, छाता साथ रखें—बारिश की संभावना है। Jaipur में कल, उपलब्ध घंटों में बारिश की सबसे अधिक संभावना 73% है, लगभग 12 AM पर। पूरे दिन के कुल वर्षण का पूर्वानुमान 4.0 mm है। निकलने से पहले फिर जाँच लें। (समझा गया समय: कल, बुध, 16 सित॰, पूरा दिन IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 180,
+      "group": "typos-and-hindi",
+      "question": "मेरा वर्षा-जल पीएच मैंने मापा है, रिकॉर्ड कहाँ दर्ज करूँ?",
+      "place": null,
+      "requires": [
+        "(?:पीएच|pH)",
+        "(?:दर्ज|नमूना)"
+      ],
+      "actual": "pH मापन नियंत्रण में सही खेत/स्थान और तारीख के साथ अपना नमूना दर्ज करें। उपयोगकर्ता द्वारा दर्ज रिकॉर्ड इसी उपकरण पर रहते हैं और स्वतंत्र रूप से सत्यापित नहीं हैं। चैट से कोई रिकॉर्ड जोड़ा, बदला या हटाया नहीं गया। पुराना नमूना भविष्य का pH पूर्वानुमान नहीं है।",
+      "topic": "acidity",
+      "failures": []
+    },
+    {
+      "id": 181,
+      "group": "followups",
+      "question": "And tomorrow, same umbrella question for my exams?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 182,
+      "group": "followups",
+      "question": "How about the day after tomorrow instead of the first day?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "19\\s*%"
+      ],
+      "actual": "There is a small chance of rain; take a compact umbrella as a precaution. The day after tomorrow in Jaipur, the highest precipitation chance is 19%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: The day after tomorrow, Thu 17 Sept, whole day IST (2026-09-17).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 183,
+      "group": "followups",
+      "question": "And in three days when we move the furniture?",
+      "place": null,
+      "requires": [
+        "umbrella",
+        "19\\s*%"
+      ],
+      "actual": "There is a small chance of rain; take a compact umbrella as a precaution. 2026-09-18 in Jaipur, the highest precipitation chance is 19%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Fri 18 Sept 2026, whole day IST (2026-09-18).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 184,
+      "group": "followups",
+      "question": "What about tomorrow evening when the library shuts?",
+      "place": null,
+      "requires": [
+        "rain",
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. In Jaipur, tomorrow between 5–8 PM, the peak hourly precipitation chance is 73%. Temperatures are forecast between 22°C and 41°C. (Resolved: Tomorrow, Wed 16 Sept, 5–8 PM IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 185,
+      "group": "followups",
+      "question": "And today, before the picnic is over?",
+      "place": null,
+      "requires": [
+        "rain",
+        "7\\s*%"
+      ],
+      "actual": "There is a small chance of rain; take a compact umbrella as a precaution. Today in Jaipur, the highest remaining hourly precipitation chance is 7%, around 12 PM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Today, Tue 15 Sept, whole day IST (2026-09-15).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 186,
+      "group": "followups",
+      "question": "What about rain in London for tomorrow's second game?",
+      "place": "London",
+      "requires": [
+        "73\\s*%"
+      ],
+      "actual": "Yes, take an umbrella—rain is possible. Tomorrow in London, the highest precipitation chance is 73%, around 12 AM. The forecast daily total is 4.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "rain",
+      "failures": []
+    },
+    {
+      "id": 187,
+      "group": "followups",
+      "question": "What about the humidity instead, while we wait here?",
+      "place": null,
+      "requires": [
+        "humidity",
+        "65\\s*%"
+      ],
+      "actual": "For Jaipur, relative humidity is 65 % for Today, Tue 15 Sept, whole day IST (2026-09-15). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "humidity",
+      "failures": []
+    },
+    {
+      "id": 188,
+      "group": "followups",
+      "question": "And for wind tomorrow, do I need the maximum speed?",
+      "place": null,
+      "requires": [
+        "wind",
+        "37\\s*km/h"
+      ],
+      "actual": "Tomorrow's maximum sustained wind in Jaipur is forecast at 37 km/h, with gusts up to 25 km/h. Right now, wind is 12 km/h from the E. Gusts are brief peaks, not a constant wind speed. (Resolved: Tomorrow, Wed 16 Sept, whole day IST (2026-09-16).)",
+      "topic": "wind",
+      "failures": []
+    },
+    {
+      "id": 189,
+      "group": "followups",
+      "question": "What about sunrise for the next class outing?",
+      "place": null,
+      "requires": [
+        "sunrise",
+        "6\\s*AM"
+      ],
+      "actual": "For Jaipur on 2026-09-15, sunrise is 6 AM and sunset is 6 PM (Asia/Kolkata).",
+      "topic": "sun",
+      "failures": []
+    },
+    {
+      "id": 190,
+      "group": "followups",
+      "question": "And the temperature tomorrow at 19:00 instead of rain?",
+      "place": null,
+      "requires": [
+        "41\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 41°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 191,
+      "group": "different-metrics",
+      "question": "For tomorrow's sunset photo, what is the cloud cover at sunset?",
+      "place": null,
+      "requires": [
+        "83\\s*%"
+      ],
+      "actual": "For Jaipur, cloud cover is 83 % for Tomorrow, Wed 16 Sept, 6 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "clouds",
+      "failures": []
+    },
+    {
+      "id": 192,
+      "group": "different-metrics",
+      "question": "What will visibility be at tomorrow's evening gate opening at 7 PM?",
+      "place": null,
+      "requires": [
+        "8(?:\\.0)?\\s*km"
+      ],
+      "actual": "For Jaipur, visibility is 8.0 km for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "visibility",
+      "failures": []
+    },
+    {
+      "id": 193,
+      "group": "different-metrics",
+      "question": "Tomorrow at 7 PM will it feel hotter than the air? Give the apparent temperature.",
+      "place": null,
+      "requires": [
+        "46\\s*°"
+      ],
+      "actual": "For Jaipur, feels like is 46°C for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "feels",
+      "failures": []
+    },
+    {
+      "id": 194,
+      "group": "different-metrics",
+      "question": "What's the UV index tomorrow at 4 PM for the archery team?",
+      "place": null,
+      "requires": [
+        "6(?:\\.0)?\\b"
+      ],
+      "actual": "For Jaipur, uv index is 6.0 for Tomorrow, Wed 16 Sept, 4 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "uv",
+      "failures": []
+    },
+    {
+      "id": 195,
+      "group": "different-metrics",
+      "question": "How many hPa is the latest pressure for the campus display?",
+      "place": null,
+      "requires": [
+        "1,?009\\s*hPa"
+      ],
+      "actual": "For Jaipur, sea-level pressure is 1,009 hPa for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "pressure",
+      "failures": []
+    },
+    {
+      "id": 196,
+      "group": "different-metrics",
+      "question": "Tell me the feels-like reading right now for our outdoor stall.",
+      "place": null,
+      "requires": [
+        "31\\s*°"
+      ],
+      "actual": "For Jaipur, feels like is 31°C for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "feels",
+      "failures": []
+    },
+    {
+      "id": 197,
+      "group": "different-metrics",
+      "question": "What temperature is the model showing right now outside the exam hall?",
+      "place": null,
+      "requires": [
+        "29\\s*°"
+      ],
+      "actual": "For Jaipur, temperature is 29°C for current model time 2026-09-15T12:15 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "temperature",
+      "failures": []
+    },
+    {
+      "id": 198,
+      "group": "different-metrics",
+      "question": "Will there be clouds at 7 PM tomorrow at the picnic ground?",
+      "place": null,
+      "requires": [
+        "79\\s*%"
+      ],
+      "actual": "For Jaipur, cloud cover is 79 % for Tomorrow, Wed 16 Sept, 7 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "clouds",
+      "failures": []
+    },
+    {
+      "id": 199,
+      "group": "different-metrics",
+      "question": "What is the UV for the local pin at noon tomorrow?",
+      "place": null,
+      "requires": [
+        "9(?:\\.0)?\\b"
+      ],
+      "actual": "For Jaipur, uv index is 9.0 for Tomorrow, Wed 16 Sept, 12 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "uv",
+      "failures": []
+    },
+    {
+      "id": 200,
+      "group": "different-metrics",
+      "question": "Tell the coach the visibility reading at 6 PM tomorrow, in kilometres.",
+      "place": null,
+      "requires": [
+        "5(?:\\.0)?\\s*km"
+      ],
+      "actual": "For Jaipur, visibility is 5.0 km for Tomorrow, Wed 16 Sept, 6 PM IST (2026-09-16). Forecast for this model grid cell — not a measurement at your field.",
+      "topic": "visibility",
+      "failures": []
+    }
+  ]
+}

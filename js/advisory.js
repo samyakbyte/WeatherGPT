@@ -165,8 +165,17 @@ export function answerCropQuestion(question, intent, state) {
   const texts = advisories.length
     ? advisories.slice(0, 3).map(a => advisoryText(a, language)).join('\n\n')
     : (hi ? 'अगले 72 घंटों में कोई विन्यासित मौसम जोखिम सीमा पार नहीं हुई। नियमित रूप से खेत की जाँच करते रहें और आधिकारिक IMD/KVK सलाह देखें।' : 'No configured forecast hazard threshold was crossed in the next 72 hours. Keep scouting the field and check official IMD/KVK advisories.');
+  // Explain the requested operation without turning weather into a field
+  // measurement or a prescription. The evidence below remains unchanged.
+  const operation = /\birrigat(?:e|ion|ing)\b/.test(q)
+    ? (hi ? 'सिंचाई: नीचे वर्षा का पूर्वानुमान देखें। सिंचाई की जरूरत और मात्रा तय करने के लिए खेत की वास्तविक नमी, जल निकासी और फसल की अवस्था भी चाहिए; मौसम अकेले पानी की मात्रा नहीं बताता।'
+      : 'Irrigation: review the forecast rainfall below alongside actual field moisture, drainage and crop stage. Weather alone cannot determine whether irrigation is needed or how much water to apply.')
+    : /\bharvest(?:ing|ed)?\b/.test(q)
+      ? (hi ? 'कटाई: नीचे बारिश और हवा से जुड़ी सावधानियाँ देखें। मौसम से फसल की परिपक्वता या अनाज की नमी नहीं मापी जा सकती; कटाई के निर्णय में खेत की जाँच जरूरी है।'
+        : 'Harvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.')
+      : '';
   return {
-    text: `${snapshot}\n\n${intro}${verification ? ' ' + verification : ''}${unsupported}${needNote}\n\n${texts}`.trim(),
+    text: `${snapshot}\n\n${operation ? operation+'\n\n' : ''}${intro}${verification ? ' ' + verification : ''}${unsupported}${needNote}\n\n${texts}`.trim(),
     metrics: advisories.slice(0, 3).map(a => ({ label: a.hazard, value: `${a.value} ${a.unit}` })),
     language,
     advisories,
