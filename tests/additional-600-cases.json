@@ -1,0 +1,6282 @@
+[
+  {
+    "id": 1,
+    "question": "I need the air temperature tomorrow at 1 AM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 2,
+    "question": "I need the air temperature tomorrow at 5 AM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 3,
+    "question": "I need the air temperature tomorrow at 8 AM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 4,
+    "question": "I need the air temperature tomorrow at 10 AM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 5,
+    "question": "I need the air temperature tomorrow at noon before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 6,
+    "question": "I need the air temperature tomorrow at 2 PM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 7,
+    "question": "I need the air temperature tomorrow at 4 PM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 8,
+    "question": "I need the air temperature tomorrow at 6 PM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 9,
+    "question": "I need the air temperature tomorrow at 7 PM before choosing clothes.",
+    "requires": [
+      "41"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 10,
+    "question": "I need the air temperature tomorrow at 11 PM before choosing clothes.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 11,
+    "question": "Our rehearsal needs a temperature check tomorrow at 1 AM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 12,
+    "question": "Our rehearsal needs a temperature check tomorrow at 5 AM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 13,
+    "question": "Our rehearsal needs a temperature check tomorrow at 8 AM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 14,
+    "question": "Our rehearsal needs a temperature check tomorrow at 10 AM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 15,
+    "question": "Our rehearsal needs a temperature check tomorrow at noon.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 16,
+    "question": "Our rehearsal needs a temperature check tomorrow at 2 PM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 17,
+    "question": "Our rehearsal needs a temperature check tomorrow at 4 PM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 18,
+    "question": "Our rehearsal needs a temperature check tomorrow at 6 PM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 19,
+    "question": "Our rehearsal needs a temperature check tomorrow at 7 PM.",
+    "requires": [
+      "41"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 20,
+    "question": "Our rehearsal needs a temperature check tomorrow at 11 PM.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 21,
+    "question": "Tell me how hot the air will be tomorrow at 1 AM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 22,
+    "question": "Tell me how hot the air will be tomorrow at 5 AM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 23,
+    "question": "Tell me how hot the air will be tomorrow at 8 AM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 24,
+    "question": "Tell me how hot the air will be tomorrow at 10 AM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 25,
+    "question": "Tell me how hot the air will be tomorrow at noon for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 26,
+    "question": "Tell me how hot the air will be tomorrow at 2 PM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 27,
+    "question": "Tell me how hot the air will be tomorrow at 4 PM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 28,
+    "question": "Tell me how hot the air will be tomorrow at 6 PM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 29,
+    "question": "Tell me how hot the air will be tomorrow at 7 PM for the journey.",
+    "requires": [
+      "41"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 30,
+    "question": "Tell me how hot the air will be tomorrow at 11 PM for the journey.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 31,
+    "question": "Please read apparent temperature tomorrow at 1 AM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 32,
+    "question": "Please read apparent temperature tomorrow at 5 AM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 33,
+    "question": "Please read apparent temperature tomorrow at 8 AM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 34,
+    "question": "Please read apparent temperature tomorrow at 10 AM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 35,
+    "question": "Please read apparent temperature tomorrow at noon for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 36,
+    "question": "Please read apparent temperature tomorrow at 2 PM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 37,
+    "question": "Please read apparent temperature tomorrow at 4 PM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 38,
+    "question": "Please read apparent temperature tomorrow at 6 PM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 39,
+    "question": "Please read apparent temperature tomorrow at 7 PM for my departure.",
+    "requires": [
+      "46"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 40,
+    "question": "Please read apparent temperature tomorrow at 11 PM for my departure.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 41,
+    "question": "I care about the feels-like value tomorrow at 1 AM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 42,
+    "question": "I care about the feels-like value tomorrow at 5 AM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 43,
+    "question": "I care about the feels-like value tomorrow at 8 AM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 44,
+    "question": "I care about the feels-like value tomorrow at 10 AM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 45,
+    "question": "I care about the feels-like value tomorrow at noon while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 46,
+    "question": "I care about the feels-like value tomorrow at 2 PM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 47,
+    "question": "I care about the feels-like value tomorrow at 4 PM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 48,
+    "question": "I care about the feels-like value tomorrow at 6 PM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 49,
+    "question": "I care about the feels-like value tomorrow at 7 PM while waiting outside.",
+    "requires": [
+      "46"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 50,
+    "question": "I care about the feels-like value tomorrow at 11 PM while waiting outside.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 51,
+    "question": "What apparent temperature should I plan around tomorrow at 1 AM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 52,
+    "question": "What apparent temperature should I plan around tomorrow at 5 AM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 53,
+    "question": "What apparent temperature should I plan around tomorrow at 8 AM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 54,
+    "question": "What apparent temperature should I plan around tomorrow at 10 AM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 55,
+    "question": "What apparent temperature should I plan around tomorrow at noon?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 56,
+    "question": "What apparent temperature should I plan around tomorrow at 2 PM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 57,
+    "question": "What apparent temperature should I plan around tomorrow at 4 PM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 58,
+    "question": "What apparent temperature should I plan around tomorrow at 6 PM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 59,
+    "question": "What apparent temperature should I plan around tomorrow at 7 PM?",
+    "requires": [
+      "46"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 60,
+    "question": "What apparent temperature should I plan around tomorrow at 11 PM?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 61,
+    "question": "Read relative humidity tomorrow at 1 AM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 62,
+    "question": "Read relative humidity tomorrow at 5 AM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 63,
+    "question": "Read relative humidity tomorrow at 8 AM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 64,
+    "question": "Read relative humidity tomorrow at 10 AM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 65,
+    "question": "Read relative humidity tomorrow at noon before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 66,
+    "question": "Read relative humidity tomorrow at 2 PM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 67,
+    "question": "Read relative humidity tomorrow at 4 PM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 68,
+    "question": "Read relative humidity tomorrow at 6 PM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 69,
+    "question": "Read relative humidity tomorrow at 7 PM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 70,
+    "question": "Read relative humidity tomorrow at 11 PM before my outdoor session.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 71,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 1 AM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 72,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 5 AM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 73,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 8 AM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 74,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 10 AM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 75,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at noon?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 76,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 2 PM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 77,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 4 PM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 78,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 6 PM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 79,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 7 PM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 80,
+    "question": "My workshop is outdoors; what humidity is forecast tomorrow at 11 PM?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 81,
+    "question": "Could you report the humidity percentage tomorrow at 1 AM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 82,
+    "question": "Could you report the humidity percentage tomorrow at 5 AM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 83,
+    "question": "Could you report the humidity percentage tomorrow at 8 AM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 84,
+    "question": "Could you report the humidity percentage tomorrow at 10 AM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 85,
+    "question": "Could you report the humidity percentage tomorrow at noon for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 86,
+    "question": "Could you report the humidity percentage tomorrow at 2 PM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 87,
+    "question": "Could you report the humidity percentage tomorrow at 4 PM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 88,
+    "question": "Could you report the humidity percentage tomorrow at 6 PM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 89,
+    "question": "Could you report the humidity percentage tomorrow at 7 PM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 90,
+    "question": "Could you report the humidity percentage tomorrow at 11 PM for this area?",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 91,
+    "question": "Give cloud cover tomorrow at 1 AM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 92,
+    "question": "Give cloud cover tomorrow at 5 AM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 93,
+    "question": "Give cloud cover tomorrow at 8 AM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 94,
+    "question": "Give cloud cover tomorrow at 10 AM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 95,
+    "question": "Give cloud cover tomorrow at noon before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 96,
+    "question": "Give cloud cover tomorrow at 2 PM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 97,
+    "question": "Give cloud cover tomorrow at 4 PM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 98,
+    "question": "Give cloud cover tomorrow at 6 PM before I photograph the skyline.",
+    "requires": [
+      "83\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 99,
+    "question": "Give cloud cover tomorrow at 7 PM before I photograph the skyline.",
+    "requires": [
+      "79\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 100,
+    "question": "Give cloud cover tomorrow at 11 PM before I photograph the skyline.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 101,
+    "question": "How cloudy is the sky predicted to be tomorrow at 1 AM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 102,
+    "question": "How cloudy is the sky predicted to be tomorrow at 5 AM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 103,
+    "question": "How cloudy is the sky predicted to be tomorrow at 8 AM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 104,
+    "question": "How cloudy is the sky predicted to be tomorrow at 10 AM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 105,
+    "question": "How cloudy is the sky predicted to be tomorrow at noon for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 106,
+    "question": "How cloudy is the sky predicted to be tomorrow at 2 PM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 107,
+    "question": "How cloudy is the sky predicted to be tomorrow at 4 PM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 108,
+    "question": "How cloudy is the sky predicted to be tomorrow at 6 PM for my drawing?",
+    "requires": [
+      "83\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 109,
+    "question": "How cloudy is the sky predicted to be tomorrow at 7 PM for my drawing?",
+    "requires": [
+      "79\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 110,
+    "question": "How cloudy is the sky predicted to be tomorrow at 11 PM for my drawing?",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 111,
+    "question": "I need the cloud percentage tomorrow at 1 AM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 112,
+    "question": "I need the cloud percentage tomorrow at 5 AM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 113,
+    "question": "I need the cloud percentage tomorrow at 8 AM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 114,
+    "question": "I need the cloud percentage tomorrow at 10 AM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 115,
+    "question": "I need the cloud percentage tomorrow at noon while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 116,
+    "question": "I need the cloud percentage tomorrow at 2 PM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 117,
+    "question": "I need the cloud percentage tomorrow at 4 PM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 118,
+    "question": "I need the cloud percentage tomorrow at 6 PM while planning a photo.",
+    "requires": [
+      "83\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 119,
+    "question": "I need the cloud percentage tomorrow at 7 PM while planning a photo.",
+    "requires": [
+      "79\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 120,
+    "question": "I need the cloud percentage tomorrow at 11 PM while planning a photo.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 121,
+    "question": "Check ultraviolet index tomorrow at 1 AM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 122,
+    "question": "Check ultraviolet index tomorrow at 5 AM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 123,
+    "question": "Check ultraviolet index tomorrow at 8 AM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 124,
+    "question": "Check ultraviolet index tomorrow at 10 AM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 125,
+    "question": "Check ultraviolet index tomorrow at noon before the outdoor lesson.",
+    "requires": [
+      "uv index is 9(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 126,
+    "question": "Check ultraviolet index tomorrow at 2 PM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 127,
+    "question": "Check ultraviolet index tomorrow at 4 PM before the outdoor lesson.",
+    "requires": [
+      "uv index is 6(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 128,
+    "question": "Check ultraviolet index tomorrow at 6 PM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 129,
+    "question": "Check ultraviolet index tomorrow at 7 PM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 130,
+    "question": "Check ultraviolet index tomorrow at 11 PM before the outdoor lesson.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 131,
+    "question": "Read the forecast UV index tomorrow at 1 AM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 132,
+    "question": "Read the forecast UV index tomorrow at 5 AM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 133,
+    "question": "Read the forecast UV index tomorrow at 8 AM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 134,
+    "question": "Read the forecast UV index tomorrow at 10 AM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 135,
+    "question": "Read the forecast UV index tomorrow at noon for the playground visit.",
+    "requires": [
+      "uv index is 9(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 136,
+    "question": "Read the forecast UV index tomorrow at 2 PM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 137,
+    "question": "Read the forecast UV index tomorrow at 4 PM for the playground visit.",
+    "requires": [
+      "uv index is 6(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 138,
+    "question": "Read the forecast UV index tomorrow at 6 PM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 139,
+    "question": "Read the forecast UV index tomorrow at 7 PM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 140,
+    "question": "Read the forecast UV index tomorrow at 11 PM for the playground visit.",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 141,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 1 AM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 142,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 5 AM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 143,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 8 AM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 144,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 10 AM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 145,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at noon?",
+    "requires": [
+      "uv index is 9(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 146,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 2 PM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 147,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 4 PM?",
+    "requires": [
+      "uv index is 6(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 148,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 6 PM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 149,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 7 PM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 150,
+    "question": "For an outdoor shift, what UV index is predicted tomorrow at 11 PM?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 151,
+    "question": "Check visibility tomorrow at 1 AM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 152,
+    "question": "Check visibility tomorrow at 5 AM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 153,
+    "question": "Check visibility tomorrow at 8 AM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 154,
+    "question": "Check visibility tomorrow at 10 AM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 155,
+    "question": "Check visibility tomorrow at noon before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 156,
+    "question": "Check visibility tomorrow at 2 PM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 157,
+    "question": "Check visibility tomorrow at 4 PM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 158,
+    "question": "Check visibility tomorrow at 6 PM before my journey to rehearsal.",
+    "requires": [
+      "5(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 159,
+    "question": "Check visibility tomorrow at 7 PM before my journey to rehearsal.",
+    "requires": [
+      "8(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 160,
+    "question": "Check visibility tomorrow at 11 PM before my journey to rehearsal.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 161,
+    "question": "What distance visibility is expected tomorrow at 1 AM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 162,
+    "question": "What distance visibility is expected tomorrow at 5 AM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 163,
+    "question": "What distance visibility is expected tomorrow at 8 AM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 164,
+    "question": "What distance visibility is expected tomorrow at 10 AM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 165,
+    "question": "What distance visibility is expected tomorrow at noon for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 166,
+    "question": "What distance visibility is expected tomorrow at 2 PM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 167,
+    "question": "What distance visibility is expected tomorrow at 4 PM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 168,
+    "question": "What distance visibility is expected tomorrow at 6 PM for the hill view?",
+    "requires": [
+      "5(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 169,
+    "question": "What distance visibility is expected tomorrow at 7 PM for the hill view?",
+    "requires": [
+      "8(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 170,
+    "question": "What distance visibility is expected tomorrow at 11 PM for the hill view?",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 171,
+    "question": "I need a visibility value tomorrow at 1 AM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 172,
+    "question": "I need a visibility value tomorrow at 5 AM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 173,
+    "question": "I need a visibility value tomorrow at 8 AM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 174,
+    "question": "I need a visibility value tomorrow at 10 AM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 175,
+    "question": "I need a visibility value tomorrow at noon before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 176,
+    "question": "I need a visibility value tomorrow at 2 PM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 177,
+    "question": "I need a visibility value tomorrow at 4 PM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 178,
+    "question": "I need a visibility value tomorrow at 6 PM before setting up the camera.",
+    "requires": [
+      "5(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 179,
+    "question": "I need a visibility value tomorrow at 7 PM before setting up the camera.",
+    "requires": [
+      "8(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 180,
+    "question": "I need a visibility value tomorrow at 11 PM before setting up the camera.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 181,
+    "question": "Is a folding umbrella useful tomorrow at 1 AM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 182,
+    "question": "Is a folding umbrella useful tomorrow at 5 AM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 183,
+    "question": "Is a folding umbrella useful tomorrow at 8 AM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 184,
+    "question": "Is a folding umbrella useful tomorrow at 10 AM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 185,
+    "question": "Is a folding umbrella useful tomorrow at noon for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 186,
+    "question": "Is a folding umbrella useful tomorrow at 2 PM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 187,
+    "question": "Is a folding umbrella useful tomorrow at 4 PM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 188,
+    "question": "Is a folding umbrella useful tomorrow at 6 PM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 189,
+    "question": "Is a folding umbrella useful tomorrow at 7 PM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 190,
+    "question": "Is a folding umbrella useful tomorrow at 11 PM for the uncovered route?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 191,
+    "question": "Give precipitation probability tomorrow at 1 AM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 192,
+    "question": "Give precipitation probability tomorrow at 5 AM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 193,
+    "question": "Give precipitation probability tomorrow at 8 AM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 194,
+    "question": "Give precipitation probability tomorrow at 10 AM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 195,
+    "question": "Give precipitation probability tomorrow at noon before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 196,
+    "question": "Give precipitation probability tomorrow at 2 PM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 197,
+    "question": "Give precipitation probability tomorrow at 4 PM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 198,
+    "question": "Give precipitation probability tomorrow at 6 PM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 199,
+    "question": "Give precipitation probability tomorrow at 7 PM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 200,
+    "question": "Give precipitation probability tomorrow at 11 PM before I carry my documents.",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 201,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 1 AM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 202,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 5 AM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 203,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 8 AM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 204,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 10 AM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 205,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at noon?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 206,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 2 PM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 207,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 4 PM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 208,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 6 PM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 209,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 7 PM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 210,
+    "question": "My paper drawings must stay dry; what rain chance is forecast tomorrow at 11 PM?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 211,
+    "question": "Could you give a temperature value tomorrow at 1 AM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 212,
+    "question": "Could you give a temperature value tomorrow at 5 AM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 213,
+    "question": "Could you give a temperature value tomorrow at 8 AM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 214,
+    "question": "Could you give a temperature value tomorrow at 10 AM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 215,
+    "question": "Could you give a temperature value tomorrow at noon for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 216,
+    "question": "Could you give a temperature value tomorrow at 2 PM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 217,
+    "question": "Could you give a temperature value tomorrow at 4 PM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 218,
+    "question": "Could you give a temperature value tomorrow at 6 PM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 219,
+    "question": "Could you give a temperature value tomorrow at 7 PM for the queue outside?",
+    "requires": [
+      "41"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 220,
+    "question": "Could you give a temperature value tomorrow at 11 PM for the queue outside?",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 221,
+    "question": "How warm will it feel tomorrow at 1 AM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 222,
+    "question": "How warm will it feel tomorrow at 5 AM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 223,
+    "question": "How warm will it feel tomorrow at 8 AM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 224,
+    "question": "How warm will it feel tomorrow at 10 AM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 225,
+    "question": "How warm will it feel tomorrow at noon at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 226,
+    "question": "How warm will it feel tomorrow at 2 PM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 227,
+    "question": "How warm will it feel tomorrow at 4 PM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 228,
+    "question": "How warm will it feel tomorrow at 6 PM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 229,
+    "question": "How warm will it feel tomorrow at 7 PM at the selected map location?",
+    "requires": [
+      "46"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 230,
+    "question": "How warm will it feel tomorrow at 11 PM at the selected map location?",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 231,
+    "question": "I want the relative-humidity figure tomorrow at 1 AM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 232,
+    "question": "I want the relative-humidity figure tomorrow at 5 AM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 233,
+    "question": "I want the relative-humidity figure tomorrow at 8 AM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 234,
+    "question": "I want the relative-humidity figure tomorrow at 10 AM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 235,
+    "question": "I want the relative-humidity figure tomorrow at noon for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 236,
+    "question": "I want the relative-humidity figure tomorrow at 2 PM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 237,
+    "question": "I want the relative-humidity figure tomorrow at 4 PM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 238,
+    "question": "I want the relative-humidity figure tomorrow at 6 PM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 239,
+    "question": "I want the relative-humidity figure tomorrow at 7 PM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 240,
+    "question": "I want the relative-humidity figure tomorrow at 11 PM for the current city.",
+    "requires": [
+      "65\\s*%"
+    ],
+    "group": "humidity",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 241,
+    "question": "Read the cloud-cover forecast tomorrow at 1 AM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 242,
+    "question": "Read the cloud-cover forecast tomorrow at 5 AM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 243,
+    "question": "Read the cloud-cover forecast tomorrow at 8 AM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 244,
+    "question": "Read the cloud-cover forecast tomorrow at 10 AM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 245,
+    "question": "Read the cloud-cover forecast tomorrow at noon for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 246,
+    "question": "Read the cloud-cover forecast tomorrow at 2 PM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 247,
+    "question": "Read the cloud-cover forecast tomorrow at 4 PM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 248,
+    "question": "Read the cloud-cover forecast tomorrow at 6 PM for my photography plan.",
+    "requires": [
+      "83\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 249,
+    "question": "Read the cloud-cover forecast tomorrow at 7 PM for my photography plan.",
+    "requires": [
+      "79\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 250,
+    "question": "Read the cloud-cover forecast tomorrow at 11 PM for my photography plan.",
+    "requires": [
+      "31\\s*%"
+    ],
+    "group": "cloud",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 251,
+    "question": "What ultraviolet value appears tomorrow at 1 AM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 252,
+    "question": "What ultraviolet value appears tomorrow at 5 AM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 253,
+    "question": "What ultraviolet value appears tomorrow at 8 AM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 254,
+    "question": "What ultraviolet value appears tomorrow at 10 AM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 255,
+    "question": "What ultraviolet value appears tomorrow at noon for this city?",
+    "requires": [
+      "uv index is 9(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 256,
+    "question": "What ultraviolet value appears tomorrow at 2 PM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 257,
+    "question": "What ultraviolet value appears tomorrow at 4 PM for this city?",
+    "requires": [
+      "uv index is 6(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 258,
+    "question": "What ultraviolet value appears tomorrow at 6 PM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 259,
+    "question": "What ultraviolet value appears tomorrow at 7 PM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 260,
+    "question": "What ultraviolet value appears tomorrow at 11 PM for this city?",
+    "requires": [
+      "uv index is 4(?:\\.0)?\\b"
+    ],
+    "group": "uv",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 261,
+    "question": "Please report visibility tomorrow at 1 AM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 262,
+    "question": "Please report visibility tomorrow at 5 AM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 263,
+    "question": "Please report visibility tomorrow at 8 AM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 264,
+    "question": "Please report visibility tomorrow at 10 AM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 265,
+    "question": "Please report visibility tomorrow at noon for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 266,
+    "question": "Please report visibility tomorrow at 2 PM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 267,
+    "question": "Please report visibility tomorrow at 4 PM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 268,
+    "question": "Please report visibility tomorrow at 6 PM for the selected map point.",
+    "requires": [
+      "5(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 269,
+    "question": "Please report visibility tomorrow at 7 PM for the selected map point.",
+    "requires": [
+      "8(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 270,
+    "question": "Please report visibility tomorrow at 11 PM for the selected map point.",
+    "requires": [
+      "10(?:\\.0)? km"
+    ],
+    "group": "visibility",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 271,
+    "question": "Should rain gear come with me tomorrow at 1 AM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 272,
+    "question": "Should rain gear come with me tomorrow at 5 AM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 273,
+    "question": "Should rain gear come with me tomorrow at 8 AM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 274,
+    "question": "Should rain gear come with me tomorrow at 10 AM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 275,
+    "question": "Should rain gear come with me tomorrow at noon for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 276,
+    "question": "Should rain gear come with me tomorrow at 2 PM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 277,
+    "question": "Should rain gear come with me tomorrow at 4 PM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 278,
+    "question": "Should rain gear come with me tomorrow at 6 PM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 279,
+    "question": "Should rain gear come with me tomorrow at 7 PM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 280,
+    "question": "Should rain gear come with me tomorrow at 11 PM for the walk to tuition?",
+    "requires": [
+      "73\\s*%"
+    ],
+    "group": "rain",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 281,
+    "question": "For the hour tomorrow at 1 AM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 282,
+    "question": "For the hour tomorrow at 5 AM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 283,
+    "question": "For the hour tomorrow at 8 AM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 284,
+    "question": "For the hour tomorrow at 10 AM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 285,
+    "question": "For the hour tomorrow at noon, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 286,
+    "question": "For the hour tomorrow at 2 PM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 287,
+    "question": "For the hour tomorrow at 4 PM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 288,
+    "question": "For the hour tomorrow at 6 PM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 289,
+    "question": "For the hour tomorrow at 7 PM, show the temperature with units.",
+    "requires": [
+      "41"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 290,
+    "question": "For the hour tomorrow at 11 PM, show the temperature with units.",
+    "requires": [
+      "22"
+    ],
+    "group": "temperature",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 291,
+    "question": "Give the feels-like estimate tomorrow at 1 AM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 292,
+    "question": "Give the feels-like estimate tomorrow at 5 AM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 293,
+    "question": "Give the feels-like estimate tomorrow at 8 AM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 294,
+    "question": "Give the feels-like estimate tomorrow at 10 AM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 295,
+    "question": "Give the feels-like estimate tomorrow at noon before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 296,
+    "question": "Give the feels-like estimate tomorrow at 2 PM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 297,
+    "question": "Give the feels-like estimate tomorrow at 4 PM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 298,
+    "question": "Give the feels-like estimate tomorrow at 6 PM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 299,
+    "question": "Give the feels-like estimate tomorrow at 7 PM before I head to the bus stop.",
+    "requires": [
+      "46"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 300,
+    "question": "Give the feels-like estimate tomorrow at 11 PM before I head to the bus stop.",
+    "requires": [
+      "27"
+    ],
+    "group": "feels",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 301,
+    "question": "I grow wheat; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 302,
+    "question": "I grow rice; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 303,
+    "question": "I grow maize; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 304,
+    "question": "I grow cotton; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 305,
+    "question": "I grow mustard; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 306,
+    "question": "I grow soybean; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 307,
+    "question": "I grow sugarcane; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 308,
+    "question": "I grow tomato; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 309,
+    "question": "I grow potato; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 310,
+    "question": "I grow paddy; start with the weather now and explain field precautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 311,
+    "question": "What weather-based irrigation precautions suit my wheat plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 312,
+    "question": "What weather-based irrigation precautions suit my rice plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 313,
+    "question": "What weather-based irrigation precautions suit my maize plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 314,
+    "question": "What weather-based irrigation precautions suit my cotton plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 315,
+    "question": "What weather-based irrigation precautions suit my mustard plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 316,
+    "question": "What weather-based irrigation precautions suit my soybean plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 317,
+    "question": "What weather-based irrigation precautions suit my sugarcane plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 318,
+    "question": "What weather-based irrigation precautions suit my tomato plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 319,
+    "question": "What weather-based irrigation precautions suit my potato plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 320,
+    "question": "What weather-based irrigation precautions suit my paddy plot today?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 321,
+    "question": "Before harvesting wheat, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 322,
+    "question": "Before harvesting rice, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 323,
+    "question": "Before harvesting maize, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 324,
+    "question": "Before harvesting cotton, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 325,
+    "question": "Before harvesting mustard, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 326,
+    "question": "Before harvesting soybean, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 327,
+    "question": "Before harvesting sugarcane, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 328,
+    "question": "Before harvesting tomato, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 329,
+    "question": "Before harvesting potato, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 330,
+    "question": "Before harvesting paddy, explain the current weather and its limits.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 331,
+    "question": "For spraying wheat, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 332,
+    "question": "For spraying rice, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 333,
+    "question": "For spraying maize, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 334,
+    "question": "For spraying cotton, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 335,
+    "question": "For spraying mustard, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 336,
+    "question": "For spraying soybean, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 337,
+    "question": "For spraying sugarcane, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 338,
+    "question": "For spraying tomato, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 339,
+    "question": "For spraying potato, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 340,
+    "question": "For spraying paddy, give weather precautions without a chemical dose.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 341,
+    "question": "My wheat field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 342,
+    "question": "My rice field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 343,
+    "question": "My maize field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 344,
+    "question": "My cotton field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 345,
+    "question": "My mustard field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 346,
+    "question": "My soybean field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 347,
+    "question": "My sugarcane field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 348,
+    "question": "My tomato field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 349,
+    "question": "My potato field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 350,
+    "question": "My paddy field needs a current-weather summary followed by cautions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 351,
+    "question": "I am preparing wheat irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 352,
+    "question": "I am preparing rice irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 353,
+    "question": "I am preparing maize irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 354,
+    "question": "I am preparing cotton irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 355,
+    "question": "I am preparing mustard irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 356,
+    "question": "I am preparing soybean irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 357,
+    "question": "I am preparing sugarcane irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 358,
+    "question": "I am preparing tomato irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 359,
+    "question": "I am preparing potato irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 360,
+    "question": "I am preparing paddy irrigation; what weather evidence should I review?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 361,
+    "question": "Help me understand harvest precautions for wheat using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 362,
+    "question": "Help me understand harvest precautions for rice using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 363,
+    "question": "Help me understand harvest precautions for maize using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 364,
+    "question": "Help me understand harvest precautions for cotton using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 365,
+    "question": "Help me understand harvest precautions for mustard using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 366,
+    "question": "Help me understand harvest precautions for soybean using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 367,
+    "question": "Help me understand harvest precautions for sugarcane using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 368,
+    "question": "Help me understand harvest precautions for tomato using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 369,
+    "question": "Help me understand harvest precautions for potato using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 370,
+    "question": "Help me understand harvest precautions for paddy using current conditions.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 371,
+    "question": "Explain spraying precautions for wheat without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 372,
+    "question": "Explain spraying precautions for rice without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 373,
+    "question": "Explain spraying precautions for maize without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 374,
+    "question": "Explain spraying precautions for cotton without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 375,
+    "question": "Explain spraying precautions for mustard without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 376,
+    "question": "Explain spraying precautions for soybean without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 377,
+    "question": "Explain spraying precautions for sugarcane without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 378,
+    "question": "Explain spraying precautions for tomato without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 379,
+    "question": "Explain spraying precautions for potato without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 380,
+    "question": "Explain spraying precautions for paddy without prescribing a product.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 381,
+    "question": "For my wheat crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 382,
+    "question": "For my rice crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 383,
+    "question": "For my maize crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 384,
+    "question": "For my cotton crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 385,
+    "question": "For my mustard crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 386,
+    "question": "For my soybean crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 387,
+    "question": "For my sugarcane crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 388,
+    "question": "For my tomato crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 389,
+    "question": "For my potato crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 390,
+    "question": "For my paddy crop, show current conditions before any field advice.",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 391,
+    "question": "What does the present weather mean for precautions on my wheat farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 392,
+    "question": "What does the present weather mean for precautions on my rice farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 393,
+    "question": "What does the present weather mean for precautions on my maize farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 394,
+    "question": "What does the present weather mean for precautions on my cotton farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 395,
+    "question": "What does the present weather mean for precautions on my mustard farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 396,
+    "question": "What does the present weather mean for precautions on my soybean farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 397,
+    "question": "What does the present weather mean for precautions on my sugarcane farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 398,
+    "question": "What does the present weather mean for precautions on my tomato farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 399,
+    "question": "What does the present weather mean for precautions on my potato farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 400,
+    "question": "What does the present weather mean for precautions on my paddy farm?",
+    "requires": [
+      "29",
+      "crop|field"
+    ],
+    "group": "crop",
+    "topic": "metric",
+    "place": null
+  },
+  {
+    "id": 401,
+    "question": "I am planning a college outing. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 402,
+    "question": "My family needs to plan a short trip. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 403,
+    "question": "I have an outdoor volunteer shift. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 404,
+    "question": "We are arranging a community event. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 405,
+    "question": "I am preparing a field notebook. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 406,
+    "question": "My team needs to understand the limits. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 407,
+    "question": "I am checking before making a decision. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 408,
+    "question": "We need to explain this to our class. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 409,
+    "question": "I am reviewing the information on this screen. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 410,
+    "question": "I need to understand the evidence first. Can a rainwater pH measurement establish drinking-water safety?",
+    "requires": [
+      "pH",
+      "not|cannot"
+    ],
+    "group": "help-ph",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 411,
+    "question": "I am planning a college outing. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 412,
+    "question": "My family needs to plan a short trip. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 413,
+    "question": "I have an outdoor volunteer shift. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 414,
+    "question": "We are arranging a community event. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 415,
+    "question": "I am preparing a field notebook. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 416,
+    "question": "My team needs to understand the limits. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 417,
+    "question": "I am checking before making a decision. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 418,
+    "question": "We need to explain this to our class. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 419,
+    "question": "I am reviewing the information on this screen. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 420,
+    "question": "I need to understand the evidence first. Can weather measure soil moisture below the surface?",
+    "requires": [
+      "soil",
+      "not|cannot"
+    ],
+    "group": "help-soil",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 421,
+    "question": "I am planning a college outing. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 422,
+    "question": "My family needs to plan a short trip. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 423,
+    "question": "I have an outdoor volunteer shift. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 424,
+    "question": "We are arranging a community event. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 425,
+    "question": "I am preparing a field notebook. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 426,
+    "question": "My team needs to understand the limits. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 427,
+    "question": "I am checking before making a decision. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 428,
+    "question": "We need to explain this to our class. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 429,
+    "question": "I am reviewing the information on this screen. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 430,
+    "question": "I need to understand the evidence first. Can you diagnose an illness using the humidity reading?",
+    "requires": [
+      "medical",
+      "cannot"
+    ],
+    "group": "help-medical",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 431,
+    "question": "I am planning a college outing. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 432,
+    "question": "My family needs to plan a short trip. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 433,
+    "question": "I have an outdoor volunteer shift. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 434,
+    "question": "We are arranging a community event. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 435,
+    "question": "I am preparing a field notebook. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 436,
+    "question": "My team needs to understand the limits. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 437,
+    "question": "I am checking before making a decision. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 438,
+    "question": "We need to explain this to our class. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 439,
+    "question": "I am reviewing the information on this screen. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 440,
+    "question": "I need to understand the evidence first. Can you prescribe a pesticide dose using wind speed alone?",
+    "requires": [
+      "dose",
+      "cannot"
+    ],
+    "group": "help-dose",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 441,
+    "question": "I am planning a college outing. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 442,
+    "question": "My family needs to plan a short trip. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 443,
+    "question": "I have an outdoor volunteer shift. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 444,
+    "question": "We are arranging a community event. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 445,
+    "question": "I am preparing a field notebook. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 446,
+    "question": "My team needs to understand the limits. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 447,
+    "question": "I am checking before making a decision. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 448,
+    "question": "We need to explain this to our class. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 449,
+    "question": "I am reviewing the information on this screen. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 450,
+    "question": "I need to understand the evidence first. How can I correct a saved pH sample date?",
+    "requires": [
+      "record|sample",
+      "not"
+    ],
+    "group": "help-records",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 451,
+    "question": "I am planning a college outing. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 452,
+    "question": "My family needs to plan a short trip. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 453,
+    "question": "I have an outdoor volunteer shift. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 454,
+    "question": "We are arranging a community event. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 455,
+    "question": "I am preparing a field notebook. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 456,
+    "question": "My team needs to understand the limits. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 457,
+    "question": "I am checking before making a decision. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 458,
+    "question": "We need to explain this to our class. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 459,
+    "question": "I am reviewing the information on this screen. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 460,
+    "question": "I need to understand the evidence first. Where can I rename my saved farm and edit its coordinates?",
+    "requires": [
+      "farm",
+      "not"
+    ],
+    "group": "help-farm",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 461,
+    "question": "I am planning a college outing. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 462,
+    "question": "My family needs to plan a short trip. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 463,
+    "question": "I have an outdoor volunteer shift. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 464,
+    "question": "We are arranging a community event. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 465,
+    "question": "I am preparing a field notebook. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 466,
+    "question": "My team needs to understand the limits. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 467,
+    "question": "I am checking before making a decision. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 468,
+    "question": "We need to explain this to our class. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 469,
+    "question": "I am reviewing the information on this screen. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 470,
+    "question": "I need to understand the evidence first. Where can I switch wind units and temperature units?",
+    "requires": [
+      "Settings"
+    ],
+    "group": "help-settings",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 471,
+    "question": "I am planning a college outing. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 472,
+    "question": "My family needs to plan a short trip. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 473,
+    "question": "I have an outdoor volunteer shift. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 474,
+    "question": "We are arranging a community event. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 475,
+    "question": "I am preparing a field notebook. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 476,
+    "question": "My team needs to understand the limits. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 477,
+    "question": "I am checking before making a decision. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 478,
+    "question": "We need to explain this to our class. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 479,
+    "question": "I am reviewing the information on this screen. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 480,
+    "question": "I need to understand the evidence first. Explain what recent radar frames can actually tell me.",
+    "requires": [
+      "RainViewer"
+    ],
+    "group": "help-radar",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 481,
+    "question": "I am planning a college outing. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 482,
+    "question": "My family needs to plan a short trip. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 483,
+    "question": "I have an outdoor volunteer shift. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 484,
+    "question": "We are arranging a community event. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 485,
+    "question": "I am preparing a field notebook. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 486,
+    "question": "My team needs to understand the limits. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 487,
+    "question": "I am checking before making a decision. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 488,
+    "question": "We need to explain this to our class. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 489,
+    "question": "I am reviewing the information on this screen. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 490,
+    "question": "I need to understand the evidence first. Can you retrieve historical weather from last summer?",
+    "requires": [
+      "historical",
+      "not"
+    ],
+    "group": "help-history",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 491,
+    "question": "I am planning a college outing. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 492,
+    "question": "My family needs to plan a short trip. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 493,
+    "question": "I have an outdoor volunteer shift. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 494,
+    "question": "We are arranging a community event. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 495,
+    "question": "I am preparing a field notebook. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 496,
+    "question": "My team needs to understand the limits. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 497,
+    "question": "I am checking before making a decision. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 498,
+    "question": "We need to explain this to our class. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 499,
+    "question": "I am reviewing the information on this screen. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 500,
+    "question": "I need to understand the evidence first. Can you invent a confidence score for the forecast?",
+    "requires": [
+      "confidence",
+      "not"
+    ],
+    "group": "help-evidence",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 501,
+    "question": "I am planning a college outing. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 502,
+    "question": "My family needs to plan a short trip. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 503,
+    "question": "I have an outdoor volunteer shift. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 504,
+    "question": "We are arranging a community event. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 505,
+    "question": "I am preparing a field notebook. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 506,
+    "question": "My team needs to understand the limits. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 507,
+    "question": "I am checking before making a decision. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 508,
+    "question": "We need to explain this to our class. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 509,
+    "question": "I am reviewing the information on this screen. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 510,
+    "question": "I need to understand the evidence first. Does rain probability mean the fraction of my field that gets wet?",
+    "requires": [
+      "probability",
+      "not"
+    ],
+    "group": "help-probability",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 511,
+    "question": "I am planning a college outing. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 512,
+    "question": "My family needs to plan a short trip. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 513,
+    "question": "I have an outdoor volunteer shift. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 514,
+    "question": "We are arranging a community event. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 515,
+    "question": "I am preparing a field notebook. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 516,
+    "question": "My team needs to understand the limits. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 517,
+    "question": "I am checking before making a decision. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 518,
+    "question": "We need to explain this to our class. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 519,
+    "question": "I am reviewing the information on this screen. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 520,
+    "question": "I need to understand the evidence first. Does missing wind data mean calm conditions?",
+    "requires": [
+      "missing",
+      "not"
+    ],
+    "group": "help-missing",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 521,
+    "question": "I am planning a college outing. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 522,
+    "question": "My family needs to plan a short trip. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 523,
+    "question": "I have an outdoor volunteer shift. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 524,
+    "question": "We are arranging a community event. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 525,
+    "question": "I am preparing a field notebook. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 526,
+    "question": "My team needs to understand the limits. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 527,
+    "question": "I am checking before making a decision. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 528,
+    "question": "We need to explain this to our class. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 529,
+    "question": "I am reviewing the information on this screen. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 530,
+    "question": "I need to understand the evidence first. Could you email the forecast to my class group?",
+    "requires": [
+      "cannot",
+      "not"
+    ],
+    "group": "help-external",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 531,
+    "question": "I am planning a college outing. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 532,
+    "question": "My family needs to plan a short trip. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 533,
+    "question": "I have an outdoor volunteer shift. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 534,
+    "question": "We are arranging a community event. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 535,
+    "question": "I am preparing a field notebook. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 536,
+    "question": "My team needs to understand the limits. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 537,
+    "question": "I am checking before making a decision. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 538,
+    "question": "We need to explain this to our class. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 539,
+    "question": "I am reviewing the information on this screen. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 540,
+    "question": "I need to understand the evidence first. Can you guarantee that my doorstep will stay dry?",
+    "requires": [
+      "cannot",
+      "forecast"
+    ],
+    "group": "help-exact",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 541,
+    "question": "I am planning a college outing. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 542,
+    "question": "My family needs to plan a short trip. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 543,
+    "question": "I have an outdoor volunteer shift. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 544,
+    "question": "We are arranging a community event. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 545,
+    "question": "I am preparing a field notebook. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 546,
+    "question": "My team needs to understand the limits. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 547,
+    "question": "I am checking before making a decision. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 548,
+    "question": "We need to explain this to our class. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 549,
+    "question": "I am reviewing the information on this screen. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 550,
+    "question": "I need to understand the evidence first. Compare three cities by humidity next month.",
+    "requires": [
+      "cannot",
+      "comparison"
+    ],
+    "group": "help-comparison",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 551,
+    "question": "I am planning a college outing. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 552,
+    "question": "My family needs to plan a short trip. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 553,
+    "question": "I have an outdoor volunteer shift. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 554,
+    "question": "We are arranging a community event. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 555,
+    "question": "I am preparing a field notebook. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 556,
+    "question": "My team needs to understand the limits. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 557,
+    "question": "I am checking before making a decision. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 558,
+    "question": "We need to explain this to our class. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 559,
+    "question": "I am reviewing the information on this screen. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 560,
+    "question": "I need to understand the evidence first. Does rainwater pH identify every pollutant in stored water?",
+    "requires": [
+      "pH",
+      "not"
+    ],
+    "group": "help-water",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 561,
+    "question": "I am planning a college outing. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 562,
+    "question": "My family needs to plan a short trip. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 563,
+    "question": "I have an outdoor volunteer shift. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 564,
+    "question": "We are arranging a community event. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 565,
+    "question": "I am preparing a field notebook. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 566,
+    "question": "My team needs to understand the limits. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 567,
+    "question": "I am checking before making a decision. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 568,
+    "question": "We need to explain this to our class. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 569,
+    "question": "I am reviewing the information on this screen. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 570,
+    "question": "I need to understand the evidence first. What does the model timestamp identify in this app?",
+    "requires": [
+      "model",
+      "timestamp"
+    ],
+    "group": "help-timestamp",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 571,
+    "question": "I am planning a college outing. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 572,
+    "question": "My family needs to plan a short trip. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 573,
+    "question": "I have an outdoor volunteer shift. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 574,
+    "question": "We are arranging a community event. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 575,
+    "question": "I am preparing a field notebook. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 576,
+    "question": "My team needs to understand the limits. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 577,
+    "question": "I am checking before making a decision. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 578,
+    "question": "We need to explain this to our class. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 579,
+    "question": "I am reviewing the information on this screen. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 580,
+    "question": "I need to understand the evidence first. Can the forecast update while offline with no cached data?",
+    "requires": [
+      "missing|unavailable",
+      "not"
+    ],
+    "group": "help-offline",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 581,
+    "question": "I am planning a college outing. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 582,
+    "question": "My family needs to plan a short trip. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 583,
+    "question": "I have an outdoor volunteer shift. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 584,
+    "question": "We are arranging a community event. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 585,
+    "question": "I am preparing a field notebook. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 586,
+    "question": "My team needs to understand the limits. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 587,
+    "question": "I am checking before making a decision. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 588,
+    "question": "We need to explain this to our class. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 589,
+    "question": "I am reviewing the information on this screen. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 590,
+    "question": "I need to understand the evidence first. Can you measure grain moisture without a field sensor?",
+    "requires": [
+      "grain",
+      "not"
+    ],
+    "group": "help-sensor",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 591,
+    "question": "I am planning a college outing. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 592,
+    "question": "My family needs to plan a short trip. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 593,
+    "question": "I have an outdoor volunteer shift. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 594,
+    "question": "We are arranging a community event. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 595,
+    "question": "I am preparing a field notebook. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 596,
+    "question": "My team needs to understand the limits. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 597,
+    "question": "I am checking before making a decision. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 598,
+    "question": "We need to explain this to our class. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 599,
+    "question": "I am reviewing the information on this screen. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  },
+  {
+    "id": 600,
+    "question": "I need to understand the evidence first. Does cloud cover prove the exact rain amount on my field?",
+    "requires": [
+      "model",
+      "not"
+    ],
+    "group": "help-cloud",
+    "topic": "help",
+    "place": null
+  }
+]

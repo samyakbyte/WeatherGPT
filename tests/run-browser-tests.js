@@ -177,7 +177,7 @@ async function main() {
   check((await page.locator('#active-farm-card').textContent() || '').includes('Test field'), 'saved farm becomes the active farm');
   check((await page.locator('#farm-summary-line').textContent() || '').includes('Test field'), 'dashboard follows the active farm');
   // Farm survives reload.
-  await page.reload({ waitUntil: 'load' });
+  await page.reload({ waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(900);
   await page.evaluate(() => { location.hash = 'locations'; });
   await page.waitForTimeout(300);
@@ -381,7 +381,7 @@ async function main() {
   await page.locator('#current-section').scrollIntoViewIfNeeded();
   await page.locator('#motion-toggle').click();
   check(await page.evaluate(()=>document.body.dataset.ambient==='paused'), 'atmosphere pause stops ambient animation');
-  await page.reload(); await page.waitForSelector('.hour-item');
+  await page.reload({ waitUntil: 'domcontentloaded' }); await page.waitForSelector('.hour-item');
   check(await page.locator('#motion-toggle').getAttribute('aria-pressed')==='true', 'atmosphere pause preference persists');
   await page.locator('#motion-toggle').click();
   await page.emulateMedia({reducedMotion:'reduce'});
@@ -431,7 +431,7 @@ async function main() {
   await page.locator('#location-name').evaluate(e=>e.textContent='A very long location name, Administrative Region, Country');
   await page.evaluate(()=>document.body.style.fontSize='20px');
   check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1), 'long location and enlarged base text do not overflow');
-  await page.reload();await page.waitForSelector('.hour-item');
+  await page.reload({ waitUntil: 'domcontentloaded' });await page.waitForSelector('.hour-item');
   const perf=await page.evaluate(()=>({navigation:performance.getEntriesByType('navigation').map(n=>({domContentLoadedMs:n.domContentLoadedEventEnd,loadMs:n.loadEventEnd})),resources:performance.getEntriesByType('resource').length,environment:'local unthrottled Chrome, mocked providers, external fonts blocked'}));
   await writeFile(join(SHOTS,'performance.json'),JSON.stringify(perf,null,2));
 
@@ -445,26 +445,25 @@ async function main() {
   await page.evaluate(()=>window.dispatchEvent(new Event('offline')));
   check(await page.locator('#toast').isVisible(), 'offline event provides status feedback');
   await page.route('**/api.open-meteo.com/v1/forecast?**', route=>route.fulfill({status:503,contentType:'application/json',body:'{"reason":"Test provider unavailable"}'}));
-  await page.reload();
+  await page.reload({ waitUntil: 'domcontentloaded' });
   await page.locator('#weather-error').waitFor({state:'visible'});
   check((await page.locator('#current-temperature').textContent()).includes('—'), 'provider error clears stale temperature');
   check(await page.locator('#retry-weather').isVisible(), 'provider error exposes retry action');
   check(await page.locator('.forecast-values').isHidden(), 'provider error hides stale forecast table');
   await page.unroute('**/api.open-meteo.com/v1/forecast?**');
-  await page.locator('#retry-weather').click();await page.waitForSelector('.hour-item');
+  await page.locator('#retry-weather').click();
+  await page.waitForFunction(()=>document.querySelectorAll('#hourly-strip .hour-item').length>0 && document.querySelector('#weather-error')?.hidden,{},{timeout:15000});
   check(await page.locator('#weather-error').isHidden(), 'retry recovers from provider error');
-  await page.evaluate(()=>localStorage.clear());
-  await page.reload({ waitUntil: 'domcontentloaded' });
-  await page.waitForSelector('.hour-item');
+  await page.evaluate(()=>localStorage.clear());await page.reload({ waitUntil: 'domcontentloaded' });await page.waitForSelector('.hour-item');
   await page.setViewportSize({width:1440,height:1000});
   await page.evaluate(()=>location.hash='forecast');
   await page.emulateMedia({reducedMotion:'no-preference'});
   await page.locator('#forecast-chart').focus();
-  const firstReadout=await page.locator('.forecast-live').textContent();
+  const firstReadout=await page.locator('.forecast-point-time').textContent();
   await page.keyboard.press('ArrowRight');
-  check((await page.locator('.forecast-live').textContent())!==firstReadout,'chart ArrowRight changes live readout');
+  check((await page.locator('.forecast-point-time').textContent())!==firstReadout,'chart ArrowRight changes live readout');
   await page.keyboard.press('Home');
-  check((await page.locator('.forecast-live').textContent())===firstReadout,'chart Home restores first forecast point');
+  check((await page.locator('.forecast-point-time').textContent())===firstReadout,'chart Home restores first forecast point');
   await page.keyboard.press('End');
   check(await page.evaluate(()=>Chart.getChart(document.getElementById('forecast-chart')).getActiveElements()[0].index===23),'chart End selects final hourly point');
   await page.mouse.move(1000,300);await page.waitForTimeout(50);
@@ -494,6 +493,64 @@ async function main() {
   }, makeMatrixState());
   check(matrixResults.length===1000&&matrixResults.every(row=>row.passed),'1000-statement browser interpretation and answer matrix');
   await writeFile(join(SHOTS,'assistant-1000-browser.json'),JSON.stringify({total:matrixResults.length,passed:matrixResults.filter(x=>x.passed).length,failures:matrixResults.filter(x=>!x.passed)},null,2));
+  const diverseResults=await page.evaluate(async fixture=>{
+    const {auditQuestion}=await import('./tests/diverse-audit.js');
+    const cases=await (await fetch('./tests/diverse-1000-cases.json')).json();
+    return cases.map(test=>{const state=structuredClone(fixture);state.location.name=test.place||'Jaipur';if(test.noForecast)state.weather=null;return auditQuestion(test,state,window.nlp);});
+  },makeMatrixState());
+  check(diverseResults.length===1000&&diverseResults.every(row=>row.passed),'1000 varied questions across 40 categories pass browser audit');
+  await writeFile(join(SHOTS,'diverse-1000-browser.json'),JSON.stringify({total:diverseResults.length,passed:diverseResults.filter(x=>x.passed).length,failures:diverseResults.filter(x=>!x.passed)},null,2));
+  const variedForms=await page.evaluate(async()=>{const rows=await (await fetch('./tests/diverse-1000-cases.json')).json();return rows.filter(row=>row.index===1);});
+  const formResults=[];
+  for(const test of variedForms){
+    if(test.previous)await ask(test.previous);
+    const before=await page.locator('#assistant-context').textContent();
+    const requests=[];const watch=r=>{if(/geocoding-api|photon|nominatim/.test(r.url()))requests.push(r.url());};page.on('request',watch);
+    const reply=await ask(test.q);const text=await reply.textContent();page.off('request',watch);
+    const after=await page.locator('#assistant-context').textContent();
+    const ok=!!text&&!/Several places match|could not find/i.test(text)&&(test.place?true:before===after&&requests.length===0);
+    if(test.group==='compound')check(/hourly chance of rain/i.test(text)&&/sustained wind/i.test(text),'chat gives both rain and wind for the compound forecast');
+    check(ok,`varied form: ${test.group}`);formResults.push({question:test.q,group:test.group,passed:ok,response:text,geocoderRequests:requests.length});
+  }
+  await writeFile(join(SHOTS,'diverse-form-results.json'),JSON.stringify(formResults,null,2));
+  // Exercise repaired routing through the chat form with provider fixtures.
+  const newCases=await page.evaluate(async()=>await (await fetch('./tests/extra-200.json')).json());
+  const spotChecks=[[9,/umbrella/i],[13,/temperature/i],[37,/sunrise/i],[57,/tomato/i],[106,/umbrella/i],[129,/operational|train|limited model/i]];
+  for(const [id,expected] of spotChecks){
+    const before=await page.locator('#assistant-context').textContent();
+    const requests=[];const watch=r=>{if(/geocoding-api|photon|nominatim/.test(r.url()))requests.push(r.url());};
+    page.on('request',watch);
+    const entry=await ask(newCases[id-1].question);
+    page.off('request',watch);
+    const reply=await entry.textContent();
+    check(expected.test(reply)&&requests.length===0&&before===await page.locator('#assistant-context').textContent(),`new question ${id} answers without an unwanted location lookup`);
+  }
+  // Additional 1,000-set routing checks through the real submit handler.
+  const thousandCases=await page.evaluate(async()=>await (await fetch('./tests/new-1000-cases.json')).json());
+  const thousandChecks=[[22,/umbrella/i],[30,/temperature/i],[99,/humidity/i],[121,/cloud/i],[147,/uv/i],[196,/sunset/i],[207,/sunrise/i],[226,/pressure.*hPa/i],[267,/right now/i],[307,/wheat/i],[395,/rice/i],[401,/irrigation/i],[431,/harvest/i],[584,/Settings/i],[599,/Settings/i],[623,/RainViewer/i],[648,/probability/i],[662,/missing|unavailable/i],[695,/confidence/i],[750,/prescribe/i]];
+  const thousandFormResults=[];
+  for(const [id,expected] of thousandChecks){
+    const before=await page.locator('#assistant-context').textContent();
+    const requests=[];const watch=r=>{if(/geocoding-api|photon|nominatim/.test(r.url()))requests.push(r.url());};
+    page.on('request',watch);
+    const entry=await ask(thousandCases[id-1].question);
+    page.off('request',watch);
+    const reply=await entry.textContent();
+    const ok=expected.test(reply)&&requests.length===0&&before===await page.locator('#assistant-context').textContent();
+    check(ok,`additional thousand chat case ${id}`);
+    thousandFormResults.push({id,question:thousandCases[id-1].question,passed:ok,reply,geocoderRequests:requests});
+  }
+  await writeFile(join(SHOTS,'new1000-form-results.json'),JSON.stringify(thousandFormResults,null,2));
+  // Everyday Hindi/Hinglish messages through the real chat form.
+  const everydayForms=['भाई कल भीगना तो नहीं पड़ेगा?','कल ऑफिस जाना है, रेनकोट रख लूँ?','kal school jaana h chata le jau?','parson trip hai barish ka kya scene h','मेरे टमाटर हैं, अभी के मौसम में क्या करूँ?','aloo me sinchai karu kya aaj','यहाँ बारिश का पानी कितना अम्लीय है?','कल सूरज कब डूबेगा भाई?','kal suraj kab niklega','अभी हवा का दबाव कितना है?'];
+  const everydayResults=[];
+  for(const question of everydayForms){
+    const requests=[];const watch=r=>{if(/geocoding-api|photon|nominatim/.test(r.url()))requests.push(r.url());};page.on('request',watch);
+    const entry=await ask(question);page.off('request',watch);const reply=await entry.textContent();
+    const ok=/[\u0900-\u097f]/.test(reply)&&!reply.includes('यह मौसम प्रश्न समझ नहीं आया')&&!requests.length;
+    check(ok,`everyday Hindi form: ${question}`);everydayResults.push({question,reply,passed:ok,requests});
+  }
+  await writeFile(join(SHOTS,'everyday-form-results.json'),JSON.stringify(everydayResults,null,2));
   // ── Reduced motion: radar autoplay must not start ──
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.evaluate(() => { location.hash = 'map'; });
@@ -503,6 +560,60 @@ async function main() {
   await page.locator('#radar-play').click();
   await page.waitForTimeout(200);
   check((await page.locator('#map-status').textContent() || '').includes('reduced motion'), 'reduced motion disables radar autoplay');
+
+  // Verify the actual scene component, all conditions, and mobile bounds.
+  await page.evaluate(()=>location.hash='overview');await page.waitForTimeout(300);
+  await page.emulateMedia({reducedMotion:'reduce'});
+  for(const [icon,expected] of [['sun','sun'],['cloud','cloud'],['cloud-rain','rain'],['snow','snow'],['fog','fog'],['moon','night'],['storm','storm'],['unknown','unknown']]){
+    await page.evaluate(icon=>{document.body.dataset.weather=icon;document.body.dataset.day=icon==='moon'?'night':'day';},icon);
+    await page.waitForTimeout(80);
+    check(await page.locator('#current-section').getAttribute('data-scene')===expected,`scene condition ${icon}`);
+    if(['sun','rain','snow','night'].includes(expected))await shot(page,`scene-${expected}-desktop.png`);
+  }
+  await page.setViewportSize({width:390,height:844});
+  await page.evaluate(()=>{document.body.dataset.weather='sun';document.body.dataset.day='day';});await page.waitForTimeout(100);
+  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'condition scene fits mobile width');
+  check(await page.locator('.scene-depth').evaluate(e=>getComputedStyle(e).transform)==='none','reduced motion disables scene tilt');
+  await shot(page,'scene-mobile.png');
+
+  // Observatory: real controls, linked summaries, night conditions and missing data.
+  await page.setViewportSize({width:390,height:844});
+  await page.evaluate(()=>location.hash='overview');
+  await page.locator('[data-ahead-metric="wind"]').click();
+  await page.waitForTimeout(100);
+  check((await page.locator('[data-metric="wind"]').getAttribute('aria-pressed'))==='true'&&new URL(page.url()).hash==='#forecast','next-hours wind link opens the matching forecast');
+  check(await page.locator('#day-ahead').isHidden(),'overview summary stays out of full forecast view');
+  check(await page.locator('[data-step="-1"]').isDisabled(),'previous point is disabled at the first hour');
+  const initialPoint=await page.locator('.forecast-point-time').textContent();
+  await page.locator('[data-step="1"]').click();
+  check((await page.locator('.forecast-point-time').textContent())!==initialPoint,'touch next point updates time and metric');
+  check(await page.locator('[data-step="1"]').evaluate(e=>e===document.activeElement),'point navigation preserves focus');
+  check((await page.locator('.forecast-point-status').textContent()).includes('km/h'),'chosen point announces the actual unit');
+  await page.locator('[data-step="-1"]').click();
+  check((await page.locator('.forecast-point-time').textContent())===initialPoint,'touch previous point restores first hour');
+  await page.locator('.hour-item[data-index="3"]').click();
+  check(await page.locator('.hour-item[data-index="3"]').getAttribute('aria-pressed')==='true'&&await page.evaluate(()=>Chart.getChart(document.getElementById('forecast-chart')).getActiveElements()[0]?.index===3),'hour strip and chart selection remain synchronized');
+  await page.locator('#forecast-chart').focus();await page.keyboard.press('End');
+  check(await page.locator('[data-step="1"]').isDisabled(),'next point is disabled at the final hour');
+  await page.locator('[data-period="daily"]').click();await page.locator('[data-step="1"]').click();
+  check((await page.locator('.forecast-point-time').textContent()).includes('Tomorrow'),'point buttons also navigate daily forecasts');
+  await page.locator('#global-language').selectOption('hi');
+  check(await page.locator('[data-step="1"]').getAttribute('aria-label')==='अगला समय','forecast touch controls localize to Hindi');
+  await page.evaluate(()=>location.hash='overview');
+  check(await page.locator('#day-ahead').getAttribute('aria-label')==='अगले 12 घंटे','next-hours summary has a Hindi accessible name');
+  check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'Hindi summary and forecast fit a phone');
+  await shot(page,'observatory-hindi-390.png');
+  await page.locator('#global-language').selectOption('en');
+  for(const [icon,expected] of [['cloud','cloud-night'],['sun-cloud','partial-night']]){
+    await page.evaluate(icon=>{document.body.dataset.weather=icon;document.body.dataset.day='night';},icon);
+    await page.waitForTimeout(50);
+    check(await page.locator('#current-section').getAttribute('data-scene')===expected,`night keeps ${icon} cover`);
+  }
+  await page.evaluate(()=>{document.body.dataset.weather='sun';document.body.dataset.day='day';});await page.waitForTimeout(50);
+  check(await page.locator('.scene-particles i').first().evaluate(e=>getComputedStyle(e).animationName)==='none','sunny scene does not run invisible rain particles');
+  await page.evaluate(async()=>{const {renderDayAhead}=await import('./js/day-ahead.js');renderDayAhead({weather:null,prefs:{language:'en'}});});
+  check((await page.locator('.ahead-reading strong').allTextContents()).every(t=>t==='—'),'missing weather clears all next-hours readings');
+  check((await page.locator('.ahead-reading small').allTextContents()).every(t=>t==='Data unavailable'),'missing weather shows an explicit summary state');
 
   check(pageErrors.length === 0, `no uncaught page exceptions (${pageErrors.slice(0, 3).join(' | ')})`);
   await writeFile(join(SHOTS, 'browser-results.json'), JSON.stringify({ passed, failed, failures, pageErrors, at: new Date().toISOString() }, null, 2));

@@ -1,0 +1,100 @@
+rain|tomorrow|hi|कल कॉलेज जाना है, छाता ले जाऊँ या रहने दूँ?
+rain|tomorrow|hi|भाई कल भीगना तो नहीं पड़ेगा?
+rain|tomorrow|hi|कल बारिश होगी क्या यार?
+rain|tomorrow|hi|सीधा बोलो, कल छाता चाहिए या नहीं?
+rain|tomorrow|hi|कल बच्चे को स्कूल छोड़ना है, बारिश का क्या सीन है?
+rain|tomorrow|hi|कल कपड़े बाहर सुखाऊँ तो भीगेंगे क्या?
+rain|tomorrow|hi|कल ऑफिस जाना है, रेनकोट रख लूँ?
+rain|tomorrow|hi|अरे कल बारिश होगी कि नहीं, इतना बता दो।
+rain|tomorrow|hi|कल पैदल जाना है। छाता रखना ठीक रहेगा?
+rain|tomorrow|hi|कल किताबें भीग न जाएँ, बारिश का चांस है?
+rain|tomorrow|hi|kal college jana hai umbrella rakhu kya
+rain|tomorrow|hi|bhai kal barish hogi ya nahi seedha bata
+rain|tomorrow|hi|kal bheeg jaunga kya
+rain|tomorrow|hi|kal raincoat leke niklu?
+rain|tomorrow|hi|yaar kal baarish ka scene kya hai
+rain|tomorrow|hi|kal kapde bahar sukha du? barish toh nhi hogi?
+rain|tomorrow|hi|kal school jaana h chata le jau?
+rain|tomorrow|hi|kal bike se jana hai barish ka chance kitna h
+rain|tomorrow|hi|kal office ke liye umbrella rakh lu ya rehne du
+rain|tomorrow|hi|seedha bta kal umbrella chahiye ya nahi
+rain|tomorrow|en|Am I gonna get soaked on the way to college tomorrow?
+rain|tomorrow|en|Just tell me if I need a brolly tomorrow, please.
+rain|tomorrow|en|Mate, is it actually going to rain tomorrow?
+rain|tomorrow|en|I've got class tomorrow. Raincoat or nah?
+rain|tomorrow|en|Don't give me a lecture, should I pack an umbrella tomorrow?
+rain|tomorrow|en|Will my washing get rained on tomorrow?
+rain|tomorrow|en|I'm taking the bike tomorrow. Any rain coming?
+rain|tomorrow|en|Tomorrow's school run — am I likely to get wet?
+rain|tomorrow|en|Do I bother taking an umbrella tomorrow or leave it?
+rain|tomorrow|en|Ugh, please tell me whether it'll rain tomorrow.
+rain|after|hi|परसों घूमने जाना है, बारिश तो नहीं होगी?
+rain|after|hi|परसों छाता ले जाना पड़ेगा क्या?
+rain|after|hi|parson trip hai barish ka kya scene h
+rain|after|hi|parso umbrella chahiye kya bhai
+rain|after|en|What about rain the day after tomorrow? I've got plans.
+rain|after|en|Day after tomorrow, will I regret leaving my umbrella?
+temperature|tomorrow|hi|कल बहुत गर्मी पड़ेगी क्या?
+temperature|tomorrow|hi|कल कितना तापमान रहेगा भाई?
+temperature|tomorrow|hi|kal kitni garmi padegi yaar
+temperature|tomorrow|hi|kal thand hogi kya?
+temperature|tomorrow|en|Is tomorrow going to be roasting hot?
+temperature|tomorrow|en|How cold's it gonna be tomorrow, roughly?
+humidity|today|hi|आज इतनी उमस है क्या नमी ज्यादा है?
+humidity|today|hi|अभी नमी कितनी है जरा बताओ।
+humidity|today|hi|aaj humidity kitni hai bhai
+humidity|today|hi|abhi nami kitni h
+humidity|today|en|Why does it feel so muggy — what's the humidity today?
+humidity|today|en|How humid is it here today, roughly?
+wind|tomorrow|hi|कल हवा तेज चलेगी क्या?
+wind|tomorrow|hi|कल पतंग उड़ानी है, हवा कितनी होगी?
+wind|tomorrow|hi|kal hawa tez hogi kya yaar
+wind|tomorrow|hi|kal kitni hawa chalegi?
+wind|tomorrow|en|Is it going to be really windy tomorrow?
+wind|tomorrow|en|Tomorrow, will the wind be strong? I've got a stall outside.
+crop|today|hi|गेहूं बो रखा है, आज के मौसम में क्या ध्यान रखूँ?
+crop|today|hi|धान लगा है, मौसम देखकर कुछ सावधानी बताओ।
+crop|today|hi|मेरे टमाटर हैं, अभी के मौसम में क्या करूँ?
+crop|today|hi|आलू के खेत में सिंचाई करूँ क्या?
+crop|today|hi|गेहूं में स्प्रे करना है, मौसम ठीक है क्या?
+crop|today|hi|धान की कटाई करनी है, क्या सावधानी रखूँ?
+crop|today|hi|gehu laga hai mausam dekh ke salah do
+crop|today|hi|dhan me spray karna h weather theek hai?
+crop|today|hi|tamatar ke liye aaj kya saavdhani rakhu
+crop|today|hi|aloo me sinchai karu kya aaj
+crop|today|en|I've got wheat growing. What should I watch out for today?
+crop|today|en|My rice needs spraying. Is the weather any good for that?
+crop|today|en|I'm harvesting potatoes. Anything weather-wise I should watch?
+crop|today|en|Should I water my tomatoes today? What's the weather saying?
+ph|today|hi|बारिश के पानी का पीएच बता सकते हो?
+ph|today|hi|यहाँ बारिश का पानी कितना अम्लीय है?
+ph|today|hi|AQI देखकर पानी का pH पता चलता है क्या?
+ph|today|hi|पीएच नहीं दिख रहा तो क्या पानी ठीक है?
+ph|today|hi|barish ke pani ka ph kitna hai?
+ph|today|hi|aqi se rainwater ka ph bata do
+ph|today|hi|pani ka ph missing hai toh safe samjhu?
+ph|today|en|Can you actually tell the pH of the rain here?
+ph|today|en|So can air pollution tell you my rainwater's pH or not?
+ph|today|en|The pH box is empty. That doesn't mean zero, right?
+sun|tomorrow|hi|कल सूरज कितने बजे निकलेगा?
+sun|tomorrow|hi|कल सूरज कब डूबेगा भाई?
+sun|tomorrow|hi|kal suraj kab niklega
+sun|tomorrow|hi|kal suraj kitne baje dubega?
+sun|tomorrow|en|When's the sun going down tomorrow? I want a photo.
+sun|tomorrow|en|What time's sunrise tomorrow? Don't want to miss it.
+visibility|tomorrow|hi|कल कोहरा होगा क्या?
+visibility|tomorrow|hi|kal kohra hoga kya subah
+visibility|tomorrow|en|How foggy will it be tomorrow? I've got to travel.
+uv|tomorrow|hi|कल UV कितना होगा?
+uv|tomorrow|hi|kal uv kitna hoga bhai
+uv|tomorrow|en|How bad's the UV tomorrow? I'll be outside.
+clouds|tomorrow|hi|कल बादल ज्यादा होंगे क्या?
+clouds|tomorrow|hi|kal badal honge ya aasman saaf hoga
+clouds|tomorrow|en|Will tomorrow be really cloudy or mostly clear?
+pressure|today|hi|अभी हवा का दबाव कितना है?
+pressure|today|hi|abhi pressure kitna hai yaar
+pressure|today|en|What's the air pressure right now, mate?
+rain|today|hi|आज छाता रखना पड़ेगा क्या भाई?
+rain|today|hi|aaj chhata rakh lu kya yaar
+rain|today|en|Do I need an umbrella today? Just heading out.
+rain|today|en|Is it gonna rain today or can I leave the brolly?

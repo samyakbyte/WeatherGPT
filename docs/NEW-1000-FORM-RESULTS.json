@@ -1,0 +1,142 @@
+[
+  {
+    "id": 22,
+    "question": "Please lead with umbrella advice for tomorrow's commute.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTJaipurYes, take an umbrella—rain is possible. Tomorrow in Jaipur, the highest precipitation chance is 45%, around 12 AM. The forecast daily total is 5.0 mm. Probability isn’t a promise—check again before you head out. (Resolved: Tomorrow, Tue 27 Oct, whole day IST (2026-10-27).)Peak hourly chance45%At that time28°Daily precipitation5.0 mmJaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 30,
+    "question": "Read the temperature forecast for 19:00 tomorrow.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTJaipur7 PMFor Jaipur, temperature is 26°C for Tomorrow, Tue 27 Oct, 7 PM IST (2026-10-27). Forecast for this model grid cell — not a measurement at your field.Temperature26°CFeels like32°CPercentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 99,
+    "question": "For the 4 PM hour tomorrow, tell me humidity in percent.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTJaipur4 PMFor Jaipur, relative humidity is 65 % for Tomorrow, Tue 27 Oct, 4 PM IST (2026-10-27). Forecast for this model grid cell — not a measurement at your field.Relative humidity65 %Percentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 121,
+    "question": "What cloud coverage will tomorrow's 6 PM forecast show?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTJaipur6 PMFor Jaipur, cloud cover is 50 % for Tomorrow, Tue 27 Oct, 6 PM IST (2026-10-27). Forecast for this model grid cell — not a measurement at your field.Cloud cover50 %Percentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 147,
+    "question": "Give tomorrow's 4 PM ultraviolet index.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTJaipur4 PMFor Jaipur, uv index is 5.0 for Tomorrow, Tue 27 Oct, 4 PM IST (2026-10-27). Forecast for this model grid cell — not a measurement at your field.UV index5.0Percentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 196,
+    "question": "The park visit is tomorrow; tell me when the sun goes down.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTFor Jaipur on 2026-10-27, sunrise is 6:12 AM and sunset is 6:05 PM (Asia/Kolkata).Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 207,
+    "question": "What time does the sun come up tomorrow?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTFor Jaipur on 2026-10-27, sunrise is 6:12 AM and sunset is 6:05 PM (Asia/Kolkata).Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 226,
+    "question": "What is the pressure reading right now at this location?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTJaipurDaily outlookFor Jaipur, sea-level pressure is 1,009 hPa for current model time 2026-10-26T10:00 (Asia/Kolkata). Forecast for this model grid cell — not a measurement at your field.Sea-level pressure1,009 hPaPercentages are for individual forecast hours, not the whole window. Official warning feeds are not connected; check IMD or SACHET.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 267,
+    "question": "I'd like current conditions rather than tomorrow's outlook.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTRight now in Jaipur, the model estimates 29°C with light rain. It feels like 32°C, with wind around 14 km/h. These are model estimates, not station observations.Temperature29°CFeels like32°CWind14 km/hJaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 307,
+    "question": "What does the weather right now mean for my wheat crop?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTRight now — Jaipur: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: Jaipur: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Wheat may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 395,
+    "question": "Give rice spraying weather precautions without a chemical dose.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTRight now — Jaipur: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nAdvice for Jaipur from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: Jaipur: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Rice / paddy may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 401,
+    "question": "Give current-weather irrigation precautions for wheat.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTRight now — Jaipur: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nIrrigation: review the forecast rainfall below alongside actual field moisture, drainage and crop stage. Weather alone cannot determine whether irrigation is needed or how much water to apply.\n\nAdvice for Jaipur from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: Jaipur: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Wheat may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 431,
+    "question": "I want weather guidance before harvesting soybean today.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTRight now — Jaipur: Light rain, 29°C, humidity 65%, wind 14 km/h. Model time: 2026-10-26T10:00 (Asia/Kolkata).\n\nHarvest: review the rain and wind precautions below. The forecast cannot measure crop maturity or grain moisture, so it cannot certify harvest readiness; use field checks for that decision.\n\nAdvice for Jaipur from the local forecast 2026-10-26 to 2026-11-01 (grid-cell values, not field measurements): Tell me the growth stage to refine this advice.\n\n1. What weather is expected: Jaipur: Highest forecast daily maximum in the next three days is 39.0°C (2026-10-28). Window: 2026-10-28. Forecast for a model grid cell, not a measurement at your field. Model grid centre: 26.8750, 75.7500.\n2. Why your crop may be affected: Soybean may be affected by heat; sensitivity depends on growth stage, soil and variety. Tell me the stage to refine this. This is a weather-based flag, not a diagnosis.\n3. What to do and when:\n1. [General precaution] Check soil moisture in the early morning. If the soil is dry, prioritise the crop’s critical stages and irrigate in cooler hours. Avoid strenuous field work at midday; ask your KVK about heat-tolerant practices.\n4. Evidence and limits: Calculation: Open-Meteo forecast values, thresholds version 1 (configurable engineering defaults, not official IMD thresholds). Guidance: general precaution, no crop-specific source found. Confirm with your nearest KVK or state agriculture department before choosing a product or dose. No official warning feed is connected. Weather alone cannot diagnose disease or guarantee yield.heat39 °CForecast calculations and guidance are labelled separately. No dose or treatment is prescribed.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 584,
+    "question": "Where do I switch between the hourly forecast and daily forecast?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTUse Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 599,
+    "question": "How do I stop the decorative background animation?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTUse Settings for temperature and wind units, the language selector for language, and Pause atmosphere for decorative motion. The assistant has microphone/read-aloud controls and Clear for the conversation. Use the map controls for layers and radar playback; use the forecast controls for hours/days and View all forecast values for the table. The chart supports arrow keys, Home and End. Browser permissions must be changed in the browser. This answer has not changed a setting.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 623,
+    "question": "What do past radar frames show in this website?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTThe radar map uses RainViewer frames and shows available past/recent frames, not a guaranteed future storm path. Use the map timeline, frame buttons and play/pause control to inspect their timestamps. Coverage and tile/network failures can leave gaps. I cannot infer an exact arrival time or lightning path from these frames. This explanation has not started playback or changed the layer.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 648,
+    "question": "Tell me what the precipitation chance percentage describes.",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTRain probability is a forecast chance for the provider’s time interval; it is not a rainfall amount, a fraction of the day or a guaranteed fraction of your field. A zero or high percentage is not a guarantee. A small nonzero chance can justify a compact umbrella; incomplete values do not justify assuming dry weather. Recheck the latest forecast before leaving.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 662,
+    "question": "Why are unavailable values different from zero values?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTUnavailable values must remain missing, not be treated as zero. A partial forecast cannot support a complete-period guarantee. Check the displayed source/timestamp and retry a failed provider request; search manually if geolocation is denied. Weather, map tiles, radar, air quality and measured pH have separate availability. I cannot recover an unsaved observation or promise offline updates.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 695,
+    "question": "Can a confidence score be inferred without provider support?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTThe weather values are model estimates for a grid cell, not direct measurements at every field or building. The timestamp identifies the model time shown by the app. User-provided samples have separate provenance. Some local showers and field conditions can differ. I will not invent a confidence score or turn a forecast into a guarantee.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  },
+  {
+    "id": 750,
+    "question": "Can this crop warning act as a pesticide prescription?",
+    "passed": true,
+    "reply": " WEATHERGPT · FORECAST INSIGHTI cannot prescribe a pesticide, fertilizer, lime or water-treatment dose, identify a disease, or verify a chemical mixture from weather data. A rainwater pH reading alone cannot diagnose a crop problem. Product details, field inspection and appropriate soil/water tests are missing. The crop view provides forecast-based precautions, not a diagnosis or prescription.Jaipur · Open-Meteo · model 10 AM local",
+    "geocoderRequests": []
+  }
+]

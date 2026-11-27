@@ -17,7 +17,7 @@ export function periodEvidence(intent,data) {
 const dayWord=(offset,hi)=>hi?['आज','कल','परसों'][offset]:['Today','Tomorrow','The day after tomorrow'][offset];
 export function periodInsight(intent,state) {
   const hi=intent.language==='hi',evidence=periodEvidence(intent,state.weather);
-  if(!evidence)return {text:hi?'इस समय अवधि का पर्याप्त पूर्वानुमान उपलब्ध नहीं है। आज की अवधि बीत चुकी हो सकती है। कृपया कल का समय पूछें या दोबारा प्रयास करें।':'There isn’t enough forecast data for that time window. Today’s window may already have passed. Try tomorrow or another time.',metrics:[],language:intent.language};
+  if(!evidence)return {text:hi?'इस समय अवधि का पर्याप्त पूर्वानुमान उपलब्ध नहीं है। आज की अवधि बीत चुकी हो सकती है। कृपया कल का समय पूछें या दोबारा प्रयास करें।':`${intent.topic==='rain'?'Rain':intent.topic==='wind'?'Wind':'Weather'} forecast: there isn’t enough forecast data for that time window. Today’s window may already have passed. Try tomorrow or another time.`,supportMode:'limit',metrics:[],language:intent.language};
   const{weather:data,location,prefs}=state,{peak,min,max,maxWind,indexes}=evidence;
   const day=(intent.dayOffset<=2?dayWord(intent.dayOffset,hi):intent.date)||state.weather.daily.time[intent.dayOffset],period=intent.period;
   const rainAdvice=umbrellaAdvice(peak,intent.language,evidence.complete);

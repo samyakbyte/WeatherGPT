@@ -10,6 +10,7 @@ import { fetchAirQuality } from './air-quality.js';
 import { loadNLPEngine, topicNames } from './nlp.js';
 import { parseWeatherQuestion } from './intent.js';
 import { t, setLocale, applyTranslations, formatNumber } from './i18n.js';
+import { renderDayAhead } from './day-ahead.js';
 
 hydrateIcons();
 const $=id=>document.getElementById(id);
@@ -73,6 +74,7 @@ function setClock(){
 }
 function renderCurrent(){
   const data=state.weather,prefs=state.prefs;
+  renderDayAhead(state);
   $('location-name').textContent=labelLocation();updateSavedButton();setClock();
   if(!data){
     document.body.dataset.weather='unknown';

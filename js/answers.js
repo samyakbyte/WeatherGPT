@@ -6,6 +6,7 @@ import * as tz from './timezone.js';
 import { DEFAULT_OUTDOOR_WINDOW, windowLabel as partWindowLabel } from '../data/time-windows.js';
 import { temp, wind, number, present, condition, localHour } from './weather.js';
 import { answerCropQuestion } from './advisory.js';
+import { PH_ESTIMATE_LIMIT } from './acidity.js';
 
 const GRID_NOTE = {
   en: 'Forecast for this model grid cell — not a measurement at your field.',
@@ -103,8 +104,8 @@ export function metricAnswer(intent, state) {
   const resolved = intent.time?.resolvedLabel;
   const place = state.location?.name || '';
   // Pressure has no hourly series in this app; say so rather than substituting.
-  if (spec.kind === 'pressure' && (intent.dayOffset > 0 || intent.time?.kind !== 'day' || !intent.time?.isNow)) {
-    if (intent.dayOffset > 0 || intent.time?.kind === 'point' || intent.time?.kind === 'part') {
+  if (spec.kind === 'pressure' && !intent.time?.isNow) {
+    if (intent.dayOffset > 0 || intent.time?.kind !== 'day') {
       return result(language === 'hi'
         ? 'इस ऐप में समुद्र-तल दबाव केवल वर्तमान मॉडल अनुमान के रूप में लोड है, प्रति-घंटा पूर्वानुमान के रूप में नहीं। "Pressure now" पूछें।'
         : 'This app loads current sea-level pressure, not its hourly forecast. Ask “Pressure now” for the available model estimate.',
@@ -113,11 +114,13 @@ export function metricAnswer(intent, state) {
   }
   const collected = collect(state, intent, spec);
   if (!collected) return noForecast(language);
-  if (collected.outside) return unavailableWindow(language, intent, state);
+  if (collected.outside) {const answer=unavailableWindow(language,intent,state);answer.text=(language==='hi'?spec.labelHi:spec.label)+': '+answer.text;answer.supportMode='limit';return answer;}
   if (!collected.values.length) return missingValues(language, intent, state);
   const value = rangeText(spec, collected.values, state.prefs, language);
   const label = language === 'hi' ? spec.labelHi : spec.label;
-  const when = resolved || intent.date;
+  const when = collected.isNow
+    ? `${language==='hi'?'वर्तमान मॉडल समय':'current model time'} ${data.current?.time || (language==='hi'?'अनुपलब्ध':'unavailable')} (${data.timezone || intent.time?.zone || 'local'})`
+    : resolved || intent.date;
   const note = collected.partial
     ? (language === 'hi' ? 'कुछ घंटों के मान उपलब्ध नहीं हैं।' : 'Some hourly values in this window are missing.')
     : '';
@@ -200,7 +203,7 @@ export function acidityAnswer(intent, state) {
   const hi = intent.language === 'hi';
   return result(hi
     ? 'Rainwater acidity data unavailable for this location. वर्तमान, स्थानीय और प्रोग्राम-योग्य वर्षा-jal pH डेटा इस ऐप से नहीं जुड़ा है। आप अपनी माप "उपयोगकर्ता द्वारा दर्ज" के रूप में दर्ज कर सकते हैं।'
-    : 'Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”.',
+    : 'Rainwater acidity data unavailable for this location. No current, local, machine-readable measured pH dataset is connected. You may enter your own reading, clearly labelled “User-provided”. '+PH_ESTIMATE_LIMIT.en,
     { language: intent.language });
 }
 

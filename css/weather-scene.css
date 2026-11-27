@@ -1,0 +1,37 @@
+/* A small photographic atlas and CSS volumes keep depth independent of WebGL. */
+.current-weather{isolation:isolate;perspective:1100px;overflow:hidden;border:1px solid #ffffff25}
+.current-weather::before{background:#142a3d!important;filter:none!important;animation:none!important;transform:none!important}
+.condition-scene{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;border-radius:inherit}
+.scene-photo{position:absolute;inset:-2px;background-image:linear-gradient(180deg,#07182735,#07182720 30%,#071827e8 78%,#071827),url('../assets/weather-scenes.webp');background-size:100% 100%,300% 200%;opacity:0;transition:opacity 1s ease}
+.scene-photo.active{opacity:1}
+.scene-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#07182788,transparent 85%)}
+.scene-photo[data-scene=sun],.scene-photo[data-scene=partial]{background-position:center,0% 0%}
+.scene-photo[data-scene=cloud]{background-position:center,50% 0%}
+.scene-photo[data-scene=rain],.scene-photo[data-scene=storm]{background-position:center,100% 0%}
+.scene-photo[data-scene=snow]{background-position:center,0% 100%}
+.scene-photo[data-scene=fog]{background-position:center,50% 100%}
+.scene-photo[data-scene=night]{background-position:center,100% 100%}
+.scene-photo[data-scene=unknown]{background-image:linear-gradient(145deg,#203b50,#102131)}
+.scene-depth{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--scene-rx,0deg)) rotateY(var(--scene-ry,0deg));transition:transform .4s ease}
+.scene-orb{position:absolute;top:18%;right:10%;width:125px;height:125px;border-radius:50%;background:radial-gradient(circle at 33% 26%,#fffde5,#ffde88 38%,#e8a447 72%,#ad672c);box-shadow:inset -12px -14px 24px #9a50194d,0 0 65px #ffda8d66;transform:translateZ(45px);opacity:0}
+[data-scene=sun] .scene-orb,[data-scene=partial] .scene-orb{opacity:1;animation:scene-float 9s ease-in-out infinite}
+[data-scene=night] .scene-orb{opacity:1;background:radial-gradient(circle at 35% 28%,#edf4fc,#acbdcd 55%,#61768d);box-shadow:inset -15px -12px 20px #23395388,0 0 38px #b7d5f133;width:95px;height:95px}
+.scene-cloud{position:absolute;top:29%;right:7%;width:170px;height:61px;border-radius:55px;background:linear-gradient(160deg,#fff,#dce8ef 43%,#8199af);box-shadow:inset 0 -10px 15px #526f8655,0 17px 25px #071d3444;transform:translateZ(65px);opacity:0}
+.scene-cloud::before,.scene-cloud::after{content:'';position:absolute;border-radius:50%;background:inherit;z-index:-1}
+.scene-cloud::before{width:86px;height:85px;left:32px;bottom:12px}.scene-cloud::after{width:65px;height:65px;right:14px;bottom:8px}
+.cloud-back{top:21%;right:23%;scale:.68;filter:brightness(.86);transform:translateZ(15px)}
+[data-scene=cloud] .scene-cloud,[data-scene=partial] .scene-cloud,[data-scene=rain] .scene-cloud,[data-scene=snow] .scene-cloud,[data-scene=storm] .scene-cloud{opacity:.93;animation:scene-float 10s ease-in-out infinite}
+[data-scene=rain] .scene-cloud,[data-scene=storm] .scene-cloud{background:linear-gradient(160deg,#c1d1df,#7793a9 45%,#324d66)}
+.scene-particles{position:absolute;inset:0;opacity:0;overflow:hidden}
+.scene-particles i{position:absolute;left:var(--x);top:-20%;height:45px;width:1px;background:linear-gradient(transparent,#dbeeff99)}
+[data-scene=rain] .scene-particles i,[data-scene=storm] .scene-particles i,[data-scene=snow] .scene-particles i{animation:scene-fall var(--speed) linear var(--delay) infinite}
+[data-scene=rain] .scene-particles,[data-scene=storm] .scene-particles,[data-scene=snow] .scene-particles{opacity:.55}
+[data-scene=snow] .scene-particles i{width:5px;height:5px;border-radius:50%;background:#fff;animation-duration:7s}
+.current-primary{position:relative;z-index:1}.current-primary .temperature-line{text-shadow:0 3px 20px #07182788}.current-detail{position:relative;z-index:1}
+.current-weather .large-weather-icon{filter:drop-shadow(0 5px 3px #0004)}
+.weather-cursor.is-link{box-shadow:0 0 18px #b3dcff44;border-color:#cceaff}
+@keyframes scene-float{50%{translate:0 -10px}}
+@keyframes scene-fall{to{translate:-45px 900px}}
+body[data-ambient=paused] .scene-depth *{animation-play-state:paused!important}
+@media(max-width:600px){.scene-orb{width:85px;height:85px;top:25%;right:6%}.scene-cloud{scale:.68;right:0;top:34%}.cloud-back{right:17%;top:25%;scale:.5}.scene-particles i:nth-child(n+9){display:none}}
+@media(prefers-reduced-motion:reduce){.scene-photo,.scene-depth{transition:none!important}.scene-depth *{animation:none!important}.scene-depth{transform:none!important}.scene-particles{display:none}}

@@ -3,6 +3,10 @@ import { t, formatNumber } from './i18n.js';
 // Rainwater acidity records are user-provided. No live measured pH feed is connected.
 // Rainwater pH is never inferred from weather or pollution proxies.
 export const ACIDITY_UNAVAILABLE = 'Rainwater acidity data unavailable for this location.';
+export const PH_ESTIMATE_LIMIT = {
+  en: 'A pH probability is unavailable. Air density, AQI, SO₂/NO₂ and weather do not directly measure dissolved acidity. A defensible estimate needs paired local rainwater chemistry measurements and atmospheric data, a validated precipitation-chemistry model, and tested uncertainty. No such model is connected. Use the measured-sample scale for recorded pH; atmospheric indicators provide context only.',
+  hi: 'pH की संभावना उपलब्ध नहीं है। वायु घनत्व, AQI, SO₂/NO₂ और मौसम पानी की अम्लता का प्रत्यक्ष माप नहीं हैं। विश्वसनीय अनुमान के लिए स्थानीय वर्षा-जल रसायन के माप, संबंधित वायुमंडलीय डेटा, सत्यापित मॉडल और अनिश्चितता की जाँच चाहिए। ऐसा मॉडल जुड़ा नहीं है। दर्ज pH के लिए मापन वाला पैमाना उपयोग करें।'
+};
 export const READINGS_KEY = 'weathergpt.rain-ph.v1';
 export const METHODS = ['pH meter', 'test strip', 'laboratory', 'other'];
 
@@ -10,8 +14,14 @@ const clean = (v, n) => typeof v === 'string' ? v.trim().slice(0, n) : '';
 const validCoords = (lat, lon) => Number.isFinite(Number(lat)) && Number.isFinite(Number(lon)) && Number(lat) >= -90 && Number(lat) <= 90 && Number(lon) >= -180 && Number(lon) <= 180;
 const escape = v => String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
+function measuredPH(value) {
+  if (typeof value !== 'number' && typeof value !== 'string') return NaN;
+  if (typeof value === 'string' && !/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/.test(value.trim())) return NaN;
+  return Number(value);
+}
+
 export function classifyPH(value) {
-  const pH = Number(value);
+  const pH = measuredPH(value);
   if (!Number.isFinite(pH) || pH < 0 || pH > 14) return { band: 'unavailable', color: '#7b8581', label: 'Unavailable', note: 'No valid measured value.' };
   if (pH > 5.6) return { band: 'near-natural', color: '#438b68', label: 'Above pH 5.6', note: 'Above the commonly cited natural-rain reference; not a crop-safety determination.' };
   if (pH >= 5) return { band: 'slightly-acidic', color: '#c7a83b', label: 'pH 5.0–5.6', note: 'Slightly acidic precipitation range; trend and method matter.' };
@@ -21,7 +31,7 @@ export function classifyPH(value) {
 
 export function validateReading(raw) {
   if (!raw || typeof raw !== 'object') return null;
-  const value = Number(raw.value);
+  const value = measuredPH(raw.value);
   if (!Number.isFinite(value) || value < 0 || value > 14) return null;
   const date = clean(raw.date, 10);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
